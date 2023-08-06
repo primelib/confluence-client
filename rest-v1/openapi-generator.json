@@ -1,0 +1,24 @@
+{
+	"generatorName": "prime-client-java-feign",
+	"invokerPackage": "io.github.primelib.confluence4j.rest.v1",
+	"apiPackage" : "io.github.primelib.confluence4j.rest.v1.api",
+	"modelPackage" : "io.github.primelib.confluence4j.rest.v1.model",
+	"enablePostProcessFile": true,
+	"globalProperty": {
+		"supportingFiles": false
+	},
+	"additionalProperties": {
+		"projectName": "confluence4j-rest-v1",
+		"projectDescription": "A Java Wrapper for the Confluence REST API",
+		"projectRepository":  "github.com/primelib/confluence4j",
+		"projectInceptionYear":  "2023",
+		"projectLicenseName": "MIT",
+		"projectLicenseUrl": "https://github.com/primelib/confluence4j/blob/main/LICENSE",
+		"projectArtifactGroupId": "io.github.primelib",
+		"projectArtifactId": "confluence4j-rest-v1",
+		"projectMaintainerId": "PhilippHeuer",
+		"projectMaintainerName": "Philipp Heuer",
+		"projectMaintainerEMail": "git@philippheuer.me",
+		"jsonIncludeNonNull": true
+	}
+}
