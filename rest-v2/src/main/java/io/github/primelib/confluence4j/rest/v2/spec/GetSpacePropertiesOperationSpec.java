@@ -64,12 +64,6 @@ public class GetSpacePropertiesOperationSpec {
     private Integer limit;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Constructs a validated instance of {@link GetSpacePropertiesOperationSpec}.
      *
      * @param spec the specification to process
@@ -89,15 +83,13 @@ public class GetSpacePropertiesOperationSpec {
      * @param key                  The key of the space property to retrieve. This should be used when a user knows the key of their property, but needs to retrieve the id for use in other methods.
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @ApiStatus.Internal
-    public GetSpacePropertiesOperationSpec(Long spaceId, String key, String cursor, Integer limit, Boolean serializeIdsAsStrings) {
+    public GetSpacePropertiesOperationSpec(Long spaceId, String key, String cursor, Integer limit) {
         this.spaceId = spaceId;
         this.key = key;
         this.cursor = cursor;
         this.limit = limit;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
 
         if (VALIDATION_ENABLED)
             validate();

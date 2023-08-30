@@ -45,10 +45,9 @@ public class BlogPostSingle {
 
     /**
      * ID of the blog post.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected ContentStatus status;
@@ -61,10 +60,9 @@ public class BlogPostSingle {
 
     /**
      * ID of the space the blog post is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * The account ID of the user who created this blog post originally.
@@ -100,10 +98,10 @@ public class BlogPostSingle {
      * Constructs a validated instance of {@link BlogPostSingle}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BlogPostSingle(Consumer)} instead.
-     * @param id ID of the blog post.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the blog post.
      * @param status status
      * @param title Title of the blog post.
-     * @param spaceId ID of the space the blog post is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param spaceId ID of the space the blog post is in.
      * @param authorId The account ID of the user who created this blog post originally.
      * @param createdAt Date and time when the blog post was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      * @param version version
@@ -111,7 +109,7 @@ public class BlogPostSingle {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public BlogPostSingle(Long id, ContentStatus status, String title, Long spaceId, String authorId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
+    public BlogPostSingle(String id, ContentStatus status, String title, String spaceId, String authorId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

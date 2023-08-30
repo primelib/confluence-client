@@ -40,10 +40,9 @@ public class ChildPage {
 
     /**
      * ID of the page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected OnlyArchivedAndCurrentContentStatus status;
@@ -56,10 +55,9 @@ public class ChildPage {
 
     /**
      * ID of the space the page is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * Position of child page within the given parent page tree.
@@ -80,14 +78,14 @@ public class ChildPage {
      * Constructs a validated instance of {@link ChildPage}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ChildPage(Consumer)} instead.
-     * @param id ID of the page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the page.
      * @param status status
      * @param title Title of the page.
-     * @param spaceId ID of the space the page is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param spaceId ID of the space the page is in.
      * @param childPosition Position of child page within the given parent page tree.
      */
     @ApiStatus.Internal
-    public ChildPage(Long id, OnlyArchivedAndCurrentContentStatus status, String title, Long spaceId, Integer childPosition) {
+    public ChildPage(String id, OnlyArchivedAndCurrentContentStatus status, String title, String spaceId, Integer childPosition) {
         this.id = id;
         this.status = status;
         this.title = title;

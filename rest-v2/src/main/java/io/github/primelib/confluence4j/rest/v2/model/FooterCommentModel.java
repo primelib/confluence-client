@@ -44,10 +44,9 @@ public class FooterCommentModel {
 
     /**
      * ID of the comment.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected ContentStatus status;
@@ -60,24 +59,21 @@ public class FooterCommentModel {
 
     /**
      * ID of the blog post containing the comment if the comment is on a blog post.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("blogPostId")
-    protected Long blogPostId;
+    protected String blogPostId;
 
     /**
      * ID of the page containing the comment if the comment is on a page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("pageId")
-    protected Long pageId;
+    protected String pageId;
 
     /**
      * ID of the parent comment if the comment is a reply.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("parentCommentId")
-    protected Long parentCommentId;
+    protected String parentCommentId;
 
     @JsonProperty("version")
     protected Version version;
@@ -101,18 +97,18 @@ public class FooterCommentModel {
      * Constructs a validated instance of {@link FooterCommentModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #FooterCommentModel(Consumer)} instead.
-     * @param id ID of the comment.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the comment.
      * @param status status
      * @param title Title of the comment.
-     * @param blogPostId ID of the blog post containing the comment if the comment is on a blog post.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param pageId ID of the page containing the comment if the comment is on a page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param parentCommentId ID of the parent comment if the comment is a reply.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param blogPostId ID of the blog post containing the comment if the comment is on a blog post.
+     * @param pageId ID of the page containing the comment if the comment is on a page.
+     * @param parentCommentId ID of the parent comment if the comment is a reply.
      * @param version version
      * @param body body
      * @param _links _links
      */
     @ApiStatus.Internal
-    public FooterCommentModel(Long id, ContentStatus status, String title, Long blogPostId, Long pageId, Long parentCommentId, Version version, BodySingle body, CommentLinks _links) {
+    public FooterCommentModel(String id, ContentStatus status, String title, String blogPostId, String pageId, String parentCommentId, Version version, BodySingle body, CommentLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

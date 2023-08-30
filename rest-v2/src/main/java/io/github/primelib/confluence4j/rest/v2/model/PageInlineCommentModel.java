@@ -44,10 +44,9 @@ public class PageInlineCommentModel {
 
     /**
      * ID of the comment.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected ContentStatus status;
@@ -60,10 +59,9 @@ public class PageInlineCommentModel {
 
     /**
      * ID of the page the comment is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("pageId")
-    protected Long pageId;
+    protected String pageId;
 
     @JsonProperty("version")
     protected Version version;
@@ -93,10 +91,10 @@ public class PageInlineCommentModel {
      * Constructs a validated instance of {@link PageInlineCommentModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PageInlineCommentModel(Consumer)} instead.
-     * @param id ID of the comment.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the comment.
      * @param status status
      * @param title Title of the comment.
-     * @param pageId ID of the page the comment is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param pageId ID of the page the comment is in.
      * @param version version
      * @param body body
      * @param resolutionStatus resolutionStatus
@@ -104,7 +102,7 @@ public class PageInlineCommentModel {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public PageInlineCommentModel(Long id, ContentStatus status, String title, Long pageId, Version version, BodyBulk body, InlineCommentResolutionStatus resolutionStatus, InlineCommentProperties properties, CommentLinks _links) {
+    public PageInlineCommentModel(String id, ContentStatus status, String title, String pageId, Version version, BodyBulk body, InlineCommentResolutionStatus resolutionStatus, InlineCommentProperties properties, CommentLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

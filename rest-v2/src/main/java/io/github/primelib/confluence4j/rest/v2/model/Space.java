@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "name",
     "type",
     "status",
+    "authorId",
     "createdAt",
     "homepageId",
     "description",
@@ -45,10 +46,9 @@ public class Space {
 
     /**
      * ID of the space.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     /**
      * Key of the space.
@@ -69,6 +69,12 @@ public class Space {
     protected SpaceStatus status;
 
     /**
+     * The account ID of the user who created this space originally.
+     */
+    @JsonProperty("authorId")
+    protected String authorId;
+
+    /**
      * Date and time when the space was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      */
     @JsonProperty("createdAt")
@@ -76,10 +82,9 @@ public class Space {
 
     /**
      * ID of the space's homepage.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("homepageId")
-    protected Long homepageId;
+    protected String homepageId;
 
     @JsonProperty("description")
     protected SpaceDescription description;
@@ -100,23 +105,25 @@ public class Space {
      * Constructs a validated instance of {@link Space}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Space(Consumer)} instead.
-     * @param id ID of the space.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the space.
      * @param key Key of the space.
      * @param name Name of the space.
      * @param type type
      * @param status status
+     * @param authorId The account ID of the user who created this space originally.
      * @param createdAt Date and time when the space was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
-     * @param homepageId ID of the space's homepage.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param homepageId ID of the space's homepage.
      * @param description description
      * @param icon icon
      */
     @ApiStatus.Internal
-    public Space(Long id, String key, String name, SpaceType type, SpaceStatus status, OffsetDateTime createdAt, Long homepageId, SpaceDescription description, SpaceIcon icon) {
+    public Space(String id, String key, String name, SpaceType type, SpaceStatus status, String authorId, OffsetDateTime createdAt, String homepageId, SpaceDescription description, SpaceIcon icon) {
         this.id = id;
         this.key = key;
         this.name = name;
         this.type = type;
         this.status = status;
+        this.authorId = authorId;
         this.createdAt = createdAt;
         this.homepageId = homepageId;
         this.description = description;

@@ -74,26 +74,23 @@ public class Attachment {
     /**
      * ID of the containing page.
      * Note: This is only returned if the attachment has a container that is a page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("pageId")
-    protected Long pageId;
+    protected String pageId;
 
     /**
      * ID of the containing blog post.
      * Note: This is only returned if the attachment has a container that is a blog post.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("blogPostId")
-    protected Long blogPostId;
+    protected String blogPostId;
 
     /**
      * ID of the containing custom content.
      * Note: This is only returned if the attachment has a container that is custom content.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("customContentId")
-    protected Long customContentId;
+    protected String customContentId;
 
     /**
      * Media Type for the attachment.
@@ -160,9 +157,9 @@ public class Attachment {
      * @param status status
      * @param title Title of the comment.
      * @param createdAt Date and time when the attachment was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
-     * @param pageId ID of the containing page.  Note: This is only returned if the attachment has a container that is a page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param blogPostId ID of the containing blog post.  Note: This is only returned if the attachment has a container that is a blog post.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param customContentId ID of the containing custom content.  Note: This is only returned if the attachment has a container that is custom content.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param pageId ID of the containing page.  Note: This is only returned if the attachment has a container that is a page.
+     * @param blogPostId ID of the containing blog post.  Note: This is only returned if the attachment has a container that is a blog post.
+     * @param customContentId ID of the containing custom content.  Note: This is only returned if the attachment has a container that is custom content.
      * @param mediaType Media Type for the attachment.
      * @param mediaTypeDescription Media Type description for the attachment.
      * @param comment Comment for the attachment.
@@ -174,7 +171,7 @@ public class Attachment {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public Attachment(String id, ContentStatus status, String title, OffsetDateTime createdAt, Long pageId, Long blogPostId, Long customContentId, String mediaType, String mediaTypeDescription, String comment, String fileId, Long fileSize, String webuiLink, String downloadLink, Version version, AttachmentLinks _links) {
+    public Attachment(String id, ContentStatus status, String title, OffsetDateTime createdAt, String pageId, String blogPostId, String customContentId, String mediaType, String mediaTypeDescription, String comment, String fileId, Long fileSize, String webuiLink, String downloadLink, Version version, AttachmentLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

@@ -163,15 +163,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -267,15 +258,6 @@
             "description": "Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.",
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -447,15 +429,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -654,15 +627,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -753,15 +717,6 @@
               "type": "string",
               "pattern": "(att)?[0-9]+"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "requestBody": {
@@ -851,15 +806,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -933,15 +879,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -1371,15 +1308,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -1457,15 +1385,6 @@
         "summary": "Create blog post",
         "description": "Creates a new blog post in the space specified by the spaceId.\n\nBy default this will create the blog post as a non-draft, unless the status is specified as draft.\nIf creating a non-draft, the title must not be empty.\n\nCurrently only supports the storage representation specified in the body.representation enums below",
         "parameters": [
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
           {
             "name": "private",
             "in": "query",
@@ -1572,15 +1491,6 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -1644,15 +1554,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -1844,15 +1745,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -1992,15 +1884,6 @@
             "schema": {
               "$ref": "#/components/schemas/CustomContentBodyRepresentation"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -2139,15 +2022,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -2467,15 +2341,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -2566,15 +2431,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "requestBody": {
@@ -2664,15 +2520,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -2754,15 +2601,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -3302,15 +3140,6 @@
             "schema": {
               "$ref": "#/components/schemas/CustomContentBodyRepresentation"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -3390,17 +3219,6 @@
         "operationId": "createCustomContent",
         "summary": "Create custom content",
         "description": "Creates a new custom content in the given space, page, blogpost or other custom content.\n\nOnly one of `spaceId`, `pageId`, `blogPostId`, or `customContentId` is required in the request body.\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create custom content in the space.",
-        "parameters": [
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        ],
         "requestBody": {
           "$ref": "#/components/requestBodies/CustomContentCreateRequest"
         },
@@ -3491,15 +3309,6 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -3563,15 +3372,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -3771,15 +3571,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -3919,15 +3710,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -4126,15 +3908,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -4225,15 +3998,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "requestBody": {
@@ -4323,15 +4087,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -4405,15 +4160,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -4593,15 +4339,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -4736,15 +4473,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -4889,15 +4617,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -5074,15 +4793,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -5160,15 +4870,6 @@
         "summary": "Create page",
         "description": "Creates a page in the space.\n\nPages are created as published by default unless specified as a draft in the status field. If creating a published page, the title must be specified.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the corresponding space. Permission to create a page in the space.",
         "parameters": [
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
           {
             "name": "embedded",
             "in": "query",
@@ -5283,15 +4984,6 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -5355,15 +5047,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -5555,15 +5238,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -5703,15 +5377,6 @@
             "schema": {
               "$ref": "#/components/schemas/CustomContentBodyRepresentation"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -5850,15 +5515,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -6244,15 +5900,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -6343,15 +5990,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "requestBody": {
@@ -6441,15 +6079,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -6523,15 +6152,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -7197,15 +6817,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -7309,15 +6920,6 @@
             "in": "query",
             "required": false,
             "description": "If the icon for the space should be fetched or not.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -7452,15 +7054,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -7589,15 +7182,6 @@
             "description": "The content format types to be returned in the `body` field of the response. If available, the representation will be available under a response field of the same name under the `body` field.\n\nNote: If the custom content body type is `storage`, the `storage` and `atlas_doc_format` body formats are able to be returned. If the custom content body type is `raw`, only the `raw` body format is able to be returned.",
             "schema": {
               "$ref": "#/components/schemas/CustomContentBodyRepresentation"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -7835,15 +7419,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -7966,15 +7541,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -8055,15 +7621,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -8162,15 +7719,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -8244,15 +7792,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -8554,15 +8093,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -8693,15 +8223,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -8834,15 +8355,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -8974,15 +8486,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -9104,15 +8607,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -9189,17 +8683,6 @@
         "operationId": "createFooterComment",
         "summary": "Create footer comment",
         "description": "Create a footer comment. This can be at the top level (specifying pageId or blogPostId in the request body)\nor as a reply (specifying parentCommentId in the request body).\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
-        "parameters": [
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        ],
         "requestBody": {
           "description": "The footer comment to be created",
           "content": {
@@ -9300,15 +8783,6 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -9372,15 +8846,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -9552,15 +9017,6 @@
               "minimum": 1,
               "maximum": 250,
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -10105,15 +9561,6 @@
         "description": "Returns all inline comments. The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page and its corresponding space.",
         "parameters": [
           {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
             "name": "body-format",
             "in": "query",
             "required": false,
@@ -10227,17 +9674,6 @@
         "operationId": "createInlineComment",
         "summary": "Create inline comment",
         "description": "Create an inline comment. This can be at the top level (specifying pageId or blogPostId in the request body)\nor as a reply (specifying parentCommentId in the request body). Note the inlineCommentProperties object in the\nrequest body is used to select the text the inline comment should be tied to. This is what determines the text \nhighlighting when viewing a page in Confluence.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
-        "parameters": [
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          }
-        ],
         "requestBody": {
           "description": "The inline comment to be created",
           "content": {
@@ -10338,15 +9774,6 @@
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -10410,15 +9837,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -10553,15 +9971,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           },
           {
@@ -11192,15 +10601,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -11291,15 +10691,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "requestBody": {
@@ -11389,15 +10780,6 @@
               "format": "int64",
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -11471,15 +10853,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -11810,15 +11183,6 @@
               "maximum": 250,
               "type": "integer"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -11915,15 +11279,6 @@
             "schema": {
               "$ref": "#/components/schemas/PrimaryBodyRepresentation"
             }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
           }
         ],
         "responses": {
@@ -11987,15 +11342,6 @@
             "schema": {
               "format": "int64",
               "type": "integer"
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -12098,15 +11444,6 @@
               "items": {
                 "$ref": "#/components/schemas/ChildPageSortOrder"
               }
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -12228,15 +11565,6 @@
               "items": {
                 "$ref": "#/components/schemas/ChildCustomContentSortOrder"
               }
-            }
-          },
-          {
-            "name": "serialize-ids-as-strings",
-            "in": "query",
-            "description": "Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "schema": {
-              "type": "boolean",
-              "default": false
             }
           }
         ],
@@ -13035,19 +12363,16 @@
             "description": "Date and time when the attachment was created. In format \"YYYY-MM-DDTHH:mm:ss.sssZ\"."
           },
           "pageId": {
-            "description": "ID of the containing page.\n\nNote: This is only returned if the attachment has a container that is a page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing page.\n\nNote: This is only returned if the attachment has a container that is a page."
           },
           "blogPostId": {
-            "description": "ID of the containing blog post.\n\nNote: This is only returned if the attachment has a container that is a blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing blog post.\n\nNote: This is only returned if the attachment has a container that is a blog post."
           },
           "customContentId": {
-            "description": "ID of the containing custom content.\n\nNote: This is only returned if the attachment has a container that is custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing custom content.\n\nNote: This is only returned if the attachment has a container that is custom content."
           },
           "mediaType": {
             "type": "string",
@@ -13090,9 +12415,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -13102,9 +12426,8 @@
             "description": "Title of the blog post."
           },
           "spaceId": {
-            "description": "ID of the space the blog post is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the blog post is in."
           },
           "authorId": {
             "type": "string",
@@ -13130,9 +12453,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -13142,9 +12464,8 @@
             "description": "Title of the blog post."
           },
           "spaceId": {
-            "description": "ID of the space the blog post is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the blog post is in."
           },
           "authorId": {
             "type": "string",
@@ -13307,9 +12628,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the property\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the property"
           },
           "key": {
             "type": "string",
@@ -13366,9 +12686,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the custom content."
           },
           "type": {
             "type": "string",
@@ -13382,24 +12701,20 @@
             "description": "Title of the custom content."
           },
           "spaceId": {
-            "description": "ID of the space the custom content is in.\n\nNote: This is always returned, regardless of if the custom content has a container that is a space.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the custom content is in.\n\nNote: This is always returned, regardless of if the custom content has a container that is a space."
           },
           "pageId": {
-            "description": "ID of the containing page.\n\nNote: This is only returned if the custom content has a container that is a page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing page.\n\nNote: This is only returned if the custom content has a container that is a page."
           },
           "blogPostId": {
-            "description": "ID of the containing blog post.\n\nNote: This is only returned if the custom content has a container that is a blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing blog post.\n\nNote: This is only returned if the custom content has a container that is a blog post."
           },
           "customContentId": {
-            "description": "ID of the containing custom content.\n\nNote: This is only returned if the custom content has a container that is custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing custom content.\n\nNote: This is only returned if the custom content has a container that is custom content."
           },
           "authorId": {
             "type": "string",
@@ -13425,9 +12740,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the custom content."
           },
           "type": {
             "type": "string",
@@ -13441,24 +12755,20 @@
             "description": "Title of the custom content."
           },
           "spaceId": {
-            "description": "ID of the space the custom content is in.\n\nNote: This is always returned, regardless of if the custom content has a container that is a space.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the custom content is in.\n\nNote: This is always returned, regardless of if the custom content has a container that is a space."
           },
           "pageId": {
-            "description": "ID of the containing page.\n\nNote: This is only returned if the custom content has a container that is a page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing page.\n\nNote: This is only returned if the custom content has a container that is a page."
           },
           "blogPostId": {
-            "description": "ID of the containing blog post.\n\nNote: This is only returned if the custom content has a container that is a blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing blog post.\n\nNote: This is only returned if the custom content has a container that is a blog post."
           },
           "customContentId": {
-            "description": "ID of the containing custom content.\n\nNote: This is only returned if the custom content has a container that is custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the containing custom content.\n\nNote: This is only returned if the custom content has a container that is custom content."
           },
           "authorId": {
             "type": "string",
@@ -13565,9 +12875,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the label.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the label."
           },
           "name": {
             "type": "string",
@@ -13614,9 +12923,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -13626,14 +12934,12 @@
             "description": "Title of the page."
           },
           "spaceId": {
-            "description": "ID of the space the page is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the page is in."
           },
           "parentId": {
-            "description": "ID of the parent page, or null if there is no parent page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent page, or null if there is no parent page."
           },
           "parentType": {
             "$ref": "#/components/schemas/ContentType"
@@ -13668,9 +12974,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -13680,14 +12985,12 @@
             "description": "Title of the page."
           },
           "spaceId": {
-            "description": "ID of the space the page is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the page is in."
           },
           "parentId": {
-            "description": "ID of the parent page, or null if there is no parent page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent page, or null if there is no parent page."
           },
           "parentType": {
             "$ref": "#/components/schemas/ContentType"
@@ -13861,9 +13164,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page."
           },
           "status": {
             "$ref": "#/components/schemas/OnlyArchivedAndCurrentContentStatus"
@@ -13873,9 +13175,8 @@
             "description": "Title of the page."
           },
           "spaceId": {
-            "description": "ID of the space the page is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the page is in."
           },
           "childPosition": {
             "format": "int32",
@@ -13889,9 +13190,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the child custom content.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the child custom content."
           },
           "status": {
             "$ref": "#/components/schemas/OnlyArchivedAndCurrentContentStatus"
@@ -13905,9 +13205,8 @@
             "description": "Custom content type."
           },
           "spaceId": {
-            "description": "ID of the space the custom content is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the custom content is in."
           }
         }
       },
@@ -13934,9 +13233,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the space.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space."
           },
           "key": {
             "type": "string",
@@ -13952,15 +13250,18 @@
           "status": {
             "$ref": "#/components/schemas/SpaceStatus"
           },
+          "authorId": {
+            "type": "string",
+            "description": "The account ID of the user who created this space originally."
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
             "description": "Date and time when the space was created. In format \"YYYY-MM-DDTHH:mm:ss.sssZ\"."
           },
           "homepageId": {
-            "description": "ID of the space's homepage.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space's homepage."
           },
           "description": {
             "$ref": "#/components/schemas/SpaceDescription"
@@ -14064,9 +13365,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the space property.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space property."
           },
           "key": {
             "type": "string",
@@ -14168,29 +13468,24 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the task.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the task."
           },
           "localId": {
-            "description": "Local ID of the task. This ID is local to the corresponding page or blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "Local ID of the task. This ID is local to the corresponding page or blog post."
           },
           "spaceId": {
-            "description": "ID of the space the task is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the space the task is in."
           },
           "pageId": {
-            "description": "ID of the page the task is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page the task is in."
           },
           "blogPostId": {
-            "description": "ID of the blog post the task is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post the task is in."
           },
           "status": {
             "enum": [
@@ -14583,9 +13878,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14595,9 +13889,8 @@
             "description": "Title of the comment."
           },
           "pageId": {
-            "description": "ID of the page the comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page the comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14614,9 +13907,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14626,9 +13918,8 @@
             "description": "Title of the comment."
           },
           "pageId": {
-            "description": "ID of the page the comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page the comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14651,9 +13942,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14663,9 +13953,8 @@
             "description": "Title of the comment."
           },
           "blogPostId": {
-            "description": "ID of the blog post the comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post the comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14682,9 +13971,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14694,9 +13982,8 @@
             "description": "Title of the comment."
           },
           "blogPostId": {
-            "description": "ID of the blog post the comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post the comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14719,9 +14006,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14731,9 +14017,8 @@
             "description": "Title of the comment."
           },
           "parentCommentId": {
-            "description": "ID of the parent comment the child comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent comment the child comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14750,9 +14035,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14762,9 +14046,8 @@
             "description": "Title of the comment."
           },
           "parentCommentId": {
-            "description": "ID of the parent comment the child comment is in.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent comment the child comment is in."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14787,9 +14070,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14799,19 +14081,16 @@
             "description": "Title of the comment."
           },
           "blogPostId": {
-            "description": "ID of the blog post containing the comment if the comment is on a blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post containing the comment if the comment is on a blog post."
           },
           "pageId": {
-            "description": "ID of the page containing the comment if the comment is on a page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page containing the comment if the comment is on a page."
           },
           "parentCommentId": {
-            "description": "ID of the parent comment if the comment is a reply.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent comment if the comment is a reply."
           },
           "version": {
             "$ref": "#/components/schemas/Version"
@@ -14828,9 +14107,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "ID of the comment.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the comment."
           },
           "status": {
             "$ref": "#/components/schemas/ContentStatus"
@@ -14840,19 +14118,16 @@
             "description": "Title of the comment."
           },
           "blogPostId": {
-            "description": "ID of the blog post containing the comment if the comment is on a blog post.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the blog post containing the comment if the comment is on a blog post."
           },
           "pageId": {
-            "description": "ID of the page containing the comment if the comment is on a page.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the page containing the comment if the comment is on a page."
           },
           "parentCommentId": {
-            "description": "ID of the parent comment if the comment is a reply.\n\nDue to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, `serialize-ids-as-strings=true` can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.",
-            "format": "int64",
-            "type": "integer"
+            "type": "string",
+            "description": "ID of the parent comment if the comment is a reply."
           },
           "version": {
             "$ref": "#/components/schemas/Version"

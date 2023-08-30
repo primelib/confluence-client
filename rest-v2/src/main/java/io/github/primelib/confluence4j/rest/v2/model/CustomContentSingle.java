@@ -49,10 +49,9 @@ public class CustomContentSingle {
 
     /**
      * ID of the custom content.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     /**
      * The type of custom content.
@@ -72,34 +71,30 @@ public class CustomContentSingle {
     /**
      * ID of the space the custom content is in.
      * Note: This is always returned, regardless of if the custom content has a container that is a space.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * ID of the containing page.
      * Note: This is only returned if the custom content has a container that is a page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("pageId")
-    protected Long pageId;
+    protected String pageId;
 
     /**
      * ID of the containing blog post.
      * Note: This is only returned if the custom content has a container that is a blog post.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("blogPostId")
-    protected Long blogPostId;
+    protected String blogPostId;
 
     /**
      * ID of the containing custom content.
      * Note: This is only returned if the custom content has a container that is custom content.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("customContentId")
-    protected Long customContentId;
+    protected String customContentId;
 
     /**
      * The account ID of the user who created this custom content originally.
@@ -135,14 +130,14 @@ public class CustomContentSingle {
      * Constructs a validated instance of {@link CustomContentSingle}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CustomContentSingle(Consumer)} instead.
-     * @param id ID of the custom content.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the custom content.
      * @param type The type of custom content.
      * @param status status
      * @param title Title of the custom content.
-     * @param spaceId ID of the space the custom content is in.  Note: This is always returned, regardless of if the custom content has a container that is a space.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param pageId ID of the containing page.  Note: This is only returned if the custom content has a container that is a page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param blogPostId ID of the containing blog post.  Note: This is only returned if the custom content has a container that is a blog post.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param customContentId ID of the containing custom content.  Note: This is only returned if the custom content has a container that is custom content.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param spaceId ID of the space the custom content is in.  Note: This is always returned, regardless of if the custom content has a container that is a space.
+     * @param pageId ID of the containing page.  Note: This is only returned if the custom content has a container that is a page.
+     * @param blogPostId ID of the containing blog post.  Note: This is only returned if the custom content has a container that is a blog post.
+     * @param customContentId ID of the containing custom content.  Note: This is only returned if the custom content has a container that is custom content.
      * @param authorId The account ID of the user who created this custom content originally.
      * @param createdAt Date and time when the custom content was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      * @param version version
@@ -150,7 +145,7 @@ public class CustomContentSingle {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public CustomContentSingle(Long id, String type, ContentStatus status, String title, Long spaceId, Long pageId, Long blogPostId, Long customContentId, String authorId, OffsetDateTime createdAt, Version version, CustomContentBodySingle body, CustomContentLinks _links) {
+    public CustomContentSingle(String id, String type, ContentStatus status, String title, String spaceId, String pageId, String blogPostId, String customContentId, String authorId, OffsetDateTime createdAt, Version version, CustomContentBodySingle body, CustomContentLinks _links) {
         this.id = id;
         this.type = type;
         this.status = status;

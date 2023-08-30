@@ -38,10 +38,9 @@ public class Label {
 
     /**
      * ID of the label.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     /**
      * Name of the label.
@@ -68,12 +67,12 @@ public class Label {
      * Constructs a validated instance of {@link Label}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Label(Consumer)} instead.
-     * @param id ID of the label.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the label.
      * @param name Name of the label.
      * @param prefix Prefix of the label.
      */
     @ApiStatus.Internal
-    public Label(Long id, String name, String prefix) {
+    public Label(String id, String name, String prefix) {
         this.id = id;
         this.name = name;
         this.prefix = prefix;
