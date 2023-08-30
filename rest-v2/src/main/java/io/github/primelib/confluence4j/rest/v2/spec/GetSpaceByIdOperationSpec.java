@@ -59,12 +59,6 @@ public class GetSpaceByIdOperationSpec {
     private Boolean includeIcon;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Constructs a validated instance of {@link GetSpaceByIdOperationSpec}.
      *
      * @param spec the specification to process
@@ -83,14 +77,12 @@ public class GetSpaceByIdOperationSpec {
      * @param id                   The ID of the space to be returned.
      * @param descriptionFormat    The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field.
      * @param includeIcon          If the icon for the space should be fetched or not.
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @ApiStatus.Internal
-    public GetSpaceByIdOperationSpec(Long id, SpaceDescriptionBodyRepresentation descriptionFormat, Boolean includeIcon, Boolean serializeIdsAsStrings) {
+    public GetSpaceByIdOperationSpec(Long id, SpaceDescriptionBodyRepresentation descriptionFormat, Boolean includeIcon) {
         this.id = id;
         this.descriptionFormat = descriptionFormat;
         this.includeIcon = includeIcon;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
 
         if (VALIDATION_ENABLED)
             validate();

@@ -45,12 +45,6 @@ public class CreateBlogPostOperationSpec {
     private CreateBlogPostRequest createBlogPostRequest;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * The blog post will be private. Only the user who creates this blog post will have permission to view and edit one.
      */
     @Nullable 
@@ -73,13 +67,11 @@ public class CreateBlogPostOperationSpec {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param createBlogPostRequest 
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      * @param _private             The blog post will be private. Only the user who creates this blog post will have permission to view and edit one.
      */
     @ApiStatus.Internal
-    public CreateBlogPostOperationSpec(CreateBlogPostRequest createBlogPostRequest, Boolean serializeIdsAsStrings, Boolean _private) {
+    public CreateBlogPostOperationSpec(CreateBlogPostRequest createBlogPostRequest, Boolean _private) {
         this.createBlogPostRequest = createBlogPostRequest;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
         this._private = _private;
 
         if (VALIDATION_ENABLED)

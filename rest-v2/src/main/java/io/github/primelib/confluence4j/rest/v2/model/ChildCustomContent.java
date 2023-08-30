@@ -40,10 +40,9 @@ public class ChildCustomContent {
 
     /**
      * ID of the child custom content.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected OnlyArchivedAndCurrentContentStatus status;
@@ -62,10 +61,9 @@ public class ChildCustomContent {
 
     /**
      * ID of the space the custom content is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * Constructs a validated instance of {@link ChildCustomContent}.
@@ -80,14 +78,14 @@ public class ChildCustomContent {
      * Constructs a validated instance of {@link ChildCustomContent}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ChildCustomContent(Consumer)} instead.
-     * @param id ID of the child custom content.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the child custom content.
      * @param status status
      * @param title Title of the custom content.
      * @param type Custom content type.
-     * @param spaceId ID of the space the custom content is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param spaceId ID of the space the custom content is in.
      */
     @ApiStatus.Internal
-    public ChildCustomContent(Long id, OnlyArchivedAndCurrentContentStatus status, String title, String type, Long spaceId) {
+    public ChildCustomContent(String id, OnlyArchivedAndCurrentContentStatus status, String title, String type, String spaceId) {
         this.id = id;
         this.status = status;
         this.title = title;

@@ -48,10 +48,9 @@ public class PageBulk {
 
     /**
      * ID of the page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     @JsonProperty("status")
     protected ContentStatus status;
@@ -64,17 +63,15 @@ public class PageBulk {
 
     /**
      * ID of the space the page is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * ID of the parent page, or null if there is no parent page.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("parentId")
-    protected Long parentId;
+    protected String parentId;
 
     @JsonProperty("parentType")
     protected ContentType parentType;
@@ -119,11 +116,11 @@ public class PageBulk {
      * Constructs a validated instance of {@link PageBulk}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PageBulk(Consumer)} instead.
-     * @param id ID of the page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the page.
      * @param status status
      * @param title Title of the page.
-     * @param spaceId ID of the space the page is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param parentId ID of the parent page, or null if there is no parent page.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param spaceId ID of the space the page is in.
+     * @param parentId ID of the parent page, or null if there is no parent page.
      * @param parentType parentType
      * @param position Position of child page within the given parent page tree.
      * @param authorId The account ID of the user who created this page originally.
@@ -133,7 +130,7 @@ public class PageBulk {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public PageBulk(Long id, ContentStatus status, String title, Long spaceId, Long parentId, ContentType parentType, Integer position, String authorId, OffsetDateTime createdAt, Version version, BodyBulk body, AbstractPageLinks _links) {
+    public PageBulk(String id, ContentStatus status, String title, String spaceId, String parentId, ContentType parentType, Integer position, String authorId, OffsetDateTime createdAt, Version version, BodyBulk body, AbstractPageLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

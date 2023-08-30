@@ -3,7 +3,6 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.confluence4j.rest.v2.model.ContentProperty;
@@ -53,12 +52,6 @@ public class CreateCustomContentPropertyOperationSpec {
     private ContentPropertyCreateRequest contentPropertyCreateRequest;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Constructs a validated instance of {@link CreateCustomContentPropertyOperationSpec}.
      *
      * @param spec the specification to process
@@ -76,13 +69,11 @@ public class CreateCustomContentPropertyOperationSpec {
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param customContentId      The ID of the custom content to create a property for.
      * @param contentPropertyCreateRequest The content property to be created
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @ApiStatus.Internal
-    public CreateCustomContentPropertyOperationSpec(Long customContentId, ContentPropertyCreateRequest contentPropertyCreateRequest, Boolean serializeIdsAsStrings) {
+    public CreateCustomContentPropertyOperationSpec(Long customContentId, ContentPropertyCreateRequest contentPropertyCreateRequest) {
         this.customContentId = customContentId;
         this.contentPropertyCreateRequest = contentPropertyCreateRequest;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
 
         if (VALIDATION_ENABLED)
             validate();

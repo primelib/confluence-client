@@ -42,10 +42,9 @@ public class SpaceProperty {
 
     /**
      * ID of the space property.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     /**
      * Key of the space property.
@@ -87,7 +86,7 @@ public class SpaceProperty {
      * Constructs a validated instance of {@link SpaceProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceProperty(Consumer)} instead.
-     * @param id ID of the space property.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the space property.
      * @param key Key of the space property.
      * @param value Value of the space property.
      * @param createdAt RFC3339 compliant date time at which the property was created.
@@ -95,7 +94,7 @@ public class SpaceProperty {
      * @param version version
      */
     @ApiStatus.Internal
-    public SpaceProperty(Long id, String key, Object value, OffsetDateTime createdAt, String createdBy, SpacePropertyVersion version) {
+    public SpaceProperty(String id, String key, Object value, OffsetDateTime createdAt, String createdBy, SpacePropertyVersion version) {
         this.id = id;
         this.key = key;
         this.value = value;

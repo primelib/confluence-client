@@ -126,14 +126,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:attachment:confluence]
      * @param attachmentId         The ID of the attachment to create a property for. (required)
      * @param contentPropertyCreateRequest The content property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /attachments/{attachmentId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /attachments/{attachmentId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty createAttachmentProperty(@Param("attachmentId") @NotNull String attachmentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty createAttachmentProperty(@Param("attachmentId") @NotNull String attachmentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest);
 
     /**
      * Create blog post
@@ -144,15 +143,14 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [write:page:confluence]
      * @param createBlogPostRequest  (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      * @param _private             The blog post will be private. Only the user who creates this blog post will have permission to view and edit one. (optional, defaults to false)
      */
-    @RequestLine("POST /blogposts?serialize-ids-as-strings={serializeIdsAsStrings}&private={_private}")
+    @RequestLine("POST /blogposts?private={_private}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    BlogPostSingle createBlogPost(@NotNull CreateBlogPostRequest createBlogPostRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings, @Param("_private") @Nullable Boolean _private);
+    BlogPostSingle createBlogPost(@NotNull CreateBlogPostRequest createBlogPostRequest, @Param("_private") @Nullable Boolean _private);
 
     /**
      * Create content property for blog post
@@ -163,14 +161,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:page:confluence, write:page:confluence]
      * @param blogpostId           The ID of the blog post to create a property for. (required)
      * @param contentPropertyCreateRequest The content property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /blogposts/{blogpostId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /blogposts/{blogpostId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty createBlogpostProperty(@Param("blogpostId") @NotNull Long blogpostId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty createBlogpostProperty(@Param("blogpostId") @NotNull Long blogpostId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest);
 
     /**
      * Create content property for comment
@@ -181,14 +178,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:comment:confluence, write:comment:confluence]
      * @param commentId            The ID of the comment to create a property for. (required)
      * @param contentPropertyCreateRequest The content property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /comments/{commentId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /comments/{commentId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty createCommentProperty(@Param("commentId") @NotNull Long commentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty createCommentProperty(@Param("commentId") @NotNull Long commentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest);
 
     /**
      * Create custom content
@@ -198,14 +194,13 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [write:custom-content:confluence]
      * @param createCustomContentRequest  (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /custom-content?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /custom-content")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    CustomContentSingle createCustomContent(@NotNull CreateCustomContentRequest createCustomContentRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    CustomContentSingle createCustomContent(@NotNull CreateCustomContentRequest createCustomContentRequest);
 
     /**
      * Create content property for custom content
@@ -216,14 +211,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:custom-content:confluence, write:custom-content:confluence]
      * @param customContentId      The ID of the custom content to create a property for. (required)
      * @param contentPropertyCreateRequest The content property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /custom-content/{customContentId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /custom-content/{customContentId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty createCustomContentProperty(@Param("customContentId") @NotNull Long customContentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty createCustomContentProperty(@Param("customContentId") @NotNull Long customContentId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest);
 
     /**
      * Create footer comment
@@ -233,14 +227,13 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param createFooterCommentModel The footer comment to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /footer-comments?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /footer-comments")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    FooterCommentModel createFooterComment(@NotNull CreateFooterCommentModel createFooterCommentModel, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    FooterCommentModel createFooterComment(@NotNull CreateFooterCommentModel createFooterCommentModel);
 
     /**
      * Create inline comment
@@ -251,14 +244,13 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param createInlineCommentModel The inline comment to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /inline-comments?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /inline-comments")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    InlineCommentModel createInlineComment(@NotNull CreateInlineCommentModel createInlineCommentModel, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    InlineCommentModel createInlineComment(@NotNull CreateInlineCommentModel createInlineCommentModel);
 
     /**
      * Create page
@@ -269,16 +261,15 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [write:page:confluence]
      * @param createPageRequest     (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      * @param embedded             Tag the content as embedded and content will be created in NCS. (optional, defaults to false)
      * @param _private             The page will be private. Only the user who creates this page will have permission to view and edit one. (optional, defaults to false)
      */
-    @RequestLine("POST /pages?serialize-ids-as-strings={serializeIdsAsStrings}&embedded={embedded}&private={_private}")
+    @RequestLine("POST /pages?embedded={embedded}&private={_private}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    PageSingle createPage(@NotNull CreatePageRequest createPageRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings, @Param("embedded") @Nullable Boolean embedded, @Param("_private") @Nullable Boolean _private);
+    PageSingle createPage(@NotNull CreatePageRequest createPageRequest, @Param("embedded") @Nullable Boolean embedded, @Param("_private") @Nullable Boolean _private);
 
     /**
      * Create content property for page
@@ -289,14 +280,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:page:confluence, write:page:confluence]
      * @param pageId               The ID of the page to create a property for. (required)
      * @param contentPropertyCreateRequest The content property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /pages/{pageId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /pages/{pageId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty createPageProperty(@Param("pageId") @NotNull Long pageId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty createPageProperty(@Param("pageId") @NotNull Long pageId, @NotNull ContentPropertyCreateRequest contentPropertyCreateRequest);
 
     /**
      * Create space property in space
@@ -307,14 +297,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:space:confluence, write:space:confluence]
      * @param spaceId              The ID of the space for which space properties should be returned. (required)
      * @param spacePropertyCreateRequest The space property to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("POST /spaces/{spaceId}/properties?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("POST /spaces/{spaceId}/properties")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    SpaceProperty createSpaceProperty(@Param("spaceId") @NotNull Long spaceId, @NotNull SpacePropertyCreateRequest spacePropertyCreateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    SpaceProperty createSpaceProperty(@Param("spaceId") @NotNull Long spaceId, @NotNull SpacePropertyCreateRequest spacePropertyCreateRequest);
 
     /**
      * Delete attachment
@@ -510,13 +499,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:attachment:confluence]
      * @param id                   The ID of the attachment to be returned. If you don't know the attachment's ID, use Get attachments for page/blogpost/custom content. (required)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /attachments/{id}?version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /attachments/{id}?version={version}")
     @Headers({
         "Accept: application/json"
     })
-    Attachment getAttachmentById(@Param("id") @NotNull String id, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    Attachment getAttachmentById(@Param("id") @NotNull String id, @Param("version") @Nullable Integer version);
 
     /**
      * Get content properties for attachment
@@ -530,13 +518,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /attachments/{attachmentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /attachments/{attachmentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultContentProperty getAttachmentContentProperties(@Param("attachmentId") @NotNull String attachmentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultContentProperty getAttachmentContentProperties(@Param("attachmentId") @NotNull String attachmentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content property for attachment by id
@@ -547,13 +534,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:attachment:confluence]
      * @param attachmentId         The ID of the attachment for which content properties should be returned. (required)
      * @param propertyId           The ID of the content property to be returned (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /attachments/{attachmentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /attachments/{attachmentId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    ContentProperty getAttachmentContentPropertiesById(@Param("attachmentId") @NotNull String attachmentId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty getAttachmentContentPropertiesById(@Param("attachmentId") @NotNull String attachmentId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get labels for attachment
@@ -567,13 +553,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /attachments/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /attachments/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultLabel getAttachmentLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultLabel getAttachmentLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get permitted operations for attachment
@@ -637,13 +622,12 @@ public interface ConfluenceRESTV2Api {
      * @param mediaType            Filters on the mediaType of attachments. Only one may be specified. (optional)
      * @param filename             Filters on the file-name of attachments. Only one may be specified. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 50)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultAttachment getAttachments(@Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultAttachment getAttachments(@Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get blog post by id
@@ -656,13 +640,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param getDraft             Retrieve the draft version of this blog post. (optional, defaults to false)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}?body-format={bodyFormat}&get-draft={getDraft}&version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}?body-format={bodyFormat}&get-draft={getDraft}&version={version}")
     @Headers({
         "Accept: application/json"
     })
-    BlogPostSingle getBlogPostById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("getDraft") @Nullable Boolean getDraft, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    BlogPostSingle getBlogPostById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("getDraft") @Nullable Boolean getDraft, @Param("version") @Nullable Integer version);
 
     /**
      * Get footer comments for blog post
@@ -676,13 +659,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}/footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}/footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultBlogPostCommentModel getBlogPostFooterComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultBlogPostCommentModel getBlogPostFooterComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get inline comments for blog post
@@ -696,13 +678,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of inline comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}/inline-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}/inline-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultBlogPostInlineCommentModel getBlogPostInlineComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultBlogPostInlineCommentModel getBlogPostInlineComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get labels for blog post
@@ -716,13 +697,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultLabel getBlogPostLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultLabel getBlogPostLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get like count for blog post
@@ -821,13 +801,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of blog posts per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts?id={id}&space-id={spaceId}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts?id={id}&space-id={spaceId}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultBlogPost getBlogPosts(@Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultBlogPost getBlogPosts(@Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get blog posts in space
@@ -843,13 +822,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of blog posts per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{id}/blogposts?sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{id}/blogposts?sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultBlogPost getBlogPostsInSpace(@Param("id") @NotNull Long id, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultBlogPost getBlogPostsInSpace(@Param("id") @NotNull Long id, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get attachments for blog post
@@ -865,13 +843,12 @@ public interface ConfluenceRESTV2Api {
      * @param mediaType            Filters on the mediaType of attachments. Only one may be specified. (optional)
      * @param filename             Filters on the file-name of attachments. Only one may be specified. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 50)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultAttachment getBlogpostAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultAttachment getBlogpostAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content properties for blog post
@@ -885,13 +862,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{blogpostId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{blogpostId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultContentProperty getBlogpostContentProperties(@Param("blogpostId") @NotNull Long blogpostId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultContentProperty getBlogpostContentProperties(@Param("blogpostId") @NotNull Long blogpostId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content property for blog post by id
@@ -902,13 +878,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:page:confluence]
      * @param blogpostId           The ID of the blog post for which content properties should be returned. (required)
      * @param propertyId           The ID of the property being requested (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{blogpostId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{blogpostId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    ContentProperty getBlogpostContentPropertiesById(@Param("blogpostId") @NotNull Long blogpostId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty getBlogpostContentPropertiesById(@Param("blogpostId") @NotNull Long blogpostId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get child custom content
@@ -921,13 +896,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param sort                 Used to sort the result by a particular field. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{id}/children?cursor={cursor}&limit={limit}&sort={sort}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{id}/children?cursor={cursor}&limit={limit}&sort={sort}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultChildCustomContent getChildCustomContent(@Param("id") @NotNull Long id, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("sort") @Nullable List<ChildCustomContentSortOrder> sort, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultChildCustomContent getChildCustomContent(@Param("id") @NotNull Long id, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("sort") @Nullable List<ChildCustomContentSortOrder> sort);
 
     /**
      * Get child pages
@@ -940,13 +914,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param sort                 Used to sort the result by a particular field. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/children?cursor={cursor}&limit={limit}&sort={sort}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/children?cursor={cursor}&limit={limit}&sort={sort}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultChildPage getChildPages(@Param("id") @NotNull Long id, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("sort") @Nullable List<ChildPageSortOrder> sort, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultChildPage getChildPages(@Param("id") @NotNull Long id, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("sort") @Nullable List<ChildPageSortOrder> sort);
 
     /**
      * Get content properties for comment
@@ -960,13 +933,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /comments/{commentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /comments/{commentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultContentProperty getCommentContentProperties(@Param("commentId") @NotNull Long commentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultContentProperty getCommentContentProperties(@Param("commentId") @NotNull Long commentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content property for comment by id
@@ -977,13 +949,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:comment:confluence]
      * @param commentId            The ID of the comment for which content properties should be returned. (required)
      * @param propertyId           The ID of the content property being requested. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /comments/{commentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /comments/{commentId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    ContentProperty getCommentContentPropertiesById(@Param("commentId") @NotNull Long commentId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty getCommentContentPropertiesById(@Param("commentId") @NotNull Long commentId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get attachments for custom content
@@ -999,13 +970,12 @@ public interface ConfluenceRESTV2Api {
      * @param mediaType            Filters on the mediaType of attachments. Only one may be specified. (optional)
      * @param filename             Filters on the file-name of attachments. Only one may be specified. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 50)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultAttachment getCustomContentAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultAttachment getCustomContentAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get custom content by id
@@ -1017,13 +987,12 @@ public interface ConfluenceRESTV2Api {
      * @param id                   The ID of the custom content to be returned. If you don't know the custom content ID, use Get Custom Content by Type and filter the results. (required)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned. (optional)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{id}?body-format={bodyFormat}&version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{id}?body-format={bodyFormat}&version={version}")
     @Headers({
         "Accept: application/json"
     })
-    CustomContentSingle getCustomContentById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable CustomContentBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    CustomContentSingle getCustomContentById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable CustomContentBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version);
 
     /**
      * Get custom content by type
@@ -1039,13 +1008,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content?type={type}&id={id}&space-id={spaceId}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content?type={type}&id={id}&space-id={spaceId}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultCustomContent getCustomContentByType(@Param("type") @NotNull String type, @Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultCustomContent getCustomContentByType(@Param("type") @NotNull String type, @Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat);
 
     /**
      * Get custom content by type in blog post
@@ -1060,13 +1028,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /blogposts/{id}/custom-content?type={type}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /blogposts/{id}/custom-content?type={type}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultCustomContent getCustomContentByTypeInBlogPost(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultCustomContent getCustomContentByTypeInBlogPost(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat);
 
     /**
      * Get custom content by type in page
@@ -1081,13 +1048,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/custom-content?type={type}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/custom-content?type={type}&sort={sort}&cursor={cursor}&limit={limit}&body-format={bodyFormat}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultCustomContent getCustomContentByTypeInPage(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultCustomContent getCustomContentByTypeInPage(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("sort") @Nullable CustomContentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat);
 
     /**
      * Get custom content by type in space
@@ -1101,13 +1067,12 @@ public interface ConfluenceRESTV2Api {
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{id}/custom-content?type={type}&cursor={cursor}&limit={limit}&body-format={bodyFormat}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{id}/custom-content?type={type}&cursor={cursor}&limit={limit}&body-format={bodyFormat}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultCustomContent getCustomContentByTypeInSpace(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultCustomContent getCustomContentByTypeInSpace(@Param("id") @NotNull Long id, @Param("type") @NotNull String type, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("bodyFormat") @Nullable CustomContentBodyRepresentation bodyFormat);
 
     /**
      * Get content properties for custom content
@@ -1121,13 +1086,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{customContentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{customContentId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultContentProperty getCustomContentContentProperties(@Param("customContentId") @NotNull Long customContentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultContentProperty getCustomContentContentProperties(@Param("customContentId") @NotNull Long customContentId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content property for custom content by id
@@ -1138,13 +1102,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:custom-content:confluence]
      * @param customContentId      The ID of the custom content for which content properties should be returned. (required)
      * @param propertyId           The ID of the content property being requested. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{customContentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{customContentId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    ContentProperty getCustomContentContentPropertiesById(@Param("customContentId") @NotNull Long customContentId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty getCustomContentContentPropertiesById(@Param("customContentId") @NotNull Long customContentId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get labels for custom content
@@ -1158,13 +1121,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /custom-content/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /custom-content/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultLabel getCustomContentLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultLabel getCustomContentLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get permitted operations for custom content
@@ -1226,13 +1188,12 @@ public interface ConfluenceRESTV2Api {
      * @param commentId            The ID of the comment to be retrieved. (required)
      * @param bodyFormat           The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /footer-comments/{commentId}?body-format={bodyFormat}&version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /footer-comments/{commentId}?body-format={bodyFormat}&version={version}")
     @Headers({
         "Accept: application/json"
     })
-    FooterCommentModel getFooterCommentById(@Param("commentId") @NotNull Long commentId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    FooterCommentModel getFooterCommentById(@Param("commentId") @NotNull Long commentId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version);
 
     /**
      * Get children footer comments
@@ -1246,13 +1207,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /footer-comments/{id}/children?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /footer-comments/{id}/children?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultChildrenCommentModel getFooterCommentChildren(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultChildrenCommentModel getFooterCommentChildren(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get permitted operations for footer comment
@@ -1315,13 +1275,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultFooterCommentModel getFooterComments(@Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultFooterCommentModel getFooterComments(@Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get like count for footer comment
@@ -1365,13 +1324,12 @@ public interface ConfluenceRESTV2Api {
      * @param commentId            The ID of the comment to be retrieved. (required)
      * @param bodyFormat           The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /inline-comments/{commentId}?body-format={bodyFormat}&version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /inline-comments/{commentId}?body-format={bodyFormat}&version={version}")
     @Headers({
         "Accept: application/json"
     })
-    InlineCommentModel getInlineCommentById(@Param("commentId") @NotNull Long commentId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    InlineCommentModel getInlineCommentById(@Param("commentId") @NotNull Long commentId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("version") @Nullable Integer version);
 
     /**
      * Get children inline comments
@@ -1381,17 +1339,16 @@ public interface ConfluenceRESTV2Api {
      *
      * Authentication - Required Scopes: [read:comment:confluence]
      * @param id                   The ID of the parent comment for which inline comment children should be returned. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      * @param bodyFormat           The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      */
-    @RequestLine("GET /inline-comments/{id}/children?serialize-ids-as-strings={serializeIdsAsStrings}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
+    @RequestLine("GET /inline-comments/{id}/children?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultInlineCommentChildrenModel getInlineCommentChildren(@Param("id") @NotNull Long id, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
+    MultiEntityResultInlineCommentChildrenModel getInlineCommentChildren(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get permitted operations for inline comment
@@ -1450,17 +1407,16 @@ public interface ConfluenceRESTV2Api {
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page and its corresponding space.
      *
      * Authentication - Required Scopes: [read:comment:confluence]
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      * @param bodyFormat           The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      */
-    @RequestLine("GET /inline-comments?serialize-ids-as-strings={serializeIdsAsStrings}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
+    @RequestLine("GET /inline-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultInlineCommentModel getInlineComments(@Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
+    MultiEntityResultInlineCommentModel getInlineComments(@Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get like count for inline comment
@@ -1505,13 +1461,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /labels/{id}/attachments?sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /labels/{id}/attachments?sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultAttachment1 getLabelAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultAttachment1 getLabelAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get blog posts for label
@@ -1526,13 +1481,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of blog posts per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /labels/{id}/blogposts?space-id={spaceId}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /labels/{id}/blogposts?space-id={spaceId}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultBlogPost getLabelBlogPosts(@Param("id") @NotNull Long id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultBlogPost getLabelBlogPosts(@Param("id") @NotNull Long id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable BlogPostSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get pages for label
@@ -1547,13 +1501,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /labels/{id}/pages?space-id={spaceId}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /labels/{id}/pages?space-id={spaceId}&body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultPage getLabelPages(@Param("id") @NotNull Long id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable PageSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultPage getLabelPages(@Param("id") @NotNull Long id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable PageSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get all ancestors of page
@@ -1585,13 +1538,12 @@ public interface ConfluenceRESTV2Api {
      * @param mediaType            Filters on the mediaType of attachments. Only one may be specified. (optional)
      * @param filename             Filters on the file-name of attachments. Only one may be specified. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 50)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/attachments?sort={sort}&cursor={cursor}&status={status}&mediaType={mediaType}&filename={filename}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultAttachment getPageAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultAttachment getPageAttachments(@Param("id") @NotNull Long id, @Param("sort") @Nullable AttachmentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("status") @Nullable List<String> status, @Param("mediaType") @Nullable String mediaType, @Param("filename") @Nullable String filename, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get page by id
@@ -1604,13 +1556,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param getDraft             Retrieve the draft version of this page. (optional, defaults to false)
      * @param version              Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}?body-format={bodyFormat}&get-draft={getDraft}&version={version}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}?body-format={bodyFormat}&get-draft={getDraft}&version={version}")
     @Headers({
         "Accept: application/json"
     })
-    PageSingle getPageById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("getDraft") @Nullable Boolean getDraft, @Param("version") @Nullable Integer version, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    PageSingle getPageById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentationSingle bodyFormat, @Param("getDraft") @Nullable Boolean getDraft, @Param("version") @Nullable Integer version);
 
     /**
      * Get content properties for page
@@ -1624,13 +1575,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{pageId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{pageId}/properties?key={key}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultContentProperty getPageContentProperties(@Param("pageId") @NotNull Long pageId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultContentProperty getPageContentProperties(@Param("pageId") @NotNull Long pageId, @Param("key") @Nullable String key, @Param("sort") @Nullable ContentPropertySortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get content property for page by id
@@ -1641,13 +1591,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:page:confluence]
      * @param pageId               The ID of the page for which content properties should be returned. (required)
      * @param propertyId           The ID of the content property being requested. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{pageId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{pageId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    ContentProperty getPageContentPropertiesById(@Param("pageId") @NotNull Long pageId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty getPageContentPropertiesById(@Param("pageId") @NotNull Long pageId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get footer comments for page
@@ -1661,13 +1610,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/footer-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultPageCommentModel getPageFooterComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultPageCommentModel getPageFooterComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get inline comments for page
@@ -1681,13 +1629,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of inline comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/inline-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/inline-comments?body-format={bodyFormat}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultPageInlineCommentModel getPageInlineComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultPageInlineCommentModel getPageInlineComments(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable CommentSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get labels for page
@@ -1701,13 +1648,12 @@ public interface ConfluenceRESTV2Api {
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultLabel getPageLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultLabel getPageLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get like count for page
@@ -1806,13 +1752,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /pages?id={id}&space-id={spaceId}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /pages?id={id}&space-id={spaceId}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultPage getPages(@Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable PageSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultPage getPages(@Param("id") @Nullable List<Long> id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("sort") @Nullable PageSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get pages in space
@@ -1829,13 +1774,12 @@ public interface ConfluenceRESTV2Api {
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{id}/pages?depth={depth}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{id}/pages?depth={depth}&sort={sort}&status={status}&title={title}&body-format={bodyFormat}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultPage getPagesInSpace(@Param("id") @NotNull Long id, @Param("depth") @Nullable String depth, @Param("sort") @Nullable PageSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultPage getPagesInSpace(@Param("id") @NotNull Long id, @Param("depth") @Nullable String depth, @Param("sort") @Nullable PageSortOrder sort, @Param("status") @Nullable List<String> status, @Param("title") @Nullable String title, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get space by id
@@ -1847,13 +1791,12 @@ public interface ConfluenceRESTV2Api {
      * @param id                   The ID of the space to be returned. (required)
      * @param descriptionFormat    The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field. (optional)
      * @param includeIcon          If the icon for the space should be fetched or not. (optional, defaults to false)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{id}?description-format={descriptionFormat}&include-icon={includeIcon}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{id}?description-format={descriptionFormat}&include-icon={includeIcon}")
     @Headers({
         "Accept: application/json"
     })
-    Space getSpaceById(@Param("id") @NotNull Long id, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    Space getSpaceById(@Param("id") @NotNull Long id, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon);
 
     /**
      * Get permitted operations for space
@@ -1897,13 +1840,12 @@ public interface ConfluenceRESTV2Api {
      * @param key                  The key of the space property to retrieve. This should be used when a user knows the key of their property, but needs to retrieve the id for use in other methods. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{spaceId}/properties?key={key}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{spaceId}/properties?key={key}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultSpaceProperty getSpaceProperties(@Param("spaceId") @NotNull Long spaceId, @Param("key") @Nullable String key, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultSpaceProperty getSpaceProperties(@Param("spaceId") @NotNull Long spaceId, @Param("key") @Nullable String key, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get space property by id
@@ -1914,13 +1856,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:space:confluence]
      * @param spaceId              The ID of the space the property belongs to. (required)
      * @param propertyId           The ID of the property to be retrieved. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces/{spaceId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces/{spaceId}/properties/{propertyId}")
     @Headers({
         "Accept: application/json"
     })
-    SpaceProperty getSpacePropertyById(@Param("spaceId") @NotNull Long spaceId, @Param("propertyId") @NotNull Long propertyId, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    SpaceProperty getSpacePropertyById(@Param("spaceId") @NotNull Long spaceId, @Param("propertyId") @NotNull Long propertyId);
 
     /**
      * Get spaces
@@ -1939,13 +1880,12 @@ public interface ConfluenceRESTV2Api {
      * @param includeIcon          If the icon for the space should be fetched or not. (optional, defaults to false)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of spaces per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /spaces?ids={ids}&keys={keys}&type={type}&status={status}&labels={labels}&sort={sort}&description-format={descriptionFormat}&include-icon={includeIcon}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /spaces?ids={ids}&keys={keys}&type={type}&status={status}&labels={labels}&sort={sort}&description-format={descriptionFormat}&include-icon={includeIcon}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultSpace getSpaces(@Param("ids") @Nullable List<Long> ids, @Param("keys") @Nullable List<String> keys, @Param("type") @Nullable String type, @Param("status") @Nullable String status, @Param("labels") @Nullable List<String> labels, @Param("sort") @Nullable SpaceSortOrder sort, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultSpace getSpaces(@Param("ids") @Nullable List<Long> ids, @Param("keys") @Nullable List<String> keys, @Param("type") @Nullable String type, @Param("status") @Nullable String status, @Param("labels") @Nullable List<String> labels, @Param("sort") @Nullable SpaceSortOrder sort, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get task by id
@@ -1956,13 +1896,12 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [read:task:confluence]
      * @param id                   The ID of the task to be returned. If you don't know the task ID, use Get tasks and filter the results. (required)
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /tasks/{id}?body-format={bodyFormat}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /tasks/{id}?body-format={bodyFormat}")
     @Headers({
         "Accept: application/json"
     })
-    Task getTaskById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    Task getTaskById(@Param("id") @NotNull Long id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat);
 
     /**
      * Get tasks
@@ -1989,13 +1928,12 @@ public interface ConfluenceRESTV2Api {
      * @param completedAtTo        Filters on end of date-time range of task based on completion date (inclusive). Input is epoch time in milliseconds. (optional)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of tasks per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("GET /tasks?body-format={bodyFormat}&include-blank-tasks={includeBlankTasks}&status={status}&task-id={taskId}&space-id={spaceId}&page-id={pageId}&blogpost-id={blogpostId}&created-by={createdBy}&assigned-to={assignedTo}&completed-by={completedBy}&created-at-from={createdAtFrom}&created-at-to={createdAtTo}&due-at-from={dueAtFrom}&due-at-to={dueAtTo}&completed-at-from={completedAtFrom}&completed-at-to={completedAtTo}&cursor={cursor}&limit={limit}&serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("GET /tasks?body-format={bodyFormat}&include-blank-tasks={includeBlankTasks}&status={status}&task-id={taskId}&space-id={spaceId}&page-id={pageId}&blogpost-id={blogpostId}&created-by={createdBy}&assigned-to={assignedTo}&completed-by={completedBy}&created-at-from={createdAtFrom}&created-at-to={createdAtTo}&due-at-from={dueAtFrom}&due-at-to={dueAtTo}&completed-at-from={completedAtFrom}&completed-at-to={completedAtTo}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    MultiEntityResultTask getTasks(@Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("includeBlankTasks") @Nullable Boolean includeBlankTasks, @Param("status") @Nullable String status, @Param("taskId") @Nullable List<Long> taskId, @Param("spaceId") @Nullable List<Long> spaceId, @Param("pageId") @Nullable List<Long> pageId, @Param("blogpostId") @Nullable List<Long> blogpostId, @Param("createdBy") @Nullable List<String> createdBy, @Param("assignedTo") @Nullable List<String> assignedTo, @Param("completedBy") @Nullable List<String> completedBy, @Param("createdAtFrom") @Nullable Long createdAtFrom, @Param("createdAtTo") @Nullable Long createdAtTo, @Param("dueAtFrom") @Nullable Long dueAtFrom, @Param("dueAtTo") @Nullable Long dueAtTo, @Param("completedAtFrom") @Nullable Long completedAtFrom, @Param("completedAtTo") @Nullable Long completedAtTo, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    MultiEntityResultTask getTasks(@Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("includeBlankTasks") @Nullable Boolean includeBlankTasks, @Param("status") @Nullable String status, @Param("taskId") @Nullable List<Long> taskId, @Param("spaceId") @Nullable List<Long> spaceId, @Param("pageId") @Nullable List<Long> pageId, @Param("blogpostId") @Nullable List<Long> blogpostId, @Param("createdBy") @Nullable List<String> createdBy, @Param("assignedTo") @Nullable List<String> assignedTo, @Param("completedBy") @Nullable List<String> completedBy, @Param("createdAtFrom") @Nullable Long createdAtFrom, @Param("createdAtTo") @Nullable Long createdAtTo, @Param("dueAtFrom") @Nullable Long dueAtFrom, @Param("dueAtTo") @Nullable Long dueAtTo, @Param("completedAtFrom") @Nullable Long completedAtFrom, @Param("completedAtTo") @Nullable Long completedAtTo, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Invite a list of emails to the site
@@ -2023,14 +1961,13 @@ public interface ConfluenceRESTV2Api {
      * @param attachmentId         The ID of the attachment the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param contentPropertyUpdateRequest The content property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /attachments/{attachmentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /attachments/{attachmentId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty updateAttachmentPropertyById(@Param("attachmentId") @NotNull String attachmentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty updateAttachmentPropertyById(@Param("attachmentId") @NotNull String attachmentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest);
 
     /**
      * Update blog post
@@ -2041,14 +1978,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [write:page:confluence]
      * @param id                   The ID of the blog post to be updated. If you don't know the blog post ID, use Get Blog Posts and filter the results. (required)
      * @param updateBlogPostRequest  (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /blogposts/{id}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /blogposts/{id}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    BlogPostSingle updateBlogPost(@Param("id") @NotNull Long id, @NotNull UpdateBlogPostRequest updateBlogPostRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    BlogPostSingle updateBlogPost(@Param("id") @NotNull Long id, @NotNull UpdateBlogPostRequest updateBlogPostRequest);
 
     /**
      * Update content property for blog post by id
@@ -2060,14 +1996,13 @@ public interface ConfluenceRESTV2Api {
      * @param blogpostId           The ID of the blog post the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param contentPropertyUpdateRequest The content property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /blogposts/{blogpostId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /blogposts/{blogpostId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty updateBlogpostPropertyById(@Param("blogpostId") @NotNull Long blogpostId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty updateBlogpostPropertyById(@Param("blogpostId") @NotNull Long blogpostId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest);
 
     /**
      * Update content property for comment by id
@@ -2079,14 +2014,13 @@ public interface ConfluenceRESTV2Api {
      * @param commentId            The ID of the comment the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param contentPropertyUpdateRequest The content property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /comments/{commentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /comments/{commentId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty updateCommentPropertyById(@Param("commentId") @NotNull Long commentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty updateCommentPropertyById(@Param("commentId") @NotNull Long commentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest);
 
     /**
      * Update custom content
@@ -2097,14 +2031,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [write:custom-content:confluence]
      * @param id                   The ID of the custom content to be updated. If you don't know the custom content ID, use Get Custom Content by Type and filter the results. (required)
      * @param updateCustomContentRequest  (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /custom-content/{id}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /custom-content/{id}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    CustomContentSingle updateCustomContent(@Param("id") @NotNull Long id, @NotNull UpdateCustomContentRequest updateCustomContentRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    CustomContentSingle updateCustomContent(@Param("id") @NotNull Long id, @NotNull UpdateCustomContentRequest updateCustomContentRequest);
 
     /**
      * Update content property for custom content by id
@@ -2116,14 +2049,13 @@ public interface ConfluenceRESTV2Api {
      * @param customContentId      The ID of the custom content the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param contentPropertyUpdateRequest The content property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /custom-content/{customContentId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /custom-content/{customContentId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty updateCustomContentPropertyById(@Param("customContentId") @NotNull Long customContentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty updateCustomContentPropertyById(@Param("customContentId") @NotNull Long customContentId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest);
 
     /**
      * Update footer comment
@@ -2134,14 +2066,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param commentId            The ID of the comment to be retrieved. (required)
      * @param updateFooterCommentModel The footer comment to be created (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /footer-comments/{commentId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /footer-comments/{commentId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    FooterCommentModel updateFooterComment(@Param("commentId") @NotNull Long commentId, @NotNull UpdateFooterCommentModel updateFooterCommentModel, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    FooterCommentModel updateFooterComment(@Param("commentId") @NotNull Long commentId, @NotNull UpdateFooterCommentModel updateFooterCommentModel);
 
     /**
      * Update inline comment
@@ -2152,14 +2083,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param commentId            The ID of the comment to be retrieved. (required)
      * @param updateInlineCommentModel The inline comment to be updated (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /inline-comments/{commentId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /inline-comments/{commentId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    InlineCommentModel updateInlineComment(@Param("commentId") @NotNull Long commentId, @NotNull UpdateInlineCommentModel updateInlineCommentModel, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    InlineCommentModel updateInlineComment(@Param("commentId") @NotNull Long commentId, @NotNull UpdateInlineCommentModel updateInlineCommentModel);
 
     /**
      * Update page
@@ -2170,14 +2100,13 @@ public interface ConfluenceRESTV2Api {
      * Authentication - Required Scopes: [write:page:confluence]
      * @param id                   The ID of the page to be updated. If you don't know the page ID, use Get Pages and filter the results. (required)
      * @param updatePageRequest     (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /pages/{id}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /pages/{id}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    PageSingle updatePage(@Param("id") @NotNull Long id, @NotNull UpdatePageRequest updatePageRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    PageSingle updatePage(@Param("id") @NotNull Long id, @NotNull UpdatePageRequest updatePageRequest);
 
     /**
      * Update content property for page by id
@@ -2189,14 +2118,13 @@ public interface ConfluenceRESTV2Api {
      * @param pageId               The ID of the page the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param contentPropertyUpdateRequest The content property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /pages/{pageId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /pages/{pageId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    ContentProperty updatePagePropertyById(@Param("pageId") @NotNull Long pageId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    ContentProperty updatePagePropertyById(@Param("pageId") @NotNull Long pageId, @Param("propertyId") @NotNull Long propertyId, @NotNull ContentPropertyUpdateRequest contentPropertyUpdateRequest);
 
     /**
      * Update space property by id
@@ -2208,14 +2136,13 @@ public interface ConfluenceRESTV2Api {
      * @param spaceId              The ID of the space the property belongs to. (required)
      * @param propertyId           The ID of the property to be updated. (required)
      * @param spacePropertyUpdateRequest The space property to be updated. (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /spaces/{spaceId}/properties/{propertyId}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /spaces/{spaceId}/properties/{propertyId}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    SpaceProperty updateSpacePropertyById(@Param("spaceId") @NotNull Long spaceId, @Param("propertyId") @NotNull Long propertyId, @NotNull SpacePropertyUpdateRequest spacePropertyUpdateRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    SpaceProperty updateSpacePropertyById(@Param("spaceId") @NotNull Long spaceId, @Param("propertyId") @NotNull Long propertyId, @NotNull SpacePropertyUpdateRequest spacePropertyUpdateRequest);
 
     /**
      * Update task
@@ -2225,13 +2152,12 @@ public interface ConfluenceRESTV2Api {
      *
      * @param id                   The ID of the task to be updated. If you don't know the task ID, use Get tasks and filter the results. (required)
      * @param updateTaskRequest     (required)
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail. (optional, defaults to false)
      */
-    @RequestLine("PUT /tasks/{id}?serialize-ids-as-strings={serializeIdsAsStrings}")
+    @RequestLine("PUT /tasks/{id}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    Task updateTask(@Param("id") @NotNull Long id, @NotNull UpdateTaskRequest updateTaskRequest, @Param("serializeIdsAsStrings") @Nullable Boolean serializeIdsAsStrings);
+    Task updateTask(@Param("id") @NotNull Long id, @NotNull UpdateTaskRequest updateTaskRequest);
 
 }

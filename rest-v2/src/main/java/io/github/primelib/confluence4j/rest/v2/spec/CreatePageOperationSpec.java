@@ -45,12 +45,6 @@ public class CreatePageOperationSpec {
     private CreatePageRequest createPageRequest;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Tag the content as embedded and content will be created in NCS.
      */
     @Nullable 
@@ -79,14 +73,12 @@ public class CreatePageOperationSpec {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param createPageRequest    
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      * @param embedded             Tag the content as embedded and content will be created in NCS.
      * @param _private             The page will be private. Only the user who creates this page will have permission to view and edit one.
      */
     @ApiStatus.Internal
-    public CreatePageOperationSpec(CreatePageRequest createPageRequest, Boolean serializeIdsAsStrings, Boolean embedded, Boolean _private) {
+    public CreatePageOperationSpec(CreatePageRequest createPageRequest, Boolean embedded, Boolean _private) {
         this.createPageRequest = createPageRequest;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
         this.embedded = embedded;
         this._private = _private;
 

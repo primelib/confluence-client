@@ -53,12 +53,6 @@ public class GetTaskByIdOperationSpec {
     private PrimaryBodyRepresentation bodyFormat;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Constructs a validated instance of {@link GetTaskByIdOperationSpec}.
      *
      * @param spec the specification to process
@@ -76,13 +70,11 @@ public class GetTaskByIdOperationSpec {
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param id                   The ID of the task to be returned. If you don't know the task ID, use Get tasks and filter the results.
      * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @ApiStatus.Internal
-    public GetTaskByIdOperationSpec(Long id, PrimaryBodyRepresentation bodyFormat, Boolean serializeIdsAsStrings) {
+    public GetTaskByIdOperationSpec(Long id, PrimaryBodyRepresentation bodyFormat) {
         this.id = id;
         this.bodyFormat = bodyFormat;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
 
         if (VALIDATION_ENABLED)
             validate();

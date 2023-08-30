@@ -3,7 +3,6 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.confluence4j.rest.v2.model.Attachment;
@@ -54,12 +53,6 @@ public class CreateAttachmentPropertyOperationSpec {
     private ContentPropertyCreateRequest contentPropertyCreateRequest;
 
     /**
-     * Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     */
-    @Nullable 
-    private Boolean serializeIdsAsStrings;
-
-    /**
      * Constructs a validated instance of {@link CreateAttachmentPropertyOperationSpec}.
      *
      * @param spec the specification to process
@@ -77,13 +70,11 @@ public class CreateAttachmentPropertyOperationSpec {
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param attachmentId         The ID of the attachment to create a property for.
      * @param contentPropertyCreateRequest The content property to be created
-     * @param serializeIdsAsStrings Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @ApiStatus.Internal
-    public CreateAttachmentPropertyOperationSpec(String attachmentId, ContentPropertyCreateRequest contentPropertyCreateRequest, Boolean serializeIdsAsStrings) {
+    public CreateAttachmentPropertyOperationSpec(String attachmentId, ContentPropertyCreateRequest contentPropertyCreateRequest) {
         this.attachmentId = attachmentId;
         this.contentPropertyCreateRequest = contentPropertyCreateRequest;
-        this.serializeIdsAsStrings = serializeIdsAsStrings;
 
         if (VALIDATION_ENABLED)
             validate();

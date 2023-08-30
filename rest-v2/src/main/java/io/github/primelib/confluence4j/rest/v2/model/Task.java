@@ -53,38 +53,33 @@ public class Task {
 
     /**
      * ID of the task.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("id")
-    protected Long id;
+    protected String id;
 
     /**
      * Local ID of the task. This ID is local to the corresponding page or blog post.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("localId")
-    protected Long localId;
+    protected String localId;
 
     /**
      * ID of the space the task is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("spaceId")
-    protected Long spaceId;
+    protected String spaceId;
 
     /**
      * ID of the page the task is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("pageId")
-    protected Long pageId;
+    protected String pageId;
 
     /**
      * ID of the blog post the task is in.
-     * Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
      */
     @JsonProperty("blogPostId")
-    protected Long blogPostId;
+    protected String blogPostId;
 
     /**
      * Status of the task.
@@ -150,11 +145,11 @@ public class Task {
      * Constructs a validated instance of {@link Task}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Task(Consumer)} instead.
-     * @param id ID of the task.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param localId Local ID of the task. This ID is local to the corresponding page or blog post.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param spaceId ID of the space the task is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param pageId ID of the page the task is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
-     * @param blogPostId ID of the blog post the task is in.  Due to JavaScript's max integer representation of 2^53-1, the type of this field will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, {@code serialize-ids-as-strings=true} can be passed as a query param to any v2 endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.
+     * @param id ID of the task.
+     * @param localId Local ID of the task. This ID is local to the corresponding page or blog post.
+     * @param spaceId ID of the space the task is in.
+     * @param pageId ID of the page the task is in.
+     * @param blogPostId ID of the blog post the task is in.
      * @param status Status of the task.
      * @param body body
      * @param createdBy Account ID of the user who created this task.
@@ -166,7 +161,7 @@ public class Task {
      * @param completedAt Date and time when the task was completed. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      */
     @ApiStatus.Internal
-    public Task(Long id, Long localId, Long spaceId, Long pageId, Long blogPostId, StatusEnum status, BodySingle body, String createdBy, String assignedTo, String completedBy, OffsetDateTime createdAt, OffsetDateTime updatedAt, OffsetDateTime dueAt, OffsetDateTime completedAt) {
+    public Task(String id, String localId, String spaceId, String pageId, String blogPostId, StatusEnum status, BodySingle body, String createdBy, String assignedTo, String completedBy, OffsetDateTime createdAt, OffsetDateTime updatedAt, OffsetDateTime dueAt, OffsetDateTime completedAt) {
         this.id = id;
         this.localId = localId;
         this.spaceId = spaceId;

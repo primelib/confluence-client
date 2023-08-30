@@ -215,12 +215,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>attachmentId: The ID of the attachment to create a property for.</li>
      *   <li>contentPropertyCreateRequest: The content property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> createAttachmentProperty(Consumer<CreateAttachmentPropertyOperationSpec> spec) {
         CreateAttachmentPropertyOperationSpec r = new CreateAttachmentPropertyOperationSpec(spec);
-        return api.createAttachmentProperty(r.attachmentId(), r.contentPropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createAttachmentProperty(r.attachmentId(), r.contentPropertyCreateRequest());
     }
 
     /**
@@ -233,13 +232,12 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>createBlogPostRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      *   <li>_private: The blog post will be private. Only the user who creates this blog post will have permission to view and edit one.</li>
      * </ul>
      */
     public CompletableFuture<BlogPostSingle> createBlogPost(Consumer<CreateBlogPostOperationSpec> spec) {
         CreateBlogPostOperationSpec r = new CreateBlogPostOperationSpec(spec);
-        return api.createBlogPost(r.createBlogPostRequest(), r.serializeIdsAsStrings(), r._private());
+        return api.createBlogPost(r.createBlogPostRequest(), r._private());
     }
 
     /**
@@ -252,12 +250,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>blogpostId: The ID of the blog post to create a property for.</li>
      *   <li>contentPropertyCreateRequest: The content property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> createBlogpostProperty(Consumer<CreateBlogpostPropertyOperationSpec> spec) {
         CreateBlogpostPropertyOperationSpec r = new CreateBlogpostPropertyOperationSpec(spec);
-        return api.createBlogpostProperty(r.blogpostId(), r.contentPropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createBlogpostProperty(r.blogpostId(), r.contentPropertyCreateRequest());
     }
 
     /**
@@ -270,12 +267,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>commentId: The ID of the comment to create a property for.</li>
      *   <li>contentPropertyCreateRequest: The content property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> createCommentProperty(Consumer<CreateCommentPropertyOperationSpec> spec) {
         CreateCommentPropertyOperationSpec r = new CreateCommentPropertyOperationSpec(spec);
-        return api.createCommentProperty(r.commentId(), r.contentPropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createCommentProperty(r.commentId(), r.contentPropertyCreateRequest());
     }
 
     /**
@@ -287,12 +283,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>createCustomContentRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<CustomContentSingle> createCustomContent(Consumer<CreateCustomContentOperationSpec> spec) {
         CreateCustomContentOperationSpec r = new CreateCustomContentOperationSpec(spec);
-        return api.createCustomContent(r.createCustomContentRequest(), r.serializeIdsAsStrings());
+        return api.createCustomContent(r.createCustomContentRequest());
     }
 
     /**
@@ -305,12 +300,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>customContentId: The ID of the custom content to create a property for.</li>
      *   <li>contentPropertyCreateRequest: The content property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> createCustomContentProperty(Consumer<CreateCustomContentPropertyOperationSpec> spec) {
         CreateCustomContentPropertyOperationSpec r = new CreateCustomContentPropertyOperationSpec(spec);
-        return api.createCustomContentProperty(r.customContentId(), r.contentPropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createCustomContentProperty(r.customContentId(), r.contentPropertyCreateRequest());
     }
 
     /**
@@ -322,12 +316,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>createFooterCommentModel: The footer comment to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<FooterCommentModel> createFooterComment(Consumer<CreateFooterCommentOperationSpec> spec) {
         CreateFooterCommentOperationSpec r = new CreateFooterCommentOperationSpec(spec);
-        return api.createFooterComment(r.createFooterCommentModel(), r.serializeIdsAsStrings());
+        return api.createFooterComment(r.createFooterCommentModel());
     }
 
     /**
@@ -340,12 +333,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>createInlineCommentModel: The inline comment to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<InlineCommentModel> createInlineComment(Consumer<CreateInlineCommentOperationSpec> spec) {
         CreateInlineCommentOperationSpec r = new CreateInlineCommentOperationSpec(spec);
-        return api.createInlineComment(r.createInlineCommentModel(), r.serializeIdsAsStrings());
+        return api.createInlineComment(r.createInlineCommentModel());
     }
 
     /**
@@ -358,14 +350,13 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>createPageRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      *   <li>embedded: Tag the content as embedded and content will be created in NCS.</li>
      *   <li>_private: The page will be private. Only the user who creates this page will have permission to view and edit one.</li>
      * </ul>
      */
     public CompletableFuture<PageSingle> createPage(Consumer<CreatePageOperationSpec> spec) {
         CreatePageOperationSpec r = new CreatePageOperationSpec(spec);
-        return api.createPage(r.createPageRequest(), r.serializeIdsAsStrings(), r.embedded(), r._private());
+        return api.createPage(r.createPageRequest(), r.embedded(), r._private());
     }
 
     /**
@@ -378,12 +369,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>pageId: The ID of the page to create a property for.</li>
      *   <li>contentPropertyCreateRequest: The content property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> createPageProperty(Consumer<CreatePagePropertyOperationSpec> spec) {
         CreatePagePropertyOperationSpec r = new CreatePagePropertyOperationSpec(spec);
-        return api.createPageProperty(r.pageId(), r.contentPropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createPageProperty(r.pageId(), r.contentPropertyCreateRequest());
     }
 
     /**
@@ -396,12 +386,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>spaceId: The ID of the space for which space properties should be returned.</li>
      *   <li>spacePropertyCreateRequest: The space property to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<SpaceProperty> createSpaceProperty(Consumer<CreateSpacePropertyOperationSpec> spec) {
         CreateSpacePropertyOperationSpec r = new CreateSpacePropertyOperationSpec(spec);
-        return api.createSpaceProperty(r.spaceId(), r.spacePropertyCreateRequest(), r.serializeIdsAsStrings());
+        return api.createSpaceProperty(r.spaceId(), r.spacePropertyCreateRequest());
     }
 
     /**
@@ -611,12 +600,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the attachment to be returned. If you don't know the attachment's ID, use Get attachments for page/blogpost/custom content.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<Attachment> getAttachmentById(Consumer<GetAttachmentByIdOperationSpec> spec) {
         GetAttachmentByIdOperationSpec r = new GetAttachmentByIdOperationSpec(spec);
-        return api.getAttachmentById(r.id(), r.version(), r.serializeIdsAsStrings());
+        return api.getAttachmentById(r.id(), r.version());
     }
 
     /**
@@ -632,12 +620,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultContentProperty> getAttachmentContentProperties(Consumer<GetAttachmentContentPropertiesOperationSpec> spec) {
         GetAttachmentContentPropertiesOperationSpec r = new GetAttachmentContentPropertiesOperationSpec(spec);
-        return api.getAttachmentContentProperties(r.attachmentId(), r.key(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getAttachmentContentProperties(r.attachmentId(), r.key(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -650,12 +637,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>attachmentId: The ID of the attachment for which content properties should be returned.</li>
      *   <li>propertyId: The ID of the content property to be returned</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> getAttachmentContentPropertiesById(Consumer<GetAttachmentContentPropertiesByIdOperationSpec> spec) {
         GetAttachmentContentPropertiesByIdOperationSpec r = new GetAttachmentContentPropertiesByIdOperationSpec(spec);
-        return api.getAttachmentContentPropertiesById(r.attachmentId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getAttachmentContentPropertiesById(r.attachmentId(), r.propertyId());
     }
 
     /**
@@ -671,12 +657,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultLabel> getAttachmentLabels(Consumer<GetAttachmentLabelsOperationSpec> spec) {
         GetAttachmentLabelsOperationSpec r = new GetAttachmentLabelsOperationSpec(spec);
-        return api.getAttachmentLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getAttachmentLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -745,12 +730,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>mediaType: Filters on the mediaType of attachments. Only one may be specified.</li>
      *   <li>filename: Filters on the file-name of attachments. Only one may be specified.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultAttachment> getAttachments(Consumer<GetAttachmentsOperationSpec> spec) {
         GetAttachmentsOperationSpec r = new GetAttachmentsOperationSpec(spec);
-        return api.getAttachments(r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit(), r.serializeIdsAsStrings());
+        return api.getAttachments(r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit());
     }
 
     /**
@@ -765,12 +749,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>getDraft: Retrieve the draft version of this blog post.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<BlogPostSingle> getBlogPostById(Consumer<GetBlogPostByIdOperationSpec> spec) {
         GetBlogPostByIdOperationSpec r = new GetBlogPostByIdOperationSpec(spec);
-        return api.getBlogPostById(r.id(), r.bodyFormat(), r.getDraft(), r.version(), r.serializeIdsAsStrings());
+        return api.getBlogPostById(r.id(), r.bodyFormat(), r.getDraft(), r.version());
     }
 
     /**
@@ -786,12 +769,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultBlogPostCommentModel> getBlogPostFooterComments(Consumer<GetBlogPostFooterCommentsOperationSpec> spec) {
         GetBlogPostFooterCommentsOperationSpec r = new GetBlogPostFooterCommentsOperationSpec(spec);
-        return api.getBlogPostFooterComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogPostFooterComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -807,12 +789,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of inline comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultBlogPostInlineCommentModel> getBlogPostInlineComments(Consumer<GetBlogPostInlineCommentsOperationSpec> spec) {
         GetBlogPostInlineCommentsOperationSpec r = new GetBlogPostInlineCommentsOperationSpec(spec);
-        return api.getBlogPostInlineComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogPostInlineComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -828,12 +809,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultLabel> getBlogPostLabels(Consumer<GetBlogPostLabelsOperationSpec> spec) {
         GetBlogPostLabelsOperationSpec r = new GetBlogPostLabelsOperationSpec(spec);
-        return api.getBlogPostLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogPostLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -939,12 +919,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of blog posts per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultBlogPost> getBlogPosts(Consumer<GetBlogPostsOperationSpec> spec) {
         GetBlogPostsOperationSpec r = new GetBlogPostsOperationSpec(spec);
-        return api.getBlogPosts(r.id(), r.spaceId(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogPosts(r.id(), r.spaceId(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit());
     }
 
     /**
@@ -962,12 +941,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of blog posts per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultBlogPost> getBlogPostsInSpace(Consumer<GetBlogPostsInSpaceOperationSpec> spec) {
         GetBlogPostsInSpaceOperationSpec r = new GetBlogPostsInSpaceOperationSpec(spec);
-        return api.getBlogPostsInSpace(r.id(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogPostsInSpace(r.id(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit());
     }
 
     /**
@@ -985,12 +963,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>mediaType: Filters on the mediaType of attachments. Only one may be specified.</li>
      *   <li>filename: Filters on the file-name of attachments. Only one may be specified.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultAttachment> getBlogpostAttachments(Consumer<GetBlogpostAttachmentsOperationSpec> spec) {
         GetBlogpostAttachmentsOperationSpec r = new GetBlogpostAttachmentsOperationSpec(spec);
-        return api.getBlogpostAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogpostAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit());
     }
 
     /**
@@ -1006,12 +983,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultContentProperty> getBlogpostContentProperties(Consumer<GetBlogpostContentPropertiesOperationSpec> spec) {
         GetBlogpostContentPropertiesOperationSpec r = new GetBlogpostContentPropertiesOperationSpec(spec);
-        return api.getBlogpostContentProperties(r.blogpostId(), r.key(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getBlogpostContentProperties(r.blogpostId(), r.key(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1024,12 +1000,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>blogpostId: The ID of the blog post for which content properties should be returned.</li>
      *   <li>propertyId: The ID of the property being requested</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> getBlogpostContentPropertiesById(Consumer<GetBlogpostContentPropertiesByIdOperationSpec> spec) {
         GetBlogpostContentPropertiesByIdOperationSpec r = new GetBlogpostContentPropertiesByIdOperationSpec(spec);
-        return api.getBlogpostContentPropertiesById(r.blogpostId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getBlogpostContentPropertiesById(r.blogpostId(), r.propertyId());
     }
 
     /**
@@ -1044,12 +1019,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>sort: Used to sort the result by a particular field.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultChildCustomContent> getChildCustomContent(Consumer<GetChildCustomContentOperationSpec> spec) {
         GetChildCustomContentOperationSpec r = new GetChildCustomContentOperationSpec(spec);
-        return api.getChildCustomContent(r.id(), r.cursor(), r.limit(), r.sort(), r.serializeIdsAsStrings());
+        return api.getChildCustomContent(r.id(), r.cursor(), r.limit(), r.sort());
     }
 
     /**
@@ -1064,12 +1038,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>sort: Used to sort the result by a particular field.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultChildPage> getChildPages(Consumer<GetChildPagesOperationSpec> spec) {
         GetChildPagesOperationSpec r = new GetChildPagesOperationSpec(spec);
-        return api.getChildPages(r.id(), r.cursor(), r.limit(), r.sort(), r.serializeIdsAsStrings());
+        return api.getChildPages(r.id(), r.cursor(), r.limit(), r.sort());
     }
 
     /**
@@ -1085,12 +1058,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultContentProperty> getCommentContentProperties(Consumer<GetCommentContentPropertiesOperationSpec> spec) {
         GetCommentContentPropertiesOperationSpec r = new GetCommentContentPropertiesOperationSpec(spec);
-        return api.getCommentContentProperties(r.commentId(), r.key(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getCommentContentProperties(r.commentId(), r.key(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1103,12 +1075,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>commentId: The ID of the comment for which content properties should be returned.</li>
      *   <li>propertyId: The ID of the content property being requested.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> getCommentContentPropertiesById(Consumer<GetCommentContentPropertiesByIdOperationSpec> spec) {
         GetCommentContentPropertiesByIdOperationSpec r = new GetCommentContentPropertiesByIdOperationSpec(spec);
-        return api.getCommentContentPropertiesById(r.commentId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getCommentContentPropertiesById(r.commentId(), r.propertyId());
     }
 
     /**
@@ -1126,12 +1097,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>mediaType: Filters on the mediaType of attachments. Only one may be specified.</li>
      *   <li>filename: Filters on the file-name of attachments. Only one may be specified.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultAttachment> getCustomContentAttachments(Consumer<GetCustomContentAttachmentsOperationSpec> spec) {
         GetCustomContentAttachmentsOperationSpec r = new GetCustomContentAttachmentsOperationSpec(spec);
-        return api.getCustomContentAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit(), r.serializeIdsAsStrings());
+        return api.getCustomContentAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit());
     }
 
     /**
@@ -1145,12 +1115,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>id: The ID of the custom content to be returned. If you don't know the custom content ID, use Get Custom Content by Type and filter the results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<CustomContentSingle> getCustomContentById(Consumer<GetCustomContentByIdOperationSpec> spec) {
         GetCustomContentByIdOperationSpec r = new GetCustomContentByIdOperationSpec(spec);
-        return api.getCustomContentById(r.id(), r.bodyFormat(), r.version(), r.serializeIdsAsStrings());
+        return api.getCustomContentById(r.id(), r.bodyFormat(), r.version());
     }
 
     /**
@@ -1168,12 +1137,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultCustomContent> getCustomContentByType(Consumer<GetCustomContentByTypeOperationSpec> spec) {
         GetCustomContentByTypeOperationSpec r = new GetCustomContentByTypeOperationSpec(spec);
-        return api.getCustomContentByType(r.type(), r.id(), r.spaceId(), r.sort(), r.cursor(), r.limit(), r.bodyFormat(), r.serializeIdsAsStrings());
+        return api.getCustomContentByType(r.type(), r.id(), r.spaceId(), r.sort(), r.cursor(), r.limit(), r.bodyFormat());
     }
 
     /**
@@ -1190,12 +1158,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultCustomContent> getCustomContentByTypeInBlogPost(Consumer<GetCustomContentByTypeInBlogPostOperationSpec> spec) {
         GetCustomContentByTypeInBlogPostOperationSpec r = new GetCustomContentByTypeInBlogPostOperationSpec(spec);
-        return api.getCustomContentByTypeInBlogPost(r.id(), r.type(), r.sort(), r.cursor(), r.limit(), r.bodyFormat(), r.serializeIdsAsStrings());
+        return api.getCustomContentByTypeInBlogPost(r.id(), r.type(), r.sort(), r.cursor(), r.limit(), r.bodyFormat());
     }
 
     /**
@@ -1212,12 +1179,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultCustomContent> getCustomContentByTypeInPage(Consumer<GetCustomContentByTypeInPageOperationSpec> spec) {
         GetCustomContentByTypeInPageOperationSpec r = new GetCustomContentByTypeInPageOperationSpec(spec);
-        return api.getCustomContentByTypeInPage(r.id(), r.type(), r.sort(), r.cursor(), r.limit(), r.bodyFormat(), r.serializeIdsAsStrings());
+        return api.getCustomContentByTypeInPage(r.id(), r.type(), r.sort(), r.cursor(), r.limit(), r.bodyFormat());
     }
 
     /**
@@ -1233,12 +1199,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.  Note: If the custom content body type is {@code storage}, the {@code storage} and {@code atlas_doc_format} body formats are able to be returned. If the custom content body type is {@code raw}, only the {@code raw} body format is able to be returned.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultCustomContent> getCustomContentByTypeInSpace(Consumer<GetCustomContentByTypeInSpaceOperationSpec> spec) {
         GetCustomContentByTypeInSpaceOperationSpec r = new GetCustomContentByTypeInSpaceOperationSpec(spec);
-        return api.getCustomContentByTypeInSpace(r.id(), r.type(), r.cursor(), r.limit(), r.bodyFormat(), r.serializeIdsAsStrings());
+        return api.getCustomContentByTypeInSpace(r.id(), r.type(), r.cursor(), r.limit(), r.bodyFormat());
     }
 
     /**
@@ -1254,12 +1219,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultContentProperty> getCustomContentContentProperties(Consumer<GetCustomContentContentPropertiesOperationSpec> spec) {
         GetCustomContentContentPropertiesOperationSpec r = new GetCustomContentContentPropertiesOperationSpec(spec);
-        return api.getCustomContentContentProperties(r.customContentId(), r.key(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getCustomContentContentProperties(r.customContentId(), r.key(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1272,12 +1236,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>customContentId: The ID of the custom content for which content properties should be returned.</li>
      *   <li>propertyId: The ID of the content property being requested.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> getCustomContentContentPropertiesById(Consumer<GetCustomContentContentPropertiesByIdOperationSpec> spec) {
         GetCustomContentContentPropertiesByIdOperationSpec r = new GetCustomContentContentPropertiesByIdOperationSpec(spec);
-        return api.getCustomContentContentPropertiesById(r.customContentId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getCustomContentContentPropertiesById(r.customContentId(), r.propertyId());
     }
 
     /**
@@ -1293,12 +1256,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultLabel> getCustomContentLabels(Consumer<GetCustomContentLabelsOperationSpec> spec) {
         GetCustomContentLabelsOperationSpec r = new GetCustomContentLabelsOperationSpec(spec);
-        return api.getCustomContentLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getCustomContentLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1365,12 +1327,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>commentId: The ID of the comment to be retrieved.</li>
      *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<FooterCommentModel> getFooterCommentById(Consumer<GetFooterCommentByIdOperationSpec> spec) {
         GetFooterCommentByIdOperationSpec r = new GetFooterCommentByIdOperationSpec(spec);
-        return api.getFooterCommentById(r.commentId(), r.bodyFormat(), r.version(), r.serializeIdsAsStrings());
+        return api.getFooterCommentById(r.commentId(), r.bodyFormat(), r.version());
     }
 
     /**
@@ -1386,12 +1347,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultChildrenCommentModel> getFooterCommentChildren(Consumer<GetFooterCommentChildrenOperationSpec> spec) {
         GetFooterCommentChildrenOperationSpec r = new GetFooterCommentChildrenOperationSpec(spec);
-        return api.getFooterCommentChildren(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getFooterCommentChildren(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1459,12 +1419,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultFooterCommentModel> getFooterComments(Consumer<GetFooterCommentsOperationSpec> spec) {
         GetFooterCommentsOperationSpec r = new GetFooterCommentsOperationSpec(spec);
-        return api.getFooterComments(r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getFooterComments(r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1512,12 +1471,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>commentId: The ID of the comment to be retrieved.</li>
      *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<InlineCommentModel> getInlineCommentById(Consumer<GetInlineCommentByIdOperationSpec> spec) {
         GetInlineCommentByIdOperationSpec r = new GetInlineCommentByIdOperationSpec(spec);
-        return api.getInlineCommentById(r.commentId(), r.bodyFormat(), r.version(), r.serializeIdsAsStrings());
+        return api.getInlineCommentById(r.commentId(), r.bodyFormat(), r.version());
     }
 
     /**
@@ -1529,7 +1487,6 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>id: The ID of the parent comment for which inline comment children should be returned.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
@@ -1538,7 +1495,7 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      */
     public CompletableFuture<MultiEntityResultInlineCommentChildrenModel> getInlineCommentChildren(Consumer<GetInlineCommentChildrenOperationSpec> spec) {
         GetInlineCommentChildrenOperationSpec r = new GetInlineCommentChildrenOperationSpec(spec);
-        return api.getInlineCommentChildren(r.id(), r.serializeIdsAsStrings(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
+        return api.getInlineCommentChildren(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1602,7 +1559,6 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * Authentication - Required Scopes: [read:comment:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
@@ -1611,7 +1567,7 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      */
     public CompletableFuture<MultiEntityResultInlineCommentModel> getInlineComments(Consumer<GetInlineCommentsOperationSpec> spec) {
         GetInlineCommentsOperationSpec r = new GetInlineCommentsOperationSpec(spec);
-        return api.getInlineComments(r.serializeIdsAsStrings(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
+        return api.getInlineComments(r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1660,12 +1616,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultAttachment1> getLabelAttachments(Consumer<GetLabelAttachmentsOperationSpec> spec) {
         GetLabelAttachmentsOperationSpec r = new GetLabelAttachmentsOperationSpec(spec);
-        return api.getLabelAttachments(r.id(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getLabelAttachments(r.id(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1682,12 +1637,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of blog posts per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultBlogPost> getLabelBlogPosts(Consumer<GetLabelBlogPostsOperationSpec> spec) {
         GetLabelBlogPostsOperationSpec r = new GetLabelBlogPostsOperationSpec(spec);
-        return api.getLabelBlogPosts(r.id(), r.spaceId(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getLabelBlogPosts(r.id(), r.spaceId(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1704,12 +1658,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultPage> getLabelPages(Consumer<GetLabelPagesOperationSpec> spec) {
         GetLabelPagesOperationSpec r = new GetLabelPagesOperationSpec(spec);
-        return api.getLabelPages(r.id(), r.spaceId(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getLabelPages(r.id(), r.spaceId(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1744,12 +1697,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>mediaType: Filters on the mediaType of attachments. Only one may be specified.</li>
      *   <li>filename: Filters on the file-name of attachments. Only one may be specified.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultAttachment> getPageAttachments(Consumer<GetPageAttachmentsOperationSpec> spec) {
         GetPageAttachmentsOperationSpec r = new GetPageAttachmentsOperationSpec(spec);
-        return api.getPageAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPageAttachments(r.id(), r.sort(), r.cursor(), r.status(), r.mediaType(), r.filename(), r.limit());
     }
 
     /**
@@ -1764,12 +1716,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>getDraft: Retrieve the draft version of this page.</li>
      *   <li>version: Allows you to retrieve a previously published version. Specify the previous version's number to retrieve its details.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<PageSingle> getPageById(Consumer<GetPageByIdOperationSpec> spec) {
         GetPageByIdOperationSpec r = new GetPageByIdOperationSpec(spec);
-        return api.getPageById(r.id(), r.bodyFormat(), r.getDraft(), r.version(), r.serializeIdsAsStrings());
+        return api.getPageById(r.id(), r.bodyFormat(), r.getDraft(), r.version());
     }
 
     /**
@@ -1785,12 +1736,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultContentProperty> getPageContentProperties(Consumer<GetPageContentPropertiesOperationSpec> spec) {
         GetPageContentPropertiesOperationSpec r = new GetPageContentPropertiesOperationSpec(spec);
-        return api.getPageContentProperties(r.pageId(), r.key(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPageContentProperties(r.pageId(), r.key(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1803,12 +1753,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>pageId: The ID of the page for which content properties should be returned.</li>
      *   <li>propertyId: The ID of the content property being requested.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> getPageContentPropertiesById(Consumer<GetPageContentPropertiesByIdOperationSpec> spec) {
         GetPageContentPropertiesByIdOperationSpec r = new GetPageContentPropertiesByIdOperationSpec(spec);
-        return api.getPageContentPropertiesById(r.pageId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getPageContentPropertiesById(r.pageId(), r.propertyId());
     }
 
     /**
@@ -1824,12 +1773,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of footer comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultPageCommentModel> getPageFooterComments(Consumer<GetPageFooterCommentsOperationSpec> spec) {
         GetPageFooterCommentsOperationSpec r = new GetPageFooterCommentsOperationSpec(spec);
-        return api.getPageFooterComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPageFooterComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1845,12 +1793,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of inline comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultPageInlineCommentModel> getPageInlineComments(Consumer<GetPageInlineCommentsOperationSpec> spec) {
         GetPageInlineCommentsOperationSpec r = new GetPageInlineCommentsOperationSpec(spec);
-        return api.getPageInlineComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPageInlineComments(r.id(), r.bodyFormat(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1866,12 +1813,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultLabel> getPageLabels(Consumer<GetPageLabelsOperationSpec> spec) {
         GetPageLabelsOperationSpec r = new GetPageLabelsOperationSpec(spec);
-        return api.getPageLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPageLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
@@ -1977,12 +1923,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultPage> getPages(Consumer<GetPagesOperationSpec> spec) {
         GetPagesOperationSpec r = new GetPagesOperationSpec(spec);
-        return api.getPages(r.id(), r.spaceId(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPages(r.id(), r.spaceId(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit());
     }
 
     /**
@@ -2001,12 +1946,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultPage> getPagesInSpace(Consumer<GetPagesInSpaceOperationSpec> spec) {
         GetPagesInSpaceOperationSpec r = new GetPagesInSpaceOperationSpec(spec);
-        return api.getPagesInSpace(r.id(), r.depth(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getPagesInSpace(r.id(), r.depth(), r.sort(), r.status(), r.title(), r.bodyFormat(), r.cursor(), r.limit());
     }
 
     /**
@@ -2020,12 +1964,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>id: The ID of the space to be returned.</li>
      *   <li>descriptionFormat: The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field.</li>
      *   <li>includeIcon: If the icon for the space should be fetched or not.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<Space> getSpaceById(Consumer<GetSpaceByIdOperationSpec> spec) {
         GetSpaceByIdOperationSpec r = new GetSpaceByIdOperationSpec(spec);
-        return api.getSpaceById(r.id(), r.descriptionFormat(), r.includeIcon(), r.serializeIdsAsStrings());
+        return api.getSpaceById(r.id(), r.descriptionFormat(), r.includeIcon());
     }
 
     /**
@@ -2073,12 +2016,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>key: The key of the space property to retrieve. This should be used when a user knows the key of their property, but needs to retrieve the id for use in other methods.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of pages per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultSpaceProperty> getSpaceProperties(Consumer<GetSpacePropertiesOperationSpec> spec) {
         GetSpacePropertiesOperationSpec r = new GetSpacePropertiesOperationSpec(spec);
-        return api.getSpaceProperties(r.spaceId(), r.key(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getSpaceProperties(r.spaceId(), r.key(), r.cursor(), r.limit());
     }
 
     /**
@@ -2091,12 +2033,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>spaceId: The ID of the space the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be retrieved.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<SpaceProperty> getSpacePropertyById(Consumer<GetSpacePropertyByIdOperationSpec> spec) {
         GetSpacePropertyByIdOperationSpec r = new GetSpacePropertyByIdOperationSpec(spec);
-        return api.getSpacePropertyById(r.spaceId(), r.propertyId(), r.serializeIdsAsStrings());
+        return api.getSpacePropertyById(r.spaceId(), r.propertyId());
     }
 
     /**
@@ -2117,12 +2058,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>includeIcon: If the icon for the space should be fetched or not.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of spaces per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultSpace> getSpaces(Consumer<GetSpacesOperationSpec> spec) {
         GetSpacesOperationSpec r = new GetSpacesOperationSpec(spec);
-        return api.getSpaces(r.ids(), r.keys(), r.type(), r.status(), r.labels(), r.sort(), r.descriptionFormat(), r.includeIcon(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getSpaces(r.ids(), r.keys(), r.type(), r.status(), r.labels(), r.sort(), r.descriptionFormat(), r.includeIcon(), r.cursor(), r.limit());
     }
 
     /**
@@ -2135,12 +2075,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the task to be returned. If you don't know the task ID, use Get tasks and filter the results.</li>
      *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<Task> getTaskById(Consumer<GetTaskByIdOperationSpec> spec) {
         GetTaskByIdOperationSpec r = new GetTaskByIdOperationSpec(spec);
-        return api.getTaskById(r.id(), r.bodyFormat(), r.serializeIdsAsStrings());
+        return api.getTaskById(r.id(), r.bodyFormat());
     }
 
     /**
@@ -2169,12 +2108,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>completedAtTo: Filters on end of date-time range of task based on completion date (inclusive). Input is epoch time in milliseconds.</li>
      *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
      *   <li>limit: Maximum number of tasks per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<MultiEntityResultTask> getTasks(Consumer<GetTasksOperationSpec> spec) {
         GetTasksOperationSpec r = new GetTasksOperationSpec(spec);
-        return api.getTasks(r.bodyFormat(), r.includeBlankTasks(), r.status(), r.taskId(), r.spaceId(), r.pageId(), r.blogpostId(), r.createdBy(), r.assignedTo(), r.completedBy(), r.createdAtFrom(), r.createdAtTo(), r.dueAtFrom(), r.dueAtTo(), r.completedAtFrom(), r.completedAtTo(), r.cursor(), r.limit(), r.serializeIdsAsStrings());
+        return api.getTasks(r.bodyFormat(), r.includeBlankTasks(), r.status(), r.taskId(), r.spaceId(), r.pageId(), r.blogpostId(), r.createdBy(), r.assignedTo(), r.completedBy(), r.createdAtFrom(), r.createdAtTo(), r.dueAtFrom(), r.dueAtTo(), r.completedAtFrom(), r.completedAtTo(), r.cursor(), r.limit());
     }
 
     /**
@@ -2204,12 +2142,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>attachmentId: The ID of the attachment the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> updateAttachmentPropertyById(Consumer<UpdateAttachmentPropertyByIdOperationSpec> spec) {
         UpdateAttachmentPropertyByIdOperationSpec r = new UpdateAttachmentPropertyByIdOperationSpec(spec);
-        return api.updateAttachmentPropertyById(r.attachmentId(), r.propertyId(), r.contentPropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updateAttachmentPropertyById(r.attachmentId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
     /**
@@ -2222,12 +2159,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the blog post to be updated. If you don't know the blog post ID, use Get Blog Posts and filter the results.</li>
      *   <li>updateBlogPostRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<BlogPostSingle> updateBlogPost(Consumer<UpdateBlogPostOperationSpec> spec) {
         UpdateBlogPostOperationSpec r = new UpdateBlogPostOperationSpec(spec);
-        return api.updateBlogPost(r.id(), r.updateBlogPostRequest(), r.serializeIdsAsStrings());
+        return api.updateBlogPost(r.id(), r.updateBlogPostRequest());
     }
 
     /**
@@ -2241,12 +2177,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>blogpostId: The ID of the blog post the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> updateBlogpostPropertyById(Consumer<UpdateBlogpostPropertyByIdOperationSpec> spec) {
         UpdateBlogpostPropertyByIdOperationSpec r = new UpdateBlogpostPropertyByIdOperationSpec(spec);
-        return api.updateBlogpostPropertyById(r.blogpostId(), r.propertyId(), r.contentPropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updateBlogpostPropertyById(r.blogpostId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
     /**
@@ -2260,12 +2195,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>commentId: The ID of the comment the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> updateCommentPropertyById(Consumer<UpdateCommentPropertyByIdOperationSpec> spec) {
         UpdateCommentPropertyByIdOperationSpec r = new UpdateCommentPropertyByIdOperationSpec(spec);
-        return api.updateCommentPropertyById(r.commentId(), r.propertyId(), r.contentPropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updateCommentPropertyById(r.commentId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
     /**
@@ -2278,12 +2212,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the custom content to be updated. If you don't know the custom content ID, use Get Custom Content by Type and filter the results.</li>
      *   <li>updateCustomContentRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<CustomContentSingle> updateCustomContent(Consumer<UpdateCustomContentOperationSpec> spec) {
         UpdateCustomContentOperationSpec r = new UpdateCustomContentOperationSpec(spec);
-        return api.updateCustomContent(r.id(), r.updateCustomContentRequest(), r.serializeIdsAsStrings());
+        return api.updateCustomContent(r.id(), r.updateCustomContentRequest());
     }
 
     /**
@@ -2297,12 +2230,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>customContentId: The ID of the custom content the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> updateCustomContentPropertyById(Consumer<UpdateCustomContentPropertyByIdOperationSpec> spec) {
         UpdateCustomContentPropertyByIdOperationSpec r = new UpdateCustomContentPropertyByIdOperationSpec(spec);
-        return api.updateCustomContentPropertyById(r.customContentId(), r.propertyId(), r.contentPropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updateCustomContentPropertyById(r.customContentId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
     /**
@@ -2315,12 +2247,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>commentId: The ID of the comment to be retrieved.</li>
      *   <li>updateFooterCommentModel: The footer comment to be created</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<FooterCommentModel> updateFooterComment(Consumer<UpdateFooterCommentOperationSpec> spec) {
         UpdateFooterCommentOperationSpec r = new UpdateFooterCommentOperationSpec(spec);
-        return api.updateFooterComment(r.commentId(), r.updateFooterCommentModel(), r.serializeIdsAsStrings());
+        return api.updateFooterComment(r.commentId(), r.updateFooterCommentModel());
     }
 
     /**
@@ -2333,12 +2264,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>commentId: The ID of the comment to be retrieved.</li>
      *   <li>updateInlineCommentModel: The inline comment to be updated</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<InlineCommentModel> updateInlineComment(Consumer<UpdateInlineCommentOperationSpec> spec) {
         UpdateInlineCommentOperationSpec r = new UpdateInlineCommentOperationSpec(spec);
-        return api.updateInlineComment(r.commentId(), r.updateInlineCommentModel(), r.serializeIdsAsStrings());
+        return api.updateInlineComment(r.commentId(), r.updateInlineCommentModel());
     }
 
     /**
@@ -2351,12 +2281,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the page to be updated. If you don't know the page ID, use Get Pages and filter the results.</li>
      *   <li>updatePageRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<PageSingle> updatePage(Consumer<UpdatePageOperationSpec> spec) {
         UpdatePageOperationSpec r = new UpdatePageOperationSpec(spec);
-        return api.updatePage(r.id(), r.updatePageRequest(), r.serializeIdsAsStrings());
+        return api.updatePage(r.id(), r.updatePageRequest());
     }
 
     /**
@@ -2370,12 +2299,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>pageId: The ID of the page the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<ContentProperty> updatePagePropertyById(Consumer<UpdatePagePropertyByIdOperationSpec> spec) {
         UpdatePagePropertyByIdOperationSpec r = new UpdatePagePropertyByIdOperationSpec(spec);
-        return api.updatePagePropertyById(r.pageId(), r.propertyId(), r.contentPropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updatePagePropertyById(r.pageId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
     /**
@@ -2389,12 +2317,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      *   <li>spaceId: The ID of the space the property belongs to.</li>
      *   <li>propertyId: The ID of the property to be updated.</li>
      *   <li>spacePropertyUpdateRequest: The space property to be updated.</li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<SpaceProperty> updateSpacePropertyById(Consumer<UpdateSpacePropertyByIdOperationSpec> spec) {
         UpdateSpacePropertyByIdOperationSpec r = new UpdateSpacePropertyByIdOperationSpec(spec);
-        return api.updateSpacePropertyById(r.spaceId(), r.propertyId(), r.spacePropertyUpdateRequest(), r.serializeIdsAsStrings());
+        return api.updateSpacePropertyById(r.spaceId(), r.propertyId(), r.spacePropertyUpdateRequest());
     }
 
     /**
@@ -2406,12 +2333,11 @@ public class ConfluenceRESTV2AsyncConsumerApi {
      * <ul>
      *   <li>id: The ID of the task to be updated. If you don't know the task ID, use Get tasks and filter the results.</li>
      *   <li>updateTaskRequest: </li>
-     *   <li>serializeIdsAsStrings: Due to JavaScript's max integer representation of 2^53-1, the type of any IDs returned in the response body for this endpoint will be changed from a numeric type to a string type at the end of the deprecation period. In the meantime, this query param can be passed to this endpoint to opt-in to this change now. See this [changelog](https://developer.atlassian.com/cloud/confluence/changelog/#CHANGE-905) for more detail.</li>
      * </ul>
      */
     public CompletableFuture<Task> updateTask(Consumer<UpdateTaskOperationSpec> spec) {
         UpdateTaskOperationSpec r = new UpdateTaskOperationSpec(spec);
-        return api.updateTask(r.id(), r.updateTaskRequest(), r.serializeIdsAsStrings());
+        return api.updateTask(r.id(), r.updateTaskRequest());
     }
 
 }
