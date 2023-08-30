@@ -1,0 +1,24 @@
+modules:
+  # source: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
+  - name: confluence-rest-v1
+    dir: rest-v1
+    spec_url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
+    spec_file: openapi.json
+    spec_script: |
+      jq '.info.title="Confluence REST V1"' "$1" | sponge "$1" # overwrite name
+      jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
+      jq '.components.schemas.GenericLinks.additionalProperties={"type": "string"}' "$1" | sponge "$1"
+      jq 'walk(if type == "object" and .additionalProperties and (.properties | length > 0) then del(.additionalProperties) else . end)' "$1" | sponge "$1" # remove additionalProperties from all schemas
+  # source: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/#about
+  - name: confluence-rest-v2
+    dir: rest-v2
+    spec_url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
+    spec_file: openapi.json
+    spec_script: |
+      jq '.info.title="Confluence REST V2"' "$1" | sponge "$1" # overwrite name
+      jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
+      jq 'del(.servers[0].variables)' "$1" | sponge "$1" # remove variables
+      properties=("id" "spaceId" "pageId" "blogPostId" "customContentId" "parentId" "homepageId" "localId" "parentCommentId")
+      for property in "${properties[@]}"; do
+        jq "walk(if type == \"object\" and .properties and .properties.$property and .properties.$property.oneOf then .properties.$property.format = \"int64\" | .properties.$property.type = \"integer\" | del(.properties.$property.oneOf) else . end)" "$1" | sponge "$1"
+      done
