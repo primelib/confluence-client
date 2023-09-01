@@ -9,6 +9,23 @@ modules:
       jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
       jq '.components.schemas.GenericLinks.additionalProperties={"type": "string"}' "$1" | sponge "$1"
       jq 'walk(if type == "object" and .additionalProperties and (.properties | length > 0) then del(.additionalProperties) else . end)' "$1" | sponge "$1" # remove additionalProperties from all schemas
+    config:
+      generatorName: prime-client-java-feign
+      invokerPackage: io.github.primelib.confluence4j.rest.v1
+      apiPackage: io.github.primelib.confluence4j.rest.v1.api
+      modelPackage: io.github.primelib.confluence4j.rest.v1.model
+      enablePostProcessFile: true
+      globalProperty:
+        supportingFiles: false
+      additionalProperties:
+        projectName: confluence4j-rest-v1
+        projectDescription: A Java Wrapper for the Confluence REST API
+        projectArtifactGroupId: io.github.primelib
+        projectArtifactId: confluence4j-rest-v1
+        projectMaintainerId: PhilippHeuer
+        projectMaintainerName: Philipp Heuer
+        projectMaintainerEMail: git@philippheuer.me
+        jsonIncludeNonNull: true
   # source: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/#about
   - name: confluence-rest-v2
     dir: rest-v2
@@ -22,3 +39,20 @@ modules:
       for property in "${properties[@]}"; do
         jq "walk(if type == \"object\" and .properties and .properties.$property and .properties.$property.oneOf then .properties.$property.format = \"int64\" | .properties.$property.type = \"integer\" | del(.properties.$property.oneOf) else . end)" "$1" | sponge "$1"
       done
+    config:
+      generatorName: prime-client-java-feign
+      invokerPackage: io.github.primelib.confluence4j.rest.v2
+      apiPackage: io.github.primelib.confluence4j.rest.v2.api
+      modelPackage: io.github.primelib.confluence4j.rest.v2.model
+      enablePostProcessFile: true
+      globalProperty:
+        supportingFiles: false
+      additionalProperties:
+        projectName: confluence4j-rest-v2
+        projectDescription: A Java Wrapper for the Confluence REST API
+        projectArtifactGroupId: io.github.primelib
+        projectArtifactId: confluence4j-rest-v2
+        projectMaintainerId: PhilippHeuer
+        projectMaintainerName: Philipp Heuer
+        projectMaintainerEMail: git@philippheuer.me
+        jsonIncludeNonNull: true
