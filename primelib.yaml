@@ -1,9 +1,11 @@
+release: true
 modules:
   # source: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
   - name: confluence-rest-v1
     dir: rest-v1
     spec_url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
     spec_file: openapi.json
+    spec_format: openapi
     spec_script: |
       jq '.info.title="Confluence REST V1"' "$1" | sponge "$1" # overwrite name
       jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
@@ -31,6 +33,7 @@ modules:
     dir: rest-v2
     spec_url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
     spec_file: openapi.json
+    spec_format: openapi
     spec_script: |
       jq '.info.title="Confluence REST V2"' "$1" | sponge "$1" # overwrite name
       jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
