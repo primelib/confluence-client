@@ -31,6 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "blogPostId",
     "pageId",
     "parentCommentId",
+    "attachmentId",
     "body"
 })
 @JsonTypeName("CreateFooterCommentModel")
@@ -55,6 +56,12 @@ public class CreateFooterCommentModel {
     @JsonProperty("parentCommentId")
     protected String parentCommentId;
 
+    /**
+     * ID of the attachment, if intending to create a comment against an attachment
+     */
+    @JsonProperty("attachmentId")
+    protected String attachmentId;
+
     @JsonProperty("body")
     protected CreateFooterCommentModelBody body;
 
@@ -74,13 +81,15 @@ public class CreateFooterCommentModel {
      * @param blogPostId ID of the containing blog post, if intending to create a top level footer comment. Do not provide if creating a reply.
      * @param pageId ID of the containing page, if intending to create a top level footer comment. Do not provide if creating a reply.
      * @param parentCommentId ID of the parent comment, if intending to create a reply. Do not provide if creating a top level comment.
+     * @param attachmentId ID of the attachment, if intending to create a comment against an attachment
      * @param body body
      */
     @ApiStatus.Internal
-    public CreateFooterCommentModel(String blogPostId, String pageId, String parentCommentId, CreateFooterCommentModelBody body) {
+    public CreateFooterCommentModel(String blogPostId, String pageId, String parentCommentId, String attachmentId, CreateFooterCommentModelBody body) {
         this.blogPostId = blogPostId;
         this.pageId = pageId;
         this.parentCommentId = parentCommentId;
+        this.attachmentId = attachmentId;
         this.body = body;
     }
 

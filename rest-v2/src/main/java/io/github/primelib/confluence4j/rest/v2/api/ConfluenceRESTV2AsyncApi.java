@@ -36,6 +36,7 @@ import io.github.primelib.confluence4j.rest.v2.model.LabelSortOrder;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAncestor;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachment;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachment1;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachmentCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPost;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPostCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPostInlineCommentModel;
@@ -48,6 +49,7 @@ import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultFooterComm
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentChildrenModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultLabel;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultLabel1;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPage;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPageCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPageInlineCommentModel;
@@ -223,7 +225,9 @@ public interface ConfluenceRESTV2AsyncApi {
     /**
      * Create footer comment
      * <p>
-     * Create a footer comment. This can be at the top level (specifying pageId or blogPostId in the request body) or as a reply (specifying parentCommentId in the request body).
+     * Create a footer comment.
+     * The footer comment can be made against several locations:
+     * - at the top level (specifying pageId or blogPostId in the request body) - as a reply (specifying parentCommentId in the request body) - against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.
      *
      * Authentication - Required Scopes: [write:comment:confluence]
@@ -508,6 +512,25 @@ public interface ConfluenceRESTV2AsyncApi {
     CompletableFuture<Attachment> getAttachmentById(@Param("id") @NotNull String id, @Param("version") @Nullable Integer version);
 
     /**
+     * Get attachment comments
+     * <p>
+     * Returns the comments of the specific attachment. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the attachment and its corresponding containers.
+     *
+     * Authentication - Required Scopes: [read:comment:confluence]
+     * @param id                   The ID of the attachment for which comments should be returned. (required)
+     * @param bodyFormat           The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
+     * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
+     * @param limit                Maximum number of comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
+     * @param sort                 Used to sort the result by a particular field. (optional)
+     */
+    @RequestLine("GET /attachments/{id}/footer-comments?body-format={bodyFormat}&cursor={cursor}&limit={limit}&sort={sort}")
+    @Headers({
+        "Accept: application/json"
+    })
+    CompletableFuture<MultiEntityResultAttachmentCommentModel> getAttachmentComments(@Param("id") @NotNull String id, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit, @Param("sort") @Nullable CommentSortOrder sort);
+
+    /**
      * Get content properties for attachment
      * <p>
      * Retrieves all Content Properties tied to a specified attachment.
@@ -574,7 +597,7 @@ public interface ConfluenceRESTV2AsyncApi {
     @Headers({
         "Accept: application/json"
     })
-    CompletableFuture<PermittedOperationsResponse> getAttachmentOperations(@Param("id") @NotNull Long id);
+    CompletableFuture<PermittedOperationsResponse> getAttachmentOperations(@Param("id") @NotNull String id);
 
     /**
      * Get version details for attachment version
@@ -1510,6 +1533,24 @@ public interface ConfluenceRESTV2AsyncApi {
     CompletableFuture<MultiEntityResultPage> getLabelPages(@Param("id") @NotNull Long id, @Param("spaceId") @Nullable List<Long> spaceId, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat, @Param("sort") @Nullable PageSortOrder sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
+     * Get labels
+     * <p>
+     * Returns all labels. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to access the Confluence site ('Can use' global permission). Only labels that the user has permission to view will be returned.
+     *
+     * @param labelId              Filters on label ID. Multiple IDs can be specified as a comma-separated list. (optional)
+     * @param prefix               Filters on label prefix. Multiple IDs can be specified as a comma-separated list. (optional)
+     * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
+     * @param sort                 Used to sort the result by a particular field. (optional)
+     * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
+     */
+    @RequestLine("GET /labels?label-id={labelId}&prefix={prefix}&cursor={cursor}&sort={sort}&limit={limit}")
+    @Headers({
+        "Accept: application/json"
+    })
+    CompletableFuture<MultiEntityResultLabel1> getLabels(@Param("labelId") @Nullable List<Long> labelId, @Param("prefix") @Nullable List<String> prefix, @Param("cursor") @Nullable String cursor, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("limit") @Nullable Integer limit);
+
+    /**
      * Get all ancestors of page
      * <p>
      * Returns all ancestors for a given page by ID in top-to-bottom order (that is, the highest ancestor is the first item in the response payload). The number of results is limited by the {@code limit} parameter and additional results (if available) will be available by calling this endpoint with the ID of first ancestor in the response payload.
@@ -1798,6 +1839,44 @@ public interface ConfluenceRESTV2AsyncApi {
         "Accept: application/json"
     })
     CompletableFuture<Space> getSpaceById(@Param("id") @NotNull Long id, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon);
+
+    /**
+     * Get labels for space content
+     * <p>
+     * Returns the labels of space content (pages, blogposts etc). The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the space.
+     *
+     * Authentication - Required Scopes: [read:space:confluence]
+     * @param id                   The ID of the space for which labels should be returned. (required)
+     * @param prefix               Filter the results to labels based on their prefix. (optional, defaults to my, team)
+     * @param sort                 Used to sort the result by a particular field. (optional)
+     * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
+     * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
+     */
+    @RequestLine("GET /spaces/{id}/content/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
+    @Headers({
+        "Accept: application/json"
+    })
+    CompletableFuture<MultiEntityResultLabel> getSpaceContentLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
+
+    /**
+     * Get labels for space
+     * <p>
+     * Returns the labels of specific space. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the space.
+     *
+     * Authentication - Required Scopes: [read:space:confluence]
+     * @param id                   The ID of the space for which labels should be returned. (required)
+     * @param prefix               Filter the results to labels based on their prefix. (optional, defaults to my, team)
+     * @param sort                 Used to sort the result by a particular field. (optional)
+     * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
+     * @param limit                Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
+     */
+    @RequestLine("GET /spaces/{id}/labels?prefix={prefix}&sort={sort}&cursor={cursor}&limit={limit}")
+    @Headers({
+        "Accept: application/json"
+    })
+    CompletableFuture<MultiEntityResultLabel> getSpaceLabels(@Param("id") @NotNull Long id, @Param("prefix") @Nullable String prefix, @Param("sort") @Nullable List<LabelSortOrder> sort, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get permitted operations for space

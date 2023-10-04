@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * MultiEntityResultFooterCommentModel
+ * MultiEntityResultAttachmentCommentModel
  *
  */
 @Getter
@@ -32,34 +32,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "results",
     "_links"
 })
-@JsonTypeName("MultiEntityResult_FooterCommentModel_")
+@JsonTypeName("MultiEntityResult_AttachmentCommentModel_")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class MultiEntityResultFooterCommentModel {
+public class MultiEntityResultAttachmentCommentModel {
 
     @JsonProperty("results")
-    protected List<FooterCommentModel> results;
+    protected List<AttachmentCommentModel> results;
 
     @JsonProperty("_links")
     protected MultiEntityResultAttachmentLinks _links;
 
     /**
-     * Constructs a validated instance of {@link MultiEntityResultFooterCommentModel}.
+     * Constructs a validated instance of {@link MultiEntityResultAttachmentCommentModel}.
      *
      * @param spec the specification to process
      */
-    public MultiEntityResultFooterCommentModel(Consumer<MultiEntityResultFooterCommentModel> spec) {
+    public MultiEntityResultAttachmentCommentModel(Consumer<MultiEntityResultAttachmentCommentModel> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link MultiEntityResultFooterCommentModel}.
+     * Constructs a validated instance of {@link MultiEntityResultAttachmentCommentModel}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MultiEntityResultFooterCommentModel(Consumer)} instead.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MultiEntityResultAttachmentCommentModel(Consumer)} instead.
      * @param results results
      * @param _links _links
      */
     @ApiStatus.Internal
-    public MultiEntityResultFooterCommentModel(List<FooterCommentModel> results, MultiEntityResultAttachmentLinks _links) {
+    public MultiEntityResultAttachmentCommentModel(List<AttachmentCommentModel> results, MultiEntityResultAttachmentLinks _links) {
         this.results = results;
         this._links = _links;
     }

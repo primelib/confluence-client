@@ -14,6 +14,7 @@ import io.github.primelib.confluence4j.rest.v2.model.InlineCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAncestor;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachment;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachment1;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultAttachmentCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPost;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPostCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultBlogPostInlineCommentModel;
@@ -26,6 +27,7 @@ import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultFooterComm
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentChildrenModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultLabel;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultLabel1;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPage;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPageCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultPageInlineCommentModel;
@@ -74,6 +76,7 @@ import io.github.primelib.confluence4j.rest.v2.spec.DeletePageOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeletePagePropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeleteSpacePropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentByIdOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentCommentsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentContentPropertiesOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentContentPropertiesByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentLabelsOperationSpec;
@@ -130,6 +133,7 @@ import io.github.primelib.confluence4j.rest.v2.spec.GetInlineLikeUsersOperationS
 import io.github.primelib.confluence4j.rest.v2.spec.GetLabelAttachmentsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetLabelBlogPostsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetLabelPagesOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetLabelsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetPageAncestorsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetPageAttachmentsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetPageByIdOperationSpec;
@@ -146,6 +150,8 @@ import io.github.primelib.confluence4j.rest.v2.spec.GetPageVersionsOperationSpec
 import io.github.primelib.confluence4j.rest.v2.spec.GetPagesOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetPagesInSpaceOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetSpaceByIdOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetSpaceContentLabelsOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetSpaceLabelsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetSpaceOperationsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetSpacePermissionsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetSpacePropertiesOperationSpec;
@@ -310,7 +316,9 @@ public class ConfluenceRESTV2AsyncConsumerApi {
     /**
      * Create footer comment
      * <p>
-     * Create a footer comment. This can be at the top level (specifying pageId or blogPostId in the request body) or as a reply (specifying parentCommentId in the request body).
+     * Create a footer comment.
+     * The footer comment can be made against several locations:
+     * - at the top level (specifying pageId or blogPostId in the request body) - as a reply (specifying parentCommentId in the request body) - against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
@@ -605,6 +613,26 @@ public class ConfluenceRESTV2AsyncConsumerApi {
     public CompletableFuture<Attachment> getAttachmentById(Consumer<GetAttachmentByIdOperationSpec> spec) {
         GetAttachmentByIdOperationSpec r = new GetAttachmentByIdOperationSpec(spec);
         return api.getAttachmentById(r.id(), r.version());
+    }
+
+    /**
+     * Get attachment comments
+     * <p>
+     * Returns the comments of the specific attachment. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the attachment and its corresponding containers.
+     * Authentication - Required Scopes: [read:comment:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the attachment for which comments should be returned.</li>
+     *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     * </ul>
+     */
+    public CompletableFuture<MultiEntityResultAttachmentCommentModel> getAttachmentComments(Consumer<GetAttachmentCommentsOperationSpec> spec) {
+        GetAttachmentCommentsOperationSpec r = new GetAttachmentCommentsOperationSpec(spec);
+        return api.getAttachmentComments(r.id(), r.bodyFormat(), r.cursor(), r.limit(), r.sort());
     }
 
     /**
@@ -1666,6 +1694,25 @@ public class ConfluenceRESTV2AsyncConsumerApi {
     }
 
     /**
+     * Get labels
+     * <p>
+     * Returns all labels. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to access the Confluence site ('Can use' global permission). Only labels that the user has permission to view will be returned.
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>labelId: Filters on label ID. Multiple IDs can be specified as a comma-separated list.</li>
+     *   <li>prefix: Filters on label prefix. Multiple IDs can be specified as a comma-separated list.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     * </ul>
+     */
+    public CompletableFuture<MultiEntityResultLabel1> getLabels(Consumer<GetLabelsOperationSpec> spec) {
+        GetLabelsOperationSpec r = new GetLabelsOperationSpec(spec);
+        return api.getLabels(r.labelId(), r.prefix(), r.cursor(), r.sort(), r.limit());
+    }
+
+    /**
      * Get all ancestors of page
      * <p>
      * Returns all ancestors for a given page by ID in top-to-bottom order (that is, the highest ancestor is the first item in the response payload). The number of results is limited by the {@code limit} parameter and additional results (if available) will be available by calling this endpoint with the ID of first ancestor in the response payload.
@@ -1969,6 +2016,46 @@ public class ConfluenceRESTV2AsyncConsumerApi {
     public CompletableFuture<Space> getSpaceById(Consumer<GetSpaceByIdOperationSpec> spec) {
         GetSpaceByIdOperationSpec r = new GetSpaceByIdOperationSpec(spec);
         return api.getSpaceById(r.id(), r.descriptionFormat(), r.includeIcon());
+    }
+
+    /**
+     * Get labels for space content
+     * <p>
+     * Returns the labels of space content (pages, blogposts etc). The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the space.
+     * Authentication - Required Scopes: [read:space:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the space for which labels should be returned.</li>
+     *   <li>prefix: Filter the results to labels based on their prefix.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     * </ul>
+     */
+    public CompletableFuture<MultiEntityResultLabel> getSpaceContentLabels(Consumer<GetSpaceContentLabelsOperationSpec> spec) {
+        GetSpaceContentLabelsOperationSpec r = new GetSpaceContentLabelsOperationSpec(spec);
+        return api.getSpaceContentLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
+    }
+
+    /**
+     * Get labels for space
+     * <p>
+     * Returns the labels of specific space. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the space.
+     * Authentication - Required Scopes: [read:space:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the space for which labels should be returned.</li>
+     *   <li>prefix: Filter the results to labels based on their prefix.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of labels per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     * </ul>
+     */
+    public CompletableFuture<MultiEntityResultLabel> getSpaceLabels(Consumer<GetSpaceLabelsOperationSpec> spec) {
+        GetSpaceLabelsOperationSpec r = new GetSpaceLabelsOperationSpec(spec);
+        return api.getSpaceLabels(r.id(), r.prefix(), r.sort(), r.cursor(), r.limit());
     }
 
     /**
