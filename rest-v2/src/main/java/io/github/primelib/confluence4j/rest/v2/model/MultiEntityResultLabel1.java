@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * MultiEntityResultFooterCommentModel
+ * MultiEntityResultLabel1
  *
  */
 @Getter
@@ -29,39 +29,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
-    "results",
-    "_links"
+    "results"
 })
-@JsonTypeName("MultiEntityResult_FooterCommentModel_")
+@JsonTypeName("MultiEntityResult_Label__1")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class MultiEntityResultFooterCommentModel {
+public class MultiEntityResultLabel1 {
 
     @JsonProperty("results")
-    protected List<FooterCommentModel> results;
-
-    @JsonProperty("_links")
-    protected MultiEntityResultAttachmentLinks _links;
+    protected List<Label> results;
 
     /**
-     * Constructs a validated instance of {@link MultiEntityResultFooterCommentModel}.
+     * Constructs a validated instance of {@link MultiEntityResultLabel1}.
      *
      * @param spec the specification to process
      */
-    public MultiEntityResultFooterCommentModel(Consumer<MultiEntityResultFooterCommentModel> spec) {
+    public MultiEntityResultLabel1(Consumer<MultiEntityResultLabel1> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link MultiEntityResultFooterCommentModel}.
+     * Constructs a validated instance of {@link MultiEntityResultLabel1}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MultiEntityResultFooterCommentModel(Consumer)} instead.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MultiEntityResultLabel1(Consumer)} instead.
      * @param results results
-     * @param _links _links
      */
     @ApiStatus.Internal
-    public MultiEntityResultFooterCommentModel(List<FooterCommentModel> results, MultiEntityResultAttachmentLinks _links) {
+    public MultiEntityResultLabel1(List<Label> results) {
         this.results = results;
-        this._links = _links;
     }
 
 }

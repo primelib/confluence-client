@@ -38,7 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "createdAt",
     "homepageId",
     "description",
-    "icon"
+    "icon",
+    "_links"
 })
 @JsonTypeName("Space")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
@@ -92,6 +93,9 @@ public class Space {
     @JsonProperty("icon")
     protected SpaceIcon icon;
 
+    @JsonProperty("_links")
+    protected SpaceLinks _links;
+
     /**
      * Constructs a validated instance of {@link Space}.
      *
@@ -115,9 +119,10 @@ public class Space {
      * @param homepageId ID of the space's homepage.
      * @param description description
      * @param icon icon
+     * @param _links _links
      */
     @ApiStatus.Internal
-    public Space(String id, String key, String name, SpaceType type, SpaceStatus status, String authorId, OffsetDateTime createdAt, String homepageId, SpaceDescription description, SpaceIcon icon) {
+    public Space(String id, String key, String name, SpaceType type, SpaceStatus status, String authorId, OffsetDateTime createdAt, String homepageId, SpaceDescription description, SpaceIcon icon, SpaceLinks _links) {
         this.id = id;
         this.key = key;
         this.name = name;
@@ -128,6 +133,7 @@ public class Space {
         this.homepageId = homepageId;
         this.description = description;
         this.icon = icon;
+        this._links = _links;
     }
 
 }

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * FooterCommentModel
+ * AttachmentCommentModel
  *
  */
 @Getter
@@ -31,17 +31,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "id",
     "status",
     "title",
-    "blogPostId",
-    "pageId",
     "attachmentId",
-    "parentCommentId",
     "version",
     "body",
     "_links"
 })
-@JsonTypeName("FooterCommentModel")
+@JsonTypeName("AttachmentCommentModel")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class FooterCommentModel {
+public class AttachmentCommentModel {
 
     /**
      * ID of the comment.
@@ -59,28 +56,10 @@ public class FooterCommentModel {
     protected String title;
 
     /**
-     * ID of the blog post containing the comment if the comment is on a blog post.
-     */
-    @JsonProperty("blogPostId")
-    protected String blogPostId;
-
-    /**
-     * ID of the page containing the comment if the comment is on a page.
-     */
-    @JsonProperty("pageId")
-    protected String pageId;
-
-    /**
-     * ID of the page containing the comment if the comment is on an attachment.
+     * ID of the attachment containing the comment.
      */
     @JsonProperty("attachmentId")
     protected String attachmentId;
-
-    /**
-     * ID of the parent comment if the comment is a reply.
-     */
-    @JsonProperty("parentCommentId")
-    protected String parentCommentId;
 
     @JsonProperty("version")
     protected Version version;
@@ -92,38 +71,32 @@ public class FooterCommentModel {
     protected CommentLinks _links;
 
     /**
-     * Constructs a validated instance of {@link FooterCommentModel}.
+     * Constructs a validated instance of {@link AttachmentCommentModel}.
      *
      * @param spec the specification to process
      */
-    public FooterCommentModel(Consumer<FooterCommentModel> spec) {
+    public AttachmentCommentModel(Consumer<AttachmentCommentModel> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link FooterCommentModel}.
+     * Constructs a validated instance of {@link AttachmentCommentModel}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #FooterCommentModel(Consumer)} instead.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AttachmentCommentModel(Consumer)} instead.
      * @param id ID of the comment.
      * @param status status
      * @param title Title of the comment.
-     * @param blogPostId ID of the blog post containing the comment if the comment is on a blog post.
-     * @param pageId ID of the page containing the comment if the comment is on a page.
-     * @param attachmentId ID of the page containing the comment if the comment is on an attachment.
-     * @param parentCommentId ID of the parent comment if the comment is a reply.
+     * @param attachmentId ID of the attachment containing the comment.
      * @param version version
      * @param body body
      * @param _links _links
      */
     @ApiStatus.Internal
-    public FooterCommentModel(String id, ContentStatus status, String title, String blogPostId, String pageId, String attachmentId, String parentCommentId, Version version, BodySingle body, CommentLinks _links) {
+    public AttachmentCommentModel(String id, ContentStatus status, String title, String attachmentId, Version version, BodySingle body, CommentLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;
-        this.blogPostId = blogPostId;
-        this.pageId = pageId;
         this.attachmentId = attachmentId;
-        this.parentCommentId = parentCommentId;
         this.version = version;
         this.body = body;
         this._links = _links;

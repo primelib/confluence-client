@@ -42,7 +42,7 @@ public class GetAttachmentOperationsOperationSpec {
      * The ID of the attachment for which operations should be returned.
      */
     @NotNull 
-    private Long id;
+    private String id;
 
     /**
      * Constructs a validated instance of {@link GetAttachmentOperationsOperationSpec}.
@@ -63,7 +63,7 @@ public class GetAttachmentOperationsOperationSpec {
      * @param id                   The ID of the attachment for which operations should be returned.
      */
     @ApiStatus.Internal
-    public GetAttachmentOperationsOperationSpec(Long id) {
+    public GetAttachmentOperationsOperationSpec(String id) {
         this.id = id;
 
         if (VALIDATION_ENABLED)

@@ -519,8 +519,8 @@
             "required": true,
             "description": "The ID of the attachment for which operations should be returned.",
             "schema": {
-              "format": "int64",
-              "type": "integer"
+              "type": "string",
+              "pattern": "(att)?[0-9]+"
             }
           }
         ],
@@ -1202,6 +1202,137 @@
             "state": "Current",
             "scopes": [
               "read:attachment:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ"
+      }
+    },
+    "/attachments/{id}/footer-comments": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "operationId": "getAttachmentComments",
+        "summary": "Get attachment comments",
+        "description": "Returns the comments of the specific attachment.\nThe number of results is limited by the `limit` parameter and additional results (if available) will be available through\nthe `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the attachment and its corresponding containers.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the attachment for which comments should be returned.",
+            "schema": {
+              "type": "string",
+              "pattern": "(att)?[0-9]+"
+            }
+          },
+          {
+            "name": "body-format",
+            "in": "query",
+            "required": false,
+            "description": "The content format type to be returned in the `body` field of the response. If available, the representation will be available under a response field of the same name under the `body` field.",
+            "schema": {
+              "$ref": "#/components/schemas/PrimaryBodyRepresentation"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of comments per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "$ref": "#/components/schemas/CommentSortOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the attachment comments were successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<AttachmentCommentModel>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AttachmentCommentModel"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/attachments/<id>/comments?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nattachment or associated containers.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:comment:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:comment:confluence"
             ]
           }
         ],
@@ -4291,6 +4422,131 @@
         "x-atlassian-connect-scope": "WRITE"
       }
     },
+    "/labels": {
+      "get": {
+        "tags": [
+          "Label"
+        ],
+        "operationId": "getLabels",
+        "summary": "Get labels",
+        "description": "Returns all labels. The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).\nOnly labels that the user has permission to view will be returned.",
+        "parameters": [
+          {
+            "name": "label-id",
+            "in": "query",
+            "required": false,
+            "description": "Filters on label ID. Multiple IDs can be specified as a comma-separated list.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "description": "Filters on label prefix. Multiple IDs can be specified as a comma-separated list.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/components/schemas/LabelSortOrder"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of labels per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested labels are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<Label>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Label"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/labels?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:label:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:label:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ"
+      }
+    },
     "/labels/{id}/attachments": {
       "get": {
         "tags": [
@@ -7127,6 +7383,284 @@
         "x-atlassian-connect-scope": "READ"
       }
     },
+    "/spaces/{id}/labels": {
+      "get": {
+        "tags": [
+          "Label"
+        ],
+        "operationId": "getSpaceLabels",
+        "summary": "Get labels for space",
+        "description": "Returns the labels of specific space. The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the space.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the space for which labels should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to labels based on their prefix.",
+            "schema": {
+              "default": "my, team",
+              "type": "string",
+              "enum": [
+                "my",
+                "team"
+              ]
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/components/schemas/LabelSortOrder"
+              }
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of labels per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested labels are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<Label>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Label"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/spaces/<id>/labels?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nrequested space or the space was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ"
+      }
+    },
+    "/spaces/{id}/content/labels": {
+      "get": {
+        "tags": [
+          "Label"
+        ],
+        "operationId": "getSpaceContentLabels",
+        "summary": "Get labels for space content",
+        "description": "Returns the labels of space content (pages, blogposts etc). The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the space.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the space for which labels should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to labels based on their prefix.",
+            "schema": {
+              "default": "my, team",
+              "type": "string",
+              "enum": [
+                "my",
+                "team"
+              ]
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "type": "string",
+              "items": {
+                "$ref": "#/components/schemas/LabelSortOrder"
+              }
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of labels per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested labels are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<Label>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Label"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/spaces/<id>/labels?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nrequested space or the space was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ"
+      }
+    },
     "/spaces/{id}/custom-content": {
       "get": {
         "tags": [
@@ -8621,7 +9155,7 @@
                     "results": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/InlineCommentModel"
+                        "$ref": "#/components/schemas/FooterCommentModel"
                       }
                     },
                     "_links": {
@@ -8682,7 +9216,7 @@
         ],
         "operationId": "createFooterComment",
         "summary": "Create footer comment",
-        "description": "Create a footer comment. This can be at the top level (specifying pageId or blogPostId in the request body)\nor as a reply (specifying parentCommentId in the request body).\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
+        "description": "Create a footer comment.\n\nThe footer comment can be made against several locations: \n- at the top level (specifying pageId or blogPostId in the request body)\n- as a reply (specifying parentCommentId in the request body)\n- against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
         "requestBody": {
           "description": "The footer comment to be created",
           "content": {
@@ -8722,7 +9256,7 @@
             "content": {}
           },
           "404": {
-            "description": "Returned if:\n- The page/blog post was not found\n- The calling user does not have permission to view the parent page/blog post\n- The user is forbidden from creating a comment tied to a resource they are allowed to view",
+            "description": "Returned if:\n- The page, blog post, parent comment, or attachment was not found\n- The calling user does not have permission to view the parent page/blog post\n- The user is forbidden from creating a comment tied to a resource they are allowed to view",
             "content": {}
           }
         },
@@ -13268,6 +13802,9 @@
           },
           "icon": {
             "$ref": "#/components/schemas/SpaceIcon"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/SpaceLinks"
           }
         }
       },
@@ -13290,6 +13827,10 @@
           "path": {
             "type": "string",
             "description": "The path (relative to base URL) at which the space's icon can be retrieved. The format should be like `/wiki/download/...` or `/wiki/aa-avatar/...`"
+          },
+          "apiDownloadLink": {
+            "type": "string",
+            "description": "The path (relative to base URL) that can be used to retrieve a link to download the space icon. 3LO apps should use this link instead of the value provided\nin the `path` property to retrieve the icon.\n\nCurrently this field is only returned for `global` spaces and not `personal` spaces.\n"
           }
         }
       },
@@ -14066,6 +14607,35 @@
           }
         }
       },
+      "AttachmentCommentModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the comment."
+          },
+          "status": {
+            "$ref": "#/components/schemas/ContentStatus"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the comment."
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "ID of the attachment containing the comment."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "body": {
+            "$ref": "#/components/schemas/BodySingle"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/CommentLinks"
+          }
+        }
+      },
       "FooterCommentModel": {
         "type": "object",
         "properties": {
@@ -14087,6 +14657,10 @@
           "pageId": {
             "type": "string",
             "description": "ID of the page containing the comment if the comment is on a page."
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "ID of the page containing the comment if the comment is on an attachment."
           },
           "parentCommentId": {
             "type": "string",
@@ -14169,6 +14743,10 @@
           "parentCommentId": {
             "type": "string",
             "description": "ID of the parent comment, if intending to create a reply. Do not provide if creating a top level comment."
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "ID of the attachment, if intending to create a comment against an attachment"
           },
           "body": {
             "oneOf": [
@@ -14332,6 +14910,15 @@
           "download": {
             "type": "string",
             "description": "Download link of the content."
+          }
+        }
+      },
+      "SpaceLinks": {
+        "type": "object",
+        "properties": {
+          "webui": {
+            "type": "string",
+            "description": "Web UI link of the space."
           }
         }
       }
