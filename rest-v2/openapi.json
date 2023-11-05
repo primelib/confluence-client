@@ -13488,6 +13488,14 @@
             "type": "string",
             "description": "The account ID of the user who created this page originally."
           },
+          "ownerId": {
+            "type": "string",
+            "description": "The account ID of the user who owns this page."
+          },
+          "lastOwnerId": {
+            "type": "string",
+            "description": "The account ID of the user who owned this page previously, or null if there is no previous owner."
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time",
@@ -13538,6 +13546,14 @@
           "authorId": {
             "type": "string",
             "description": "The account ID of the user who created this page originally."
+          },
+          "ownerId": {
+            "type": "string",
+            "description": "The account ID of the user who owns this page."
+          },
+          "lastOwnerId": {
+            "type": "string",
+            "description": "The account ID of the user who owned this page previously, or null if there is no previous owner."
           },
           "createdAt": {
             "type": "string",

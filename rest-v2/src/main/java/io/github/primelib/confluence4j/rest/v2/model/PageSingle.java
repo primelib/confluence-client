@@ -37,6 +37,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "parentType",
     "position",
     "authorId",
+    "ownerId",
+    "lastOwnerId",
     "createdAt",
     "version",
     "body",
@@ -89,6 +91,18 @@ public class PageSingle {
     protected String authorId;
 
     /**
+     * The account ID of the user who owns this page.
+     */
+    @JsonProperty("ownerId")
+    protected String ownerId;
+
+    /**
+     * The account ID of the user who owned this page previously, or null if there is no previous owner.
+     */
+    @JsonProperty("lastOwnerId")
+    protected String lastOwnerId;
+
+    /**
      * Date and time when the page was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      */
     @JsonProperty("createdAt")
@@ -124,13 +138,15 @@ public class PageSingle {
      * @param parentType parentType
      * @param position Position of child page within the given parent page tree.
      * @param authorId The account ID of the user who created this page originally.
+     * @param ownerId The account ID of the user who owns this page.
+     * @param lastOwnerId The account ID of the user who owned this page previously, or null if there is no previous owner.
      * @param createdAt Date and time when the page was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      * @param version version
      * @param body body
      * @param _links _links
      */
     @ApiStatus.Internal
-    public PageSingle(String id, ContentStatus status, String title, String spaceId, String parentId, ContentType parentType, Integer position, String authorId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
+    public PageSingle(String id, ContentStatus status, String title, String spaceId, String parentId, ContentType parentType, Integer position, String authorId, String ownerId, String lastOwnerId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;
@@ -139,6 +155,8 @@ public class PageSingle {
         this.parentType = parentType;
         this.position = position;
         this.authorId = authorId;
+        this.ownerId = ownerId;
+        this.lastOwnerId = lastOwnerId;
         this.createdAt = createdAt;
         this.version = version;
         this.body = body;
