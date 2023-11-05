@@ -158,7 +158,7 @@
           {
             "name": "startDate",
             "in": "query",
-            "description": "Filters the results to the records on or after the `startDate`.\nThe `startDate` must be specified as a [timestamp](https://www.unixtimestamp.com/).",
+            "description": "Filters the results to the records on or after the `startDate`.\nThe `startDate` must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.",
             "schema": {
               "type": "string"
             }
@@ -166,7 +166,7 @@
           {
             "name": "endDate",
             "in": "query",
-            "description": "Filters the results to the records on or before the `endDate`.\nThe `endDate` must be specified as a [timestamp](https://www.unixtimestamp.com/).",
+            "description": "Filters the results to the records on or before the `endDate`.\nThe `endDate` must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.",
             "schema": {
               "type": "string"
             }
@@ -318,7 +318,7 @@
           {
             "name": "startDate",
             "in": "query",
-            "description": "Filters the exported results to the records on or after the `startDate`.\nThe `startDate` must be specified as a [timestamp](https://www.unixtimestamp.com/).",
+            "description": "Filters the exported results to the records on or after the `startDate`.\nThe `startDate` must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.",
             "schema": {
               "type": "string"
             }
@@ -326,7 +326,7 @@
           {
             "name": "endDate",
             "in": "query",
-            "description": "Filters the exported results to the records on or before the `endDate`.\nThe `endDate` must be specified as a [timestamp](https://www.unixtimestamp.com/).",
+            "description": "Filters the exported results to the records on or before the `endDate`.\nThe `endDate` must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.",
             "schema": {
               "type": "string"
             }
@@ -6709,6 +6709,7 @@
           "Content states"
         ],
         "summary": "Bulk set content state of many contents",
+        "deprecated": true,
         "description": "Creates a long running task that sets content state of draft or published versions of pages specified.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**\nContent Edit Permission for a content to have its state set via this endpoint.",
         "operationId": "bulkSetContentStates",
         "parameters": [
@@ -10676,7 +10677,7 @@
           "Themes"
         ],
         "summary": "Get themes",
-        "description": "Returns all [admin-driven themes](https://developer.atlassian.com/cloud/confluence/create-a-confluence-theme/), not including the default theme. Note that this API only applies to themes set for an entire space or site by the admin. User-driven theming controls (Light, Dark, and match browser) are an unrelated feature. Admin-driven themes will override user-driven themes.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None",
+        "description": "Returns all themes, not including the default theme.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None",
         "operationId": "getThemes",
         "parameters": [
           {
@@ -13279,7 +13280,7 @@
           "Experimental"
         ],
         "summary": "Remove label from a space",
-        "description": "",
+        "description": "Removes a label from a space. \n\nNote:\n\n- Either `name` or `labelId` must be provided.",
         "operationId": "deleteLabelFromSpace",
         "parameters": [
           {
@@ -13295,9 +13296,18 @@
             "name": "name",
             "in": "query",
             "description": "The name of the label to remove",
-            "required": true,
+            "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "labelId",
+            "in": "query",
+            "description": "The ID of the label to remove",
+            "required": false,
+            "schema": {
+              "type": "integer"
             }
           },
           {

@@ -453,7 +453,9 @@ public interface ConfluenceRESTV1AsyncApi {
      * Authentication - Required Scopes: [write:confluence-content]
      * @param status               Set status to one of [current,draft]. (required)
      * @param bulkContentStateSetInput The content state and ids to set it to. (required)
+     * @deprecated
      */
+    @Deprecated
     @RequestLine("PUT /wiki/rest/api/content-states?status={status}")
     @Headers({
         "Content-Type: application/json", 
@@ -915,17 +917,22 @@ public interface ConfluenceRESTV1AsyncApi {
 
     /**
      * Remove label from a space
+     * <p>
+     * Removes a label from a space.
+     *  Note:
+     * - Either {@code name} or {@code labelId} must be provided.
      *
      * Authentication - Required Scopes: [write:confluence-space]
      * @param spaceKey             The key of the space to remove a labels from. (required)
-     * @param name                 The name of the label to remove (required)
+     * @param name                 The name of the label to remove (optional)
+     * @param labelId              The ID of the label to remove (optional)
      * @param prefix               The prefix of the label to remove. If not provided defaults to global. (optional)
      */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
+    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&labelId={labelId}&prefix={prefix}")
     @Headers({
         "Accept: application/json"
     })
-    CompletableFuture<Void> deleteLabelFromSpace(@Param("spaceKey") @NotNull String spaceKey, @Param("name") @NotNull String name, @Param("prefix") @Nullable String prefix);
+    CompletableFuture<Void> deleteLabelFromSpace(@Param("spaceKey") @NotNull String spaceKey, @Param("name") @Nullable String name, @Param("labelId") @Nullable Integer labelId, @Param("prefix") @Nullable String prefix);
 
     /**
      * Delete page tree
@@ -1077,8 +1084,8 @@ public interface ConfluenceRESTV1AsyncApi {
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: 'Confluence Administrator' global permission.
      *
      * Authentication - Required Scopes: [read:audit-log:confluence]
-     * @param startDate            Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/). (optional)
-     * @param endDate              Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/). (optional)
+     * @param startDate            Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds. (optional)
+     * @param endDate              Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds. (optional)
      * @param searchString         Filters the exported results to records that have string property values matching the {@code searchString}. (optional)
      * @param format               The format of the export file for the audit records. (optional, defaults to csv)
      */
@@ -1251,8 +1258,8 @@ public interface ConfluenceRESTV1AsyncApi {
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: 'Confluence Administrator' global permission.
      *
      * Authentication - Required Scopes: [read:audit-log:confluence]
-     * @param startDate            Filters the results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/). (optional)
-     * @param endDate              Filters the results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/). (optional)
+     * @param startDate            Filters the results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds. (optional)
+     * @param endDate              Filters the results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds. (optional)
      * @param searchString         Filters the results to records that have string property values matching the {@code searchString}. (optional)
      * @param start                The starting index of the returned records. (optional, defaults to 0)
      * @param limit                The maximum number of records to return per page. Note, this may be restricted by fixed system limits. (optional, defaults to 1000)
@@ -2428,7 +2435,7 @@ public interface ConfluenceRESTV1AsyncApi {
     /**
      * Get themes
      * <p>
-     * Returns all [admin-driven themes](https://developer.atlassian.com/cloud/confluence/create-a-confluence-theme/), not including the default theme. Note that this API only applies to themes set for an entire space or site by the admin. User-driven theming controls (Light, Dark, and match browser) are an unrelated feature. Admin-driven themes will override user-driven themes.
+     * Returns all themes, not including the default theme.
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None
      *
      * Authentication - Required Scopes: [manage:confluence-configuration]
