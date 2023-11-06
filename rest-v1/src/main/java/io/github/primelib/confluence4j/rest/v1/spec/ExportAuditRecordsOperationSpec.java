@@ -38,13 +38,13 @@ public class ExportAuditRecordsOperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).
+     * Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.
      */
     @Nullable 
     private String startDate;
 
     /**
-     * Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).
+     * Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.
      */
     @Nullable 
     private String endDate;
@@ -77,8 +77,8 @@ public class ExportAuditRecordsOperationSpec {
      * Constructs a validated instance of {@link ExportAuditRecordsOperationSpec}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
-     * @param startDate            Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).
-     * @param endDate              Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).
+     * @param startDate            Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.
+     * @param endDate              Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.
      * @param searchString         Filters the exported results to records that have string property values matching the {@code searchString}.
      * @param format               The format of the export file for the audit records.
      */

@@ -598,7 +598,9 @@ public class ConfluenceRESTV1AsyncConsumerApi {
      *   <li>status: Set status to one of [current,draft].</li>
      *   <li>bulkContentStateSetInput: The content state and ids to set it to.</li>
      * </ul>
+     * @deprecated
      */
+    @Deprecated
     public CompletableFuture<AsyncId> bulkSetContentStates(Consumer<BulkSetContentStatesOperationSpec> spec) {
         BulkSetContentStatesOperationSpec r = new BulkSetContentStatesOperationSpec(spec);
         return api.bulkSetContentStates(r.status(), r.bulkContentStateSetInput());
@@ -1062,17 +1064,22 @@ public class ConfluenceRESTV1AsyncConsumerApi {
 
     /**
      * Remove label from a space
+     * <p>
+     * Removes a label from a space.
+     *  Note:
+     * - Either {@code name} or {@code labelId} must be provided.
      * Authentication - Required Scopes: [write:confluence-space]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>spaceKey: The key of the space to remove a labels from.</li>
      *   <li>name: The name of the label to remove</li>
+     *   <li>labelId: The ID of the label to remove</li>
      *   <li>prefix: The prefix of the label to remove. If not provided defaults to global.</li>
      * </ul>
      */
     public CompletableFuture<Void> deleteLabelFromSpace(Consumer<DeleteLabelFromSpaceOperationSpec> spec) {
         DeleteLabelFromSpaceOperationSpec r = new DeleteLabelFromSpaceOperationSpec(spec);
-        return api.deleteLabelFromSpace(r.spaceKey(), r.name(), r.prefix());
+        return api.deleteLabelFromSpace(r.spaceKey(), r.name(), r.labelId(), r.prefix());
     }
 
     /**
@@ -1233,8 +1240,8 @@ public class ConfluenceRESTV1AsyncConsumerApi {
      * Authentication - Required Scopes: [read:audit-log:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
-     *   <li>startDate: Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).</li>
-     *   <li>endDate: Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).</li>
+     *   <li>startDate: Filters the exported results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.</li>
+     *   <li>endDate: Filters the exported results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.</li>
      *   <li>searchString: Filters the exported results to records that have string property values matching the {@code searchString}.</li>
      *   <li>format: The format of the export file for the audit records.</li>
      * </ul>
@@ -1415,8 +1422,8 @@ public class ConfluenceRESTV1AsyncConsumerApi {
      * Authentication - Required Scopes: [read:audit-log:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
-     *   <li>startDate: Filters the results to the records on or after the {@code startDate}. The {@code startDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).</li>
-     *   <li>endDate: Filters the results to the records on or before the {@code endDate}. The {@code endDate} must be specified as a [timestamp](https://www.unixtimestamp.com/).</li>
+     *   <li>startDate: Filters the results to the records on or after the {@code startDate}. The {@code startDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.</li>
+     *   <li>endDate: Filters the results to the records on or before the {@code endDate}. The {@code endDate} must be specified as [epoch time](https://www.epochconverter.com/) in milliseconds.</li>
      *   <li>searchString: Filters the results to records that have string property values matching the {@code searchString}.</li>
      *   <li>start: The starting index of the returned records.</li>
      *   <li>limit: The maximum number of records to return per page. Note, this may be restricted by fixed system limits.</li>
@@ -2635,7 +2642,7 @@ public class ConfluenceRESTV1AsyncConsumerApi {
     /**
      * Get themes
      * <p>
-     * Returns all [admin-driven themes](https://developer.atlassian.com/cloud/confluence/create-a-confluence-theme/), not including the default theme. Note that this API only applies to themes set for an entire space or site by the admin. User-driven theming controls (Light, Dark, and match browser) are an unrelated feature. Admin-driven themes will override user-driven themes.
+     * Returns all themes, not including the default theme.
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None
      * Authentication - Required Scopes: [manage:confluence-configuration]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
