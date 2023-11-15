@@ -48,14 +48,8 @@ public class DeleteLabelFromSpaceOperationSpec {
     /**
      * The name of the label to remove
      */
-    @Nullable 
+    @NotNull 
     private String name;
-
-    /**
-     * The ID of the label to remove
-     */
-    @Nullable 
-    private Integer labelId;
 
     /**
      * The prefix of the label to remove. If not provided defaults to global.
@@ -81,14 +75,12 @@ public class DeleteLabelFromSpaceOperationSpec {
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param spaceKey             The key of the space to remove a labels from.
      * @param name                 The name of the label to remove
-     * @param labelId              The ID of the label to remove
      * @param prefix               The prefix of the label to remove. If not provided defaults to global.
      */
     @ApiStatus.Internal
-    public DeleteLabelFromSpaceOperationSpec(String spaceKey, String name, Integer labelId, String prefix) {
+    public DeleteLabelFromSpaceOperationSpec(String spaceKey, String name, String prefix) {
         this.spaceKey = spaceKey;
         this.name = name;
-        this.labelId = labelId;
         this.prefix = prefix;
 
         if (VALIDATION_ENABLED)
@@ -102,5 +94,6 @@ public class DeleteLabelFromSpaceOperationSpec {
      */
     public void validate() {
         Objects.requireNonNull(spaceKey, "spaceKey is a required parameter!");
+        Objects.requireNonNull(name, "name is a required parameter!");
     }
 }

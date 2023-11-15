@@ -13280,7 +13280,7 @@
           "Experimental"
         ],
         "summary": "Remove label from a space",
-        "description": "Removes a label from a space. \n\nNote:\n\n- Either `name` or `labelId` must be provided.",
+        "description": "",
         "operationId": "deleteLabelFromSpace",
         "parameters": [
           {
@@ -13296,18 +13296,9 @@
             "name": "name",
             "in": "query",
             "description": "The name of the label to remove",
-            "required": false,
+            "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "labelId",
-            "in": "query",
-            "description": "The ID of the label to remove",
-            "required": false,
-            "schema": {
-              "type": "integer"
             }
           },
           {

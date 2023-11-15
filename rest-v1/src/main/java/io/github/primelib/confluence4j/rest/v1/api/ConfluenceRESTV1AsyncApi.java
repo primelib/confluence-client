@@ -917,22 +917,17 @@ public interface ConfluenceRESTV1AsyncApi {
 
     /**
      * Remove label from a space
-     * <p>
-     * Removes a label from a space.
-     *  Note:
-     * - Either {@code name} or {@code labelId} must be provided.
      *
      * Authentication - Required Scopes: [write:confluence-space]
      * @param spaceKey             The key of the space to remove a labels from. (required)
-     * @param name                 The name of the label to remove (optional)
-     * @param labelId              The ID of the label to remove (optional)
+     * @param name                 The name of the label to remove (required)
      * @param prefix               The prefix of the label to remove. If not provided defaults to global. (optional)
      */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&labelId={labelId}&prefix={prefix}")
+    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
     @Headers({
         "Accept: application/json"
     })
-    CompletableFuture<Void> deleteLabelFromSpace(@Param("spaceKey") @NotNull String spaceKey, @Param("name") @Nullable String name, @Param("labelId") @Nullable Integer labelId, @Param("prefix") @Nullable String prefix);
+    CompletableFuture<Void> deleteLabelFromSpace(@Param("spaceKey") @NotNull String spaceKey, @Param("name") @NotNull String name, @Param("prefix") @Nullable String prefix);
 
     /**
      * Delete page tree
