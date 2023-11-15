@@ -1063,22 +1063,17 @@ public class ConfluenceRESTV1ConsumerApi {
 
     /**
      * Remove label from a space
-     * <p>
-     * Removes a label from a space.
-     *  Note:
-     * - Either {@code name} or {@code labelId} must be provided.
      * Authentication - Required Scopes: [write:confluence-space]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>spaceKey: The key of the space to remove a labels from.</li>
      *   <li>name: The name of the label to remove</li>
-     *   <li>labelId: The ID of the label to remove</li>
      *   <li>prefix: The prefix of the label to remove. If not provided defaults to global.</li>
      * </ul>
      */
     public void deleteLabelFromSpace(Consumer<DeleteLabelFromSpaceOperationSpec> spec) {
         DeleteLabelFromSpaceOperationSpec r = new DeleteLabelFromSpaceOperationSpec(spec);
-        api.deleteLabelFromSpace(r.spaceKey(), r.name(), r.labelId(), r.prefix());
+        api.deleteLabelFromSpace(r.spaceKey(), r.name(), r.prefix());
     }
 
     /**
