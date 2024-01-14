@@ -241,6 +241,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       },
       "post": {
@@ -300,6 +305,11 @@
               "read:audit-log:confluence",
               "write:audit-log:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -395,6 +405,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -439,6 +454,11 @@
             "scopes": [
               "read:audit-log:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
@@ -494,6 +514,11 @@
             "scopes": [
               "write:audit-log:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -607,6 +632,11 @@
             "scopes": [
               "read:audit-log:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
@@ -778,6 +808,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -871,6 +906,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "content",
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -956,6 +996,11 @@
               "read:content.metadata:confluence",
               "write:page:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-experimental": true,
@@ -1050,6 +1095,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -1138,6 +1188,11 @@
               "read:content-details:confluence",
               "write:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -1237,6 +1292,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -1376,6 +1436,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "put": {
@@ -1499,6 +1564,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "content",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -1577,6 +1647,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "DELETE"
       }
     },
@@ -1651,6 +1726,11 @@
             "scopes": [
               "delete:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -1739,6 +1819,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -1839,6 +1924,11 @@
             "scopes": [
               "write:page:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -1945,6 +2035,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -2055,6 +2150,11 @@
               "read:content-details:confluence",
               "write:attachment:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -2171,6 +2271,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -2268,6 +2373,11 @@
               "read:content-details:confluence",
               "write:attachment:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -2379,6 +2489,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -2456,6 +2571,11 @@
             "scopes": [
               "read:attachment:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -2583,6 +2703,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -2695,6 +2820,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -2775,6 +2905,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -2898,6 +3033,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -2991,6 +3131,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -3076,6 +3221,11 @@
             "scopes": [
               "read:content.metadata:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -3199,6 +3349,11 @@
             "scopes": [
               "read:content.metadata:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -3335,6 +3490,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -3439,6 +3599,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -3528,6 +3693,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -3596,6 +3766,11 @@
             "scopes": [
               "write:label:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -3671,6 +3846,11 @@
             "scopes": [
               "write:label:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -3760,6 +3940,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -3847,6 +4032,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -3928,6 +4118,11 @@
               "read:content.metadata:confluence",
               "write:page:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "request",
@@ -4021,6 +4216,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "request",
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -4107,6 +4307,11 @@
             "scopes": [
               "read:content.permission:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -4226,6 +4431,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -4307,6 +4517,11 @@
               "read:content.property:confluence",
               "write:content.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -4426,6 +4641,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "put": {
@@ -4526,6 +4746,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -4619,6 +4844,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -4688,6 +4918,11 @@
             "scopes": [
               "write:content.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -4798,6 +5033,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "put": {
@@ -4892,6 +5132,11 @@
               "read:content-details:confluence",
               "write:content.restriction:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -4991,6 +5236,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -5085,6 +5335,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "DELETE"
       }
     },
@@ -5171,6 +5426,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -5286,6 +5546,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -5371,6 +5636,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "put": {
@@ -5450,6 +5720,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -5527,6 +5802,11 @@
             "scopes": [
               "write:content.restriction:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -5611,6 +5891,11 @@
             "scopes": [
               "read:content.restriction:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -5699,6 +5984,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -5785,6 +6075,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -5859,6 +6154,11 @@
             "scopes": [
               "read:content.restriction:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -5939,6 +6239,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -6015,6 +6320,11 @@
             "scopes": [
               "write:content.restriction:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -6098,6 +6408,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -6194,6 +6509,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -6274,6 +6594,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -6344,6 +6669,11 @@
             "scopes": [
               "write:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -6446,6 +6776,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -6535,6 +6870,11 @@
               "read:content-details:confluence",
               "write:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -6630,6 +6970,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "delete": {
@@ -6698,6 +7043,11 @@
             "scopes": [
               "delete:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -6783,6 +7133,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "get": {
@@ -6834,6 +7189,11 @@
             "scopes": [
               "read:user.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -6932,6 +7292,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -6996,6 +7361,11 @@
             "scopes": [
               "read:content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -7107,6 +7477,11 @@
             "scopes": [
               "read:content.metadata:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -7233,6 +7608,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "READ"
       }
@@ -7308,6 +7688,11 @@
             "scopes": [
               "read:content.metadata:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -7499,6 +7884,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -7560,6 +7950,11 @@
             "scopes": [
               "read:inlinetask:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -7637,6 +8032,11 @@
               "read:inlinetask:confluence",
               "write:inlinetask:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -7748,6 +8148,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -7840,6 +8245,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -7909,6 +8319,11 @@
               "read:group:confluence",
               "write:group:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -7981,6 +8396,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -8048,6 +8468,11 @@
             "scopes": [
               "read:group:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -8118,6 +8543,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "delete": {
@@ -8186,6 +8616,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -8229,6 +8664,11 @@
           }
         },
         "deprecated": true,
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -8344,6 +8784,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -8409,6 +8854,11 @@
           }
         },
         "deprecated": true,
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -8504,6 +8954,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -8585,6 +9040,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "INACCESSIBLE"
       },
@@ -8661,6 +9121,11 @@
             "scopes": [
               "write:group:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
@@ -8781,6 +9246,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -8863,6 +9333,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "INACCESSIBLE"
       },
@@ -8942,6 +9417,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -9012,6 +9492,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -9078,6 +9563,11 @@
             "scopes": [
               "read:content.metadata:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -9264,6 +9754,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -9439,6 +9934,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "put": {
@@ -9597,6 +10097,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -9743,6 +10248,11 @@
             "scopes": [
               "write:relation:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -9927,6 +10437,11 @@
               "read:relation:confluence",
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -10119,6 +10634,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -10229,6 +10749,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -10295,6 +10820,11 @@
               "read:configuration:confluence",
               "read:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -10370,6 +10900,11 @@
               "read:space.setting:confluence",
               "write:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -10458,6 +10993,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -10521,6 +11061,11 @@
               "write:configuration:confluence",
               "write:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -10614,6 +11159,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -10666,6 +11216,11 @@
             "scopes": [
               "read:configuration:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -10741,6 +11296,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -10792,6 +11352,11 @@
             "scopes": [
               "read:configuration:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -10856,6 +11421,11 @@
             "scopes": [
               "read:configuration:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -11023,6 +11593,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -11093,6 +11668,11 @@
               "write:space:confluence",
               "write:space.permission:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -11170,6 +11750,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "SpacePrivateCreate",
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -11241,6 +11826,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -11322,6 +11912,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -11388,6 +11983,11 @@
               "read:content.metadata:confluence",
               "delete:space:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -11508,6 +12108,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -11591,6 +12196,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -11668,6 +12278,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -11738,6 +12353,11 @@
             "scopes": [
               "write:space.permission:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
@@ -11856,6 +12476,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -11960,6 +12585,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -12049,6 +12679,11 @@
               "read:space.property:confluence",
               "write:space.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -12141,6 +12776,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -12243,6 +12883,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -12336,6 +12981,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -12407,6 +13057,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -12473,6 +13128,11 @@
             "scopes": [
               "read:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -12553,6 +13213,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "SpaceSettingsUpdate",
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -12627,6 +13292,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -12694,6 +13364,11 @@
             "scopes": [
               "read:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -12814,6 +13489,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -12876,6 +13556,11 @@
             "scopes": [
               "read:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -12955,6 +13640,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -13010,6 +13700,11 @@
             "scopes": [
               "write:space.setting:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -13085,6 +13780,11 @@
               "read:watcher:confluence",
               "read:user:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -13186,6 +13886,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-experimental": true,
         "x-atlassian-connect-scope": "READ"
       },
@@ -13272,6 +13977,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-experimental": true,
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -13351,6 +14061,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-experimental": true,
         "x-atlassian-connect-scope": "WRITE"
       }
@@ -13426,6 +14141,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -13493,6 +14213,11 @@
               "read:content-details:confluence",
               "write:template:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -13598,6 +14323,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -13700,6 +14430,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -13765,6 +14500,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "delete": {
@@ -13818,6 +14558,11 @@
             "scopes": [
               "write:template:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "DELETE"
@@ -13910,6 +14655,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -13979,6 +14729,11 @@
             "scopes": [
               "read:user:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -14052,6 +14807,11 @@
             "scopes": [
               "read:content-details:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -14139,6 +14899,11 @@
               "read:user:confluence",
               "read:group:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -14234,6 +14999,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -14311,6 +15081,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       },
       "post": {
@@ -14378,6 +15153,11 @@
             "scopes": [
               "write:watcher:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -14459,6 +15239,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -14534,6 +15319,11 @@
             "scopes": [
               "read:watcher:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -14615,6 +15405,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -14682,6 +15477,11 @@
             "scopes": [
               "write:watcher:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -14759,6 +15559,11 @@
             "scopes": [
               "read:watcher:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -14840,6 +15645,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       },
       "delete": {
@@ -14909,6 +15719,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "WRITE"
       }
     },
@@ -14959,6 +15774,11 @@
             "content": {}
           }
         },
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "ACCESS_EMAIL_ADDRESSES"
       }
     },
@@ -15010,6 +15830,11 @@
             "content": {}
           }
         },
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "ACCESS_EMAIL_ADDRESSES"
       }
     },
@@ -15048,6 +15873,11 @@
         },
         "deprecated": false,
         "x-experimental": true,
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       },
       "post": {
@@ -15101,6 +15931,11 @@
         },
         "deprecated": false,
         "x-experimental": true,
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "INACCESSIBLE"
       },
@@ -15148,6 +15983,11 @@
         },
         "deprecated": false,
         "x-experimental": true,
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "INACCESSIBLE"
       }
     },
@@ -15239,6 +16079,11 @@
             "scopes": [
               "read:analytics.content:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -15334,6 +16179,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -15426,6 +16276,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -15503,6 +16358,11 @@
             "scopes": [
               "read:user.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -15584,6 +16444,11 @@
             "scopes": [
               "write:user.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-codegen-request-body-name": "body",
@@ -15672,6 +16537,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-codegen-request-body-name": "body",
         "x-atlassian-connect-scope": "WRITE"
       },
@@ -15741,6 +16611,11 @@
             "scopes": [
               "write:user.property:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "WRITE"
@@ -22473,6 +23348,9 @@
               "read:blogpost:confluence": "View blogposts.",
               "write:blogpost:confluence": "Create and update blogposts.",
               "delete:blogpost:confluence": "Delete blogposts.",
+              "read:whiteboard:confluence": "View whiteboards.",
+              "write:whiteboard:confluence": "Create and update whiteboards.",
+              "delete:whiteboard:confluence": "Delete whiteboards.",
               "read:custom-content:confluence": "View custom content.",
               "write:custom-content:confluence": "Create and update custom content.",
               "delete:custom-content:confluence": "Delete custom content.",
