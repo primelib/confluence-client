@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
-import io.github.primelib.confluence4j.rest.v2.model.Attachment;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,11 +17,11 @@ import lombok.experimental.Accessors;
 import java.util.function.Consumer;
 
 /**
- * DeleteAttachmentSpec
+ * GetWhiteboardAncestorsSpec
  * <p>
- * Specification for the DeleteAttachment operation.
+ * Specification for the GetWhiteboardAncestors operation.
  * <p>
- * Delete attachment
+ * Get all ancestors of the whiteboard
  */
 @Getter
 @Setter
@@ -32,7 +31,7 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class DeleteAttachmentOperationSpec {
+public class GetWhiteboardAncestorsOperationSpec {
     /**
      * allows to disable validation of the spec, use with care!
      */
@@ -40,40 +39,40 @@ public class DeleteAttachmentOperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * The ID of the attachment to be deleted.
+     * The ID of the whiteboard.
      */
     @NotNull 
     private Long id;
 
     /**
-     * If attempting to purge the attachment.
+     * Maximum number of items per result to return. If more results exist, call the endpoint with the highest ancestor's ID to fetch the next set of results.
      */
     @Nullable 
-    private Boolean purge;
+    private Integer limit;
 
     /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link GetWhiteboardAncestorsOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Consumer<DeleteAttachmentOperationSpec> spec) {
+    public GetWhiteboardAncestorsOperationSpec(Consumer<GetWhiteboardAncestorsOperationSpec> spec) {
         spec.accept(this);
         if (VALIDATION_ENABLED)
             validate();
     }
 
     /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link GetWhiteboardAncestorsOperationSpec}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
-     * @param id                   The ID of the attachment to be deleted.
-     * @param purge                If attempting to purge the attachment.
+     * @param id                   The ID of the whiteboard.
+     * @param limit                Maximum number of items per result to return. If more results exist, call the endpoint with the highest ancestor's ID to fetch the next set of results.
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Long id, Boolean purge) {
+    public GetWhiteboardAncestorsOperationSpec(Long id, Integer limit) {
         this.id = id;
-        this.purge = purge;
+        this.limit = limit;
 
         if (VALIDATION_ENABLED)
             validate();

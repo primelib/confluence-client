@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "title",
     "spaceId",
     "parentId",
+    "ownerId",
     "body",
     "version"
 })
@@ -50,7 +51,7 @@ public class UpdatePageRequest {
     protected String id;
 
     /**
-     * The status of the page.
+     * The updated status of the page. Note, if you change the status of a page from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      */
     @JsonProperty("status")
     protected StatusEnum status;
@@ -75,11 +76,18 @@ public class UpdatePageRequest {
     @JsonProperty("parentId")
     protected Object parentId;
 
+    /**
+     * Account ID of the page owner.
+     * This allows page ownership to be transferred to another user.
+     */
+    @JsonProperty("ownerId")
+    protected Object ownerId;
+
     @JsonProperty("body")
     protected CreatePageRequestBody body;
 
     @JsonProperty("version")
-    protected UpdateBlogPostRequestVersion version;
+    protected UpdatePageRequestVersion version;
 
     /**
      * Constructs a validated instance of {@link UpdatePageRequest}.
@@ -95,33 +103,33 @@ public class UpdatePageRequest {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UpdatePageRequest(Consumer)} instead.
      * @param id Id of the page.
-     * @param status The status of the page.
+     * @param status The updated status of the page. Note, if you change the status of a page from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      * @param title Title of the page.
      * @param spaceId ID of the containing space.  This currently **does not support moving the page to a different space**.
      * @param parentId ID of the parent page.  This allows the page to be moved under a different parent within the same space.
+     * @param ownerId Account ID of the page owner.  This allows page ownership to be transferred to another user.
      * @param body body
      * @param version version
      */
     @ApiStatus.Internal
-    public UpdatePageRequest(String id, StatusEnum status, String title, Object spaceId, Object parentId, CreatePageRequestBody body, UpdateBlogPostRequestVersion version) {
+    public UpdatePageRequest(String id, StatusEnum status, String title, Object spaceId, Object parentId, Object ownerId, CreatePageRequestBody body, UpdatePageRequestVersion version) {
         this.id = id;
         this.status = status;
         this.title = title;
         this.spaceId = spaceId;
         this.parentId = parentId;
+        this.ownerId = ownerId;
         this.body = body;
         this.version = version;
     }
 
     /**
-     * The status of the page.
+     * The updated status of the page. Note, if you change the status of a page from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      */
     @AllArgsConstructor
     public enum StatusEnum {
         CURRENT("current"),
-        DRAFT("draft"),
-        ARCHIVED("archived"),
-        DELETED("deleted");
+        DRAFT("draft");
 
         private static final StatusEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;

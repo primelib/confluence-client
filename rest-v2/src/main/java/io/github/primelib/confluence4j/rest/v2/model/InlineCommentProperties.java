@@ -28,6 +28,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
+    "inlineMarkerRef",
+    "inlineOriginalSelection",
     "inline-marker-ref",
     "inline-original-selection"
 })
@@ -38,11 +40,23 @@ public class InlineCommentProperties {
     /**
      * Property value used to reference the highlighted element in DOM.
      */
+    @JsonProperty("inlineMarkerRef")
+    protected String inlineMarkerRef;
+
+    /**
+     * Text that is highlighted.
+     */
+    @JsonProperty("inlineOriginalSelection")
+    protected String inlineOriginalSelection;
+
+    /**
+     * Deprecated, use {@code inlineMarkerRef} instead.
+     */
     @JsonProperty("inline-marker-ref")
     protected String inlineMarkerRef;
 
     /**
-     * Text that is highlighted
+     * Deprecated, use {@code inlineOriginalSelection} instead.
      */
     @JsonProperty("inline-original-selection")
     protected String inlineOriginalSelection;
@@ -61,10 +75,14 @@ public class InlineCommentProperties {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InlineCommentProperties(Consumer)} instead.
      * @param inlineMarkerRef Property value used to reference the highlighted element in DOM.
-     * @param inlineOriginalSelection Text that is highlighted
+     * @param inlineOriginalSelection Text that is highlighted.
+     * @param inlineMarkerRef Deprecated, use {@code inlineMarkerRef} instead.
+     * @param inlineOriginalSelection Deprecated, use {@code inlineOriginalSelection} instead.
      */
     @ApiStatus.Internal
-    public InlineCommentProperties(String inlineMarkerRef, String inlineOriginalSelection) {
+    public InlineCommentProperties(String inlineMarkerRef, String inlineOriginalSelection, String inlineMarkerRef, String inlineOriginalSelection) {
+        this.inlineMarkerRef = inlineMarkerRef;
+        this.inlineOriginalSelection = inlineOriginalSelection;
         this.inlineMarkerRef = inlineMarkerRef;
         this.inlineOriginalSelection = inlineOriginalSelection;
     }

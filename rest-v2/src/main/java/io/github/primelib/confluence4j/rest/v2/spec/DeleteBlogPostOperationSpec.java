@@ -3,6 +3,7 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import lombok.AccessLevel;
@@ -44,6 +45,18 @@ public class DeleteBlogPostOperationSpec {
     private Long id;
 
     /**
+     * If attempting to purge the blog post.
+     */
+    @Nullable 
+    private Boolean purge;
+
+    /**
+     * If attempting to delete a blog post that is a draft.
+     */
+    @Nullable 
+    private Boolean draft;
+
+    /**
      * Constructs a validated instance of {@link DeleteBlogPostOperationSpec}.
      *
      * @param spec the specification to process
@@ -60,10 +73,14 @@ public class DeleteBlogPostOperationSpec {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param id                   The ID of the blog post to be deleted.
+     * @param purge                If attempting to purge the blog post.
+     * @param draft                If attempting to delete a blog post that is a draft.
      */
     @ApiStatus.Internal
-    public DeleteBlogPostOperationSpec(Long id) {
+    public DeleteBlogPostOperationSpec(Long id, Boolean purge, Boolean draft) {
         this.id = id;
+        this.purge = purge;
+        this.draft = draft;
 
         if (VALIDATION_ENABLED)
             validate();

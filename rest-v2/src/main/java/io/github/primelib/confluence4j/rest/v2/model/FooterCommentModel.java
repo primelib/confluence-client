@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "blogPostId",
     "pageId",
     "attachmentId",
+    "customContentId",
     "parentCommentId",
     "version",
     "body",
@@ -71,10 +72,16 @@ public class FooterCommentModel {
     protected String pageId;
 
     /**
-     * ID of the page containing the comment if the comment is on an attachment.
+     * ID of the attachment containing the comment if the comment is on an attachment.
      */
     @JsonProperty("attachmentId")
     protected String attachmentId;
+
+    /**
+     * ID of the custom content containing the comment if the comment is on a custom content.
+     */
+    @JsonProperty("customContentId")
+    protected String customContentId;
 
     /**
      * ID of the parent comment if the comment is a reply.
@@ -109,20 +116,22 @@ public class FooterCommentModel {
      * @param title Title of the comment.
      * @param blogPostId ID of the blog post containing the comment if the comment is on a blog post.
      * @param pageId ID of the page containing the comment if the comment is on a page.
-     * @param attachmentId ID of the page containing the comment if the comment is on an attachment.
+     * @param attachmentId ID of the attachment containing the comment if the comment is on an attachment.
+     * @param customContentId ID of the custom content containing the comment if the comment is on a custom content.
      * @param parentCommentId ID of the parent comment if the comment is a reply.
      * @param version version
      * @param body body
      * @param _links _links
      */
     @ApiStatus.Internal
-    public FooterCommentModel(String id, ContentStatus status, String title, String blogPostId, String pageId, String attachmentId, String parentCommentId, Version version, BodySingle body, CommentLinks _links) {
+    public FooterCommentModel(String id, ContentStatus status, String title, String blogPostId, String pageId, String attachmentId, String customContentId, String parentCommentId, Version version, BodySingle body, CommentLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;
         this.blogPostId = blogPostId;
         this.pageId = pageId;
         this.attachmentId = attachmentId;
+        this.customContentId = customContentId;
         this.parentCommentId = parentCommentId;
         this.version = version;
         this.body = body;

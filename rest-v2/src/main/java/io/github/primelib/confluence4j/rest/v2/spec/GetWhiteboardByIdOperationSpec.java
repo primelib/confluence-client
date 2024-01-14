@@ -3,10 +3,8 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
-import io.github.primelib.confluence4j.rest.v2.model.Attachment;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,11 +16,11 @@ import lombok.experimental.Accessors;
 import java.util.function.Consumer;
 
 /**
- * DeleteAttachmentSpec
+ * GetWhiteboardByIdSpec
  * <p>
- * Specification for the DeleteAttachment operation.
+ * Specification for the GetWhiteboardById operation.
  * <p>
- * Delete attachment
+ * Get whiteboard by id
  */
 @Getter
 @Setter
@@ -32,7 +30,7 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class DeleteAttachmentOperationSpec {
+public class GetWhiteboardByIdOperationSpec {
     /**
      * allows to disable validation of the spec, use with care!
      */
@@ -40,40 +38,32 @@ public class DeleteAttachmentOperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * The ID of the attachment to be deleted.
+     * The ID of the whiteboard to be returned
      */
     @NotNull 
     private Long id;
 
     /**
-     * If attempting to purge the attachment.
-     */
-    @Nullable 
-    private Boolean purge;
-
-    /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link GetWhiteboardByIdOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Consumer<DeleteAttachmentOperationSpec> spec) {
+    public GetWhiteboardByIdOperationSpec(Consumer<GetWhiteboardByIdOperationSpec> spec) {
         spec.accept(this);
         if (VALIDATION_ENABLED)
             validate();
     }
 
     /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link GetWhiteboardByIdOperationSpec}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
-     * @param id                   The ID of the attachment to be deleted.
-     * @param purge                If attempting to purge the attachment.
+     * @param id                   The ID of the whiteboard to be returned
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Long id, Boolean purge) {
+    public GetWhiteboardByIdOperationSpec(Long id) {
         this.id = id;
-        this.purge = purge;
 
         if (VALIDATION_ENABLED)
             validate();

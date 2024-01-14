@@ -88,7 +88,7 @@ public class Task {
     protected StatusEnum status;
 
     @JsonProperty("body")
-    protected BodySingle body;
+    protected TaskBodySingle body;
 
     /**
      * Account ID of the user who created this task.
@@ -161,7 +161,7 @@ public class Task {
      * @param completedAt Date and time when the task was completed. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      */
     @ApiStatus.Internal
-    public Task(String id, String localId, String spaceId, String pageId, String blogPostId, StatusEnum status, BodySingle body, String createdBy, String assignedTo, String completedBy, OffsetDateTime createdAt, OffsetDateTime updatedAt, OffsetDateTime dueAt, OffsetDateTime completedAt) {
+    public Task(String id, String localId, String spaceId, String pageId, String blogPostId, StatusEnum status, TaskBodySingle body, String createdBy, String assignedTo, String completedBy, OffsetDateTime createdAt, OffsetDateTime updatedAt, OffsetDateTime dueAt, OffsetDateTime completedAt) {
         this.id = id;
         this.localId = localId;
         this.spaceId = spaceId;

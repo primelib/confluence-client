@@ -8,6 +8,7 @@ import io.github.primelib.confluence4j.rest.v2.model.CheckAccessByEmail200Respon
 import io.github.primelib.confluence4j.rest.v2.model.ContentIdToContentTypeResponse;
 import io.github.primelib.confluence4j.rest.v2.model.ContentProperty;
 import io.github.primelib.confluence4j.rest.v2.model.CustomContentSingle;
+import io.github.primelib.confluence4j.rest.v2.model.DataPolicyMetadata;
 import io.github.primelib.confluence4j.rest.v2.model.DetailedVersion;
 import io.github.primelib.confluence4j.rest.v2.model.FooterCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.InlineCommentModel;
@@ -23,6 +24,8 @@ import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultChildPage;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultChildrenCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultContentProperty;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultCustomContent;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultCustomContentCommentModel;
+import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultDataPolicySpace;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultFooterCommentModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentChildrenModel;
 import io.github.primelib.confluence4j.rest.v2.model.MultiEntityResultInlineCommentModel;
@@ -46,6 +49,7 @@ import io.github.primelib.confluence4j.rest.v2.model.PermittedOperationsResponse
 import io.github.primelib.confluence4j.rest.v2.model.Space;
 import io.github.primelib.confluence4j.rest.v2.model.SpaceProperty;
 import io.github.primelib.confluence4j.rest.v2.model.Task;
+import io.github.primelib.confluence4j.rest.v2.model.WhiteboardSingle;
 
 import java.util.function.Consumer;
 
@@ -62,6 +66,8 @@ import io.github.primelib.confluence4j.rest.v2.spec.CreateInlineCommentOperation
 import io.github.primelib.confluence4j.rest.v2.spec.CreatePageOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.CreatePagePropertyOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.CreateSpacePropertyOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.CreateWhiteboardOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.CreateWhiteboardPropertyOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeleteAttachmentOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeleteAttachmentPropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeleteBlogPostOperationSpec;
@@ -74,6 +80,8 @@ import io.github.primelib.confluence4j.rest.v2.spec.DeleteInlineCommentOperation
 import io.github.primelib.confluence4j.rest.v2.spec.DeletePageOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeletePagePropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.DeleteSpacePropertyByIdOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.DeleteWhiteboardOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.DeleteWhiteboardPropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentCommentsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetAttachmentContentPropertiesOperationSpec;
@@ -107,12 +115,14 @@ import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentByTypeOperat
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentByTypeInBlogPostOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentByTypeInPageOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentByTypeInSpaceOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentCommentsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentContentPropertiesOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentContentPropertiesByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentLabelsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentOperationsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentVersionDetailsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetCustomContentVersionsOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetDataPolicySpacesOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetFooterCommentByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetFooterCommentChildrenOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetFooterCommentOperationsOperationSpec;
@@ -158,6 +168,11 @@ import io.github.primelib.confluence4j.rest.v2.spec.GetSpacePropertyByIdOperatio
 import io.github.primelib.confluence4j.rest.v2.spec.GetSpacesOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetTaskByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.GetTasksOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetWhiteboardAncestorsOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetWhiteboardByIdOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetWhiteboardContentPropertiesOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetWhiteboardContentPropertiesByIdOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.GetWhiteboardOperationsOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.InviteByEmailOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.UpdateAttachmentPropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.UpdateBlogPostOperationSpec;
@@ -171,6 +186,7 @@ import io.github.primelib.confluence4j.rest.v2.spec.UpdatePageOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.UpdatePagePropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.UpdateSpacePropertyByIdOperationSpec;
 import io.github.primelib.confluence4j.rest.v2.spec.UpdateTaskOperationSpec;
+import io.github.primelib.confluence4j.rest.v2.spec.UpdateWhiteboardPropertyByIdOperationSpec;
 
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ConfluenceRESTV2ConsumerApi {
@@ -317,7 +333,7 @@ public class ConfluenceRESTV2ConsumerApi {
      * <p>
      * Create a footer comment.
      * The footer comment can be made against several locations:
-     * - at the top level (specifying pageId or blogPostId in the request body) - as a reply (specifying parentCommentId in the request body) - against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)
+     * - at the top level (specifying pageId or blogPostId in the request body) - as a reply (specifying parentCommentId in the request body) - against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments) - against a custom content
      * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.
      * Authentication - Required Scopes: [write:comment:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
@@ -359,11 +375,12 @@ public class ConfluenceRESTV2ConsumerApi {
      *   <li>createPageRequest: </li>
      *   <li>embedded: Tag the content as embedded and content will be created in NCS.</li>
      *   <li>_private: The page will be private. Only the user who creates this page will have permission to view and edit one.</li>
+     *   <li>rootLevel: The page will be created at the root level of the space (outside the space homepage tree).</li>
      * </ul>
      */
     public PageSingle createPage(Consumer<CreatePageOperationSpec> spec) {
         CreatePageOperationSpec r = new CreatePageOperationSpec(spec);
-        return api.createPage(r.createPageRequest(), r.embedded(), r._private());
+        return api.createPage(r.createPageRequest(), r.embedded(), r._private(), r.rootLevel());
     }
 
     /**
@@ -401,18 +418,54 @@ public class ConfluenceRESTV2ConsumerApi {
     }
 
     /**
+     * Create whiteboard
+     * <p>
+     * Creates a whiteboard in the space.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the corresponding space. Permission to create a whiteboard in the space.
+     * Authentication - Required Scopes: [write:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>createWhiteboardRequest: </li>
+     *   <li>_private: The whiteboard will be private. Only the user who creates this whiteboard will have permission to view and edit one.</li>
+     * </ul>
+     */
+    public WhiteboardSingle createWhiteboard(Consumer<CreateWhiteboardOperationSpec> spec) {
+        CreateWhiteboardOperationSpec r = new CreateWhiteboardOperationSpec(spec);
+        return api.createWhiteboard(r.createWhiteboardRequest(), r._private());
+    }
+
+    /**
+     * Create content property for whiteboard
+     * <p>
+     * Creates a new content property for a whiteboard.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to update the whiteboard.
+     * Authentication - Required Scopes: [read:whiteboard:confluence, write:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard to create a property for.</li>
+     *   <li>contentPropertyCreateRequest: The content property to be created</li>
+     * </ul>
+     */
+    public ContentProperty createWhiteboardProperty(Consumer<CreateWhiteboardPropertyOperationSpec> spec) {
+        CreateWhiteboardPropertyOperationSpec r = new CreateWhiteboardPropertyOperationSpec(spec);
+        return api.createWhiteboardProperty(r.id(), r.contentPropertyCreateRequest());
+    }
+
+    /**
      * Delete attachment
      * <p>
      * Delete an attachment by id.
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the container of the attachment. Permission to delete attachments in the space.
+     * Deleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or "purge" it), the endpoint must be called on a **trashed** attachment with the following param {@code purge=true}.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the container of the attachment. Permission to delete attachments in the space. Permission to administer the space (if attempting to purge).
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>id: The ID of the attachment to be deleted.</li>
+     *   <li>purge: If attempting to purge the attachment.</li>
      * </ul>
      */
     public void deleteAttachment(Consumer<DeleteAttachmentOperationSpec> spec) {
         DeleteAttachmentOperationSpec r = new DeleteAttachmentOperationSpec(spec);
-        api.deleteAttachment(r.id());
+        api.deleteAttachment(r.id(), r.purge());
     }
 
     /**
@@ -436,16 +489,22 @@ public class ConfluenceRESTV2ConsumerApi {
      * Delete blog post
      * <p>
      * Delete a blog post by id.
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the blog post and its corresponding space. Permission to delete blog posts in the space.
+     * By default this will delete blog posts that are non-drafts. To delete a blog post that is a draft, the endpoint must be called on a
+     * draft with the following param {@code draft=true}. Discarded drafts are not sent to the trash and are permanently deleted.
+     * Deleting a blog post that is not a draft moves the blog post to the trash, where it can be restored later.
+     * To permanently delete a blog post (or "purge" it), the endpoint must be called on a **trashed** blog post with the following param {@code purge=true}.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the blog post and its corresponding space. Permission to delete blog posts in the space. Permission to administer the space (if attempting to purge).
      * Authentication - Required Scopes: [delete:page:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>id: The ID of the blog post to be deleted.</li>
+     *   <li>purge: If attempting to purge the blog post.</li>
+     *   <li>draft: If attempting to delete a blog post that is a draft.</li>
      * </ul>
      */
     public void deleteBlogPost(Consumer<DeleteBlogPostOperationSpec> spec) {
         DeleteBlogPostOperationSpec r = new DeleteBlogPostOperationSpec(spec);
-        api.deleteBlogPost(r.id());
+        api.deleteBlogPost(r.id(), r.purge(), r.draft());
     }
 
     /**
@@ -486,16 +545,18 @@ public class ConfluenceRESTV2ConsumerApi {
      * Delete custom content
      * <p>
      * Delete a custom content by id.
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space. Permission to delete custom content in the space.
+     * Deleting a custom content will either move it to the trash or permanently delete it (purge it), depending on the apiSupport. To permanently delete a **trashed** custom content, the endpoint must be called with the following param {@code purge=true}.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space. Permission to delete custom content in the space. Permission to administer the space (if attempting to purge).
      * Authentication - Required Scopes: [delete:custom-content:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>id: The ID of the custom content to be deleted.</li>
+     *   <li>purge: If attempting to purge the custom content.</li>
      * </ul>
      */
     public void deleteCustomContent(Consumer<DeleteCustomContentOperationSpec> spec) {
         DeleteCustomContentOperationSpec r = new DeleteCustomContentOperationSpec(spec);
-        api.deleteCustomContent(r.id());
+        api.deleteCustomContent(r.id(), r.purge());
     }
 
     /**
@@ -551,16 +612,21 @@ public class ConfluenceRESTV2ConsumerApi {
      * Delete page
      * <p>
      * Delete a page by id.
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the page and its corresponding space. Permission to delete pages in the space.
+     * By default this will delete pages that are non-drafts. To delete a page that is a draft, the endpoint must be called on a
+     * draft with the following param {@code draft=true}. Discarded drafts are not sent to the trash and are permanently deleted.
+     * Deleting a page moves the page to the trash, where it can be restored later. To permanently delete a page (or "purge" it), the endpoint must be called on a **trashed** page with the following param {@code purge=true}.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the page and its corresponding space. Permission to delete pages in the space. Permission to administer the space (if attempting to purge).
      * Authentication - Required Scopes: [delete:page:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
      *   <li>id: The ID of the page to be deleted.</li>
+     *   <li>purge: If attempting to purge the page.</li>
+     *   <li>draft: If attempting to delete a page that is a draft.</li>
      * </ul>
      */
     public void deletePage(Consumer<DeletePageOperationSpec> spec) {
         DeletePageOperationSpec r = new DeletePageOperationSpec(spec);
-        api.deletePage(r.id());
+        api.deletePage(r.id(), r.purge(), r.draft());
     }
 
     /**
@@ -595,6 +661,40 @@ public class ConfluenceRESTV2ConsumerApi {
     public void deleteSpacePropertyById(Consumer<DeleteSpacePropertyByIdOperationSpec> spec) {
         DeleteSpacePropertyByIdOperationSpec r = new DeleteSpacePropertyByIdOperationSpec(spec);
         api.deleteSpacePropertyById(r.spaceId(), r.propertyId());
+    }
+
+    /**
+     * Delete whiteboard
+     * <p>
+     * Delete a whiteboard by id.
+     * Deleting a whiteboard moves the whiteboard to the trash, where it can be restored later
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the whiteboard and its corresponding space. Permission to delete whiteboards in the space.
+     * Authentication - Required Scopes: [delete:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard to be deleted.</li>
+     * </ul>
+     */
+    public void deleteWhiteboard(Consumer<DeleteWhiteboardOperationSpec> spec) {
+        DeleteWhiteboardOperationSpec r = new DeleteWhiteboardOperationSpec(spec);
+        api.deleteWhiteboard(r.id());
+    }
+
+    /**
+     * Delete content property for whiteboard by id
+     * <p>
+     * Deletes a content property for a whiteboard by its id.
+     *  **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to edit the whiteboard.
+     * Authentication - Required Scopes: [read:whiteboard:confluence, write:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>whiteboardId: The ID of the whiteboard the property belongs to.</li>
+     *   <li>propertyId: The ID of the property to be deleted.</li>
+     * </ul>
+     */
+    public void deleteWhiteboardPropertyById(Consumer<DeleteWhiteboardPropertyByIdOperationSpec> spec) {
+        DeleteWhiteboardPropertyByIdOperationSpec r = new DeleteWhiteboardPropertyByIdOperationSpec(spec);
+        api.deleteWhiteboardPropertyById(r.whiteboardId(), r.propertyId());
     }
 
     /**
@@ -1234,6 +1334,26 @@ public class ConfluenceRESTV2ConsumerApi {
     }
 
     /**
+     * Get custom content comments
+     * <p>
+     * Returns the comments of the specific custom content. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the custom content and its corresponding containers.
+     * Authentication - Required Scopes: [read:comment:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the custom content for which comments should be returned.</li>
+     *   <li>bodyFormat: The content format type to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of comments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     * </ul>
+     */
+    public MultiEntityResultCustomContentCommentModel getCustomContentComments(Consumer<GetCustomContentCommentsOperationSpec> spec) {
+        GetCustomContentCommentsOperationSpec r = new GetCustomContentCommentsOperationSpec(spec);
+        return api.getCustomContentComments(r.id(), r.bodyFormat(), r.cursor(), r.limit(), r.sort());
+    }
+
+    /**
      * Get content properties for custom content
      * <p>
      * Retrieves Content Properties tied to a specified custom content.
@@ -1344,10 +1464,40 @@ public class ConfluenceRESTV2ConsumerApi {
     }
 
     /**
+     * Get data policy metadata for the workspace (EAP)
+     * <p>
+     * Returns data policy metadata for the workspace.
+     * **[Permissions](#permissions) required:** Only apps can make this request. Permission to access the Confluence site ('Can use' global permission).
+     */
+    public DataPolicyMetadata getDataPolicyMetadata() {
+        return api.getDataPolicyMetadata();
+    }
+
+    /**
+     * Get spaces with data policies (EAP)
+     * <p>
+     * Returns all spaces. The results will be sorted by id ascending. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Only apps can make this request. Permission to access the Confluence site ('Can use' global permission). Only spaces that the app has permission to view will be returned.
+     * Authentication - Required Scopes: [read:space:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>ids: Filter the results to spaces based on their IDs. Multiple IDs can be specified as a comma-separated list.</li>
+     *   <li>keys: Filter the results to spaces based on their keys. Multiple keys can be specified as a comma-separated list.</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of spaces per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results.</li>
+     * </ul>
+     */
+    public MultiEntityResultDataPolicySpace getDataPolicySpaces(Consumer<GetDataPolicySpacesOperationSpec> spec) {
+        GetDataPolicySpacesOperationSpec r = new GetDataPolicySpacesOperationSpec(spec);
+        return api.getDataPolicySpaces(r.ids(), r.keys(), r.sort(), r.cursor(), r.limit());
+    }
+
+    /**
      * Get footer comment by id
      * <p>
      * Retrieves a footer comment by id
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page or blogpost and its corresponding space.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the container and its corresponding space.
      * Authentication - Required Scopes: [read:comment:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
@@ -1438,7 +1588,7 @@ public class ConfluenceRESTV2ConsumerApi {
      * Get footer comments
      * <p>
      * Returns all footer comments. The number of results is limited by the {@code limit} parameter and additional results (if available) will be available through the {@code next} URL present in the {@code Link} response header.
-     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the page and its corresponding space.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the content of the container and its corresponding space.
      * Authentication - Required Scopes: [read:comment:confluence]
      * @param spec a consumer that creates the payload for this operation. Supports the following properties:
      * <ul>
@@ -2202,6 +2352,92 @@ public class ConfluenceRESTV2ConsumerApi {
     }
 
     /**
+     * Get all ancestors of the whiteboard
+     * <p>
+     * Returns all ancestors for a given whiteboard by ID in top-to-bottom order (that is, the highest ancestor is the first item in the response payload). The number of results is limited by the {@code limit} parameter and additional results (if available) will be available by calling this endpoint with the ID of first ancestor in the response payload.
+     * This endpoint returns minimal information about each ancestor. To fetch more details, use a related endpoint, such as [Get page by id](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page/#api-pages-id-get).
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to access the Confluence site ('Can use' global permission). Permission to view the whiteboard and its corresponding space
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard.</li>
+     *   <li>limit: Maximum number of items per result to return. If more results exist, call the endpoint with the highest ancestor's ID to fetch the next set of results.</li>
+     * </ul>
+     */
+    public MultiEntityResultAncestor getWhiteboardAncestors(Consumer<GetWhiteboardAncestorsOperationSpec> spec) {
+        GetWhiteboardAncestorsOperationSpec r = new GetWhiteboardAncestorsOperationSpec(spec);
+        return api.getWhiteboardAncestors(r.id(), r.limit());
+    }
+
+    /**
+     * Get whiteboard by id
+     * <p>
+     * Returns a specific whiteboard.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the whiteboard and its corresponding space.
+     * Authentication - Required Scopes: [read:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard to be returned</li>
+     * </ul>
+     */
+    public WhiteboardSingle getWhiteboardById(Consumer<GetWhiteboardByIdOperationSpec> spec) {
+        GetWhiteboardByIdOperationSpec r = new GetWhiteboardByIdOperationSpec(spec);
+        return api.getWhiteboardById(r.id());
+    }
+
+    /**
+     * Get content properties for whiteboard
+     * <p>
+     * Retrieves Content Properties tied to a specified whiteboard.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the whiteboard.
+     * Authentication - Required Scopes: [read:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard for which content properties should be returned.</li>
+     *   <li>key: Filters the response to return a specific content property with matching key (case sensitive).</li>
+     *   <li>sort: Used to sort the result by a particular field.</li>
+     *   <li>cursor: Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results.</li>
+     *   <li>limit: Maximum number of attachments per result to return. If more results exist, use the {@code Link} header to retrieve a relative URL that will return the next set of results.</li>
+     * </ul>
+     */
+    public MultiEntityResultContentProperty getWhiteboardContentProperties(Consumer<GetWhiteboardContentPropertiesOperationSpec> spec) {
+        GetWhiteboardContentPropertiesOperationSpec r = new GetWhiteboardContentPropertiesOperationSpec(spec);
+        return api.getWhiteboardContentProperties(r.id(), r.key(), r.sort(), r.cursor(), r.limit());
+    }
+
+    /**
+     * Get content property for whiteboard by id
+     * <p>
+     * Retrieves a specific Content Property by ID that is attached to a specified whiteboard.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the whiteboard.
+     * Authentication - Required Scopes: [read:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>whiteboardId: The ID of the whiteboard for which content properties should be returned.</li>
+     *   <li>propertyId: The ID of the content property being requested.</li>
+     * </ul>
+     */
+    public ContentProperty getWhiteboardContentPropertiesById(Consumer<GetWhiteboardContentPropertiesByIdOperationSpec> spec) {
+        GetWhiteboardContentPropertiesByIdOperationSpec r = new GetWhiteboardContentPropertiesByIdOperationSpec(spec);
+        return api.getWhiteboardContentPropertiesById(r.whiteboardId(), r.propertyId());
+    }
+
+    /**
+     * Get permitted operations for a whiteboard
+     * <p>
+     * Returns the permitted operations on specific whiteboard.
+     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to view the whiteboard and its corresponding space.
+     * Authentication - Required Scopes: [read:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>id: The ID of the whiteboard for which operations should be returned.</li>
+     * </ul>
+     */
+    public PermittedOperationsResponse getWhiteboardOperations(Consumer<GetWhiteboardOperationsOperationSpec> spec) {
+        GetWhiteboardOperationsOperationSpec r = new GetWhiteboardOperationsOperationSpec(spec);
+        return api.getWhiteboardOperations(r.id());
+    }
+
+    /**
      * Invite a list of emails to the site
      * <p>
      * Invite a list of emails to the site.
@@ -2424,6 +2660,24 @@ public class ConfluenceRESTV2ConsumerApi {
     public Task updateTask(Consumer<UpdateTaskOperationSpec> spec) {
         UpdateTaskOperationSpec r = new UpdateTaskOperationSpec(spec);
         return api.updateTask(r.id(), r.updateTaskRequest());
+    }
+
+    /**
+     * Update content property for whiteboard by id
+     * <p>
+     * Update a content property for a whiteboard by its id.
+     *  **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: Permission to edit the whiteboard.
+     * Authentication - Required Scopes: [read:whiteboard:confluence, write:whiteboard:confluence]
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>whiteboardId: The ID of the whiteboard the property belongs to.</li>
+     *   <li>propertyId: The ID of the property to be updated.</li>
+     *   <li>contentPropertyUpdateRequest: The content property to be updated.</li>
+     * </ul>
+     */
+    public ContentProperty updateWhiteboardPropertyById(Consumer<UpdateWhiteboardPropertyByIdOperationSpec> spec) {
+        UpdateWhiteboardPropertyByIdOperationSpec r = new UpdateWhiteboardPropertyByIdOperationSpec(spec);
+        return api.updateWhiteboardPropertyById(r.whiteboardId(), r.propertyId(), r.contentPropertyUpdateRequest());
     }
 
 }

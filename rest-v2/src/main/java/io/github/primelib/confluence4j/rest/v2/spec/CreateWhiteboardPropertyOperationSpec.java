@@ -3,10 +3,10 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
-import io.github.primelib.confluence4j.rest.v2.model.Attachment;
+import io.github.primelib.confluence4j.rest.v2.model.ContentProperty;
+import io.github.primelib.confluence4j.rest.v2.model.ContentPropertyCreateRequest;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,11 +18,11 @@ import lombok.experimental.Accessors;
 import java.util.function.Consumer;
 
 /**
- * DeleteAttachmentSpec
+ * CreateWhiteboardPropertySpec
  * <p>
- * Specification for the DeleteAttachment operation.
+ * Specification for the CreateWhiteboardProperty operation.
  * <p>
- * Delete attachment
+ * Create content property for whiteboard
  */
 @Getter
 @Setter
@@ -32,7 +32,7 @@ import java.util.function.Consumer;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class DeleteAttachmentOperationSpec {
+public class CreateWhiteboardPropertyOperationSpec {
     /**
      * allows to disable validation of the spec, use with care!
      */
@@ -40,40 +40,40 @@ public class DeleteAttachmentOperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * The ID of the attachment to be deleted.
+     * The ID of the whiteboard to create a property for.
      */
     @NotNull 
     private Long id;
 
     /**
-     * If attempting to purge the attachment.
+     * The content property to be created
      */
-    @Nullable 
-    private Boolean purge;
+    @NotNull 
+    private ContentPropertyCreateRequest contentPropertyCreateRequest;
 
     /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link CreateWhiteboardPropertyOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Consumer<DeleteAttachmentOperationSpec> spec) {
+    public CreateWhiteboardPropertyOperationSpec(Consumer<CreateWhiteboardPropertyOperationSpec> spec) {
         spec.accept(this);
         if (VALIDATION_ENABLED)
             validate();
     }
 
     /**
-     * Constructs a validated instance of {@link DeleteAttachmentOperationSpec}.
+     * Constructs a validated instance of {@link CreateWhiteboardPropertyOperationSpec}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
-     * @param id                   The ID of the attachment to be deleted.
-     * @param purge                If attempting to purge the attachment.
+     * @param id                   The ID of the whiteboard to create a property for.
+     * @param contentPropertyCreateRequest The content property to be created
      */
     @ApiStatus.Internal
-    public DeleteAttachmentOperationSpec(Long id, Boolean purge) {
+    public CreateWhiteboardPropertyOperationSpec(Long id, ContentPropertyCreateRequest contentPropertyCreateRequest) {
         this.id = id;
-        this.purge = purge;
+        this.contentPropertyCreateRequest = contentPropertyCreateRequest;
 
         if (VALIDATION_ENABLED)
             validate();
@@ -86,5 +86,6 @@ public class DeleteAttachmentOperationSpec {
      */
     public void validate() {
         Objects.requireNonNull(id, "id is a required parameter!");
+        Objects.requireNonNull(contentPropertyCreateRequest, "contentPropertyCreateRequest is a required parameter!");
     }
 }

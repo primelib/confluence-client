@@ -98,7 +98,7 @@ public class UpdateCustomContentRequest {
     protected CreateCustomContentRequestBody body;
 
     @JsonProperty("version")
-    protected UpdateBlogPostRequestVersion version;
+    protected UpdateCustomContentRequestVersion version;
 
     /**
      * Constructs a validated instance of {@link UpdateCustomContentRequest}.
@@ -125,7 +125,7 @@ public class UpdateCustomContentRequest {
      * @param version version
      */
     @ApiStatus.Internal
-    public UpdateCustomContentRequest(String id, String type, StatusEnum status, String spaceId, String pageId, String blogPostId, String customContentId, String title, CreateCustomContentRequestBody body, UpdateBlogPostRequestVersion version) {
+    public UpdateCustomContentRequest(String id, String type, StatusEnum status, String spaceId, String pageId, String blogPostId, String customContentId, String title, CreateCustomContentRequestBody body, UpdateCustomContentRequestVersion version) {
         this.id = id;
         this.type = type;
         this.status = status;
