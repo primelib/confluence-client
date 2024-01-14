@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * PageBulk
+ * WhiteboardSingle
  *
  */
 @Getter
@@ -30,47 +30,45 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Builder
 @JsonPropertyOrder({
     "id",
+    "type",
     "status",
     "title",
-    "spaceId",
     "parentId",
     "parentType",
     "position",
     "authorId",
     "ownerId",
-    "lastOwnerId",
     "createdAt",
     "version",
-    "body",
     "_links"
 })
-@JsonTypeName("PageBulk")
+@JsonTypeName("WhiteboardSingle")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class PageBulk {
+public class WhiteboardSingle {
 
     /**
-     * ID of the page.
+     * ID of the whiteboard.
      */
     @JsonProperty("id")
     protected String id;
+
+    /**
+     * The content type of the object
+     */
+    @JsonProperty("type")
+    protected String type;
 
     @JsonProperty("status")
     protected ContentStatus status;
 
     /**
-     * Title of the page.
+     * Title of the whiteboard.
      */
     @JsonProperty("title")
     protected String title;
 
     /**
-     * ID of the space the page is in.
-     */
-    @JsonProperty("spaceId")
-    protected String spaceId;
-
-    /**
-     * ID of the parent page, or null if there is no parent page.
+     * ID of the parent content, or null if there is no parent content.
      */
     @JsonProperty("parentId")
     protected String parentId;
@@ -79,31 +77,25 @@ public class PageBulk {
     protected ParentContentType parentType;
 
     /**
-     * Position of child page within the given parent page tree.
+     * Position of whiteboard within the given parent page tree.
      */
     @JsonProperty("position")
     protected Integer position;
 
     /**
-     * The account ID of the user who created this page originally.
+     * The account ID of the user who created this whiteboard originally.
      */
     @JsonProperty("authorId")
     protected String authorId;
 
     /**
-     * The account ID of the user who owns this page.
+     * The account ID of the user who owns this whiteboard.
      */
     @JsonProperty("ownerId")
     protected String ownerId;
 
     /**
-     * The account ID of the user who owned this page previously, or null if there is no previous owner.
-     */
-    @JsonProperty("lastOwnerId")
-    protected String lastOwnerId;
-
-    /**
-     * Date and time when the page was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
+     * Date and time when the whiteboard was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      */
     @JsonProperty("createdAt")
     protected OffsetDateTime createdAt;
@@ -111,55 +103,48 @@ public class PageBulk {
     @JsonProperty("version")
     protected Version version;
 
-    @JsonProperty("body")
-    protected BodyBulk body;
-
     @JsonProperty("_links")
     protected AbstractPageLinks _links;
 
     /**
-     * Constructs a validated instance of {@link PageBulk}.
+     * Constructs a validated instance of {@link WhiteboardSingle}.
      *
      * @param spec the specification to process
      */
-    public PageBulk(Consumer<PageBulk> spec) {
+    public WhiteboardSingle(Consumer<WhiteboardSingle> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link PageBulk}.
+     * Constructs a validated instance of {@link WhiteboardSingle}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PageBulk(Consumer)} instead.
-     * @param id ID of the page.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WhiteboardSingle(Consumer)} instead.
+     * @param id ID of the whiteboard.
+     * @param type The content type of the object
      * @param status status
-     * @param title Title of the page.
-     * @param spaceId ID of the space the page is in.
-     * @param parentId ID of the parent page, or null if there is no parent page.
+     * @param title Title of the whiteboard.
+     * @param parentId ID of the parent content, or null if there is no parent content.
      * @param parentType parentType
-     * @param position Position of child page within the given parent page tree.
-     * @param authorId The account ID of the user who created this page originally.
-     * @param ownerId The account ID of the user who owns this page.
-     * @param lastOwnerId The account ID of the user who owned this page previously, or null if there is no previous owner.
-     * @param createdAt Date and time when the page was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
+     * @param position Position of whiteboard within the given parent page tree.
+     * @param authorId The account ID of the user who created this whiteboard originally.
+     * @param ownerId The account ID of the user who owns this whiteboard.
+     * @param createdAt Date and time when the whiteboard was created. In format "YYYY-MM-DDTHH:mm:ss.sssZ".
      * @param version version
-     * @param body body
      * @param _links _links
      */
     @ApiStatus.Internal
-    public PageBulk(String id, ContentStatus status, String title, String spaceId, String parentId, ParentContentType parentType, Integer position, String authorId, String ownerId, String lastOwnerId, OffsetDateTime createdAt, Version version, BodyBulk body, AbstractPageLinks _links) {
+    public WhiteboardSingle(String id, String type, ContentStatus status, String title, String parentId, ParentContentType parentType, Integer position, String authorId, String ownerId, OffsetDateTime createdAt, Version version, AbstractPageLinks _links) {
         this.id = id;
+        this.type = type;
         this.status = status;
         this.title = title;
-        this.spaceId = spaceId;
         this.parentId = parentId;
         this.parentType = parentType;
         this.position = position;
         this.authorId = authorId;
         this.ownerId = ownerId;
-        this.lastOwnerId = lastOwnerId;
         this.createdAt = createdAt;
         this.version = version;
-        this.body = body;
         this._links = _links;
     }
 

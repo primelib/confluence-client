@@ -6,14 +6,14 @@ import lombok.AllArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * AncestorType
+ * ParentContentType
  * 
  *
  */
-@JsonTypeName("AncestorType")
+@JsonTypeName("ParentContentType")
 @AllArgsConstructor
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public enum AncestorType {
+public enum ParentContentType {
     PAGE("page"),
     WHITEBOARD("whiteboard");
 

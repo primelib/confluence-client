@@ -57,6 +57,12 @@ public class CreatePageOperationSpec {
     private Boolean _private;
 
     /**
+     * The page will be created at the root level of the space (outside the space homepage tree).
+     */
+    @Nullable 
+    private Boolean rootLevel;
+
+    /**
      * Constructs a validated instance of {@link CreatePageOperationSpec}.
      *
      * @param spec the specification to process
@@ -75,12 +81,14 @@ public class CreatePageOperationSpec {
      * @param createPageRequest    
      * @param embedded             Tag the content as embedded and content will be created in NCS.
      * @param _private             The page will be private. Only the user who creates this page will have permission to view and edit one.
+     * @param rootLevel            The page will be created at the root level of the space (outside the space homepage tree).
      */
     @ApiStatus.Internal
-    public CreatePageOperationSpec(CreatePageRequest createPageRequest, Boolean embedded, Boolean _private) {
+    public CreatePageOperationSpec(CreatePageRequest createPageRequest, Boolean embedded, Boolean _private, Boolean rootLevel) {
         this.createPageRequest = createPageRequest;
         this.embedded = embedded;
         this._private = _private;
+        this.rootLevel = rootLevel;
 
         if (VALIDATION_ENABLED)
             validate();

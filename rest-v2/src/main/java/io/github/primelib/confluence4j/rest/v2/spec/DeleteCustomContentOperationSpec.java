@@ -3,6 +3,7 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import lombok.AccessLevel;
@@ -44,6 +45,12 @@ public class DeleteCustomContentOperationSpec {
     private Long id;
 
     /**
+     * If attempting to purge the custom content.
+     */
+    @Nullable 
+    private Boolean purge;
+
+    /**
      * Constructs a validated instance of {@link DeleteCustomContentOperationSpec}.
      *
      * @param spec the specification to process
@@ -60,10 +67,12 @@ public class DeleteCustomContentOperationSpec {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param id                   The ID of the custom content to be deleted.
+     * @param purge                If attempting to purge the custom content.
      */
     @ApiStatus.Internal
-    public DeleteCustomContentOperationSpec(Long id) {
+    public DeleteCustomContentOperationSpec(Long id, Boolean purge) {
         this.id = id;
+        this.purge = purge;
 
         if (VALIDATION_ENABLED)
             validate();

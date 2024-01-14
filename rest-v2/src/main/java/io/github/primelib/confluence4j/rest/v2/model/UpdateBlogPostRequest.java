@@ -49,7 +49,7 @@ public class UpdateBlogPostRequest {
     protected String id;
 
     /**
-     * The status of the blog post.
+     * The updated status of the blog post. Note, if you change the status of a blog post from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      */
     @JsonProperty("status")
     protected StatusEnum status;
@@ -87,7 +87,7 @@ public class UpdateBlogPostRequest {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UpdateBlogPostRequest(Consumer)} instead.
      * @param id Id of the blog post.
-     * @param status The status of the blog post.
+     * @param status The updated status of the blog post. Note, if you change the status of a blog post from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      * @param title Title of the blog post.
      * @param spaceId ID of the containing space.  This currently **does not support moving the blog post to a different space**.
      * @param body body
@@ -104,13 +104,12 @@ public class UpdateBlogPostRequest {
     }
 
     /**
-     * The status of the blog post.
+     * The updated status of the blog post. Note, if you change the status of a blog post from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft.
      */
     @AllArgsConstructor
     public enum StatusEnum {
         CURRENT("current"),
-        DRAFT("draft"),
-        DELETED("deleted");
+        DRAFT("draft");
 
         private static final StatusEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;

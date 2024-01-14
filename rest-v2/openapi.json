@@ -49,6 +49,10 @@
       "description": ""
     },
     {
+      "name": "Data Policies (EAP)",
+      "description": ""
+    },
+    {
       "name": "Label",
       "description": ""
     },
@@ -86,6 +90,10 @@
     },
     {
       "name": "Version",
+      "description": ""
+    },
+    {
+      "name": "Whiteboard",
       "description": ""
     }
   ],
@@ -230,7 +238,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{id}": {
@@ -304,7 +317,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -312,7 +330,7 @@
         ],
         "operationId": "deleteAttachment",
         "summary": "Delete attachment",
-        "description": "Delete an attachment by id.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the container of the attachment. Permission to delete attachments in the space.",
+        "description": "Delete an attachment by id.\n\nDeleting an attachment moves the attachment to the trash, where it can be restored later. To permanently delete an attachment (or \"purge\" it),\nthe endpoint must be called on a **trashed** attachment with the following param `purge=true`.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the container of the attachment.\nPermission to delete attachments in the space.\nPermission to administer the space (if attempting to purge).",
         "parameters": [
           {
             "name": "id",
@@ -322,6 +340,16 @@
             "schema": {
               "format": "int64",
               "type": "integer"
+            }
+          },
+          {
+            "name": "purge",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to purge the attachment.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -361,7 +389,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{id}/labels": {
@@ -501,7 +534,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{id}/operations": {
@@ -567,7 +605,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{attachment-id}/properties": {
@@ -698,7 +741,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -775,7 +823,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{attachment-id}/properties/{property-id}": {
@@ -851,7 +904,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -938,7 +996,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1007,7 +1070,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{id}/versions": {
@@ -1129,7 +1197,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{attachment-id}/versions/{version-number}": {
@@ -1205,7 +1278,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/attachments/{id}/footer-comments": {
@@ -1336,7 +1414,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts": {
@@ -1506,7 +1589,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1576,7 +1664,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}": {
@@ -1667,7 +1760,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -1733,7 +1831,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1741,7 +1844,7 @@
         ],
         "operationId": "deleteBlogPost",
         "summary": "Delete blog post",
-        "description": "Delete a blog post by id.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the blog post and its corresponding space. Permission to delete blog posts in the space.",
+        "description": "Delete a blog post by id.\n\nBy default this will delete blog posts that are non-drafts. To delete a blog post that is a draft, the endpoint must be called on a \ndraft with the following param `draft=true`. Discarded drafts are not sent to the trash and are permanently deleted.\n\nDeleting a blog post that is not a draft moves the blog post to the trash, where it can be restored later. \nTo permanently delete a blog post (or \"purge\" it), the endpoint must be called on a **trashed** blog post with the following param `purge=true`.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the blog post and its corresponding space.\nPermission to delete blog posts in the space.\nPermission to administer the space (if attempting to purge).",
         "parameters": [
           {
             "name": "id",
@@ -1751,6 +1854,26 @@
             "schema": {
               "format": "int64",
               "type": "integer"
+            }
+          },
+          {
+            "name": "purge",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to purge the blog post.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "draft",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to delete a blog post that is a draft.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -1790,7 +1913,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/attachments": {
@@ -1947,7 +2075,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/custom-content": {
@@ -2085,7 +2218,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/labels": {
@@ -2225,7 +2363,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/likes/count": {
@@ -2299,7 +2442,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/likes/users": {
@@ -2412,7 +2560,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{blogpost-id}/properties": {
@@ -2543,7 +2696,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -2620,7 +2778,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{blogpost-id}/properties/{property-id}": {
@@ -2704,7 +2867,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2791,7 +2959,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2860,7 +3033,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/operations": {
@@ -2926,7 +3104,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/versions": {
@@ -3056,7 +3239,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{blogpost-id}/versions/{version-number}": {
@@ -3132,7 +3320,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/content/convert-ids-to-types": {
@@ -3185,7 +3378,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "NONE"
+        "x-atlassian-connect-scope": "NONE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content": {
@@ -3341,7 +3539,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -3403,7 +3606,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{id}": {
@@ -3485,7 +3693,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -3559,7 +3772,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -3567,7 +3785,7 @@
         ],
         "operationId": "deleteCustomContent",
         "summary": "Delete custom content",
-        "description": "Delete a custom content by id.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to delete custom content in the space.",
+        "description": "Delete a custom content by id.\n\nDeleting a custom content will either move it to the trash or permanently delete it (purge it), depending on the apiSupport.\nTo permanently delete a **trashed** custom content, the endpoint must be called with the following param `purge=true`.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space.\nPermission to delete custom content in the space.\nPermission to administer the space (if attempting to purge).",
         "parameters": [
           {
             "name": "id",
@@ -3577,6 +3795,16 @@
             "schema": {
               "format": "int64",
               "type": "integer"
+            }
+          },
+          {
+            "name": "purge",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to purge the custom content.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -3616,7 +3844,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{id}/attachments": {
@@ -3773,7 +4006,148 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/custom-content/{id}/footer-comments": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "operationId": "getCustomContentComments",
+        "summary": "Get custom content comments",
+        "description": "Returns the comments of the specific custom content.\nThe number of results is limited by the `limit` parameter and additional results (if available) will be available through\nthe `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the custom content and its corresponding containers.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the custom content for which comments should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "body-format",
+            "in": "query",
+            "required": false,
+            "description": "The content format type to be returned in the `body` field of the response. If available, the representation will be available under a response field of the same name under the `body` field.",
+            "schema": {
+              "$ref": "#/components/schemas/PrimaryBodyRepresentation"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of comments per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "$ref": "#/components/schemas/CommentSortOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the custom content comments were successfully retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<CustomContentCommentModel>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CustomContentCommentModel"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/custom-content/<id>/footer-comments?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\ncustom content or associated containers.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:comment:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:comment:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{id}/labels": {
@@ -3913,7 +4287,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{id}/operations": {
@@ -3979,7 +4358,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{custom-content-id}/properties": {
@@ -4110,7 +4494,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -4187,7 +4576,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{custom-content-id}/properties/{property-id}": {
@@ -4263,7 +4657,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -4350,7 +4749,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -4419,7 +4823,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/labels": {
@@ -4544,6 +4953,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -4657,7 +5071,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/labels/{id}/blogposts": {
@@ -4801,7 +5220,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/labels/{id}/pages": {
@@ -4945,7 +5369,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages": {
@@ -5116,7 +5545,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -5139,6 +5573,15 @@
             "name": "private",
             "in": "query",
             "description": "The page will be private. Only the user who creates this page will have permission to view and edit one.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "root-level",
+            "in": "query",
+            "description": "The page will be created at the root level of the space (outside the space homepage tree).",
             "schema": {
               "type": "boolean",
               "default": false
@@ -5194,7 +5637,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}": {
@@ -5285,7 +5733,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -5351,7 +5804,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -5359,7 +5817,7 @@
         ],
         "operationId": "deletePage",
         "summary": "Delete page",
-        "description": "Delete a page by id.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the page and its corresponding space. Permission to delete pages in the space.",
+        "description": "Delete a page by id.\n\nBy default this will delete pages that are non-drafts. To delete a page that is a draft, the endpoint must be called on a \ndraft with the following param `draft=true`. Discarded drafts are not sent to the trash and are permanently deleted.\n\nDeleting a page moves the page to the trash, where it can be restored later. To permanently delete a page (or \"purge\" it),\nthe endpoint must be called on a **trashed** page with the following param `purge=true`.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the page and its corresponding space.\nPermission to delete pages in the space.\nPermission to administer the space (if attempting to purge).",
         "parameters": [
           {
             "name": "id",
@@ -5369,6 +5827,26 @@
             "schema": {
               "format": "int64",
               "type": "integer"
+            }
+          },
+          {
+            "name": "purge",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to purge the page.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "draft",
+            "in": "query",
+            "required": false,
+            "description": "If attempting to delete a page that is a draft.",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -5408,7 +5886,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/attachments": {
@@ -5565,7 +6048,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/custom-content": {
@@ -5703,7 +6191,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/labels": {
@@ -5843,7 +6336,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/likes/count": {
@@ -5917,7 +6415,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/likes/users": {
@@ -6030,7 +6533,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/operations": {
@@ -6096,7 +6604,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{page-id}/properties": {
@@ -6227,7 +6740,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -6304,7 +6822,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{page-id}/properties/{property-id}": {
@@ -6380,7 +6903,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -6467,7 +6995,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -6536,7 +7069,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/versions": {
@@ -6666,7 +7204,848 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards": {
+      "post": {
+        "tags": [
+          "Whiteboard"
+        ],
+        "operationId": "createWhiteboard",
+        "summary": "Create whiteboard",
+        "description": "Creates a whiteboard in the space.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the corresponding space. Permission to create a whiteboard in the space.",
+        "parameters": [
+          {
+            "name": "private",
+            "in": "query",
+            "description": "The whiteboard will be private. Only the user who creates this whiteboard will have permission to view and edit one.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/WhiteboardCreateRequest"
+        },
+        "responses": {
+          "200": {
+            "description": "Returned if the whiteboard was successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhiteboardSingle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing from the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if:\n- The space does not exist\n- The user does not have permissions to view the space\n- The user does not have the needed permissions to create a whiteboard in the provided space"
+          },
+          "413": {
+            "description": "Returned if the request is too large in size (over 5 MB).",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards/{id}": {
+      "get": {
+        "tags": [
+          "Whiteboard"
+        ],
+        "operationId": "getWhiteboardById",
+        "summary": "Get whiteboard by id",
+        "description": "Returns a specific whiteboard.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the whiteboard and its corresponding space.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard to be returned",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested whiteboard is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WhiteboardSingle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nrequested whiteboard or the whiteboard was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Whiteboard"
+        ],
+        "operationId": "deleteWhiteboard",
+        "summary": "Delete whiteboard",
+        "description": "Delete a whiteboard by id.\n\nDeleting a whiteboard moves the whiteboard to the trash, where it can be restored later\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the whiteboard and its corresponding space.\nPermission to delete whiteboards in the space.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard to be deleted.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the whiteboard was successfully deleted.",
+            "content": {}
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if:\n- The provided whiteboard does not exist\n- The user does not have permissions to view the whiteboard\n- The user does not have the needed permissions to delete a whiteboard in the space"
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "delete:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "delete:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards/{id}/properties": {
+      "get": {
+        "tags": [
+          "Content Properties"
+        ],
+        "operationId": "getWhiteboardContentProperties",
+        "summary": "Get content properties for whiteboard",
+        "description": "Retrieves Content Properties tied to a specified whiteboard.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the whiteboard.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard for which content properties should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": false,
+            "description": "Filters the response to return a specific content property with matching key (case sensitive).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "$ref": "#/components/schemas/ContentPropertySortOrder"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of attachments per result to return. If more results exist, use the `Link` header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content properties are successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<ContentProperty>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ContentProperty"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/whiteboards/<id>/properties?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard or the whiteboard was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Content Properties"
+        ],
+        "operationId": "createWhiteboardProperty",
+        "summary": "Create content property for whiteboard",
+        "description": "Creates a new content property for a whiteboard.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to update the whiteboard.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard to create a property for.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The content property to be created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPropertyCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returned if the content property was created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentProperty"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard or the whiteboard was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards/{whiteboard-id}/properties/{property-id}": {
+      "get": {
+        "tags": [
+          "Content Properties"
+        ],
+        "operationId": "getWhiteboardContentPropertiesById",
+        "summary": "Get content property for whiteboard by id",
+        "description": "Retrieves a specific Content Property by ID that is attached to a specified whiteboard.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the whiteboard.",
+        "parameters": [
+          {
+            "name": "whiteboard-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard for which content properties should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "property-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content property being requested.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested content property is successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentProperty"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard, the whiteboard was not found, or the property was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Content Properties"
+        ],
+        "operationId": "updateWhiteboardPropertyById",
+        "summary": "Update content property for whiteboard by id",
+        "description": "Update a content property for a whiteboard by its id. \n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to edit the whiteboard.",
+        "parameters": [
+          {
+            "name": "whiteboard-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard the property belongs to.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "property-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the property to be updated.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The content property to be updated.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPropertyUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returned if the content property was updated successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentProperty"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard or the whiteboard was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Content Properties"
+        ],
+        "operationId": "deleteWhiteboardPropertyById",
+        "summary": "Delete content property for whiteboard by id",
+        "description": "Deletes a content property for a whiteboard by its id. \n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to edit the whiteboard.",
+        "parameters": [
+          {
+            "name": "whiteboard-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard the property belongs to.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "property-id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the property to be deleted.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returned if the content property was deleted successfully."
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard or the whiteboard was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence",
+              "write:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards/{id}/operations": {
+      "get": {
+        "tags": [
+          "Operation"
+        ],
+        "operationId": "getWhiteboardOperations",
+        "summary": "Get permitted operations for a whiteboard",
+        "description": "Returns the permitted operations on specific whiteboard.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the whiteboard and its corresponding space.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard for which operations should be returned.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested operations are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermittedOperationsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nrequested whiteboard or the it was not found.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:whiteboard:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
+      }
+    },
+    "/whiteboards/{id}/ancestors": {
+      "get": {
+        "tags": [
+          "Ancestors"
+        ],
+        "operationId": "getWhiteboardAncestors",
+        "summary": "Get all ancestors of the whiteboard",
+        "description": "Returns all ancestors for a given whiteboard by ID in top-to-bottom order (that is, the highest ancestor is the first\nitem in the response payload). The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available by calling this endpoint with the ID of first ancestor in the response payload.\n\nThis endpoint returns minimal information about each ancestor. To fetch more details, use a related endpoint, such\nas [Get page by id](https://developer.atlassian.com/cloud/confluence/rest/v2/api-group-page/#api-pages-id-get).\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).\nPermission to view the whiteboard and its corresponding space",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the whiteboard.",
+            "schema": {
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of items per result to return. If more results exist, call the endpoint with the highest ancestor's ID to fetch the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested ancestors are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<Ancestor>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Ancestor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          },
+          "404": {
+            "description": "Returned if the calling user does not have permission to view the\nspecified whiteboard or the whiteboard was not found."
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:content.metadata:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:content.metadata:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{page-id}/versions/{version-number}": {
@@ -6742,7 +8121,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{custom-content-id}/versions": {
@@ -6872,7 +8256,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{custom-content-id}/versions/{version-number}": {
@@ -6948,7 +8337,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/spaces": {
@@ -7140,6 +8534,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -7223,6 +8622,11 @@
             "scopes": [
               "read:space:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -7380,7 +8784,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/spaces/{id}/labels": {
@@ -7517,6 +8926,11 @@
             "scopes": [
               "read:space:confluence"
             ]
+          }
+        ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
           }
         ],
         "x-atlassian-connect-scope": "READ"
@@ -7658,6 +9072,11 @@
             ]
           }
         ],
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ],
         "x-atlassian-connect-scope": "READ"
       }
     },
@@ -7787,7 +9206,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/spaces/{id}/operations": {
@@ -7853,7 +9277,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       }
     },
     "/spaces/{id}/pages": {
@@ -8024,7 +9453,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/spaces/{space-id}/properties": {
@@ -8137,7 +9571,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -8222,7 +9661,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       }
     },
     "/spaces/{space-id}/properties/{property-id}": {
@@ -8298,7 +9742,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -8393,7 +9842,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -8462,7 +9916,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       }
     },
     "/spaces/{id}/permissions": {
@@ -8567,7 +10026,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ]
       }
     },
     "/pages/{id}/footer-comments": {
@@ -8698,7 +10162,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/inline-comments": {
@@ -8829,7 +10298,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/footer-comments": {
@@ -8960,7 +10434,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/blogposts/{id}/inline-comments": {
@@ -9091,7 +10570,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments": {
@@ -9101,7 +10585,7 @@
         ],
         "operationId": "getFooterComments",
         "summary": "Get footer comments",
-        "description": "Returns all footer comments. The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page and its corresponding space.",
+        "description": "Returns all footer comments. The number of results is limited by the `limit` parameter and additional results (if available)\nwill be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the container and its corresponding space.",
         "parameters": [
           {
             "name": "body-format",
@@ -9208,7 +10692,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -9216,7 +10705,7 @@
         ],
         "operationId": "createFooterComment",
         "summary": "Create footer comment",
-        "description": "Create a footer comment.\n\nThe footer comment can be made against several locations: \n- at the top level (specifying pageId or blogPostId in the request body)\n- as a reply (specifying parentCommentId in the request body)\n- against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
+        "description": "Create a footer comment.\n\nThe footer comment can be made against several locations: \n- at the top level (specifying pageId or blogPostId in the request body)\n- as a reply (specifying parentCommentId in the request body)\n- against an attachment (note: this is different than the comments added via the attachment properties page on the UI, which are referred to as version comments)\n- against a custom content\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space. Permission to create comments in the space.",
         "requestBody": {
           "description": "The footer comment to be created",
           "content": {
@@ -9279,7 +10768,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{comment-id}": {
@@ -9289,7 +10783,7 @@
         ],
         "operationId": "getFooterCommentById",
         "summary": "Get footer comment by id",
-        "description": "Retrieves a footer comment by id\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the page or blogpost and its corresponding space.",
+        "description": "Retrieves a footer comment by id\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nPermission to view the content of the container and its corresponding space.",
         "parameters": [
           {
             "name": "comment-id",
@@ -9362,7 +10856,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9436,7 +10935,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -9492,7 +10996,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/children": {
@@ -9623,7 +11132,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/likes/count": {
@@ -9697,7 +11211,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/likes/users": {
@@ -9810,7 +11329,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/operations": {
@@ -9876,7 +11400,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/versions": {
@@ -10006,7 +11535,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/footer-comments/{id}/versions/{version-number}": {
@@ -10082,7 +11616,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments": {
@@ -10199,7 +11738,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -10270,7 +11814,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{comment-id}": {
@@ -10353,7 +11902,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -10428,7 +11982,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -10485,7 +12044,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "DELETE"
+        "x-atlassian-connect-scope": "DELETE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/children": {
@@ -10616,7 +12180,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/likes/count": {
@@ -10690,7 +12259,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/likes/users": {
@@ -10803,7 +12377,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/operations": {
@@ -10869,7 +12448,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/versions": {
@@ -10999,7 +12583,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/inline-comments/{id}/versions/{version-number}": {
@@ -11075,7 +12664,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/comments/{comment-id}/properties": {
@@ -11206,7 +12800,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -11283,7 +12882,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/comments/{comment-id}/properties/{property-id}": {
@@ -11359,7 +12963,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11446,7 +13055,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -11515,7 +13129,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/tasks": {
@@ -11784,7 +13403,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/tasks/{id}": {
@@ -11858,7 +13482,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -11925,7 +13554,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "WRITE"
+        "x-atlassian-connect-scope": "WRITE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/children": {
@@ -12046,7 +13680,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/custom-content/{id}/children": {
@@ -12167,7 +13806,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/pages/{id}/ancestors": {
@@ -12253,7 +13897,12 @@
             ]
           }
         ],
-        "x-atlassian-connect-scope": "READ"
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": false
+          }
+        ]
       }
     },
     "/user/access/check-access-by-email": {
@@ -12329,6 +13978,11 @@
           }
         ],
         "x-atlassian-connect-scope": "NONE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-experimental": true
       }
     },
@@ -12383,6 +14037,207 @@
           }
         ],
         "x-atlassian-connect-scope": "NONE",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
+        "x-experimental": true
+      }
+    },
+    "/data-policies/metadata": {
+      "get": {
+        "tags": [
+          "Data Policies (EAP)"
+        ],
+        "summary": "Get data policy metadata for the workspace (EAP)",
+        "description": "Returns data policy metadata for the workspace.\n\n**[Permissions](#permissions) required:**\nOnly apps can make this request.\nPermission to access the Confluence site ('Can use' global permission).",
+        "operationId": "getDataPolicyMetadata",
+        "responses": {
+          "200": {
+            "description": "Returned if the request is successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPolicyMetadata"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if the request is not valid."
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing."
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:configuration:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:configuration:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
+        "x-experimental": true
+      }
+    },
+    "/data-policies/spaces": {
+      "get": {
+        "tags": [
+          "Data Policies (EAP)"
+        ],
+        "operationId": "getDataPolicySpaces",
+        "summary": "Get spaces with data policies (EAP)",
+        "description": "Returns all spaces. The results will be sorted by id ascending. The number of results is limited by the `limit` parameter and\nadditional results (if available) will be available through the `next` URL present in the `Link` response header.\n\n**[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:\nOnly apps can make this request.\nPermission to access the Confluence site ('Can use' global permission).\nOnly spaces that the app has permission to view will be returned.",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to spaces based on their IDs. Multiple IDs can be specified as a comma-separated list.",
+            "schema": {
+              "type": "array",
+              "maxItems": 250,
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "keys",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to spaces based on their keys. Multiple keys can be specified as a comma-separated list.",
+            "schema": {
+              "type": "array",
+              "maxItems": 250,
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Used to sort the result by a particular field.",
+            "schema": {
+              "$ref": "#/components/schemas/SpaceSortOrder"
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Used for pagination, this opaque cursor will be returned in the `next` URL in the `Link` response header. Use the relative URL in the `Link` header to retrieve the `next` set of results.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of spaces per result to return. If more results exist, use the `Link` response header to retrieve a relative URL that will return the next set of results.",
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 250,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned if the requested spaces are returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MultiEntityResult<DataPolicySpace>",
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/DataPolicySpace"
+                      }
+                    },
+                    "_links": {
+                      "type": "object",
+                      "properties": {
+                        "next": {
+                          "type": "string",
+                          "description": "Used for pagination. Contains the relative URL for the next set of results, using a cursor query parameter.\nThis property will not be present if there is no additional data available."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Link": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Used for pagination. This header contains URL(s) within angle brackets and a relation description for each URL, describing how the provided URL relates to the incoming request's URL. For example, rel=\"next\" would be the URL necessary to get the next page of information. If there are no additional results, this header will not be returned. Example response header format: `Link: </wiki/api/v2/spaces?cursor=<opaque cursor token>>; rel=\"next\"`\n"
+              }
+            }
+          },
+          "400": {
+            "description": "Returned if an invalid request is provided.",
+            "content": {}
+          },
+          "401": {
+            "description": "Returned if the authentication credentials are incorrect or missing\nfrom the request.",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          },
+          {
+            "oAuthDefinitions": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-oauth2-scopes": [
+          {
+            "scheme": "oAuthDefinitions",
+            "state": "Current",
+            "scopes": [
+              "read:space:confluence"
+            ]
+          }
+        ],
+        "x-atlassian-connect-scope": "READ",
+        "x-atlassian-data-security-policy": [
+          {
+            "app-access-rule-exempt": true
+          }
+        ],
         "x-experimental": true
       }
     }
@@ -12451,11 +14306,10 @@
                 "status": {
                   "enum": [
                     "current",
-                    "draft",
-                    "deleted"
+                    "draft"
                   ],
                   "type": "string",
-                  "description": "The status of the blog post."
+                  "description": "The updated status of the blog post. Note, if you change the status of a blog post from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft."
                 },
                 "title": {
                   "type": "string",
@@ -12481,7 +14335,7 @@
                     "number": {
                       "format": "int32",
                       "type": "integer",
-                      "description": "The version number, must be incremented by one."
+                      "description": "The new version number of the updated blog post. \nSet this to the current version number plus one, unless you are updating the status to 'draft' which requires a version number of 1.\n\nIf you don't know the current version number, use Get blog post by id."
                     },
                     "message": {
                       "type": "string",
@@ -12727,12 +14581,10 @@
                 "status": {
                   "enum": [
                     "current",
-                    "draft",
-                    "archived",
-                    "deleted"
+                    "draft"
                   ],
                   "type": "string",
-                  "description": "The status of the page."
+                  "description": "The updated status of the page. Note, if you change the status of a page from 'current' to 'draft' and it has an existing draft, the existing draft will be deleted in favor of the updated draft."
                 },
                 "title": {
                   "type": "string",
@@ -12745,6 +14597,10 @@
                 "parentId": {
                   "format": "string",
                   "description": "ID of the parent page.\n\nThis allows the page to be moved under a different parent within the same space."
+                },
+                "ownerId": {
+                  "format": "string",
+                  "description": "Account ID of the page owner.\n\nThis allows page ownership to be transferred to another user."
                 },
                 "body": {
                   "oneOf": [
@@ -12762,13 +14618,40 @@
                     "number": {
                       "format": "int32",
                       "type": "integer",
-                      "description": "The version number, must be incremented by one."
+                      "description": "The new version of the updated page. \nSet this to the current version number plus one, unless you are updating the status to 'draft' which requires a version number of 1.\n\nIf you don't know the current version number, use Get page by id."
                     },
                     "message": {
                       "type": "string",
                       "description": "An optional message to be stored with the version."
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WhiteboardCreateRequest": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "spaceId"
+              ],
+              "properties": {
+                "spaceId": {
+                  "type": "string",
+                  "description": "ID of the space"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Title of the whiteboard"
+                },
+                "parentId": {
+                  "type": "string",
+                  "description": "The parent content ID of the whiteboard"
                 }
               }
             }
@@ -13018,6 +14901,18 @@
           },
           "_links": {
             "$ref": "#/components/schemas/AbstractPageLinks"
+          }
+        }
+      },
+      "TaskBodySingle": {
+        "type": "object",
+        "description": "Contains fields for each representation type requested.",
+        "properties": {
+          "storage": {
+            "$ref": "#/components/schemas/BodyType"
+          },
+          "atlas_doc_format": {
+            "$ref": "#/components/schemas/BodyType"
           }
         }
       },
@@ -13476,7 +15371,7 @@
             "description": "ID of the parent page, or null if there is no parent page."
           },
           "parentType": {
-            "$ref": "#/components/schemas/ContentType"
+            "$ref": "#/components/schemas/ParentContentType"
           },
           "position": {
             "format": "int32",
@@ -13535,7 +15430,7 @@
             "description": "ID of the parent page, or null if there is no parent page."
           },
           "parentType": {
-            "$ref": "#/components/schemas/ContentType"
+            "$ref": "#/components/schemas/ParentContentType"
           },
           "position": {
             "format": "int32",
@@ -13571,11 +15466,12 @@
           }
         }
       },
-      "ContentType": {
-        "enum": [
-          "page"
-        ],
+      "ParentContentType": {
         "type": "string",
+        "enum": [
+          "page",
+          "whiteboard"
+        ],
         "description": "Content type of the parent, or null if there is no parent."
       },
       "PageBodyWrite": {
@@ -13760,6 +15656,58 @@
           }
         }
       },
+      "WhiteboardSingle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the whiteboard."
+          },
+          "type": {
+            "type": "string",
+            "description": "The content type of the object"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ContentStatus"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the whiteboard."
+          },
+          "parentId": {
+            "type": "string",
+            "description": "ID of the parent content, or null if there is no parent content."
+          },
+          "parentType": {
+            "$ref": "#/components/schemas/ParentContentType"
+          },
+          "position": {
+            "format": "int32",
+            "type": "integer",
+            "nullable": true,
+            "description": "Position of whiteboard within the given parent page tree."
+          },
+          "authorId": {
+            "type": "string",
+            "description": "The account ID of the user who created this whiteboard originally."
+          },
+          "ownerId": {
+            "type": "string",
+            "description": "The account ID of the user who owns this whiteboard."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the whiteboard was created. In format \"YYYY-MM-DDTHH:mm:ss.sssZ\"."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/AbstractPageLinks"
+          }
+        }
+      },
       "Ancestor": {
         "type": "object",
         "properties": {
@@ -13774,7 +15722,8 @@
       },
       "AncestorType": {
         "enum": [
-          "page"
+          "page",
+          "whiteboard"
         ],
         "type": "string",
         "description": "The type of ancestor."
@@ -14053,7 +16002,7 @@
             "description": "Status of the task."
           },
           "body": {
-            "$ref": "#/components/schemas/BodySingle"
+            "$ref": "#/components/schemas/TaskBodySingle"
           },
           "createdBy": {
             "type": "string",
@@ -14421,13 +16370,23 @@
       "InlineCommentProperties": {
         "type": "object",
         "properties": {
-          "inline-marker-ref": {
+          "inlineMarkerRef": {
             "type": "string",
             "description": "Property value used to reference the highlighted element in DOM."
           },
+          "inlineOriginalSelection": {
+            "type": "string",
+            "description": "Text that is highlighted."
+          },
+          "inline-marker-ref": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Deprecated, use `inlineMarkerRef` instead."
+          },
           "inline-original-selection": {
             "type": "string",
-            "description": "Text that is highlighted"
+            "deprecated": true,
+            "description": "Deprecated, use `inlineOriginalSelection` instead."
           }
         }
       },
@@ -14652,6 +16611,35 @@
           }
         }
       },
+      "CustomContentCommentModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the comment."
+          },
+          "status": {
+            "$ref": "#/components/schemas/ContentStatus"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the comment."
+          },
+          "customContentId": {
+            "type": "string",
+            "description": "ID of the custom content containing the comment."
+          },
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "body": {
+            "$ref": "#/components/schemas/BodySingle"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/CommentLinks"
+          }
+        }
+      },
       "FooterCommentModel": {
         "type": "object",
         "properties": {
@@ -14676,7 +16664,11 @@
           },
           "attachmentId": {
             "type": "string",
-            "description": "ID of the page containing the comment if the comment is on an attachment."
+            "description": "ID of the attachment containing the comment if the comment is on an attachment."
+          },
+          "customContentId": {
+            "type": "string",
+            "description": "ID of the custom content containing the comment if the comment is on a custom content."
           },
           "parentCommentId": {
             "type": "string",
@@ -14762,7 +16754,11 @@
           },
           "attachmentId": {
             "type": "string",
-            "description": "ID of the attachment, if intending to create a comment against an attachment"
+            "description": "ID of the attachment, if intending to create a comment against an attachment."
+          },
+          "customContentId": {
+            "type": "string",
+            "description": "ID of the custom content, if intending to create a comment against a custom content."
           },
           "body": {
             "oneOf": [
@@ -14937,6 +16933,57 @@
             "description": "Web UI link of the space."
           }
         }
+      },
+      "DataPolicyMetadata": {
+        "type": "object",
+        "properties": {
+          "anyContentBlocked": {
+            "type": "boolean",
+            "description": "Whether the workspace contains any content blocked for (inaccessible to) the requesting client application.",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Details about data policies.",
+        "xml": {
+          "name": "datapolicy"
+        }
+      },
+      "DataPolicySpace": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the space."
+          },
+          "key": {
+            "type": "string",
+            "description": "Key of the space."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the space."
+          },
+          "description": {
+            "$ref": "#/components/schemas/SpaceDescription"
+          },
+          "dataPolicy": {
+            "type": "object",
+            "properties": {
+              "anyContentBlocked": {
+                "type": "boolean",
+                "description": "Whether the space contains any content blocked for (inaccessible to) the requesting client application.",
+                "readOnly": true
+              }
+            }
+          },
+          "icon": {
+            "$ref": "#/components/schemas/SpaceIcon"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/SpaceLinks"
+          }
+        }
       }
     },
     "securitySchemes": {
@@ -14959,13 +17006,16 @@
               "read:comment:confluence": "View comments and their properties.",
               "read:custom-content:confluence": "View custom content and their properties.",
               "read:task:confluence": "View tasks.",
+              "read:whiteboard:confluence": "View whiteboards and their properties.",
               "write:space:confluence": "Create and update spaces and their properties.",
               "write:page:confluence": "Create and update pages and blog posts and their properties.",
               "write:comment:confluence": "Create and update comments and their properties.",
               "write:custom-content:confluence": "Create and update custom content and their properties.",
+              "write:whiteboard:confluence": "Create and update whiteboards and their properties.",
               "delete:custom-content:confluence": "Delete custom content.",
               "delete:page:confluence": "Delete pages and blog posts.",
-              "delete:comment:confluence": "Delete comments."
+              "delete:comment:confluence": "Delete comments.",
+              "delete:whiteboard:confluence": "Delete whiteboards."
             }
           }
         }

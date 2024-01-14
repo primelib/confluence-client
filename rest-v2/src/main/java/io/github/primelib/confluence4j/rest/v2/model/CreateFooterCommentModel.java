@@ -32,6 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "pageId",
     "parentCommentId",
     "attachmentId",
+    "customContentId",
     "body"
 })
 @JsonTypeName("CreateFooterCommentModel")
@@ -57,10 +58,16 @@ public class CreateFooterCommentModel {
     protected String parentCommentId;
 
     /**
-     * ID of the attachment, if intending to create a comment against an attachment
+     * ID of the attachment, if intending to create a comment against an attachment.
      */
     @JsonProperty("attachmentId")
     protected String attachmentId;
+
+    /**
+     * ID of the custom content, if intending to create a comment against a custom content.
+     */
+    @JsonProperty("customContentId")
+    protected String customContentId;
 
     @JsonProperty("body")
     protected CreateFooterCommentModelBody body;
@@ -81,15 +88,17 @@ public class CreateFooterCommentModel {
      * @param blogPostId ID of the containing blog post, if intending to create a top level footer comment. Do not provide if creating a reply.
      * @param pageId ID of the containing page, if intending to create a top level footer comment. Do not provide if creating a reply.
      * @param parentCommentId ID of the parent comment, if intending to create a reply. Do not provide if creating a top level comment.
-     * @param attachmentId ID of the attachment, if intending to create a comment against an attachment
+     * @param attachmentId ID of the attachment, if intending to create a comment against an attachment.
+     * @param customContentId ID of the custom content, if intending to create a comment against a custom content.
      * @param body body
      */
     @ApiStatus.Internal
-    public CreateFooterCommentModel(String blogPostId, String pageId, String parentCommentId, String attachmentId, CreateFooterCommentModelBody body) {
+    public CreateFooterCommentModel(String blogPostId, String pageId, String parentCommentId, String attachmentId, String customContentId, CreateFooterCommentModelBody body) {
         this.blogPostId = blogPostId;
         this.pageId = pageId;
         this.parentCommentId = parentCommentId;
         this.attachmentId = attachmentId;
+        this.customContentId = customContentId;
         this.body = body;
     }
 

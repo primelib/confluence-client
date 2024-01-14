@@ -76,7 +76,7 @@ public class PageSingle {
     protected String parentId;
 
     @JsonProperty("parentType")
-    protected ContentType parentType;
+    protected ParentContentType parentType;
 
     /**
      * Position of child page within the given parent page tree.
@@ -146,7 +146,7 @@ public class PageSingle {
      * @param _links _links
      */
     @ApiStatus.Internal
-    public PageSingle(String id, ContentStatus status, String title, String spaceId, String parentId, ContentType parentType, Integer position, String authorId, String ownerId, String lastOwnerId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
+    public PageSingle(String id, ContentStatus status, String title, String spaceId, String parentId, ParentContentType parentType, Integer position, String authorId, String ownerId, String lastOwnerId, OffsetDateTime createdAt, Version version, BodySingle body, AbstractPageLinks _links) {
         this.id = id;
         this.status = status;
         this.title = title;

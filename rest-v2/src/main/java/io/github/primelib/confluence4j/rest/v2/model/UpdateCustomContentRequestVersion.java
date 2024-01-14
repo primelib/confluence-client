@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * UpdateBlogPostRequestVersion
+ * UpdateCustomContentRequestVersion
  *
  */
 @Getter
@@ -31,14 +31,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "number",
     "message"
 })
-@JsonTypeName("updateBlogPost_request_version")
+@JsonTypeName("updateCustomContent_request_version")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class UpdateBlogPostRequestVersion {
+public class UpdateCustomContentRequestVersion {
 
     /**
-     * The new version number of the updated blog post.
-     * Set this to the current version number plus one, unless you are updating the status to 'draft' which requires a version number of 1.
-     * If you don't know the current version number, use Get blog post by id.
+     * The version number, must be incremented by one.
      */
     @JsonProperty("number")
     protected Integer number;
@@ -50,23 +48,23 @@ public class UpdateBlogPostRequestVersion {
     protected String message;
 
     /**
-     * Constructs a validated instance of {@link UpdateBlogPostRequestVersion}.
+     * Constructs a validated instance of {@link UpdateCustomContentRequestVersion}.
      *
      * @param spec the specification to process
      */
-    public UpdateBlogPostRequestVersion(Consumer<UpdateBlogPostRequestVersion> spec) {
+    public UpdateCustomContentRequestVersion(Consumer<UpdateCustomContentRequestVersion> spec) {
         spec.accept(this);
     }
 
     /**
-     * Constructs a validated instance of {@link UpdateBlogPostRequestVersion}.
+     * Constructs a validated instance of {@link UpdateCustomContentRequestVersion}.
      * <p>
-     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UpdateBlogPostRequestVersion(Consumer)} instead.
-     * @param number The new version number of the updated blog post.  Set this to the current version number plus one, unless you are updating the status to 'draft' which requires a version number of 1.  If you don't know the current version number, use Get blog post by id.
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UpdateCustomContentRequestVersion(Consumer)} instead.
+     * @param number The version number, must be incremented by one.
      * @param message An optional message to be stored with the version.
      */
     @ApiStatus.Internal
-    public UpdateBlogPostRequestVersion(Integer number, String message) {
+    public UpdateCustomContentRequestVersion(Integer number, String message) {
         this.number = number;
         this.message = message;
     }
