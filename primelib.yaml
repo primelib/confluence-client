@@ -42,6 +42,7 @@ modules:
       for property in "${properties[@]}"; do
         jq "walk(if type == \"object\" and .properties and .properties.$property and .properties.$property.oneOf then .properties.$property.format = \"int64\" | .properties.$property.type = \"integer\" | del(.properties.$property.oneOf) else . end)" "$1" | sponge "$1"
       done
+      jq 'del(.components.schemas.InlineCommentProperties.properties["inline-marker-ref", "inline-original-selection"])' "$1" | sponge "$1" # remove duplicate properties
     config:
       generatorName: prime-client-java-feign
       invokerPackage: io.github.primelib.confluence4j.rest.v2

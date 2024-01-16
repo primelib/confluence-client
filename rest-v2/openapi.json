@@ -16377,16 +16377,6 @@
           "inlineOriginalSelection": {
             "type": "string",
             "description": "Text that is highlighted."
-          },
-          "inline-marker-ref": {
-            "type": "string",
-            "deprecated": true,
-            "description": "Deprecated, use `inlineMarkerRef` instead."
-          },
-          "inline-original-selection": {
-            "type": "string",
-            "deprecated": true,
-            "description": "Deprecated, use `inlineOriginalSelection` instead."
           }
         }
       },

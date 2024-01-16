@@ -29,9 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Builder
 @JsonPropertyOrder({
     "inlineMarkerRef",
-    "inlineOriginalSelection",
-    "inline-marker-ref",
-    "inline-original-selection"
+    "inlineOriginalSelection"
 })
 @JsonTypeName("InlineCommentProperties")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
@@ -50,18 +48,6 @@ public class InlineCommentProperties {
     protected String inlineOriginalSelection;
 
     /**
-     * Deprecated, use {@code inlineMarkerRef} instead.
-     */
-    @JsonProperty("inline-marker-ref")
-    protected String inlineMarkerRef;
-
-    /**
-     * Deprecated, use {@code inlineOriginalSelection} instead.
-     */
-    @JsonProperty("inline-original-selection")
-    protected String inlineOriginalSelection;
-
-    /**
      * Constructs a validated instance of {@link InlineCommentProperties}.
      *
      * @param spec the specification to process
@@ -76,13 +62,9 @@ public class InlineCommentProperties {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InlineCommentProperties(Consumer)} instead.
      * @param inlineMarkerRef Property value used to reference the highlighted element in DOM.
      * @param inlineOriginalSelection Text that is highlighted.
-     * @param inlineMarkerRef Deprecated, use {@code inlineMarkerRef} instead.
-     * @param inlineOriginalSelection Deprecated, use {@code inlineOriginalSelection} instead.
      */
     @ApiStatus.Internal
-    public InlineCommentProperties(String inlineMarkerRef, String inlineOriginalSelection, String inlineMarkerRef, String inlineOriginalSelection) {
-        this.inlineMarkerRef = inlineMarkerRef;
-        this.inlineOriginalSelection = inlineOriginalSelection;
+    public InlineCommentProperties(String inlineMarkerRef, String inlineOriginalSelection) {
         this.inlineMarkerRef = inlineMarkerRef;
         this.inlineOriginalSelection = inlineOriginalSelection;
     }
