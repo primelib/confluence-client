@@ -3,8 +3,10 @@ package io.github.primelib.confluence4j.rest.v2.spec;
 import java.util.Objects;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
+import io.github.primelib.confluence4j.rest.v2.model.PrimaryBodyRepresentation;
 import io.github.primelib.confluence4j.rest.v2.model.Task;
 import io.github.primelib.confluence4j.rest.v2.model.UpdateTaskRequest;
 import lombok.AccessLevel;
@@ -51,6 +53,12 @@ public class UpdateTaskOperationSpec {
     private UpdateTaskRequest updateTaskRequest;
 
     /**
+     * The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.
+     */
+    @Nullable 
+    private PrimaryBodyRepresentation bodyFormat;
+
+    /**
      * Constructs a validated instance of {@link UpdateTaskOperationSpec}.
      *
      * @param spec the specification to process
@@ -68,11 +76,13 @@ public class UpdateTaskOperationSpec {
      * NOTE: This constructor is not considered stable and may change if the operation is updated.
      * @param id                   The ID of the task to be updated. If you don't know the task ID, use Get tasks and filter the results.
      * @param updateTaskRequest    
+     * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.
      */
     @ApiStatus.Internal
-    public UpdateTaskOperationSpec(Long id, UpdateTaskRequest updateTaskRequest) {
+    public UpdateTaskOperationSpec(Long id, UpdateTaskRequest updateTaskRequest, PrimaryBodyRepresentation bodyFormat) {
         this.id = id;
         this.updateTaskRequest = updateTaskRequest;
+        this.bodyFormat = bodyFormat;
 
         if (VALIDATION_ENABLED)
             validate();

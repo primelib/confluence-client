@@ -71,6 +71,18 @@ public class GetSpacesOperationSpec {
     private List<String> labels;
 
     /**
+     * Filter the results to spaces favorited by the user with the specified account ID.
+     */
+    @Nullable 
+    private String favoritedBy;
+
+    /**
+     * Filter the results to spaces NOT favorited by the user with the specified account ID.
+     */
+    @Nullable 
+    private String notFavoritedBy;
+
+    /**
      * Used to sort the result by a particular field.
      */
     @Nullable 
@@ -121,6 +133,8 @@ public class GetSpacesOperationSpec {
      * @param type                 Filter the results to spaces based on their type.
      * @param status               Filter the results to spaces based on their status.
      * @param labels               Filter the results to spaces based on their labels. Multiple labels can be specified as a comma-separated list.
+     * @param favoritedBy          Filter the results to spaces favorited by the user with the specified account ID.
+     * @param notFavoritedBy       Filter the results to spaces NOT favorited by the user with the specified account ID.
      * @param sort                 Used to sort the result by a particular field.
      * @param descriptionFormat    The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field.
      * @param includeIcon          If the icon for the space should be fetched or not.
@@ -128,12 +142,14 @@ public class GetSpacesOperationSpec {
      * @param limit                Maximum number of spaces per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results.
      */
     @ApiStatus.Internal
-    public GetSpacesOperationSpec(List<Long> ids, List<String> keys, String type, String status, List<String> labels, SpaceSortOrder sort, SpaceDescriptionBodyRepresentation descriptionFormat, Boolean includeIcon, String cursor, Integer limit) {
+    public GetSpacesOperationSpec(List<Long> ids, List<String> keys, String type, String status, List<String> labels, String favoritedBy, String notFavoritedBy, SpaceSortOrder sort, SpaceDescriptionBodyRepresentation descriptionFormat, Boolean includeIcon, String cursor, Integer limit) {
         this.ids = ids;
         this.keys = keys;
         this.type = type;
         this.status = status;
         this.labels = labels;
+        this.favoritedBy = favoritedBy;
+        this.notFavoritedBy = notFavoritedBy;
         this.sort = sort;
         this.descriptionFormat = descriptionFormat;
         this.includeIcon = includeIcon;
