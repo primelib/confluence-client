@@ -2289,6 +2289,8 @@ public class ConfluenceRESTV2ConsumerApi {
      *   <li>type: Filter the results to spaces based on their type.</li>
      *   <li>status: Filter the results to spaces based on their status.</li>
      *   <li>labels: Filter the results to spaces based on their labels. Multiple labels can be specified as a comma-separated list.</li>
+     *   <li>favoritedBy: Filter the results to spaces favorited by the user with the specified account ID.</li>
+     *   <li>notFavoritedBy: Filter the results to spaces NOT favorited by the user with the specified account ID.</li>
      *   <li>sort: Used to sort the result by a particular field.</li>
      *   <li>descriptionFormat: The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field.</li>
      *   <li>includeIcon: If the icon for the space should be fetched or not.</li>
@@ -2298,7 +2300,7 @@ public class ConfluenceRESTV2ConsumerApi {
      */
     public MultiEntityResultSpace getSpaces(Consumer<GetSpacesOperationSpec> spec) {
         GetSpacesOperationSpec r = new GetSpacesOperationSpec(spec);
-        return api.getSpaces(r.ids(), r.keys(), r.type(), r.status(), r.labels(), r.sort(), r.descriptionFormat(), r.includeIcon(), r.cursor(), r.limit());
+        return api.getSpaces(r.ids(), r.keys(), r.type(), r.status(), r.labels(), r.favoritedBy(), r.notFavoritedBy(), r.sort(), r.descriptionFormat(), r.includeIcon(), r.cursor(), r.limit());
     }
 
     /**
@@ -2655,11 +2657,12 @@ public class ConfluenceRESTV2ConsumerApi {
      * <ul>
      *   <li>id: The ID of the task to be updated. If you don't know the task ID, use Get tasks and filter the results.</li>
      *   <li>updateTaskRequest: </li>
+     *   <li>bodyFormat: The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field.</li>
      * </ul>
      */
     public Task updateTask(Consumer<UpdateTaskOperationSpec> spec) {
         UpdateTaskOperationSpec r = new UpdateTaskOperationSpec(spec);
-        return api.updateTask(r.id(), r.updateTaskRequest());
+        return api.updateTask(r.id(), r.updateTaskRequest(), r.bodyFormat());
     }
 
     /**

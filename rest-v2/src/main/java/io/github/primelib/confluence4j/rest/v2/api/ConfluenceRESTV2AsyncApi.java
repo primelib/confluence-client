@@ -2093,17 +2093,19 @@ public interface ConfluenceRESTV2AsyncApi {
      * @param type                 Filter the results to spaces based on their type. (optional)
      * @param status               Filter the results to spaces based on their status. (optional)
      * @param labels               Filter the results to spaces based on their labels. Multiple labels can be specified as a comma-separated list. (optional)
+     * @param favoritedBy          Filter the results to spaces favorited by the user with the specified account ID. (optional)
+     * @param notFavoritedBy       Filter the results to spaces NOT favorited by the user with the specified account ID. (optional)
      * @param sort                 Used to sort the result by a particular field. (optional)
      * @param descriptionFormat    The content format type to be returned in the {@code description} field of the response. If available, the representation will be available under a response field of the same name under the {@code description} field. (optional)
      * @param includeIcon          If the icon for the space should be fetched or not. (optional, defaults to false)
      * @param cursor               Used for pagination, this opaque cursor will be returned in the {@code next} URL in the {@code Link} response header. Use the relative URL in the {@code Link} header to retrieve the {@code next} set of results. (optional)
      * @param limit                Maximum number of spaces per result to return. If more results exist, use the {@code Link} response header to retrieve a relative URL that will return the next set of results. (optional, defaults to 25)
      */
-    @RequestLine("GET /spaces?ids={ids}&keys={keys}&type={type}&status={status}&labels={labels}&sort={sort}&description-format={descriptionFormat}&include-icon={includeIcon}&cursor={cursor}&limit={limit}")
+    @RequestLine("GET /spaces?ids={ids}&keys={keys}&type={type}&status={status}&labels={labels}&favorited-by={favoritedBy}&not-favorited-by={notFavoritedBy}&sort={sort}&description-format={descriptionFormat}&include-icon={includeIcon}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
-    CompletableFuture<MultiEntityResultSpace> getSpaces(@Param("ids") @Nullable List<Long> ids, @Param("keys") @Nullable List<String> keys, @Param("type") @Nullable String type, @Param("status") @Nullable String status, @Param("labels") @Nullable List<String> labels, @Param("sort") @Nullable SpaceSortOrder sort, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
+    CompletableFuture<MultiEntityResultSpace> getSpaces(@Param("ids") @Nullable List<Long> ids, @Param("keys") @Nullable List<String> keys, @Param("type") @Nullable String type, @Param("status") @Nullable String status, @Param("labels") @Nullable List<String> labels, @Param("favoritedBy") @Nullable String favoritedBy, @Param("notFavoritedBy") @Nullable String notFavoritedBy, @Param("sort") @Nullable SpaceSortOrder sort, @Param("descriptionFormat") @Nullable SpaceDescriptionBodyRepresentation descriptionFormat, @Param("includeIcon") @Nullable Boolean includeIcon, @Param("cursor") @Nullable String cursor, @Param("limit") @Nullable Integer limit);
 
     /**
      * Get task by id
@@ -2451,13 +2453,14 @@ public interface ConfluenceRESTV2AsyncApi {
      *
      * @param id                   The ID of the task to be updated. If you don't know the task ID, use Get tasks and filter the results. (required)
      * @param updateTaskRequest     (required)
+     * @param bodyFormat           The content format types to be returned in the {@code body} field of the response. If available, the representation will be available under a response field of the same name under the {@code body} field. (optional)
      */
-    @RequestLine("PUT /tasks/{id}")
+    @RequestLine("PUT /tasks/{id}?body-format={bodyFormat}")
     @Headers({
         "Content-Type: application/json", 
         "Accept: application/json"
     })
-    CompletableFuture<Task> updateTask(@Param("id") @NotNull Long id, @NotNull UpdateTaskRequest updateTaskRequest);
+    CompletableFuture<Task> updateTask(@Param("id") @NotNull Long id, @NotNull UpdateTaskRequest updateTaskRequest, @Param("bodyFormat") @Nullable PrimaryBodyRepresentation bodyFormat);
 
     /**
      * Update content property for whiteboard by id

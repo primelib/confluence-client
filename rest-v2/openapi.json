@@ -8420,6 +8420,24 @@
             }
           },
           {
+            "name": "favorited-by",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to spaces favorited by the user with the specified account ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "not-favorited-by",
+            "in": "query",
+            "required": false,
+            "description": "Filter the results to spaces NOT favorited by the user with the specified account ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "sort",
             "in": "query",
             "required": false,
@@ -13506,6 +13524,14 @@
               "format": "int64",
               "type": "integer"
             }
+          },
+          {
+            "name": "body-format",
+            "in": "query",
+            "description": "The content format types to be returned in the `body` field of the response. If available, the representation will be available under a response field of the same name under the `body` field.",
+            "schema": {
+              "$ref": "#/components/schemas/PrimaryBodyRepresentation"
+            }
           }
         ],
         "requestBody": {
@@ -15389,6 +15415,7 @@
           },
           "lastOwnerId": {
             "type": "string",
+            "nullable": true,
             "description": "The account ID of the user who owned this page previously, or null if there is no previous owner."
           },
           "createdAt": {
@@ -15448,6 +15475,7 @@
           },
           "lastOwnerId": {
             "type": "string",
+            "nullable": true,
             "description": "The account ID of the user who owned this page previously, or null if there is no previous owner."
           },
           "createdAt": {
