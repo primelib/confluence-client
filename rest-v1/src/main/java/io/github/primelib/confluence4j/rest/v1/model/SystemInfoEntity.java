@@ -34,7 +34,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     "edition",
     "siteTitle",
     "defaultLocale",
-    "defaultTimeZone"
+    "defaultTimeZone",
+    "microsImpactLevel"
 })
 @JsonTypeName("SystemInfoEntity")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
@@ -61,6 +62,9 @@ public class SystemInfoEntity {
     @JsonProperty("defaultTimeZone")
     protected String defaultTimeZone;
 
+    @JsonProperty("microsImpactLevel")
+    protected String microsImpactLevel;
+
     /**
      * Constructs a validated instance of {@link SystemInfoEntity}.
      *
@@ -81,9 +85,10 @@ public class SystemInfoEntity {
      * @param siteTitle siteTitle
      * @param defaultLocale defaultLocale
      * @param defaultTimeZone defaultTimeZone
+     * @param microsImpactLevel microsImpactLevel
      */
     @ApiStatus.Internal
-    public SystemInfoEntity(String cloudId, String commitHash, String baseUrl, String edition, String siteTitle, String defaultLocale, String defaultTimeZone) {
+    public SystemInfoEntity(String cloudId, String commitHash, String baseUrl, String edition, String siteTitle, String defaultLocale, String defaultTimeZone, String microsImpactLevel) {
         this.cloudId = cloudId;
         this.commitHash = commitHash;
         this.baseUrl = baseUrl;
@@ -91,6 +96,7 @@ public class SystemInfoEntity {
         this.siteTitle = siteTitle;
         this.defaultLocale = defaultLocale;
         this.defaultTimeZone = defaultTimeZone;
+        this.microsImpactLevel = microsImpactLevel;
     }
 
 }

@@ -22009,6 +22009,9 @@
           },
           "defaultTimeZone": {
             "type": "string"
+          },
+          "microsImpactLevel": {
+            "type": "string"
           }
         }
       },
