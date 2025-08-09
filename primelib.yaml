@@ -1,62 +1,44 @@
-release: true
-modules:
-  # source: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
-  - name: confluence-rest-v1
-    dir: rest-v1
-    spec_url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
-    spec_file: openapi.json
-    spec_format: openapi
-    spec_script: |
-      jq '.info.title="Confluence REST V1"' "$1" | sponge "$1" # overwrite name
-      jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
-      jq '.components.schemas.GenericLinks.additionalProperties={"type": "string"}' "$1" | sponge "$1"
-      jq 'walk(if type == "object" and .additionalProperties and (.properties | length > 0) then del(.additionalProperties) else . end)' "$1" | sponge "$1" # remove additionalProperties from all schemas
-    config:
-      generatorName: prime-client-java-feign
-      invokerPackage: io.github.primelib.confluence4j.rest.v1
-      apiPackage: io.github.primelib.confluence4j.rest.v1.api
-      modelPackage: io.github.primelib.confluence4j.rest.v1.model
-      enablePostProcessFile: true
-      globalProperty:
-        supportingFiles: false
-      additionalProperties:
-        projectName: confluence4j-rest-v1
-        projectDescription: A Java Wrapper for the Confluence REST API
-        projectArtifactGroupId: io.github.primelib
-        projectArtifactId: confluence4j-rest-v1
-        projectMaintainerId: PhilippHeuer
-        projectMaintainerName: Philipp Heuer
-        projectMaintainerEMail: git@philippheuer.me
-        jsonIncludeNonNull: true
-  # source: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/#about
-  - name: confluence-rest-v2
-    dir: rest-v2
-    spec_url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
-    spec_file: openapi.json
-    spec_format: openapi
-    spec_script: |
-      jq '.info.title="Confluence REST V2"' "$1" | sponge "$1" # overwrite name
-      jq '.servers[0].url |= "https://your-domain.atlassian.net"' "$1" | sponge "$1" # overwrite url
-      jq 'del(.servers[0].variables)' "$1" | sponge "$1" # remove variables
-      properties=("id" "spaceId" "pageId" "blogPostId" "customContentId" "parentId" "homepageId" "localId" "parentCommentId")
-      for property in "${properties[@]}"; do
-        jq "walk(if type == \"object\" and .properties and .properties.$property and .properties.$property.oneOf then .properties.$property.format = \"int64\" | .properties.$property.type = \"integer\" | del(.properties.$property.oneOf) else . end)" "$1" | sponge "$1"
-      done
-      jq 'del(.components.schemas.InlineCommentProperties.properties["inline-marker-ref", "inline-original-selection"])' "$1" | sponge "$1" # remove duplicate properties
-    config:
-      generatorName: prime-client-java-feign
-      invokerPackage: io.github.primelib.confluence4j.rest.v2
-      apiPackage: io.github.primelib.confluence4j.rest.v2.api
-      modelPackage: io.github.primelib.confluence4j.rest.v2.model
-      enablePostProcessFile: true
-      globalProperty:
-        supportingFiles: false
-      additionalProperties:
-        projectName: confluence4j-rest-v2
-        projectDescription: A Java Wrapper for the Confluence REST API
-        projectArtifactGroupId: io.github.primelib
-        projectArtifactId: confluence4j-rest-v2
-        projectMaintainerId: PhilippHeuer
-        projectMaintainerName: Philipp Heuer
-        projectMaintainerEMail: git@philippheuer.me
-        jsonIncludeNonNull: true
+# yaml-language-server: $schema=https://raw.githubusercontent.com/primelib/primecodegen/main/configschema/primelib-v1.json
+output: sdk
+outputSubDir: true
+
+repository:
+  name: Confluence REST Client
+  description: Unofficial API client generated from the Confluence OpenAPI specification.
+  url: https://github.com/primelib/confluence-client
+  licenseName: MIT
+  licenseURL: https://github.com/primelib/confluence-client/blob/main/LICENSE
+
+maintainers:
+  - id: PhilippHeuer
+    name: Philipp Heuer
+    email: git@philippheuer.de
+
+spec:
+  file: openapi.yaml
+  type: openapi3
+  sources:
+    # source: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
+    - url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
+      type: openapi3
+      patches:
+        - type: openapi-overlay
+          file: spec_patches/overlay.yaml
+  patches:
+    - id: simplify-polymorphic-schemas
+    - id: flatten-components
+    - id: fix-missing-schema-title
+    - id: generate-operation-id
+      config:
+        trim-prefix: "/wiki/rest/api"
+    - id: fix-common
+
+# v2 is still lacking major features.
+# source: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/#about
+#- url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
+
+presets:
+  java:
+    enabled: true
+    groupId: io.github.primelib
+    artifactId: confluence4j-rest-v1

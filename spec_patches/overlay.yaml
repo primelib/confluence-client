@@ -1,0 +1,37 @@
+overlay: 1.0.0
+info:
+  title: Confluence API Overlay
+  version: 1.0.0
+  description: |
+    This overlay resolves issues with the officially provided OpenAPI specification for the Confluence API.
+actions:
+  # info
+  - target: servers[0]
+    update:
+      url: https://{your-domain}/wiki/api/v2
+  # methods
+  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment"].put
+    remove: true
+  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment"].post
+    remove: true
+  - target: $.paths["/wiki/rest/api/content/{id}/child/attachment/{attachmentId}/data"].post
+    remove: true
+  # parameters
+  - target: $.paths["/wiki/rest/api/search"].get.parameters[?(@.name=='_')]
+    remove: true
+  # schemas
+  - target: $.components.schemas["Content"].additionalProperties
+    remove: true
+  - target: $.components.schemas["ContentMetadata"].additionalProperties
+    remove: true
+  - target: $.components.schemas["ContentProperty"].additionalProperties
+    remove: true
+  - target: $.components.schemas["Version"].additionalProperties
+    remove: true
+  # content
+  - target: $.components.schemas["Content"].properties
+    update:
+      ari:
+        type: string
+      base64EncodedAri:
+        type: string
