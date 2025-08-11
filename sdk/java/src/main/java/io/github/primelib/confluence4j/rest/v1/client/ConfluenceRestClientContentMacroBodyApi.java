@@ -65,7 +65,7 @@ public interface ConfluenceRestClientContentMacroBodyApi {
     * content and version, then expanding the body in storage format.
     * For example, '/content/196611/version/7?expand=content.body.storage'.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}")
     @Headers({
         "Accept: application/json"
     })
@@ -155,7 +155,7 @@ public interface ConfluenceRestClientContentMacroBodyApi {
     * - `version-at-save` renders the embedded content using the version at
     * the time of save.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Accept: application/json"
     })
@@ -258,7 +258,7 @@ public interface ConfluenceRestClientContentMacroBodyApi {
     * - `version-at-save` renders the embedded content using the version at
     * the time of save.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}?expand={expand}&allowCache={allowCache}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}?expand={expand}&allowCache={allowCache}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Accept: application/json"
     })

@@ -43,7 +43,7 @@ public interface ConfluenceRestClientUsersApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user?accountId={accountId}&expand={expand}")
+    @RequestLine("GET /rest/api/user?accountId={accountId}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -66,7 +66,7 @@ public interface ConfluenceRestClientUsersApi {
     * 
     *   - `operations` returns the operations that the user is allowed to do.
     */
-    @RequestLine("GET /wiki/rest/api/user/anonymous?expand={expand}")
+    @RequestLine("GET /rest/api/user/anonymous?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -91,7 +91,7 @@ public interface ConfluenceRestClientUsersApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user/current?expand={expand}")
+    @RequestLine("GET /rest/api/user/current?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -113,7 +113,7 @@ public interface ConfluenceRestClientUsersApi {
     * @param limit The maximum number of groups to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/user/memberof?accountId={accountId}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/user/memberof?accountId={accountId}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -141,7 +141,7 @@ public interface ConfluenceRestClientUsersApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) use `isGuest` instead to return whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user/bulk?accountId={accountId}&expand={expand}")
+    @RequestLine("GET /rest/api/user/bulk?accountId={accountId}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -163,7 +163,7 @@ public interface ConfluenceRestClientUsersApi {
     * @param accountId The account ID of the user, which uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`. Required.
     */
-    @RequestLine("GET /wiki/rest/api/user/email?accountId={accountId}")
+    @RequestLine("GET /rest/api/user/email?accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -185,7 +185,7 @@ public interface ConfluenceRestClientUsersApi {
     *
     * @param accountId The account IDs of the users.
     */
-    @RequestLine("GET /wiki/rest/api/user/email/bulk?accountId={accountId}")
+    @RequestLine("GET /rest/api/user/email/bulk?accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })

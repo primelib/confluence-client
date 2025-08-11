@@ -82,6 +82,53 @@ import org.jspecify.annotations.Nullable;
 public interface ConfluenceRestClientApi {
 
     /**
+    * GetAtlassianConnect1AppModuleDynamicV1
+    * Get modules
+    * Returns all modules registered dynamically by the calling app.
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    */
+    @RequestLine("GET /atlassian-connect/1/app/module/dynamic")
+    @Headers({
+        "Accept: */*"
+    })
+    ConnectModules getAtlassianConnect1AppModuleDynamicV1();
+
+    /**
+    * PostAtlassianConnect1AppModuleDynamicV1
+    * Register modules
+    * Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    * @param payload 
+    */
+    @RequestLine("POST /atlassian-connect/1/app/module/dynamic")
+    @Headers({
+        "Content-Type: */*"
+    })
+    void postAtlassianConnect1AppModuleDynamicV1(
+            @NonNull ConnectModules payload
+    );
+
+    /**
+    * DeleteAtlassianConnect1AppModuleDynamicV1
+    * Remove modules
+    * Remove all or a list of modules registered by the calling app.
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    * @param moduleKey The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter.
+    * For example, `moduleKey=dynamic-attachment-entity-property&amp;moduleKey=dynamic-select-field`.
+    * Nonexistent keys are ignored.
+    */
+    @RequestLine("DELETE /atlassian-connect/1/app/module/dynamic?moduleKey={moduleKey}")
+    void deleteAtlassianConnect1AppModuleDynamicV1(
+            @NonNull @Param("moduleKey") List<String> moduleKey
+    );
+
+    /**
     * GetAuditV1
     * Get audit records
     * Returns all records in the audit log, optionally for a certain date range.
@@ -103,7 +150,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of records to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/audit?startDate={startDate}&endDate={endDate}&searchString={searchString}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/audit?startDate={startDate}&endDate={endDate}&searchString={searchString}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -125,7 +172,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The record to be created in the audit log.
     */
-    @RequestLine("POST /wiki/rest/api/audit")
+    @RequestLine("POST /rest/api/audit")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -150,7 +197,7 @@ public interface ConfluenceRestClientApi {
     * matching the `searchString`.
     * @param format The format of the export file for the audit records.
     */
-    @RequestLine("GET /wiki/rest/api/audit/export?startDate={startDate}&endDate={endDate}&searchString={searchString}&format={format}")
+    @RequestLine("GET /rest/api/audit/export?startDate={startDate}&endDate={endDate}&searchString={searchString}&format={format}")
     @Headers({
         "Accept: application/zip"
     })
@@ -172,7 +219,7 @@ public interface ConfluenceRestClientApi {
     * 'Confluence Administrator' global permission.
     *
     */
-    @RequestLine("GET /wiki/rest/api/audit/retention")
+    @RequestLine("GET /rest/api/audit/retention")
     @Headers({
         "Accept: application/json"
     })
@@ -189,7 +236,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The updated retention period.
     */
-    @RequestLine("PUT /wiki/rest/api/audit/retention")
+    @RequestLine("PUT /rest/api/audit/retention")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -220,7 +267,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of records to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/audit/since?number={number}&units={units}&searchString={searchString}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/audit/since?number={number}&units={units}&searchString={searchString}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -248,7 +295,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The pages to be archived.
     */
-    @RequestLine("POST /wiki/rest/api/content/archive")
+    @RequestLine("POST /rest/api/content/archive")
     @Headers({
         "Content-Type: application/json"
     })
@@ -332,7 +379,7 @@ public interface ConfluenceRestClientApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload 
     */
-    @RequestLine("PUT /wiki/rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
+    @RequestLine("PUT /rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -422,7 +469,7 @@ public interface ConfluenceRestClientApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload 
     */
-    @RequestLine("POST /wiki/rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
+    @RequestLine("POST /rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -550,7 +597,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of content objects to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/search?cql={cql}&cqlcontext={cqlcontext}&expand={expand}&cursor={cursor}&limit={limit}")
+    @RequestLine("GET /rest/api/content/search?cql={cql}&cqlcontext={cqlcontext}&expand={expand}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -590,7 +637,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id The ID of the content which forms root of the page tree, to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/pageTree")
+    @RequestLine("DELETE /rest/api/content/{id}/pageTree")
     void deleteContentByIdpageTreeV1(
             @NonNull @Param("id") String id
     );
@@ -615,7 +662,7 @@ public interface ConfluenceRestClientApi {
     * * `append` - move the page to be a child of the target
     * @param targetId The ID of the target page for this operation
     */
-    @RequestLine("PUT /wiki/rest/api/content/{pageId}/move/{position}/{targetId}")
+    @RequestLine("PUT /rest/api/content/{pageId}/move/{position}/{targetId}")
     @Headers({
         "Accept: application/json"
     })
@@ -638,7 +685,7 @@ public interface ConfluenceRestClientApi {
     * @param attachmentId The ID of the attachment to update.
     * @param payload The details of the attachment to be updated.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/child/attachment/{attachmentId}")
+    @RequestLine("PUT /rest/api/content/{id}/child/attachment/{attachmentId}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -659,7 +706,7 @@ public interface ConfluenceRestClientApi {
     * @param version The version of the attachment. If this parameter is absent, the redirect URI will download the latest version of the attachment.
     * @param status The statuses allowed on the retrieved attachment. If this parameter is absent, it will default to `current`.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/child/attachment/{attachmentId}/download?version={version}&status={status}")
+    @RequestLine("GET /rest/api/content/{id}/child/attachment/{attachmentId}/download?version={version}&status={status}")
     void getContentByIdchildAttachmentByAttachmentIddownloadV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("attachmentId") String attachmentId,
@@ -707,7 +754,7 @@ public interface ConfluenceRestClientApi {
     * - `folder` returns all child folders of the content.
     * @deprecated
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/descendant?expand={expand}")
+    @RequestLine("GET /rest/api/content/{id}/descendant?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -810,7 +857,7 @@ public interface ConfluenceRestClientApi {
     * this may be restricted by fixed system limits.
     * @deprecated
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/descendant/{type}?depth={depth}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/descendant/{type}?depth={depth}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -870,7 +917,7 @@ public interface ConfluenceRestClientApi {
     * content and version, then expanding the body in storage format.
     * For example, '/content/196611/version/7?expand=content.body.storage'.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}")
     @Headers({
         "Accept: application/json"
     })
@@ -960,7 +1007,7 @@ public interface ConfluenceRestClientApi {
     * - `version-at-save` renders the embedded content using the version at
     * the time of save.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Accept: application/json"
     })
@@ -1063,7 +1110,7 @@ public interface ConfluenceRestClientApi {
     * - `version-at-save` renders the embedded content using the version at
     * the time of save.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}?expand={expand}&allowCache={allowCache}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("GET /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}?expand={expand}&allowCache={allowCache}&spaceKeyContext={spaceKeyContext}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Accept: application/json"
     })
@@ -1096,7 +1143,7 @@ public interface ConfluenceRestClientApi {
     * @param id The ID of the content that will have labels added to it.
     * @param payload The labels to add to the content.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/label")
+    @RequestLine("POST /rest/api/content/{id}/label")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1123,7 +1170,7 @@ public interface ConfluenceRestClientApi {
     * @param id The ID of the content that the label will be removed from.
     * @param name The name of the label to be removed.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/label?name={name}")
+    @RequestLine("DELETE /rest/api/content/{id}/label?name={name}")
     void deleteContentByIdlabelV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("name") String name
@@ -1146,7 +1193,7 @@ public interface ConfluenceRestClientApi {
     * @param id The ID of the content that the label will be removed from.
     * @param label The name of the label to be removed.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/label/{label}")
+    @RequestLine("DELETE /rest/api/content/{id}/label/{label}")
     void deleteContentByIdlabelByLabelV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("label") String label
@@ -1172,7 +1219,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of watches to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/notification/child-created?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/notification/child-created?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -1203,7 +1250,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of watches to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/notification/created?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/notification/created?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -1235,7 +1282,7 @@ public interface ConfluenceRestClientApi {
     * @param id 
     * @param payload Request object from json post body
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/pagehierarchy/copy")
+    @RequestLine("POST /rest/api/content/{id}/pagehierarchy/copy")
     @Headers({
         "Content-Type: application/json"
     })
@@ -1322,7 +1369,7 @@ public interface ConfluenceRestClientApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload Request object from json post body
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/copy?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/copy?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json;charset=UTF-8"
@@ -1352,7 +1399,7 @@ public interface ConfluenceRestClientApi {
     * @param id The ID of the content to check permissions against.
     * @param payload The content permission request.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/permission/check")
+    @RequestLine("POST /rest/api/content/{id}/permission/check")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1386,7 +1433,7 @@ public interface ConfluenceRestClientApi {
     * returned restrictions, to return per page. Note, this may be restricted
     * by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction?expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/restriction?expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -1418,7 +1465,7 @@ public interface ConfluenceRestClientApi {
     * applied to.
     * @param payload The updated restrictions for the content.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1450,7 +1497,7 @@ public interface ConfluenceRestClientApi {
     * applied to.
     * @param payload The restrictions to be added to the content.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1480,7 +1527,7 @@ public interface ConfluenceRestClientApi {
     * - `content` returns the piece of content that the restrictions are
     * applied to.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -1511,7 +1558,7 @@ public interface ConfluenceRestClientApi {
     * - `content` returns the piece of content that the restrictions are
     * applied to.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation?expand={expand}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -1545,7 +1592,7 @@ public interface ConfluenceRestClientApi {
     * returned restrictions, to return per page. Note, this may be restricted
     * by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}?expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}?expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -1578,7 +1625,7 @@ public interface ConfluenceRestClientApi {
     * @param groupId The id of the group to be queried for whether the content restriction
     * applies to it.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void getContentByIdrestrictionByOperationByOperationKeyByGroupIdbyGroupIdv1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1598,7 +1645,7 @@ public interface ConfluenceRestClientApi {
     * @param operationKey The operation that the restriction applies to.
     * @param groupId The groupId of the group to add to the content restriction.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void putContentByIdrestrictionByOperationByOperationKeyByGroupIdbyGroupIdv1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1618,7 +1665,7 @@ public interface ConfluenceRestClientApi {
     * @param operationKey The operation that the restriction applies to.
     * @param groupId The id of the group to remove from the content restriction.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void deleteContentByIdrestrictionByOperationByOperationKeyByGroupIdbyGroupIdv1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1652,7 +1699,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void getContentByIdrestrictionByOperationByOperationKeyUserV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1681,7 +1728,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void putContentByIdrestrictionByOperationByOperationKeyUserV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1710,7 +1757,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void deleteContentByIdrestrictionByOperationByOperationKeyUserV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("operationKey") String operationKey,
@@ -1730,7 +1777,7 @@ public interface ConfluenceRestClientApi {
     * @param id The id of the content whose content state is of interest.
     * @param status Set status to one of [current,draft,archived]. Default value is current.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("GET /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Accept: application/json"
     })
@@ -1761,7 +1808,7 @@ public interface ConfluenceRestClientApi {
     * If current, state will be placed onto a new version of the content with same body as previous version.
     * @param payload Content state fields for state. Pass in id for an existing state, or new name and color for best matching existing state, or new state if allowed in space.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("PUT /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1784,7 +1831,7 @@ public interface ConfluenceRestClientApi {
     * @param id The Id of the content whose content state is to be set.
     * @param status status of content state from which to delete state. Can be draft or archived
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("DELETE /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Accept: application/json"
     })
@@ -1806,7 +1853,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id id of content to get available states for
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/state/available")
+    @RequestLine("GET /rest/api/content/{id}/state/available")
     @Headers({
         "Accept: application/json"
     })
@@ -1831,7 +1878,7 @@ public interface ConfluenceRestClientApi {
     * - `content` returns the content for the version.
     * @param payload The content version to be restored.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/version?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/version?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1856,7 +1903,7 @@ public interface ConfluenceRestClientApi {
     * @param versionNumber The number of the version to be deleted. The version number starts
     * from 1 up to current version.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/version/{versionNumber}")
+    @RequestLine("DELETE /rest/api/content/{id}/version/{versionNumber}")
     void deleteContentByIdversionByVersionNumberV1(
             @NonNull @Param("id") String id,
             @NonNull @Param("versionNumber") Integer versionNumber
@@ -1871,7 +1918,7 @@ public interface ConfluenceRestClientApi {
     * Must have user authentication.
     *
     */
-    @RequestLine("GET /wiki/rest/api/content-states")
+    @RequestLine("GET /rest/api/content-states")
     @Headers({
         "Accept: application/json"
     })
@@ -1943,7 +1990,7 @@ public interface ConfluenceRestClientApi {
     * the time of save.
     * @param payload The content body to convert.
     */
-    @RequestLine("POST /wiki/rest/api/contentbody/convert/async/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&contentIdContext={contentIdContext}&allowCache={allowCache}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("POST /rest/api/contentbody/convert/async/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&contentIdContext={contentIdContext}&allowCache={allowCache}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -1972,7 +2019,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id The asyncId of the macro task to get the converted body.
     */
-    @RequestLine("GET /wiki/rest/api/contentbody/convert/async/{id}")
+    @RequestLine("GET /rest/api/contentbody/convert/async/{id}")
     @Headers({
         "Accept: application/json"
     })
@@ -1997,7 +2044,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param ids The asyncIds of the conversion tasks.
     */
-    @RequestLine("GET /wiki/rest/api/contentbody/convert/async/bulk/tasks?ids={ids}")
+    @RequestLine("GET /rest/api/contentbody/convert/async/bulk/tasks?ids={ids}")
     @Headers({
         "Accept: application/json"
     })
@@ -2025,7 +2072,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload An array of parameters to create content body conversion tasks.
     */
-    @RequestLine("POST /wiki/rest/api/contentbody/convert/async/bulk/tasks")
+    @RequestLine("POST /rest/api/contentbody/convert/async/bulk/tasks")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2048,7 +2095,7 @@ public interface ConfluenceRestClientApi {
     * @param start The starting offset for the results.
     * @param limit The number of results to be returned.
     */
-    @RequestLine("GET /wiki/rest/api/label?name={name}&type={type}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/label?name={name}&type={type}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -2073,7 +2120,7 @@ public interface ConfluenceRestClientApi {
     * Note, this may be restricted by fixed system limits.
     * @param accessType The group permission level for which to filter results.
     */
-    @RequestLine("GET /wiki/rest/api/group?start={start}&limit={limit}&accessType={accessType}")
+    @RequestLine("GET /rest/api/group?start={start}&limit={limit}&accessType={accessType}")
     @Headers({
         "Accept: application/json"
     })
@@ -2093,7 +2140,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload Name of the group that is to be created.
     */
-    @RequestLine("POST /wiki/rest/api/group")
+    @RequestLine("POST /rest/api/group")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2112,7 +2159,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id The id of the group.
     */
-    @RequestLine("GET /wiki/rest/api/group/by-id?id={id}")
+    @RequestLine("GET /rest/api/group/by-id?id={id}")
     @Headers({
         "Accept: application/json"
     })
@@ -2130,7 +2177,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id Id of the group to delete.
     */
-    @RequestLine("DELETE /wiki/rest/api/group/by-id?id={id}")
+    @RequestLine("DELETE /rest/api/group/by-id?id={id}")
     void deleteGroupByIdv1(
             @NonNull @Param("id") String id
     );
@@ -2147,7 +2194,7 @@ public interface ConfluenceRestClientApi {
     * @param shouldReturnTotalSize Whether to include total size parameter in the results.
     * Note, fetching total size property is an expensive operation; use it if your use case needs this value.
     */
-    @RequestLine("GET /wiki/rest/api/group/picker?query={query}&start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}")
+    @RequestLine("GET /rest/api/group/picker?query={query}&start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}")
     @Headers({
         "Accept: application/json"
     })
@@ -2181,7 +2228,7 @@ public interface ConfluenceRestClientApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/group/{groupId}/membersByGroupId?start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}&expand={expand}")
+    @RequestLine("GET /rest/api/group/{groupId}/membersByGroupId?start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -2204,7 +2251,7 @@ public interface ConfluenceRestClientApi {
     * @param groupId GroupId of the group whose membership is updated
     * @param payload AccountId of the user who needs to be added as member.
     */
-    @RequestLine("POST /wiki/rest/api/group/userByGroupId?groupId={groupId}")
+    @RequestLine("POST /rest/api/group/userByGroupId?groupId={groupId}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -2231,7 +2278,7 @@ public interface ConfluenceRestClientApi {
     * Use `accountId` instead.
     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
     */
-    @RequestLine("DELETE /wiki/rest/api/group/userByGroupId?groupId={groupId}&accountId={accountId}&key={key}&username={username}")
+    @RequestLine("DELETE /rest/api/group/userByGroupId?groupId={groupId}&accountId={accountId}&key={key}&username={username}")
     void deleteGroupUserByGroupIdv1(
             @NonNull @Param("groupId") String groupId,
             @NonNull @Param("accountId") String accountId,
@@ -2254,7 +2301,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of tasks to return per page. Note, this may be
     * restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/longtask?key={key}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/longtask?key={key}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -2276,7 +2323,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param id The ID of the task.
     */
-    @RequestLine("GET /wiki/rest/api/longtask/{id}")
+    @RequestLine("GET /rest/api/longtask/{id}")
     @Headers({
         "Accept: application/json"
     })
@@ -2330,7 +2377,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of relationships to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -2400,7 +2447,7 @@ public interface ConfluenceRestClientApi {
     * - `source` returns the source entity.
     * - `target` returns the target entity.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}")
+    @RequestLine("GET /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -2463,7 +2510,7 @@ public interface ConfluenceRestClientApi {
     * @param targetVersion The version of the target. This parameter is only used when the
     * `targetType` is 'content' and the `targetStatus` is 'historical'.
     */
-    @RequestLine("PUT /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
+    @RequestLine("PUT /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
     @Headers({
         "Accept: application/json"
     })
@@ -2520,7 +2567,7 @@ public interface ConfluenceRestClientApi {
     * @param targetVersion The version of the target. This parameter is only used when the
     * `targetType` is 'content' and the `targetStatus` is 'historical'.
     */
-    @RequestLine("DELETE /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
+    @RequestLine("DELETE /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
     void deleteRelationByRelationNameFromBySourceTypeBySourceKeyToByTargetTypeByTargetKeyV1(
             @NonNull @Param("relationName") String relationName,
             @NonNull @Param("sourceType") String sourceType,
@@ -2579,7 +2626,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of relationships to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -2672,7 +2719,7 @@ public interface ConfluenceRestClientApi {
     * for external/guest users, and `all` to include all permission types.
     * @param expand 
     */
-    @RequestLine("GET /wiki/rest/api/search?cql={cql}&cqlcontext={cqlcontext}&cursor={cursor}&next={next}&prev={prev}&limit={limit}&start={start}&includeArchivedSpaces={includeArchivedSpaces}&excludeCurrentSpaces={excludeCurrentSpaces}&excerpt={excerpt}&sitePermissionTypeFilter={sitePermissionTypeFilter}&expand={expand}")
+    @RequestLine("GET /rest/api/search?cql={cql}&cqlcontext={cqlcontext}&cursor={cursor}&next={next}&prev={prev}&limit={limit}&start={start}&includeArchivedSpaces={includeArchivedSpaces}&excludeCurrentSpaces={excludeCurrentSpaces}&excerpt={excerpt}&sitePermissionTypeFilter={sitePermissionTypeFilter}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -2724,7 +2771,7 @@ public interface ConfluenceRestClientApi {
     * @param sitePermissionTypeFilter Filters users by permission type. Use `none` to default to licensed users, `externalCollaborator`
     * for external/guest users, and `all` to include all permission types.
     */
-    @RequestLine("GET /wiki/rest/api/search/user?cql={cql}&start={start}&limit={limit}&expand={expand}&sitePermissionTypeFilter={sitePermissionTypeFilter}")
+    @RequestLine("GET /rest/api/search/user?cql={cql}&start={start}&limit={limit}&expand={expand}&sitePermissionTypeFilter={sitePermissionTypeFilter}")
     @Headers({
         "Accept: application/json"
     })
@@ -2752,7 +2799,7 @@ public interface ConfluenceRestClientApi {
     * returned. If this is not set, only the global look and feel settings
     * are returned.
     */
-    @RequestLine("GET /wiki/rest/api/settings/lookandfeel?spaceKey={spaceKey}")
+    @RequestLine("GET /rest/api/settings/lookandfeel?spaceKey={spaceKey}")
     @Headers({
         "Accept: application/json"
     })
@@ -2774,7 +2821,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The look and feel type to be set.
     */
-    @RequestLine("PUT /wiki/rest/api/settings/lookandfeel")
+    @RequestLine("PUT /rest/api/settings/lookandfeel")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2806,7 +2853,7 @@ public interface ConfluenceRestClientApi {
     * response body of [Get look and feel settings](#api-settings-lookandfeel-get)
     * and modify it as needed.
     */
-    @RequestLine("POST /wiki/rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
+    @RequestLine("POST /rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2832,7 +2879,7 @@ public interface ConfluenceRestClientApi {
     * reset. If this is not set, the global look and feel settings will
     * be reset.
     */
-    @RequestLine("DELETE /wiki/rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
+    @RequestLine("DELETE /rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
     void deleteSettingsLookandfeelCustomV1(
             @Nullable @Param("spaceKey") String spaceKey
     );
@@ -2847,7 +2894,7 @@ public interface ConfluenceRestClientApi {
     * Permission to access the Confluence site ('Can use' global permission).
     *
     */
-    @RequestLine("GET /wiki/rest/api/settings/systemInfo")
+    @RequestLine("GET /rest/api/settings/systemInfo")
     @Headers({
         "Accept: application/json"
     })
@@ -2864,7 +2911,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of themes to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/settings/theme?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -2881,7 +2928,7 @@ public interface ConfluenceRestClientApi {
     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None
     *
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme/selected")
+    @RequestLine("GET /rest/api/settings/theme/selected")
     @Headers({
         "Accept: application/json"
     })
@@ -2897,7 +2944,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param themeKey The key of the theme to be returned.
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme/{themeKey}")
+    @RequestLine("GET /rest/api/settings/theme/{themeKey}")
     @Headers({
         "Accept: application/json"
     })
@@ -2916,7 +2963,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The space to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space")
+    @RequestLine("POST /rest/api/space")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2938,7 +2985,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The space to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/_private")
+    @RequestLine("POST /rest/api/space/_private")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2962,7 +3009,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to update.
     * @param payload The updated space.
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}")
+    @RequestLine("PUT /rest/api/space/{spaceKey}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -2985,7 +3032,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to delete.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}")
     void deleteSpaceBySpaceKeyV1(
             @NonNull @Param("spaceKey") String spaceKey
     );
@@ -3006,7 +3053,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param payload The permission to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/permission")
+    @RequestLine("POST /rest/api/space/{spaceKey}/permission")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3032,7 +3079,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param payload The permissions to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/permission/custom-content")
+    @RequestLine("POST /rest/api/space/{spaceKey}/permission/custom-content")
     @Headers({
         "Content-Type: application/json"
     })
@@ -3055,7 +3102,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param id Id of the permission to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/permission/{id}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/permission/{id}")
     void deleteSpaceBySpaceKeyPermissionByIdv1(
             @NonNull @Param("spaceKey") String spaceKey,
             @NonNull @Param("id") Long id
@@ -3072,7 +3119,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to be queried for its settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/settings")
+    @RequestLine("GET /rest/api/space/{spaceKey}/settings")
     @Headers({
         "Accept: application/json"
     })
@@ -3092,7 +3139,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space whose settings will be updated.
     * @param payload The space settings to update.
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}/settings")
+    @RequestLine("PUT /rest/api/space/{spaceKey}/settings")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3112,7 +3159,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to be queried for its content state settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state")
     @Headers({
         "Accept: application/json"
     })
@@ -3131,7 +3178,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to be queried for its content state settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state/settings")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state/settings")
     @Headers({
         "Accept: application/json"
     })
@@ -3158,7 +3205,7 @@ public interface ConfluenceRestClientApi {
     * @param limit Maximum number of results to return
     * @param start Number of result to start returning. (0 indexed)
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state/content?stateId={stateId}&expand={expand}&limit={limit}&start={start}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state/content?stateId={stateId}&expand={expand}&limit={limit}&start={start}")
     @Headers({
         "Accept: application/json"
     })
@@ -3181,7 +3228,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to be queried for its theme.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("GET /rest/api/space/{spaceKey}/theme")
     @Headers({
         "Accept: application/json"
     })
@@ -3202,7 +3249,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to set the theme for.
     * @param payload 
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("PUT /rest/api/space/{spaceKey}/theme")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3223,7 +3270,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param spaceKey The key of the space to reset the theme for.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/theme")
     void deleteSpaceBySpaceKeyThemeV1(
             @NonNull @Param("spaceKey") String spaceKey
     );
@@ -3237,7 +3284,7 @@ public interface ConfluenceRestClientApi {
     * @param start The start point of the collection to return.
     * @param limit The limit of the number of items to return, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/watch?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/watch?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -3265,7 +3312,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of labels to return per page. Note,
     * this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/label?prefix={prefix}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/label?prefix={prefix}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -3294,7 +3341,7 @@ public interface ConfluenceRestClientApi {
     * @param spaceKey The key of the space to add labels to.
     * @param payload The labels to add to the content.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/label")
+    @RequestLine("POST /rest/api/space/{spaceKey}/label")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3312,7 +3359,7 @@ public interface ConfluenceRestClientApi {
     * @param name The name of the label to remove
     * @param prefix The prefix of the label to remove. If not provided defaults to global.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
     void deleteSpaceBySpaceKeyLabelV1(
             @NonNull @Param("spaceKey") String spaceKey,
             @NonNull @Param("name") String name,
@@ -3331,7 +3378,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param payload The updated content template.
     */
-    @RequestLine("PUT /wiki/rest/api/template")
+    @RequestLine("PUT /rest/api/template")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3352,7 +3399,7 @@ public interface ConfluenceRestClientApi {
     * @param payload The content template to be created.
     * The content body must be in 'storage' format.
     */
-    @RequestLine("POST /wiki/rest/api/template")
+    @RequestLine("POST /rest/api/template")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -3384,7 +3431,7 @@ public interface ConfluenceRestClientApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/blueprint?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
+    @RequestLine("GET /rest/api/template/blueprint?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3415,7 +3462,7 @@ public interface ConfluenceRestClientApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/page?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
+    @RequestLine("GET /rest/api/template/page?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3443,7 +3490,7 @@ public interface ConfluenceRestClientApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/{contentTemplateId}?expand={expand}")
+    @RequestLine("GET /rest/api/template/{contentTemplateId}?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3472,7 +3519,7 @@ public interface ConfluenceRestClientApi {
     *
     * @param contentTemplateId The ID of the template to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/template/{contentTemplateId}")
+    @RequestLine("DELETE /rest/api/template/{contentTemplateId}")
     void deleteTemplateByContentTemplateIdv1(
             @NonNull @Param("contentTemplateId") String contentTemplateId
     );
@@ -3499,7 +3546,7 @@ public interface ConfluenceRestClientApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user?accountId={accountId}&expand={expand}")
+    @RequestLine("GET /rest/api/user?accountId={accountId}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3522,7 +3569,7 @@ public interface ConfluenceRestClientApi {
     * 
     *   - `operations` returns the operations that the user is allowed to do.
     */
-    @RequestLine("GET /wiki/rest/api/user/anonymous?expand={expand}")
+    @RequestLine("GET /rest/api/user/anonymous?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3547,7 +3594,7 @@ public interface ConfluenceRestClientApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user/current?expand={expand}")
+    @RequestLine("GET /rest/api/user/current?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3569,7 +3616,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of groups to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/user/memberof?accountId={accountId}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/user/memberof?accountId={accountId}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -3597,7 +3644,7 @@ public interface ConfluenceRestClientApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) use `isGuest` instead to return whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/user/bulk?accountId={accountId}&expand={expand}")
+    @RequestLine("GET /rest/api/user/bulk?accountId={accountId}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -3630,7 +3677,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -3667,7 +3714,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     void postUserWatchContentByContentIdv1(
             @NonNull @Param("contentId") String contentId,
             @Nullable @Param("key") String key,
@@ -3700,7 +3747,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -3736,7 +3783,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -3775,7 +3822,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -3810,7 +3857,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     void deleteUserWatchLabelByLabelNameV1(
             @NonNull @Param("labelName") String labelName,
             @Nullable @Param("key") String key,
@@ -3842,7 +3889,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -3881,7 +3928,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -3916,7 +3963,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     void deleteUserWatchSpaceBySpaceKeyV1(
             @NonNull @Param("spaceKey") String spaceKey,
             @Nullable @Param("key") String key,
@@ -3937,7 +3984,7 @@ public interface ConfluenceRestClientApi {
     * @param accountId The account ID of the user, which uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`. Required.
     */
-    @RequestLine("GET /wiki/rest/api/user/email?accountId={accountId}")
+    @RequestLine("GET /rest/api/user/email?accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -3959,59 +4006,12 @@ public interface ConfluenceRestClientApi {
     *
     * @param accountId The account IDs of the users.
     */
-    @RequestLine("GET /wiki/rest/api/user/email/bulk?accountId={accountId}")
+    @RequestLine("GET /rest/api/user/email/bulk?accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
     List<AccountIDEmailRecord> getUserEmailBulkV1(
             @NonNull @Param("accountId") List<String> accountId
-    );
-
-    /**
-    * GetAtlassianConnect1AppModuleDynamicV1
-    * Get modules
-    * Returns all modules registered dynamically by the calling app.
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    */
-    @RequestLine("GET /atlassian-connect/1/app/module/dynamic")
-    @Headers({
-        "Accept: */*"
-    })
-    ConnectModules getAtlassianConnect1AppModuleDynamicV1();
-
-    /**
-    * PostAtlassianConnect1AppModuleDynamicV1
-    * Register modules
-    * Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    * @param payload 
-    */
-    @RequestLine("POST /atlassian-connect/1/app/module/dynamic")
-    @Headers({
-        "Content-Type: */*"
-    })
-    void postAtlassianConnect1AppModuleDynamicV1(
-            @NonNull ConnectModules payload
-    );
-
-    /**
-    * DeleteAtlassianConnect1AppModuleDynamicV1
-    * Remove modules
-    * Remove all or a list of modules registered by the calling app.
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    * @param moduleKey The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter.
-    * For example, `moduleKey=dynamic-attachment-entity-property&amp;moduleKey=dynamic-select-field`.
-    * Nonexistent keys are ignored.
-    */
-    @RequestLine("DELETE /atlassian-connect/1/app/module/dynamic?moduleKey={moduleKey}")
-    void deleteAtlassianConnect1AppModuleDynamicV1(
-            @NonNull @Param("moduleKey") List<String> moduleKey
     );
 
     /**
@@ -4022,7 +4022,7 @@ public interface ConfluenceRestClientApi {
     * @param contentId The ID of the content to get the views for.
     * @param fromDate The number of views for the content since the date.
     */
-    @RequestLine("GET /wiki/rest/api/analytics/content/{contentId}/views?fromDate={fromDate}")
+    @RequestLine("GET /rest/api/analytics/content/{contentId}/views?fromDate={fromDate}")
     @Headers({
         "Accept: application/json"
     })
@@ -4039,7 +4039,7 @@ public interface ConfluenceRestClientApi {
     * @param contentId The ID of the content to get the viewers for.
     * @param fromDate The number of views for the content since the date.
     */
-    @RequestLine("GET /wiki/rest/api/analytics/content/{contentId}/viewers?fromDate={fromDate}")
+    @RequestLine("GET /rest/api/analytics/content/{contentId}/viewers?fromDate={fromDate}")
     @Headers({
         "Accept: application/json"
     })
@@ -4063,7 +4063,7 @@ public interface ConfluenceRestClientApi {
     * @param limit The maximum number of properties to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/user/{userId}/property?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/user/{userId}/property?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -4086,7 +4086,7 @@ public interface ConfluenceRestClientApi {
     * @param userId The account ID of the user to be queried for its properties.
     * @param key The key of the user property.
     */
-    @RequestLine("GET /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("GET /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Accept: application/json"
     })
@@ -4111,7 +4111,7 @@ public interface ConfluenceRestClientApi {
     * @param key The key of the user property.
     * @param payload The user property to be updated.
     */
-    @RequestLine("PUT /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("PUT /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -4138,7 +4138,7 @@ public interface ConfluenceRestClientApi {
     * @param key The key of the user property.
     * @param payload The user property to be created.
     */
-    @RequestLine("POST /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("POST /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -4163,7 +4163,7 @@ public interface ConfluenceRestClientApi {
     * products. For example, 384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192
     * @param key The key of the user property.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("DELETE /rest/api/user/{userId}/property/{key}")
     void deleteUserByUserIdpropertyByKeyV1(
             @NonNull @Param("userId") String userId,
             @NonNull @Param("key") String key

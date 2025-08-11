@@ -41,7 +41,7 @@ public interface ConfluenceRestClientAuditApi {
     * @param limit The maximum number of records to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/audit?startDate={startDate}&endDate={endDate}&searchString={searchString}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/audit?startDate={startDate}&endDate={endDate}&searchString={searchString}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -63,7 +63,7 @@ public interface ConfluenceRestClientAuditApi {
     *
     * @param payload The record to be created in the audit log.
     */
-    @RequestLine("POST /wiki/rest/api/audit")
+    @RequestLine("POST /rest/api/audit")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -88,7 +88,7 @@ public interface ConfluenceRestClientAuditApi {
     * matching the `searchString`.
     * @param format The format of the export file for the audit records.
     */
-    @RequestLine("GET /wiki/rest/api/audit/export?startDate={startDate}&endDate={endDate}&searchString={searchString}&format={format}")
+    @RequestLine("GET /rest/api/audit/export?startDate={startDate}&endDate={endDate}&searchString={searchString}&format={format}")
     @Headers({
         "Accept: application/zip"
     })
@@ -110,7 +110,7 @@ public interface ConfluenceRestClientAuditApi {
     * 'Confluence Administrator' global permission.
     *
     */
-    @RequestLine("GET /wiki/rest/api/audit/retention")
+    @RequestLine("GET /rest/api/audit/retention")
     @Headers({
         "Accept: application/json"
     })
@@ -127,7 +127,7 @@ public interface ConfluenceRestClientAuditApi {
     *
     * @param payload The updated retention period.
     */
-    @RequestLine("PUT /wiki/rest/api/audit/retention")
+    @RequestLine("PUT /rest/api/audit/retention")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -158,7 +158,7 @@ public interface ConfluenceRestClientAuditApi {
     * @param limit The maximum number of records to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/audit/since?number={number}&units={units}&searchString={searchString}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/audit/since?number={number}&units={units}&searchString={searchString}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })

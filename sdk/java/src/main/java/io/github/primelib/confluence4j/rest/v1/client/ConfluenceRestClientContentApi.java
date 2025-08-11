@@ -36,7 +36,7 @@ public interface ConfluenceRestClientContentApi {
     *
     * @param payload The pages to be archived.
     */
-    @RequestLine("POST /wiki/rest/api/content/archive")
+    @RequestLine("POST /rest/api/content/archive")
     @Headers({
         "Content-Type: application/json"
     })
@@ -120,7 +120,7 @@ public interface ConfluenceRestClientContentApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload 
     */
-    @RequestLine("PUT /wiki/rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
+    @RequestLine("PUT /rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -210,7 +210,7 @@ public interface ConfluenceRestClientContentApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload 
     */
-    @RequestLine("POST /wiki/rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
+    @RequestLine("POST /rest/api/content/blueprint/instance/{draftId}?status={status}&expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -338,7 +338,7 @@ public interface ConfluenceRestClientContentApi {
     * @param limit The maximum number of content objects to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/search?cql={cql}&cqlcontext={cqlcontext}&expand={expand}&cursor={cursor}&limit={limit}")
+    @RequestLine("GET /rest/api/content/search?cql={cql}&cqlcontext={cqlcontext}&expand={expand}&cursor={cursor}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })

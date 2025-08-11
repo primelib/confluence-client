@@ -35,7 +35,7 @@ public interface ConfluenceRestClientSettingsApi {
     * returned. If this is not set, only the global look and feel settings
     * are returned.
     */
-    @RequestLine("GET /wiki/rest/api/settings/lookandfeel?spaceKey={spaceKey}")
+    @RequestLine("GET /rest/api/settings/lookandfeel?spaceKey={spaceKey}")
     @Headers({
         "Accept: application/json"
     })
@@ -57,7 +57,7 @@ public interface ConfluenceRestClientSettingsApi {
     *
     * @param payload The look and feel type to be set.
     */
-    @RequestLine("PUT /wiki/rest/api/settings/lookandfeel")
+    @RequestLine("PUT /rest/api/settings/lookandfeel")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -89,7 +89,7 @@ public interface ConfluenceRestClientSettingsApi {
     * response body of [Get look and feel settings](#api-settings-lookandfeel-get)
     * and modify it as needed.
     */
-    @RequestLine("POST /wiki/rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
+    @RequestLine("POST /rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -115,7 +115,7 @@ public interface ConfluenceRestClientSettingsApi {
     * reset. If this is not set, the global look and feel settings will
     * be reset.
     */
-    @RequestLine("DELETE /wiki/rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
+    @RequestLine("DELETE /rest/api/settings/lookandfeel/custom?spaceKey={spaceKey}")
     void DeleteSettingsLookandfeelCustomV1(
             @Nullable @Param("spaceKey") String spaceKey
     );
@@ -130,7 +130,7 @@ public interface ConfluenceRestClientSettingsApi {
     * Permission to access the Confluence site ('Can use' global permission).
     *
     */
-    @RequestLine("GET /wiki/rest/api/settings/systemInfo")
+    @RequestLine("GET /rest/api/settings/systemInfo")
     @Headers({
         "Accept: application/json"
     })

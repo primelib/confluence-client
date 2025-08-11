@@ -32,7 +32,7 @@ public interface ConfluenceRestClientLongRunningTaskApi {
     * @param limit The maximum number of tasks to return per page. Note, this may be
     * restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/longtask?key={key}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/longtask?key={key}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -54,7 +54,7 @@ public interface ConfluenceRestClientLongRunningTaskApi {
     *
     * @param id The ID of the task.
     */
-    @RequestLine("GET /wiki/rest/api/longtask/{id}")
+    @RequestLine("GET /rest/api/longtask/{id}")
     @Headers({
         "Accept: application/json"
     })

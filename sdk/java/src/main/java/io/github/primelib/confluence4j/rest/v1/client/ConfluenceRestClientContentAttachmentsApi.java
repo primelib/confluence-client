@@ -31,7 +31,7 @@ public interface ConfluenceRestClientContentAttachmentsApi {
     * @param attachmentId The ID of the attachment to update.
     * @param payload The details of the attachment to be updated.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/child/attachment/{attachmentId}")
+    @RequestLine("PUT /rest/api/content/{id}/child/attachment/{attachmentId}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -52,7 +52,7 @@ public interface ConfluenceRestClientContentAttachmentsApi {
     * @param version The version of the attachment. If this parameter is absent, the redirect URI will download the latest version of the attachment.
     * @param status The statuses allowed on the retrieved attachment. If this parameter is absent, it will default to `current`.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/child/attachment/{attachmentId}/download?version={version}&status={status}")
+    @RequestLine("GET /rest/api/content/{id}/child/attachment/{attachmentId}/download?version={version}&status={status}")
     void GetContentByIDChildAttachmentByAttachmentIDDownloadV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("attachmentId") String attachmentId,

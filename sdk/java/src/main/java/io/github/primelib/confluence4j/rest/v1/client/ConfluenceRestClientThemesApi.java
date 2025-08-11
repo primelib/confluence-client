@@ -29,7 +29,7 @@ public interface ConfluenceRestClientThemesApi {
     * @param limit The maximum number of themes to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/settings/theme?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -46,7 +46,7 @@ public interface ConfluenceRestClientThemesApi {
     * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**: None
     *
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme/selected")
+    @RequestLine("GET /rest/api/settings/theme/selected")
     @Headers({
         "Accept: application/json"
     })
@@ -62,7 +62,7 @@ public interface ConfluenceRestClientThemesApi {
     *
     * @param themeKey The key of the theme to be returned.
     */
-    @RequestLine("GET /wiki/rest/api/settings/theme/{themeKey}")
+    @RequestLine("GET /rest/api/settings/theme/{themeKey}")
     @Headers({
         "Accept: application/json"
     })
@@ -81,7 +81,7 @@ public interface ConfluenceRestClientThemesApi {
     *
     * @param spaceKey The key of the space to be queried for its theme.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("GET /rest/api/space/{spaceKey}/theme")
     @Headers({
         "Accept: application/json"
     })
@@ -102,7 +102,7 @@ public interface ConfluenceRestClientThemesApi {
     * @param spaceKey The key of the space to set the theme for.
     * @param payload 
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("PUT /rest/api/space/{spaceKey}/theme")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -123,7 +123,7 @@ public interface ConfluenceRestClientThemesApi {
     *
     * @param spaceKey The key of the space to reset the theme for.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/theme")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/theme")
     void DeleteSpaceBySpaceKeyThemeV1(
             @NotNull @Param("spaceKey") String spaceKey
     );

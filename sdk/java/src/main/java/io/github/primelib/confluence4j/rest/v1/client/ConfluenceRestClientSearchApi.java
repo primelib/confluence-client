@@ -92,7 +92,7 @@ public interface ConfluenceRestClientSearchApi {
     * for external/guest users, and `all` to include all permission types.
     * @param expand 
     */
-    @RequestLine("GET /wiki/rest/api/search?cql={cql}&cqlcontext={cqlcontext}&cursor={cursor}&next={next}&prev={prev}&limit={limit}&start={start}&includeArchivedSpaces={includeArchivedSpaces}&excludeCurrentSpaces={excludeCurrentSpaces}&excerpt={excerpt}&sitePermissionTypeFilter={sitePermissionTypeFilter}&expand={expand}")
+    @RequestLine("GET /rest/api/search?cql={cql}&cqlcontext={cqlcontext}&cursor={cursor}&next={next}&prev={prev}&limit={limit}&start={start}&includeArchivedSpaces={includeArchivedSpaces}&excludeCurrentSpaces={excludeCurrentSpaces}&excerpt={excerpt}&sitePermissionTypeFilter={sitePermissionTypeFilter}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -144,7 +144,7 @@ public interface ConfluenceRestClientSearchApi {
     * @param sitePermissionTypeFilter Filters users by permission type. Use `none` to default to licensed users, `externalCollaborator`
     * for external/guest users, and `all` to include all permission types.
     */
-    @RequestLine("GET /wiki/rest/api/search/user?cql={cql}&start={start}&limit={limit}&expand={expand}&sitePermissionTypeFilter={sitePermissionTypeFilter}")
+    @RequestLine("GET /rest/api/search/user?cql={cql}&start={start}&limit={limit}&expand={expand}&sitePermissionTypeFilter={sitePermissionTypeFilter}")
     @Headers({
         "Accept: application/json"
     })

@@ -27,7 +27,7 @@ public interface ConfluenceRestClientSpaceSettingsApi {
     *
     * @param spaceKey The key of the space to be queried for its settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/settings")
+    @RequestLine("GET /rest/api/space/{spaceKey}/settings")
     @Headers({
         "Accept: application/json"
     })
@@ -47,7 +47,7 @@ public interface ConfluenceRestClientSpaceSettingsApi {
     * @param spaceKey The key of the space whose settings will be updated.
     * @param payload The space settings to update.
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}/settings")
+    @RequestLine("PUT /rest/api/space/{spaceKey}/settings")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"

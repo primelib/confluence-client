@@ -86,7 +86,7 @@ public interface ConfluenceRestClientContentBodyApi {
     * the time of save.
     * @param payload The content body to convert.
     */
-    @RequestLine("POST /wiki/rest/api/contentbody/convert/async/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&contentIdContext={contentIdContext}&allowCache={allowCache}&embeddedContentRender={embeddedContentRender}")
+    @RequestLine("POST /rest/api/contentbody/convert/async/{to}?expand={expand}&spaceKeyContext={spaceKeyContext}&contentIdContext={contentIdContext}&allowCache={allowCache}&embeddedContentRender={embeddedContentRender}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -115,7 +115,7 @@ public interface ConfluenceRestClientContentBodyApi {
     *
     * @param id The asyncId of the macro task to get the converted body.
     */
-    @RequestLine("GET /wiki/rest/api/contentbody/convert/async/{id}")
+    @RequestLine("GET /rest/api/contentbody/convert/async/{id}")
     @Headers({
         "Accept: application/json"
     })
@@ -140,7 +140,7 @@ public interface ConfluenceRestClientContentBodyApi {
     *
     * @param ids The asyncIds of the conversion tasks.
     */
-    @RequestLine("GET /wiki/rest/api/contentbody/convert/async/bulk/tasks?ids={ids}")
+    @RequestLine("GET /rest/api/contentbody/convert/async/bulk/tasks?ids={ids}")
     @Headers({
         "Accept: application/json"
     })
@@ -168,7 +168,7 @@ public interface ConfluenceRestClientContentBodyApi {
     *
     * @param payload An array of parameters to create content body conversion tasks.
     */
-    @RequestLine("POST /wiki/rest/api/contentbody/convert/async/bulk/tasks")
+    @RequestLine("POST /rest/api/contentbody/convert/async/bulk/tasks")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"

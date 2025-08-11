@@ -4,6 +4,7 @@ package io.github.primelib.confluence4j.rest.v1;
 
 import io.github.primelib.primecodegenlib.java.feign.common.api.AuthMethod;
 import io.github.primelib.primecodegenlib.java.feign.common.auth.BasicAuthSpec;
+import io.github.primelib.primecodegenlib.java.feign.common.auth.BearerAuthSpec;
 import io.github.primelib.primecodegenlib.java.feign.common.config.FeignModuleSpec;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
@@ -103,6 +104,11 @@ public final class ConfluenceRestClientFactorySpec<T> extends FeignModuleSpec<Co
     }
     public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {
         BasicAuthSpec method = new BasicAuthSpec(spec);
+        auth.add(method);
+        return method;
+    }
+    public BearerAuthSpec bearerAuth(Consumer<BearerAuthSpec> spec) {
+        BearerAuthSpec method = new BearerAuthSpec(spec);
         auth.add(method);
         return method;
     }

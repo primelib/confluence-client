@@ -27,7 +27,7 @@ public interface ConfluenceRestClientSpaceApi {
     *
     * @param payload The space to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space")
+    @RequestLine("POST /rest/api/space")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -49,7 +49,7 @@ public interface ConfluenceRestClientSpaceApi {
     *
     * @param payload The space to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/_private")
+    @RequestLine("POST /rest/api/space/_private")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -73,7 +73,7 @@ public interface ConfluenceRestClientSpaceApi {
     * @param spaceKey The key of the space to update.
     * @param payload The updated space.
     */
-    @RequestLine("PUT /wiki/rest/api/space/{spaceKey}")
+    @RequestLine("PUT /rest/api/space/{spaceKey}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -96,7 +96,7 @@ public interface ConfluenceRestClientSpaceApi {
     *
     * @param spaceKey The key of the space to delete.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}")
     void DeleteSpaceBySpaceKeyV1(
             @NotNull @Param("spaceKey") String spaceKey
     );

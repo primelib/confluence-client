@@ -42,7 +42,7 @@ public interface ConfluenceRestClientContentChildrenAndDescendantsApi {
     * * `append` - move the page to be a child of the target
     * @param targetId The ID of the target page for this operation
     */
-    @RequestLine("PUT /wiki/rest/api/content/{pageId}/move/{position}/{targetId}")
+    @RequestLine("PUT /rest/api/content/{pageId}/move/{position}/{targetId}")
     @Headers({
         "Accept: application/json"
     })
@@ -92,7 +92,7 @@ public interface ConfluenceRestClientContentChildrenAndDescendantsApi {
     * - `folder` returns all child folders of the content.
     * @deprecated
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/descendant?expand={expand}")
+    @RequestLine("GET /rest/api/content/{id}/descendant?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -195,7 +195,7 @@ public interface ConfluenceRestClientContentChildrenAndDescendantsApi {
     * this may be restricted by fixed system limits.
     * @deprecated
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/descendant/{type}?depth={depth}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/descendant/{type}?depth={depth}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -231,7 +231,7 @@ public interface ConfluenceRestClientContentChildrenAndDescendantsApi {
     * @param id 
     * @param payload Request object from json post body
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/pagehierarchy/copy")
+    @RequestLine("POST /rest/api/content/{id}/pagehierarchy/copy")
     @Headers({
         "Content-Type: application/json"
     })
@@ -318,7 +318,7 @@ public interface ConfluenceRestClientContentChildrenAndDescendantsApi {
     * - `extensions.resolution` returns the resolution status of each comment.
     * @param payload Request object from json post body
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/copy?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/copy?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json;charset=UTF-8"

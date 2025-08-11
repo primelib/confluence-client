@@ -43,7 +43,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * returned restrictions, to return per page. Note, this may be restricted
     * by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction?expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/restriction?expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -75,7 +75,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * applied to.
     * @param payload The updated restrictions for the content.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -107,7 +107,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * applied to.
     * @param payload The restrictions to be added to the content.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -137,7 +137,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * - `content` returns the piece of content that the restrictions are
     * applied to.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction?expand={expand}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -168,7 +168,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * - `content` returns the piece of content that the restrictions are
     * applied to.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation?expand={expand}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -202,7 +202,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * returned restrictions, to return per page. Note, this may be restricted
     * by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}?expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}?expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -235,7 +235,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param groupId The id of the group to be queried for whether the content restriction
     * applies to it.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void GetContentByIDRestrictionByOperationByOperationKeyByGroupIDByGroupIDV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,
@@ -255,7 +255,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param operationKey The operation that the restriction applies to.
     * @param groupId The groupId of the group to add to the content restriction.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void PutContentByIDRestrictionByOperationByOperationKeyByGroupIDByGroupIDV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,
@@ -275,7 +275,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param operationKey The operation that the restriction applies to.
     * @param groupId The id of the group to remove from the content restriction.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}")
     void DeleteContentByIDRestrictionByOperationByOperationKeyByGroupIDByGroupIDV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,
@@ -309,7 +309,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void GetContentByIDRestrictionByOperationByOperationKeyUserV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,
@@ -338,7 +338,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("PUT /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void PutContentByIDRestrictionByOperationByOperationKeyUserV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,
@@ -367,7 +367,7 @@ public interface ConfluenceRestClientContentRestrictionsApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/content/{id}/restriction/byOperation/{operationKey}/user?key={key}&username={username}&accountId={accountId}")
     void DeleteContentByIDRestrictionByOperationByOperationKeyUserV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("operationKey") String operationKey,

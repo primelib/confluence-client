@@ -195,6 +195,53 @@ public class ConfluenceRestClientConsumerApi {
 
 
     /**
+    * GetAtlassianConnect1AppModuleDynamicV1
+    * Get modules
+    * Returns all modules registered dynamically by the calling app.
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    */
+    public ConnectModules getAtlassianConnect1AppModuleDynamicV1(Consumer<GetAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
+        GetAtlassianConnect1AppModuleDynamicV1OperationSpec r = new GetAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
+        return api.getAtlassianConnect1AppModuleDynamicV1();
+    }
+
+    /**
+    * PostAtlassianConnect1AppModuleDynamicV1
+    * Register modules
+    * Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+    * <ul>
+    *   <li>payload: </li>
+    * </ul>
+    */
+    public void postAtlassianConnect1AppModuleDynamicV1(Consumer<PostAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
+        PostAtlassianConnect1AppModuleDynamicV1OperationSpec r = new PostAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
+        api.postAtlassianConnect1AppModuleDynamicV1(r.payload());
+    }
+
+    /**
+    * DeleteAtlassianConnect1AppModuleDynamicV1
+    * Remove modules
+    * Remove all or a list of modules registered by the calling app.
+    * 
+    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
+    *
+    * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+    * <ul>
+    *   <li>moduleKey: The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter. For example, `moduleKey=dynamic-attachment-entity-property&amp;moduleKey=dynamic-select-field`. Nonexistent keys are ignored.</li>
+    * </ul>
+    */
+    public void deleteAtlassianConnect1AppModuleDynamicV1(Consumer<DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
+        DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec r = new DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
+        api.deleteAtlassianConnect1AppModuleDynamicV1(r.moduleKey());
+    }
+
+    /**
     * GetAuditV1
     * Get audit records
     * Returns all records in the audit log, optionally for a certain date range.
@@ -3091,53 +3138,6 @@ public class ConfluenceRestClientConsumerApi {
     public List<AccountIDEmailRecord> getUserEmailBulkV1(Consumer<GetUserEmailBulkV1OperationSpec> spec) {
         GetUserEmailBulkV1OperationSpec r = new GetUserEmailBulkV1OperationSpec(spec);
         return api.getUserEmailBulkV1(r.accountId());
-    }
-
-    /**
-    * GetAtlassianConnect1AppModuleDynamicV1
-    * Get modules
-    * Returns all modules registered dynamically by the calling app.
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    */
-    public ConnectModules getAtlassianConnect1AppModuleDynamicV1(Consumer<GetAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
-        GetAtlassianConnect1AppModuleDynamicV1OperationSpec r = new GetAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
-        return api.getAtlassianConnect1AppModuleDynamicV1();
-    }
-
-    /**
-    * PostAtlassianConnect1AppModuleDynamicV1
-    * Register modules
-    * Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    * @param spec a consumer that creates the payload for this operation. Supports the following properties:
-    * <ul>
-    *   <li>payload: </li>
-    * </ul>
-    */
-    public void postAtlassianConnect1AppModuleDynamicV1(Consumer<PostAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
-        PostAtlassianConnect1AppModuleDynamicV1OperationSpec r = new PostAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
-        api.postAtlassianConnect1AppModuleDynamicV1(r.payload());
-    }
-
-    /**
-    * DeleteAtlassianConnect1AppModuleDynamicV1
-    * Remove modules
-    * Remove all or a list of modules registered by the calling app.
-    * 
-    * **[Permissions](#permissions) required:** Only Connect apps can make this request.
-    *
-    * @param spec a consumer that creates the payload for this operation. Supports the following properties:
-    * <ul>
-    *   <li>moduleKey: The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter. For example, `moduleKey=dynamic-attachment-entity-property&amp;moduleKey=dynamic-select-field`. Nonexistent keys are ignored.</li>
-    * </ul>
-    */
-    public void deleteAtlassianConnect1AppModuleDynamicV1(Consumer<DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec> spec) {
-        DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec r = new DeleteAtlassianConnect1AppModuleDynamicV1OperationSpec(spec);
-        api.deleteAtlassianConnect1AppModuleDynamicV1(r.moduleKey());
     }
 
     /**

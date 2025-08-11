@@ -33,7 +33,7 @@ public interface ConfluenceRestClientContentLabelsApi {
     * @param id The ID of the content that will have labels added to it.
     * @param payload The labels to add to the content.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/label")
+    @RequestLine("POST /rest/api/content/{id}/label")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -60,7 +60,7 @@ public interface ConfluenceRestClientContentLabelsApi {
     * @param id The ID of the content that the label will be removed from.
     * @param name The name of the label to be removed.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/label?name={name}")
+    @RequestLine("DELETE /rest/api/content/{id}/label?name={name}")
     void DeleteContentByIDLabelV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("name") String name
@@ -83,7 +83,7 @@ public interface ConfluenceRestClientContentLabelsApi {
     * @param id The ID of the content that the label will be removed from.
     * @param label The name of the label to be removed.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/label/{label}")
+    @RequestLine("DELETE /rest/api/content/{id}/label/{label}")
     void DeleteContentByIDLabelByLabelV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("label") String label

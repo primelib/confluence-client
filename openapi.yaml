@@ -10,7 +10,100 @@ info:
 servers:
   - url: "https://{your-domain}/wiki/api/v2"
 paths:
-  "/wiki/rest/api/audit":
+  "/atlassian-connect/1/app/module/dynamic":
+    get:
+      tags:
+        - "Dynamic modules"
+      summary: "Get modules"
+      description: "Returns all modules registered dynamically by the calling app.\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
+      operationId: "getAtlassianConnect1AppModuleDynamicV1"
+      responses:
+        "200":
+          description: "Returned if the request is successful."
+          content:
+            "*/*":
+              schema: {"$ref": "#/components/schemas/ConnectModules"}
+        "401":
+          description: "Returned if the call is not from a Connect app."
+          content:
+            "*/*":
+              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
+            "message":
+              example: "The request is not from a Connect app."
+              schema:
+                $ref: '#/components/schemas/GetModulesR401'
+      x-experimental: true
+      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
+      x-atlassian-connect-scope: "INACCESSIBLE"
+    post:
+      tags:
+        - "Dynamic modules"
+      summary: "Register modules"
+      description: "Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
+      operationId: "postAtlassianConnect1AppModuleDynamicV1"
+      requestBody:
+        content:
+          "*/*":
+            schema: {"$ref": "#/components/schemas/ConnectModules"}
+        required: true
+      responses:
+        "200":
+          description: "Returned if the request is successful."
+        "400":
+          description: "Returned if:\n* any of the provided modules is invalid. For example, required properties are missing.\n* any of the modules conflict with registered dynamic modules or modules defined in the app descriptor. For example, there are duplicate keys.\n\nDetails of the issues encountered are included in the error message."
+          content:
+            "*/*":
+              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
+            "message":
+              example: "Installation failed. The app com.example.app.key has duplicate module keys: [module-key]. Please contact the app vendor."
+              schema:
+                $ref: '#/components/schemas/RegisterModulesR400'
+        "401":
+          description: "Returned if the call is not from a Connect app."
+          content:
+            "*/*":
+              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
+            "message":
+              example: "The request is not from a Connect app."
+              schema:
+                $ref: '#/components/schemas/RegisterModulesR401'
+      x-experimental: true
+      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
+      x-codegen-request-body-name: "body"
+      x-atlassian-connect-scope: "INACCESSIBLE"
+    delete:
+      tags:
+        - "Dynamic modules"
+      summary: "Remove modules"
+      description: "Remove all or a list of modules registered by the calling app.\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
+      operationId: "deleteAtlassianConnect1AppModuleDynamicV1"
+      parameters:
+        - name: "moduleKey"
+          in: "query"
+          description: "The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter.\nFor example, `moduleKey=dynamic-attachment-entity-property&moduleKey=dynamic-select-field`.\nNonexistent keys are ignored."
+          required: true
+          style: "form"
+          explode: false
+          schema:
+            type: "array"
+            items:
+              type: "string"
+      responses:
+        "204":
+          description: "Returned if the request is successful."
+        "401":
+          description: "Returned if the call is not from a Connect app."
+          content:
+            "*/*":
+              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
+            "message":
+              example: "The request is not from a Connect app."
+              schema:
+                $ref: '#/components/schemas/RemoveModulesR401'
+      x-experimental: true
+      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
+      x-atlassian-connect-scope: "INACCESSIBLE"
+  /rest/api/audit:
     get:
       tags:
         - "Audit"
@@ -97,7 +190,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/audit/export":
+  /rest/api/audit/export:
     get:
       tags:
         - "Audit"
@@ -148,7 +241,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:audit-log:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/audit/retention":
+  /rest/api/audit/retention:
     get:
       tags:
         - "Audit"
@@ -198,7 +291,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/audit/since":
+  /rest/api/audit/since:
     get:
       tags:
         - "Audit"
@@ -269,7 +362,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:audit-log:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/content/archive":
+  /rest/api/content/archive:
     post:
       tags:
         - "Content"
@@ -300,7 +393,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-experimental: true
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/blueprint/instance/{draftId}":
+  /rest/api/content/blueprint/instance/{draftId}:
     put:
       tags:
         - "Content"
@@ -387,7 +480,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/search":
+  /rest/api/content/search:
     get:
       tags:
         - "Content"
@@ -437,7 +530,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["search:confluence"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/pageTree":
+  /rest/api/content/{id}/pageTree:
     delete:
       tags:
         - "Experimental"
@@ -472,7 +565,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["delete:content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/content/{pageId}/move/{position}/{targetId}":
+  /rest/api/content/{pageId}/move/{position}/{targetId}:
     put:
       tags:
         - "Content - children and descendants"
@@ -522,8 +615,8 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:page:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/child/attachment": {}
-  "/wiki/rest/api/content/{id}/child/attachment/{attachmentId}":
+  /rest/api/content/{id}/child/attachment: {}
+  /rest/api/content/{id}/child/attachment/{attachmentId}:
     put:
       tags:
         - "Content - attachments"
@@ -572,8 +665,8 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/child/attachment/{attachmentId}/data": {}
-  "/wiki/rest/api/content/{id}/child/attachment/{attachmentId}/download":
+  /rest/api/content/{id}/child/attachment/{attachmentId}/data: {}
+  /rest/api/content/{id}/child/attachment/{attachmentId}/download:
     get:
       tags:
         - "Content - attachments"
@@ -621,7 +714,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["readonly:content.attachment:confluence"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:attachment:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/descendant":
+  /rest/api/content/{id}/descendant:
     get:
       tags:
         - "Content - children and descendants"
@@ -664,7 +757,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/descendant/{type}":
+  /rest/api/content/{id}/descendant/{type}:
     get:
       tags:
         - "Content - children and descendants"
@@ -733,7 +826,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}":
+  /rest/api/content/{id}/history/{version}/macro/id/{macroId}:
     get:
       tags:
         - "Content - macro body"
@@ -777,7 +870,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}":
+  /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/{to}:
     get:
       tags:
         - "Content - macro body"
@@ -844,7 +937,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}":
+  /rest/api/content/{id}/history/{version}/macro/id/{macroId}/convert/async/{to}:
     get:
       tags:
         - "Content - macro body"
@@ -919,7 +1012,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/label":
+  /rest/api/content/{id}/label:
     post:
       tags:
         - "Content labels"
@@ -993,7 +1086,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:label:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/label/{label}":
+  /rest/api/content/{id}/label/{label}:
     delete:
       tags:
         - "Content labels"
@@ -1029,7 +1122,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:label:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/notification/child-created":
+  /rest/api/content/{id}/notification/child-created:
     get:
       tags:
         - "Content watches"
@@ -1074,7 +1167,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:watcher:confluence", "read:user:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/notification/created":
+  /rest/api/content/{id}/notification/created:
     get:
       tags:
         - "Content watches"
@@ -1119,7 +1212,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:watcher:confluence", "read:user:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/pagehierarchy/copy":
+  /rest/api/content/{id}/pagehierarchy/copy:
     post:
       tags:
         - "Content - children and descendants"
@@ -1158,7 +1251,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "request"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/copy":
+  /rest/api/content/{id}/copy:
     post:
       tags:
         - "Content - children and descendants"
@@ -1200,7 +1293,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "request"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/permission/check":
+  /rest/api/content/{id}/permission/check:
     post:
       tags:
         - "Content permissions"
@@ -1242,7 +1335,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/restriction":
+  /rest/api/content/{id}/restriction:
     get:
       tags:
         - "Content restrictions"
@@ -1457,7 +1550,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence", "write:content.restriction:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/content/{id}/restriction/byOperation":
+  /rest/api/content/{id}/restriction/byOperation:
     get:
       tags:
         - "Content restrictions"
@@ -1498,7 +1591,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}":
+  /rest/api/content/{id}/restriction/byOperation/{operationKey}:
     get:
       tags:
         - "Content restrictions"
@@ -1563,7 +1656,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}":
+  /rest/api/content/{id}/restriction/byOperation/{operationKey}/byGroupId/{groupId}:
     get:
       tags:
         - "Content restrictions"
@@ -1694,7 +1787,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:content.restriction:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/restriction/byOperation/{operationKey}/user":
+  /rest/api/content/{id}/restriction/byOperation/{operationKey}/user:
     get:
       tags:
         - "Content restrictions"
@@ -1802,7 +1895,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:content.restriction:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/state":
+  /rest/api/content/{id}/state:
     get:
       tags:
         - "Content states"
@@ -1934,7 +2027,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:content:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/state/available":
+  /rest/api/content/{id}/state/available:
     get:
       tags:
         - "Content states"
@@ -1969,7 +2062,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/content/{id}/version":
+  /rest/api/content/{id}/version:
     post:
       tags:
         - "Content versions"
@@ -2016,7 +2109,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/content/{id}/version/{versionNumber}":
+  /rest/api/content/{id}/version/{versionNumber}:
     delete:
       tags:
         - "Content versions"
@@ -2051,7 +2144,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["delete:content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/content-states":
+  /rest/api/content-states:
     get:
       tags:
         - "Content states"
@@ -2074,7 +2167,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:user.property:confluence"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:user.property:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/contentbody/convert/async/{to}":
+  /rest/api/contentbody/convert/async/{to}:
     post:
       tags:
         - "Content body"
@@ -2140,7 +2233,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/contentbody/convert/async/{id}":
+  /rest/api/contentbody/convert/async/{id}:
     get:
       tags:
         - "Content body"
@@ -2176,7 +2269,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/contentbody/convert/async/bulk/tasks":
+  /rest/api/contentbody/convert/async/bulk/tasks:
     get:
       tags:
         - "Content body"
@@ -2236,7 +2329,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/label":
+  /rest/api/label:
     get:
       tags:
         - "Label info"
@@ -2295,7 +2388,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:label:confluence", "read:content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/group":
+  /rest/api/group:
     get:
       tags:
         - "Group"
@@ -2377,7 +2470,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/group/by-id":
+  /rest/api/group/by-id:
     get:
       tags:
         - "Group"
@@ -2439,7 +2532,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-groups"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:group:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/group/picker":
+  /rest/api/group/picker:
     get:
       tags:
         - "Group"
@@ -2490,7 +2583,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-groups"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:group:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/group/{groupId}/membersByGroupId":
+  /rest/api/group/{groupId}/membersByGroupId:
     get:
       tags:
         - "Group"
@@ -2556,7 +2649,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-groups"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:group:confluence", "read:user:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/group/userByGroupId":
+  /rest/api/group/userByGroupId:
     post:
       tags:
         - "Group"
@@ -2634,7 +2727,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-groups"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:group:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/longtask":
+  /rest/api/longtask:
     get:
       tags:
         - "Long-running task"
@@ -2679,7 +2772,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/longtask/{id}":
+  /rest/api/longtask/{id}:
     get:
       tags:
         - "Long-running task"
@@ -2710,7 +2803,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-space.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}":
+  /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}:
     get:
       tags:
         - "Relation"
@@ -2820,7 +2913,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:relation:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}":
+  /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}:
     get:
       tags:
         - "Relation"
@@ -3095,7 +3188,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:relation:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}":
+  /rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}:
     get:
       tags:
         - "Relation"
@@ -3205,7 +3298,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:relation:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/search":
+  /rest/api/search:
     get:
       tags:
         - "Search"
@@ -3314,7 +3407,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["search:confluence"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/search/user":
+  /rest/api/search/user:
     get:
       tags:
         - "Search"
@@ -3380,7 +3473,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/settings/lookandfeel":
+  /rest/api/settings/lookandfeel:
     get:
       tags:
         - "Settings"
@@ -3444,7 +3537,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/settings/lookandfeel/custom":
+  /rest/api/settings/lookandfeel/custom:
     post:
       tags:
         - "Settings"
@@ -3511,7 +3604,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["manage:confluence-configuration"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:configuration:confluence", "write:space.setting:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/settings/systemInfo":
+  /rest/api/settings/systemInfo:
     get:
       tags:
         - "Settings"
@@ -3533,7 +3626,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["manage:confluence-configuration"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:configuration:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/settings/theme":
+  /rest/api/settings/theme:
     get:
       tags:
         - "Themes"
@@ -3570,7 +3663,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["manage:confluence-configuration"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:configuration:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/settings/theme/selected":
+  /rest/api/settings/theme/selected:
     get:
       tags:
         - "Themes"
@@ -3592,7 +3685,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["manage:confluence-configuration"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:configuration:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/settings/theme/{themeKey}":
+  /rest/api/settings/theme/{themeKey}:
     get:
       tags:
         - "Themes"
@@ -3621,7 +3714,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["manage:confluence-configuration"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:configuration:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/space":
+  /rest/api/space:
     post:
       tags:
         - "Space"
@@ -3654,7 +3747,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/space/_private":
+  /rest/api/space/_private:
     post:
       tags:
         - "Space"
@@ -3687,7 +3780,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "SpacePrivateCreate"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/space/{spaceKey}":
+  /rest/api/space/{spaceKey}:
     put:
       tags:
         - "Space"
@@ -3755,7 +3848,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-space"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence", "delete:space:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/space/{spaceKey}/permission":
+  /rest/api/space/{spaceKey}/permission:
     post:
       tags:
         - "Space permissions"
@@ -3798,7 +3891,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:space.permission:confluence", "write:space.permission:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/space/{spaceKey}/permission/custom-content":
+  /rest/api/space/{spaceKey}/permission/custom-content:
     post:
       tags:
         - "Space permissions"
@@ -3838,7 +3931,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:space.permission:confluence", "write:space.permission:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/space/{spaceKey}/permission/{id}":
+  /rest/api/space/{spaceKey}/permission/{id}:
     delete:
       tags:
         - "Space permissions"
@@ -3876,7 +3969,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:space.permission:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/space/{spaceKey}/settings":
+  /rest/api/space/{spaceKey}/settings:
     get:
       tags:
         - "Space settings"
@@ -3944,7 +4037,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "SpaceSettingsUpdate"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/space/{spaceKey}/state":
+  /rest/api/space/{spaceKey}/state:
     get:
       tags:
         - "Content states"
@@ -3978,7 +4071,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-space.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:space.setting:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/space/{spaceKey}/state/settings":
+  /rest/api/space/{spaceKey}/state/settings:
     get:
       tags:
         - "Content states"
@@ -4011,7 +4104,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-space.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:space.setting:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/space/{spaceKey}/state/content":
+  /rest/api/space/{spaceKey}/state/content:
     get:
       tags:
         - "Content states"
@@ -4079,7 +4172,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/space/{spaceKey}/theme":
+  /rest/api/space/{spaceKey}/theme:
     get:
       tags:
         - "Themes"
@@ -4169,7 +4262,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-space"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:space.setting:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/space/{spaceKey}/watch":
+  /rest/api/space/{spaceKey}/watch:
     get:
       tags:
         - "Content watches"
@@ -4209,7 +4302,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:watcher:confluence", "read:user:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/space/{spaceKey}/label":
+  /rest/api/space/{spaceKey}/label:
     get:
       tags:
         - "Experimental"
@@ -4343,7 +4436,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-experimental: true
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/template":
+  /rest/api/template:
     put:
       tags:
         - "Template"
@@ -4406,7 +4499,7 @@ paths:
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/template/blueprint":
+  /rest/api/template/blueprint:
     get:
       tags:
         - "Template"
@@ -4451,7 +4544,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:template:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/template/page":
+  /rest/api/template/page:
     get:
       tags:
         - "Template"
@@ -4496,7 +4589,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:template:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/template/{contentTemplateId}":
+  /rest/api/template/{contentTemplateId}:
     get:
       tags:
         - "Template"
@@ -4551,7 +4644,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:template:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "DELETE"
-  "/wiki/rest/api/user":
+  /rest/api/user:
     get:
       tags:
         - "Users"
@@ -4597,7 +4690,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-user"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/anonymous":
+  /rest/api/user/anonymous:
     get:
       tags:
         - "Users"
@@ -4631,7 +4724,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-user"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:user:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/current":
+  /rest/api/user/current:
     get:
       tags:
         - "Users"
@@ -4667,7 +4760,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-user"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/memberof":
+  /rest/api/user/memberof:
     get:
       tags:
         - "Users"
@@ -4712,7 +4805,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-user"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:user:confluence", "read:group:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/bulk":
+  /rest/api/user/bulk:
     get:
       tags:
         - "Users"
@@ -4754,7 +4847,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-user"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/watch/content/{contentId}":
+  /rest/api/user/watch/content/{contentId}:
     get:
       tags:
         - "Content watches"
@@ -4855,7 +4948,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:watcher:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/user/watch/label/{labelName}":
+  /rest/api/user/watch/label/{labelName}:
     get:
       tags:
         - "Content watches"
@@ -4956,7 +5049,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:watcher:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/user/watch/space/{spaceKey}":
+  /rest/api/user/watch/space/{spaceKey}:
     get:
       tags:
         - "Content watches"
@@ -5057,7 +5150,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:watcher:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "WRITE"
-  "/wiki/rest/api/user/email":
+  /rest/api/user/email:
     get:
       tags:
         - "Users"
@@ -5088,7 +5181,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:email-address:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "ACCESS_EMAIL_ADDRESSES"
-  "/wiki/rest/api/user/email/bulk":
+  /rest/api/user/email/bulk:
     get:
       tags:
         - "Users"
@@ -5121,100 +5214,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:email-address:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "ACCESS_EMAIL_ADDRESSES"
-  "/atlassian-connect/1/app/module/dynamic":
-    get:
-      tags:
-        - "Dynamic modules"
-      summary: "Get modules"
-      description: "Returns all modules registered dynamically by the calling app.\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
-      operationId: "getAtlassianConnect1AppModuleDynamicV1"
-      responses:
-        "200":
-          description: "Returned if the request is successful."
-          content:
-            "*/*":
-              schema: {"$ref": "#/components/schemas/ConnectModules"}
-        "401":
-          description: "Returned if the call is not from a Connect app."
-          content:
-            "*/*":
-              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
-            "message":
-              example: "The request is not from a Connect app."
-              schema:
-                $ref: '#/components/schemas/GetModulesR401'
-      x-experimental: true
-      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
-      x-atlassian-connect-scope: "INACCESSIBLE"
-    post:
-      tags:
-        - "Dynamic modules"
-      summary: "Register modules"
-      description: "Registers a list of modules. For the list of modules that support dynamic registration, see [Dynamic modules](https://developer.atlassian.com/cloud/confluence/dynamic-modules/).\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
-      operationId: "postAtlassianConnect1AppModuleDynamicV1"
-      requestBody:
-        content:
-          "*/*":
-            schema: {"$ref": "#/components/schemas/ConnectModules"}
-        required: true
-      responses:
-        "200":
-          description: "Returned if the request is successful."
-        "400":
-          description: "Returned if:\n* any of the provided modules is invalid. For example, required properties are missing.\n* any of the modules conflict with registered dynamic modules or modules defined in the app descriptor. For example, there are duplicate keys.\n\nDetails of the issues encountered are included in the error message."
-          content:
-            "*/*":
-              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
-            "message":
-              example: "Installation failed. The app com.example.app.key has duplicate module keys: [module-key]. Please contact the app vendor."
-              schema:
-                $ref: '#/components/schemas/RegisterModulesR400'
-        "401":
-          description: "Returned if the call is not from a Connect app."
-          content:
-            "*/*":
-              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
-            "message":
-              example: "The request is not from a Connect app."
-              schema:
-                $ref: '#/components/schemas/RegisterModulesR401'
-      x-experimental: true
-      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
-      x-codegen-request-body-name: "body"
-      x-atlassian-connect-scope: "INACCESSIBLE"
-    delete:
-      tags:
-        - "Dynamic modules"
-      summary: "Remove modules"
-      description: "Remove all or a list of modules registered by the calling app.\n\n**[Permissions](#permissions) required:** Only Connect apps can make this request."
-      operationId: "deleteAtlassianConnect1AppModuleDynamicV1"
-      parameters:
-        - name: "moduleKey"
-          in: "query"
-          description: "The key of the module to remove. To include multiple module keys, provide multiple copies of this parameter.\nFor example, `moduleKey=dynamic-attachment-entity-property&moduleKey=dynamic-select-field`.\nNonexistent keys are ignored."
-          required: true
-          style: "form"
-          explode: false
-          schema:
-            type: "array"
-            items:
-              type: "string"
-      responses:
-        "204":
-          description: "Returned if the request is successful."
-        "401":
-          description: "Returned if the call is not from a Connect app."
-          content:
-            "*/*":
-              schema: {"$ref": "#/components/schemas/DynamicModulesErrorMessage"}
-            "message":
-              example: "The request is not from a Connect app."
-              schema:
-                $ref: '#/components/schemas/RemoveModulesR401'
-      x-experimental: true
-      x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
-      x-atlassian-connect-scope: "INACCESSIBLE"
-  "/wiki/rest/api/analytics/content/{contentId}/views":
+  /rest/api/analytics/content/{contentId}/views:
     get:
       tags:
         - "Analytics"
@@ -5256,7 +5256,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:analytics.content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/analytics/content/{contentId}/viewers":
+  /rest/api/analytics/content/{contentId}/viewers:
     get:
       tags:
         - "Analytics"
@@ -5298,7 +5298,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.summary"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:analytics.content:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/{userId}/property":
+  /rest/api/user/{userId}/property:
     get:
       tags:
         - "User properties"
@@ -5350,7 +5350,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:user.property:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "READ"
-  "/wiki/rest/api/user/{userId}/property/{key}":
+  /rest/api/user/{userId}/property/{key}:
     get:
       tags:
         - "User properties"
@@ -8786,6 +8786,22 @@ components:
       type: "array"
       items: {"$ref": "#/components/schemas/LabelCreate"}
       title: AddLabelsToSpaceB
+    GetModulesR401:
+      type: string
+      description: Shemaless response
+      title: GetModulesR401
+    RegisterModulesR400:
+      type: string
+      description: Shemaless response
+      title: RegisterModulesR400
+    RegisterModulesR401:
+      type: string
+      description: Shemaless response
+      title: RegisterModulesR401
+    RemoveModulesR401:
+      type: string
+      description: Shemaless response
+      title: RemoveModulesR401
     ExportAuditRecordsR200:
       type: "string"
       format: "binary"
@@ -8810,22 +8826,6 @@ components:
       items: {"$ref": "#/components/schemas/ContentState"}
       description: "Space suggested content states that users can choose from"
       title: GetSpaceContentStatesR200
-    GetModulesR401:
-      type: string
-      description: Shemaless response
-      title: GetModulesR401
-    RegisterModulesR400:
-      type: string
-      description: Shemaless response
-      title: RegisterModulesR400
-    RegisterModulesR401:
-      type: string
-      description: Shemaless response
-      title: RegisterModulesR401
-    RemoveModulesR401:
-      type: string
-      description: Shemaless response
-      title: RemoveModulesR401
     GetViewsR200:
       type: "object"
       properties:

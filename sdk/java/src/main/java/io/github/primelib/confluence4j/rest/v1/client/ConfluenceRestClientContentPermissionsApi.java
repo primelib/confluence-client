@@ -35,7 +35,7 @@ public interface ConfluenceRestClientContentPermissionsApi {
     * @param id The ID of the content to check permissions against.
     * @param payload The content permission request.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/permission/check")
+    @RequestLine("POST /rest/api/content/{id}/permission/check")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"

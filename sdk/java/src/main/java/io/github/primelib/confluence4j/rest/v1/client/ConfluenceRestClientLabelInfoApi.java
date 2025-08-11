@@ -30,7 +30,7 @@ public interface ConfluenceRestClientLabelInfoApi {
     * @param start The starting offset for the results.
     * @param limit The number of results to be returned.
     */
-    @RequestLine("GET /wiki/rest/api/label?name={name}&type={type}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/label?name={name}&type={type}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })

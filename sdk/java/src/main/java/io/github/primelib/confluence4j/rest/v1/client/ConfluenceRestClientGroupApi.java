@@ -37,7 +37,7 @@ public interface ConfluenceRestClientGroupApi {
     * Note, this may be restricted by fixed system limits.
     * @param accessType The group permission level for which to filter results.
     */
-    @RequestLine("GET /wiki/rest/api/group?start={start}&limit={limit}&accessType={accessType}")
+    @RequestLine("GET /rest/api/group?start={start}&limit={limit}&accessType={accessType}")
     @Headers({
         "Accept: application/json"
     })
@@ -57,7 +57,7 @@ public interface ConfluenceRestClientGroupApi {
     *
     * @param payload Name of the group that is to be created.
     */
-    @RequestLine("POST /wiki/rest/api/group")
+    @RequestLine("POST /rest/api/group")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -76,7 +76,7 @@ public interface ConfluenceRestClientGroupApi {
     *
     * @param id The id of the group.
     */
-    @RequestLine("GET /wiki/rest/api/group/by-id?id={id}")
+    @RequestLine("GET /rest/api/group/by-id?id={id}")
     @Headers({
         "Accept: application/json"
     })
@@ -94,7 +94,7 @@ public interface ConfluenceRestClientGroupApi {
     *
     * @param id Id of the group to delete.
     */
-    @RequestLine("DELETE /wiki/rest/api/group/by-id?id={id}")
+    @RequestLine("DELETE /rest/api/group/by-id?id={id}")
     void DeleteGroupByIDV1(
             @NotNull @Param("id") String id
     );
@@ -111,7 +111,7 @@ public interface ConfluenceRestClientGroupApi {
     * @param shouldReturnTotalSize Whether to include total size parameter in the results.
     * Note, fetching total size property is an expensive operation; use it if your use case needs this value.
     */
-    @RequestLine("GET /wiki/rest/api/group/picker?query={query}&start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}")
+    @RequestLine("GET /rest/api/group/picker?query={query}&start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}")
     @Headers({
         "Accept: application/json"
     })
@@ -145,7 +145,7 @@ public interface ConfluenceRestClientGroupApi {
     *   - `personalSpace` returns the user's personal space, if it exists.
     *   - `isExternalCollaborator`(@deprecated) see `isGuest` in response to find out whether the user is a guest.
     */
-    @RequestLine("GET /wiki/rest/api/group/{groupId}/membersByGroupId?start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}&expand={expand}")
+    @RequestLine("GET /rest/api/group/{groupId}/membersByGroupId?start={start}&limit={limit}&shouldReturnTotalSize={shouldReturnTotalSize}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -168,7 +168,7 @@ public interface ConfluenceRestClientGroupApi {
     * @param groupId GroupId of the group whose membership is updated
     * @param payload AccountId of the user who needs to be added as member.
     */
-    @RequestLine("POST /wiki/rest/api/group/userByGroupId?groupId={groupId}")
+    @RequestLine("POST /rest/api/group/userByGroupId?groupId={groupId}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -195,7 +195,7 @@ public interface ConfluenceRestClientGroupApi {
     * Use `accountId` instead.
     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
     */
-    @RequestLine("DELETE /wiki/rest/api/group/userByGroupId?groupId={groupId}&accountId={accountId}&key={key}&username={username}")
+    @RequestLine("DELETE /rest/api/group/userByGroupId?groupId={groupId}&accountId={accountId}&key={key}&username={username}")
     void DeleteGroupUserByGroupIDV1(
             @NotNull @Param("groupId") String groupId,
             @NotNull @Param("accountId") String accountId,

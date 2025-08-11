@@ -35,7 +35,7 @@ public interface ConfluenceRestClientContentVersionsApi {
     * - `content` returns the content for the version.
     * @param payload The content version to be restored.
     */
-    @RequestLine("POST /wiki/rest/api/content/{id}/version?expand={expand}")
+    @RequestLine("POST /rest/api/content/{id}/version?expand={expand}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -60,7 +60,7 @@ public interface ConfluenceRestClientContentVersionsApi {
     * @param versionNumber The number of the version to be deleted. The version number starts
     * from 1 up to current version.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/version/{versionNumber}")
+    @RequestLine("DELETE /rest/api/content/{id}/version/{versionNumber}")
     void DeleteContentByIDVersionByVersionNumberV1(
             @NotNull @Param("id") String id,
             @NotNull @Param("versionNumber") Integer versionNumber

@@ -33,7 +33,7 @@ public interface ConfluenceRestClientContentStatesApi {
     * @param id The id of the content whose content state is of interest.
     * @param status Set status to one of [current,draft,archived]. Default value is current.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("GET /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Accept: application/json"
     })
@@ -64,7 +64,7 @@ public interface ConfluenceRestClientContentStatesApi {
     * If current, state will be placed onto a new version of the content with same body as previous version.
     * @param payload Content state fields for state. Pass in id for an existing state, or new name and color for best matching existing state, or new state if allowed in space.
     */
-    @RequestLine("PUT /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("PUT /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -87,7 +87,7 @@ public interface ConfluenceRestClientContentStatesApi {
     * @param id The Id of the content whose content state is to be set.
     * @param status status of content state from which to delete state. Can be draft or archived
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/state?status={status}")
+    @RequestLine("DELETE /rest/api/content/{id}/state?status={status}")
     @Headers({
         "Accept: application/json"
     })
@@ -109,7 +109,7 @@ public interface ConfluenceRestClientContentStatesApi {
     *
     * @param id id of content to get available states for
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/state/available")
+    @RequestLine("GET /rest/api/content/{id}/state/available")
     @Headers({
         "Accept: application/json"
     })
@@ -126,7 +126,7 @@ public interface ConfluenceRestClientContentStatesApi {
     * Must have user authentication.
     *
     */
-    @RequestLine("GET /wiki/rest/api/content-states")
+    @RequestLine("GET /rest/api/content-states")
     @Headers({
         "Accept: application/json"
     })
@@ -142,7 +142,7 @@ public interface ConfluenceRestClientContentStatesApi {
     *
     * @param spaceKey The key of the space to be queried for its content state settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state")
     @Headers({
         "Accept: application/json"
     })
@@ -161,7 +161,7 @@ public interface ConfluenceRestClientContentStatesApi {
     *
     * @param spaceKey The key of the space to be queried for its content state settings.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state/settings")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state/settings")
     @Headers({
         "Accept: application/json"
     })
@@ -188,7 +188,7 @@ public interface ConfluenceRestClientContentStatesApi {
     * @param limit Maximum number of results to return
     * @param start Number of result to start returning. (0 indexed)
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/state/content?stateId={stateId}&expand={expand}&limit={limit}&start={start}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/state/content?stateId={stateId}&expand={expand}&limit={limit}&start={start}")
     @Headers({
         "Accept: application/json"
     })

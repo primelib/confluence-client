@@ -34,7 +34,7 @@ public interface ConfluenceRestClientUserPropertiesApi {
     * @param limit The maximum number of properties to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/user/{userId}/property?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/user/{userId}/property?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -57,7 +57,7 @@ public interface ConfluenceRestClientUserPropertiesApi {
     * @param userId The account ID of the user to be queried for its properties.
     * @param key The key of the user property.
     */
-    @RequestLine("GET /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("GET /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Accept: application/json"
     })
@@ -82,7 +82,7 @@ public interface ConfluenceRestClientUserPropertiesApi {
     * @param key The key of the user property.
     * @param payload The user property to be updated.
     */
-    @RequestLine("PUT /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("PUT /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -109,7 +109,7 @@ public interface ConfluenceRestClientUserPropertiesApi {
     * @param key The key of the user property.
     * @param payload The user property to be created.
     */
-    @RequestLine("POST /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("POST /rest/api/user/{userId}/property/{key}")
     @Headers({
         "Content-Type: application/json"
     })
@@ -134,7 +134,7 @@ public interface ConfluenceRestClientUserPropertiesApi {
     * products. For example, 384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192
     * @param key The key of the user property.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/{userId}/property/{key}")
+    @RequestLine("DELETE /rest/api/user/{userId}/property/{key}")
     void DeleteUserByUserIDPropertyByKeyV1(
             @NotNull @Param("userId") String userId,
             @NotNull @Param("key") String key

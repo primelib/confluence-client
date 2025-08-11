@@ -32,7 +32,7 @@ public interface ConfluenceRestClientTemplateApi {
     *
     * @param payload The updated content template.
     */
-    @RequestLine("PUT /wiki/rest/api/template")
+    @RequestLine("PUT /rest/api/template")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -53,7 +53,7 @@ public interface ConfluenceRestClientTemplateApi {
     * @param payload The content template to be created.
     * The content body must be in 'storage' format.
     */
-    @RequestLine("POST /wiki/rest/api/template")
+    @RequestLine("POST /rest/api/template")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -85,7 +85,7 @@ public interface ConfluenceRestClientTemplateApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/blueprint?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
+    @RequestLine("GET /rest/api/template/blueprint?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -116,7 +116,7 @@ public interface ConfluenceRestClientTemplateApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/page?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
+    @RequestLine("GET /rest/api/template/page?spaceKey={spaceKey}&start={start}&limit={limit}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -144,7 +144,7 @@ public interface ConfluenceRestClientTemplateApi {
     * 
     * - `body` or `body.storage` returns the content of the template in storage format.
     */
-    @RequestLine("GET /wiki/rest/api/template/{contentTemplateId}?expand={expand}")
+    @RequestLine("GET /rest/api/template/{contentTemplateId}?expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -173,7 +173,7 @@ public interface ConfluenceRestClientTemplateApi {
     *
     * @param contentTemplateId The ID of the template to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/template/{contentTemplateId}")
+    @RequestLine("DELETE /rest/api/template/{contentTemplateId}")
     void DeleteTemplateByContentTemplateIDV1(
             @NotNull @Param("contentTemplateId") String contentTemplateId
     );

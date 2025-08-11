@@ -25,12 +25,15 @@ spec:
         - type: openapi-overlay
           file: spec_patches/overlay.yaml
   patches:
+    - id: prune-path-prefix
+      config:
+        prefix: "/wiki"
     - id: simplify-polymorphic-schemas
     - id: flatten-components
     - id: fix-missing-schema-title
     - id: generate-operation-id
       config:
-        trim-prefix: "/wiki/rest/api"
+        trim-prefix: "/rest/api"
     - id: fix-common
 
 # v2 is still lacking major features.

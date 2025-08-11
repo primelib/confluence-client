@@ -48,7 +48,7 @@ public interface ConfluenceRestClientExperimentalApi {
     *
     * @param id The ID of the content which forms root of the page tree, to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/content/{id}/pageTree")
+    @RequestLine("DELETE /rest/api/content/{id}/pageTree")
     void DeleteContentByIDPageTreeV1(
             @NotNull @Param("id") String id
     );
@@ -71,7 +71,7 @@ public interface ConfluenceRestClientExperimentalApi {
     * @param limit The maximum number of labels to return per page. Note,
     * this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/label?prefix={prefix}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/label?prefix={prefix}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -100,7 +100,7 @@ public interface ConfluenceRestClientExperimentalApi {
     * @param spaceKey The key of the space to add labels to.
     * @param payload The labels to add to the content.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/label")
+    @RequestLine("POST /rest/api/space/{spaceKey}/label")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -118,7 +118,7 @@ public interface ConfluenceRestClientExperimentalApi {
     * @param name The name of the label to remove
     * @param prefix The prefix of the label to remove. If not provided defaults to global.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/label?name={name}&prefix={prefix}")
     void DeleteSpaceBySpaceKeyLabelV1(
             @NotNull @Param("spaceKey") String spaceKey,
             @NotNull @Param("name") String name,

@@ -33,7 +33,7 @@ public interface ConfluenceRestClientSpacePermissionsApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param payload The permission to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/permission")
+    @RequestLine("POST /rest/api/space/{spaceKey}/permission")
     @Headers({
         "Content-Type: application/json",
         "Accept: application/json"
@@ -59,7 +59,7 @@ public interface ConfluenceRestClientSpacePermissionsApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param payload The permissions to be created.
     */
-    @RequestLine("POST /wiki/rest/api/space/{spaceKey}/permission/custom-content")
+    @RequestLine("POST /rest/api/space/{spaceKey}/permission/custom-content")
     @Headers({
         "Content-Type: application/json"
     })
@@ -82,7 +82,7 @@ public interface ConfluenceRestClientSpacePermissionsApi {
     * @param spaceKey The key of the space to be queried for its content.
     * @param id Id of the permission to be deleted.
     */
-    @RequestLine("DELETE /wiki/rest/api/space/{spaceKey}/permission/{id}")
+    @RequestLine("DELETE /rest/api/space/{spaceKey}/permission/{id}")
     void DeleteSpaceBySpaceKeyPermissionByIDV1(
             @NotNull @Param("spaceKey") String spaceKey,
             @NotNull @Param("id") Long id

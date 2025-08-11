@@ -38,7 +38,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param limit The maximum number of watches to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/notification/child-created?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/notification/child-created?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -69,7 +69,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param limit The maximum number of watches to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/content/{id}/notification/created?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/content/{id}/notification/created?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -88,7 +88,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param start The start point of the collection to return.
     * @param limit The limit of the number of items to return, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/space/{spaceKey}/watch?start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/space/{spaceKey}/watch?start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -122,7 +122,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -159,7 +159,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     void PostUserWatchContentByContentIDV1(
             @NotNull @Param("contentId") String contentId,
             @Nullable @Param("key") String key,
@@ -192,7 +192,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/content/{contentId}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -228,7 +228,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -267,7 +267,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -302,7 +302,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/label/{labelName}?key={key}&username={username}&accountId={accountId}")
     void DeleteUserWatchLabelByLabelNameV1(
             @NotNull @Param("labelName") String labelName,
             @Nullable @Param("key") String key,
@@ -334,7 +334,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("GET /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("GET /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "Accept: application/json"
     })
@@ -373,7 +373,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("POST /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("POST /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     @Headers({
         "X-Atlassian-Token: {xAtlassianToken}"
     })
@@ -408,7 +408,7 @@ public interface ConfluenceRestClientContentWatchesApi {
     * @param accountId The account ID of the user. The accountId uniquely identifies the user across all Atlassian products.
     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     */
-    @RequestLine("DELETE /wiki/rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
+    @RequestLine("DELETE /rest/api/user/watch/space/{spaceKey}?key={key}&username={username}&accountId={accountId}")
     void DeleteUserWatchSpaceBySpaceKeyV1(
             @NotNull @Param("spaceKey") String spaceKey,
             @Nullable @Param("key") String key,

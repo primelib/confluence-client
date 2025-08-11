@@ -25,7 +25,7 @@ public interface ConfluenceRestClientAnalyticsApi {
     * @param contentId The ID of the content to get the views for.
     * @param fromDate The number of views for the content since the date.
     */
-    @RequestLine("GET /wiki/rest/api/analytics/content/{contentId}/views?fromDate={fromDate}")
+    @RequestLine("GET /rest/api/analytics/content/{contentId}/views?fromDate={fromDate}")
     @Headers({
         "Accept: application/json"
     })
@@ -42,7 +42,7 @@ public interface ConfluenceRestClientAnalyticsApi {
     * @param contentId The ID of the content to get the viewers for.
     * @param fromDate The number of views for the content since the date.
     */
-    @RequestLine("GET /wiki/rest/api/analytics/content/{contentId}/viewers?fromDate={fromDate}")
+    @RequestLine("GET /rest/api/analytics/content/{contentId}/viewers?fromDate={fromDate}")
     @Headers({
         "Accept: application/json"
     })

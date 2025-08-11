@@ -64,7 +64,7 @@ public interface ConfluenceRestClientRelationApi {
     * @param limit The maximum number of relationships to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
@@ -134,7 +134,7 @@ public interface ConfluenceRestClientRelationApi {
     * - `source` returns the source entity.
     * - `target` returns the target entity.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}")
+    @RequestLine("GET /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}")
     @Headers({
         "Accept: application/json"
     })
@@ -197,7 +197,7 @@ public interface ConfluenceRestClientRelationApi {
     * @param targetVersion The version of the target. This parameter is only used when the
     * `targetType` is 'content' and the `targetStatus` is 'historical'.
     */
-    @RequestLine("PUT /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
+    @RequestLine("PUT /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
     @Headers({
         "Accept: application/json"
     })
@@ -254,7 +254,7 @@ public interface ConfluenceRestClientRelationApi {
     * @param targetVersion The version of the target. This parameter is only used when the
     * `targetType` is 'content' and the `targetStatus` is 'historical'.
     */
-    @RequestLine("DELETE /wiki/rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
+    @RequestLine("DELETE /rest/api/relation/{relationName}/from/{sourceType}/{sourceKey}/to/{targetType}/{targetKey}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}")
     void DeleteRelationByRelationNameFromBySourceTypeBySourceKeyToByTargetTypeByTargetKeyV1(
             @NotNull @Param("relationName") String relationName,
             @NotNull @Param("sourceType") String sourceType,
@@ -313,7 +313,7 @@ public interface ConfluenceRestClientRelationApi {
     * @param limit The maximum number of relationships to return per page.
     * Note, this may be restricted by fixed system limits.
     */
-    @RequestLine("GET /wiki/rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
+    @RequestLine("GET /rest/api/relation/{relationName}/to/{targetType}/{targetKey}/from/{sourceType}?sourceStatus={sourceStatus}&targetStatus={targetStatus}&sourceVersion={sourceVersion}&targetVersion={targetVersion}&expand={expand}&start={start}&limit={limit}")
     @Headers({
         "Accept: application/json"
     })
