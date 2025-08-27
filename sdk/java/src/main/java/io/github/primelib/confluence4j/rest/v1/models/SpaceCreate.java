@@ -7,15 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * This is the request object used when creating a new space.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpaceCreate")
 @JsonPropertyOrder({
     "name",
@@ -93,6 +81,13 @@ create private space endpoint.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpaceCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpaceCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceCreate(Consumer)} instead.
@@ -120,5 +115,316 @@ create private space endpoint.
         this.alias = alias;
         this.description = description;
         this.permissions = permissions;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     * <p>
+     * The name of the new space.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * The name of the new space.
+     *
+     * @param name name
+     * @return this
+     */
+    public SpaceCreate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * The name of the new space.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * The name of the new space.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for key.
+     * <p>
+     * The key for the new space. Format: See [Space
+     * keys](https://confluence.atlassian.com/x/lqNMMQ). If `alias` is not provided, this is required.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     * <p>
+     * The key for the new space. Format: See [Space
+     * keys](https://confluence.atlassian.com/x/lqNMMQ). If `alias` is not provided, this is required.
+     *
+     * @param key key
+     * @return this
+     */
+    public SpaceCreate key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     * <p>
+     * The key for the new space. Format: See [Space
+     * keys](https://confluence.atlassian.com/x/lqNMMQ). If `alias` is not provided, this is required.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     * <p>
+     * The key for the new space. Format: See [Space
+     * keys](https://confluence.atlassian.com/x/lqNMMQ). If `alias` is not provided, this is required.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for alias.
+     * <p>
+     * This field will be used as the new identifier for the space in confluence page URLs.
+     * If the property is not provided the alias will be the provided key.
+     * This property is experimental and may be changed or removed in the future.
+     *
+     * @return alias
+     */
+    public String alias() {
+        return this.alias;
+    }
+
+    /**
+     * Fluent setter for alias.
+     * <p>
+     * This field will be used as the new identifier for the space in confluence page URLs.
+     * If the property is not provided the alias will be the provided key.
+     * This property is experimental and may be changed or removed in the future.
+     *
+     * @param alias alias
+     * @return this
+     */
+    public SpaceCreate alias(String alias) {
+        this.alias = alias;
+        return this;
+    }
+
+    /**
+     * Gets the value of alias.
+     * <p>
+     * This field will be used as the new identifier for the space in confluence page URLs.
+     * If the property is not provided the alias will be the provided key.
+     * This property is experimental and may be changed or removed in the future.
+     *
+     * @return alias
+     */
+    @JsonProperty("alias")
+    public String getAlias() {
+        return this.alias;
+    }
+
+    /**
+     * Sets the value of alias.
+     * <p>
+     * This field will be used as the new identifier for the space in confluence page URLs.
+     * If the property is not provided the alias will be the provided key.
+     * This property is experimental and may be changed or removed in the future.
+     *
+     * @param alias alias
+     */
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+    /**
+     * Fluent getter for description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @return description
+     */
+    public SpaceDescriptionCreate description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @param description description
+     * @return this
+     */
+    public SpaceCreate description(SpaceDescriptionCreate description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public SpaceDescriptionCreate getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @param description description
+     */
+    public void setDescription(SpaceDescriptionCreate description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for permissions.
+     * <p>
+     * The permissions for the new space. If no permissions are provided, the
+     * [Confluence default space permissions](https://confluence.atlassian.com/x/UAgzKw#CreateaSpace-Spacepermissions)
+     * are applied. Note that if permissions are provided, the space is
+     * created with only the provided set of permissions, not
+     * including the default space permissions. Space permissions
+     * can be modified after creation using the space permissions
+     * endpoints, and a private space can be created using the
+     * create private space endpoint.
+     *
+     * @return permissions
+     */
+    public List<Map<String, Object>> permissions() {
+        return this.permissions;
+    }
+
+    /**
+     * Fluent setter for permissions.
+     * <p>
+     * The permissions for the new space. If no permissions are provided, the
+     * [Confluence default space permissions](https://confluence.atlassian.com/x/UAgzKw#CreateaSpace-Spacepermissions)
+     * are applied. Note that if permissions are provided, the space is
+     * created with only the provided set of permissions, not
+     * including the default space permissions. Space permissions
+     * can be modified after creation using the space permissions
+     * endpoints, and a private space can be created using the
+     * create private space endpoint.
+     *
+     * @param permissions permissions
+     * @return this
+     */
+    public SpaceCreate permissions(List<Map<String, Object>> permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Gets the value of permissions.
+     * <p>
+     * The permissions for the new space. If no permissions are provided, the
+     * [Confluence default space permissions](https://confluence.atlassian.com/x/UAgzKw#CreateaSpace-Spacepermissions)
+     * are applied. Note that if permissions are provided, the space is
+     * created with only the provided set of permissions, not
+     * including the default space permissions. Space permissions
+     * can be modified after creation using the space permissions
+     * endpoints, and a private space can be created using the
+     * create private space endpoint.
+     *
+     * @return permissions
+     */
+    @JsonProperty("permissions")
+    public List<Map<String, Object>> getPermissions() {
+        return this.permissions;
+    }
+
+    /**
+     * Sets the value of permissions.
+     * <p>
+     * The permissions for the new space. If no permissions are provided, the
+     * [Confluence default space permissions](https://confluence.atlassian.com/x/UAgzKw#CreateaSpace-Spacepermissions)
+     * are applied. Note that if permissions are provided, the space is
+     * created with only the provided set of permissions, not
+     * including the default space permissions. Space permissions
+     * can be modified after creation using the space permissions
+     * endpoints, and a private space can be created using the
+     * create private space endpoint.
+     *
+     * @param permissions permissions
+     */
+    public void setPermissions(List<Map<String, Object>> permissions) {
+        this.permissions = permissions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceCreate that = (SpaceCreate) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.alias, that.alias) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.permissions, that.permissions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.key, 
+            this.alias, 
+            this.description, 
+            this.permissions
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpaceCreate{" +
+            "name=" + name + ", " + 
+            "key=" + key + ", " + 
+            "alias=" + alias + ", " + 
+            "description=" + description + ", " + 
+            "permissions=" + permissions +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * HoverOrFocusf1C7A6
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("HoverOrFocusf1C7A6")
 @JsonPropertyOrder({
     "backgroundColor",
@@ -51,6 +39,13 @@ public class HoverOrFocusf1C7A6 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected HoverOrFocusf1C7A6() {
+    }
+
+    /**
      * Constructs a validated instance of {@link HoverOrFocusf1C7A6}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HoverOrFocusf1C7A6(Consumer)} instead.
@@ -61,5 +56,109 @@ public class HoverOrFocusf1C7A6 {
     public HoverOrFocusf1C7A6(String backgroundColor, String color) {
         this.backgroundColor = backgroundColor;
         this.color = color;
+    }
+
+
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public HoverOrFocusf1C7A6 backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+    /**
+     * Fluent getter for color.
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     *
+     * @param color color
+     * @return this
+     */
+    public HoverOrFocusf1C7A6 color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HoverOrFocusf1C7A6 that = (HoverOrFocusf1C7A6) o;
+        return
+            Objects.equals(this.backgroundColor, that.backgroundColor) &&
+            Objects.equals(this.color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.backgroundColor, 
+            this.color
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "HoverOrFocusf1C7A6{" +
+            "backgroundColor=" + backgroundColor + ", " + 
+            "color=" + color +
+            "}";
     }
 }

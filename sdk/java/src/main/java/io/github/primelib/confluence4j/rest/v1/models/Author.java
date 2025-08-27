@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Author
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Author")
 @JsonPropertyOrder({
     "type",
@@ -113,6 +101,13 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Author() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Author}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Author(Consumer)} instead.
@@ -146,5 +141,554 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
         this.isExternalCollaborator = isExternalCollaborator;
         this.isGuest = isGuest;
         this.publicName = publicName;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public Author type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for displayName.
+     *
+     * @return displayName
+     */
+    public String displayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Fluent setter for displayName.
+     *
+     * @param displayName displayName
+     * @return this
+     */
+    public Author displayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Gets the value of displayName.
+     *
+     * @return displayName
+     */
+    @JsonProperty("displayName")
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Sets the value of displayName.
+     *
+     * @param displayName displayName
+     */
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public Object operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public Author operations(Object operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public Object getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(Object operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    public String username() {
+        return this.username;
+    }
+
+    /**
+     * Fluent setter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     * @return this
+     */
+    public Author username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Gets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    @JsonProperty("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Sets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    /**
+     * Fluent getter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    public String userKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Fluent setter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     * @return this
+     */
+    public Author userKey(String userKey) {
+        this.userKey = userKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    @JsonProperty("userKey")
+    public String getUserKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Sets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     */
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+    /**
+     * Fluent getter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Fluent setter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     * @return this
+     */
+    public Author accountId(String accountId) {
+        this.accountId = accountId;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    @JsonProperty("accountId")
+    public String getAccountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Sets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+    /**
+     * Fluent getter for accountType.
+     *
+     * @return accountType
+     */
+    public String accountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Fluent setter for accountType.
+     *
+     * @param accountType accountType
+     * @return this
+     */
+    public Author accountType(String accountType) {
+        this.accountType = accountType;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountType.
+     *
+     * @return accountType
+     */
+    @JsonProperty("accountType")
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Sets the value of accountType.
+     *
+     * @param accountType accountType
+     */
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+    /**
+     * Fluent getter for externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead.
+     *
+     * @return externalCollaborator
+     */
+    public Boolean externalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Fluent setter for externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead.
+     *
+     * @param externalCollaborator externalCollaborator
+     * @return this
+     */
+    public Author externalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead.
+     *
+     * @return externalCollaborator
+     */
+    @JsonProperty("externalCollaborator")
+    public Boolean getExternalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Sets the value of externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead.
+     *
+     * @param externalCollaborator externalCollaborator
+     */
+    public void setExternalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+    }
+    /**
+     * Fluent getter for isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead. Whether the user is an external collaborator user
+     *
+     * @return isExternalCollaborator
+     */
+    public Boolean isExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Fluent setter for isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead. Whether the user is an external collaborator user
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     * @return this
+     */
+    public Author isExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead. Whether the user is an external collaborator user
+     *
+     * @return isExternalCollaborator
+     */
+    @JsonProperty("isExternalCollaborator")
+    public Boolean getIsExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Sets the value of isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead. Whether the user is an external collaborator user
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     */
+    public void setIsExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+    }
+    /**
+     * Fluent getter for isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @return isGuest
+     */
+    public Boolean isGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Fluent setter for isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @param isGuest isGuest
+     * @return this
+     */
+    public Author isGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+        return this;
+    }
+
+    /**
+     * Gets the value of isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @return isGuest
+     */
+    @JsonProperty("isGuest")
+    public Boolean getIsGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Sets the value of isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @param isGuest isGuest
+     */
+    public void setIsGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+    }
+    /**
+     * Fluent getter for publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @return publicName
+     */
+    public String publicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Fluent setter for publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @param publicName publicName
+     * @return this
+     */
+    public Author publicName(String publicName) {
+        this.publicName = publicName;
+        return this;
+    }
+
+    /**
+     * Gets the value of publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @return publicName
+     */
+    @JsonProperty("publicName")
+    public String getPublicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Sets the value of publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @param publicName publicName
+     */
+    public void setPublicName(String publicName) {
+        this.publicName = publicName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author that = (Author) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.displayName, that.displayName) &&
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.username, that.username) &&
+            Objects.equals(this.userKey, that.userKey) &&
+            Objects.equals(this.accountId, that.accountId) &&
+            Objects.equals(this.accountType, that.accountType) &&
+            Objects.equals(this.externalCollaborator, that.externalCollaborator) &&
+            Objects.equals(this.isExternalCollaborator, that.isExternalCollaborator) &&
+            Objects.equals(this.isGuest, that.isGuest) &&
+            Objects.equals(this.publicName, that.publicName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.displayName, 
+            this.operations, 
+            this.username, 
+            this.userKey, 
+            this.accountId, 
+            this.accountType, 
+            this.externalCollaborator, 
+            this.isExternalCollaborator, 
+            this.isGuest, 
+            this.publicName
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+            "type=" + type + ", " + 
+            "displayName=" + displayName + ", " + 
+            "operations=" + operations + ", " + 
+            "username=" + username + ", " + 
+            "userKey=" + userKey + ", " + 
+            "accountId=" + accountId + ", " + 
+            "accountType=" + accountType + ", " + 
+            "externalCollaborator=" + externalCollaborator + ", " + 
+            "isExternalCollaborator=" + isExternalCollaborator + ", " + 
+            "isGuest=" + isGuest + ", " + 
+            "publicName=" + publicName +
+            "}";
     }
 }

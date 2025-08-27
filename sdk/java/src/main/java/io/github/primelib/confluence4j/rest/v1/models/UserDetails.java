@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * UserDetails
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UserDetails")
 @JsonPropertyOrder({
     "business",
@@ -51,6 +39,13 @@ public class UserDetails {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UserDetails() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UserDetails}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UserDetails(Consumer)} instead.
@@ -61,5 +56,109 @@ public class UserDetails {
     public UserDetails(Business business, Personal personal) {
         this.business = business;
         this.personal = personal;
+    }
+
+
+    /**
+     * Fluent getter for business.
+     *
+     * @return business
+     */
+    public Business business() {
+        return this.business;
+    }
+
+    /**
+     * Fluent setter for business.
+     *
+     * @param business business
+     * @return this
+     */
+    public UserDetails business(Business business) {
+        this.business = business;
+        return this;
+    }
+
+    /**
+     * Gets the value of business.
+     *
+     * @return business
+     */
+    @JsonProperty("business")
+    public Business getBusiness() {
+        return this.business;
+    }
+
+    /**
+     * Sets the value of business.
+     *
+     * @param business business
+     */
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
+    /**
+     * Fluent getter for personal.
+     *
+     * @return personal
+     */
+    public Personal personal() {
+        return this.personal;
+    }
+
+    /**
+     * Fluent setter for personal.
+     *
+     * @param personal personal
+     * @return this
+     */
+    public UserDetails personal(Personal personal) {
+        this.personal = personal;
+        return this;
+    }
+
+    /**
+     * Gets the value of personal.
+     *
+     * @return personal
+     */
+    @JsonProperty("personal")
+    public Personal getPersonal() {
+        return this.personal;
+    }
+
+    /**
+     * Sets the value of personal.
+     *
+     * @param personal personal
+     */
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDetails that = (UserDetails) o;
+        return
+            Objects.equals(this.business, that.business) &&
+            Objects.equals(this.personal, that.personal);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.business, 
+            this.personal
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UserDetails{" +
+            "business=" + business + ", " + 
+            "personal=" + personal +
+            "}";
     }
 }

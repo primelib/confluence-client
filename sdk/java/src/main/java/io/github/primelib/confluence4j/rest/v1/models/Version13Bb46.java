@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Version13Bb46
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Version13Bb46")
 @JsonPropertyOrder({
     "when",
@@ -67,6 +55,13 @@ public class Version13Bb46 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Version13Bb46() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Version13Bb46}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Version13Bb46(Consumer)} instead.
@@ -83,5 +78,240 @@ public class Version13Bb46 {
         this.number = number;
         this.minorEdit = minorEdit;
         this.contentTypeModified = contentTypeModified;
+    }
+
+
+    /**
+     * Fluent getter for when.
+     *
+     * @return when
+     */
+    public Instant when() {
+        return this.when;
+    }
+
+    /**
+     * Fluent setter for when.
+     *
+     * @param when when
+     * @return this
+     */
+    public Version13Bb46 when(Instant when) {
+        this.when = when;
+        return this;
+    }
+
+    /**
+     * Gets the value of when.
+     *
+     * @return when
+     */
+    @JsonProperty("when")
+    public Instant getWhen() {
+        return this.when;
+    }
+
+    /**
+     * Sets the value of when.
+     *
+     * @param when when
+     */
+    public void setWhen(Instant when) {
+        this.when = when;
+    }
+    /**
+     * Fluent getter for message.
+     *
+     * @return message
+     */
+    public String message() {
+        return this.message;
+    }
+
+    /**
+     * Fluent setter for message.
+     *
+     * @param message message
+     * @return this
+     */
+    public Version13Bb46 message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Gets the value of message.
+     *
+     * @return message
+     */
+    @JsonProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    /**
+     * Sets the value of message.
+     *
+     * @param message message
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    /**
+     * Fluent getter for number.
+     *
+     * @return number
+     */
+    public Integer number() {
+        return this.number;
+    }
+
+    /**
+     * Fluent setter for number.
+     *
+     * @param number number
+     * @return this
+     */
+    public Version13Bb46 number(Integer number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * Gets the value of number.
+     *
+     * @return number
+     */
+    @JsonProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Sets the value of number.
+     *
+     * @param number number
+     */
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+    /**
+     * Fluent getter for minorEdit.
+     *
+     * @return minorEdit
+     */
+    public Boolean minorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Fluent setter for minorEdit.
+     *
+     * @param minorEdit minorEdit
+     * @return this
+     */
+    public Version13Bb46 minorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+        return this;
+    }
+
+    /**
+     * Gets the value of minorEdit.
+     *
+     * @return minorEdit
+     */
+    @JsonProperty("minorEdit")
+    public Boolean getMinorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Sets the value of minorEdit.
+     *
+     * @param minorEdit minorEdit
+     */
+    public void setMinorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+    }
+    /**
+     * Fluent getter for contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @return contentTypeModified
+     */
+    public Boolean contentTypeModified() {
+        return this.contentTypeModified;
+    }
+
+    /**
+     * Fluent setter for contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @param contentTypeModified contentTypeModified
+     * @return this
+     */
+    public Version13Bb46 contentTypeModified(Boolean contentTypeModified) {
+        this.contentTypeModified = contentTypeModified;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @return contentTypeModified
+     */
+    @JsonProperty("contentTypeModified")
+    public Boolean getContentTypeModified() {
+        return this.contentTypeModified;
+    }
+
+    /**
+     * Sets the value of contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @param contentTypeModified contentTypeModified
+     */
+    public void setContentTypeModified(Boolean contentTypeModified) {
+        this.contentTypeModified = contentTypeModified;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Version13Bb46 that = (Version13Bb46) o;
+        return
+            Objects.equals(this.when, that.when) &&
+            Objects.equals(this.message, that.message) &&
+            Objects.equals(this.number, that.number) &&
+            Objects.equals(this.minorEdit, that.minorEdit) &&
+            Objects.equals(this.contentTypeModified, that.contentTypeModified);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.when, 
+            this.message, 
+            this.number, 
+            this.minorEdit, 
+            this.contentTypeModified
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Version13Bb46{" +
+            "when=" + when + ", " + 
+            "message=" + message + ", " + 
+            "number=" + number + ", " + 
+            "minorEdit=" + minorEdit + ", " + 
+            "contentTypeModified=" + contentTypeModified +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LabelCreate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LabelCreate")
 @JsonPropertyOrder({
     "prefix",
@@ -57,6 +45,13 @@ public class LabelCreate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LabelCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LabelCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LabelCreate(Consumer)} instead.
@@ -67,5 +62,125 @@ public class LabelCreate {
     public LabelCreate(String prefix, String name) {
         this.prefix = prefix;
         this.name = name;
+    }
+
+
+    /**
+     * Fluent getter for prefix.
+     * <p>
+     * The prefix for the label. `global`, `my` `team`, etc.
+     *
+     * @return prefix
+     */
+    public String prefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Fluent setter for prefix.
+     * <p>
+     * The prefix for the label. `global`, `my` `team`, etc.
+     *
+     * @param prefix prefix
+     * @return this
+     */
+    public LabelCreate prefix(String prefix) {
+        this.prefix = prefix;
+        return this;
+    }
+
+    /**
+     * Gets the value of prefix.
+     * <p>
+     * The prefix for the label. `global`, `my` `team`, etc.
+     *
+     * @return prefix
+     */
+    @JsonProperty("prefix")
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Sets the value of prefix.
+     * <p>
+     * The prefix for the label. `global`, `my` `team`, etc.
+     *
+     * @param prefix prefix
+     */
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+    /**
+     * Fluent getter for name.
+     * <p>
+     * The name of the label, which will be shown in the UI.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * The name of the label, which will be shown in the UI.
+     *
+     * @param name name
+     * @return this
+     */
+    public LabelCreate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * The name of the label, which will be shown in the UI.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * The name of the label, which will be shown in the UI.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LabelCreate that = (LabelCreate) o;
+        return
+            Objects.equals(this.prefix, that.prefix) &&
+            Objects.equals(this.name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.prefix, 
+            this.name
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LabelCreate{" +
+            "prefix=" + prefix + ", " + 
+            "name=" + name +
+            "}";
     }
 }

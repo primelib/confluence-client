@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -28,12 +22,6 @@ import org.jetbrains.annotations.ApiStatus;
  * user is included.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentTemplateBody")
 @JsonPropertyOrder({
     "view",
@@ -87,6 +75,13 @@ public class ContentTemplateBody {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentTemplateBody() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentTemplateBody}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentTemplateBody(Consumer)} instead.
@@ -111,5 +106,396 @@ public class ContentTemplateBody {
         this.wiki = wiki;
         this.atlasDocFormat = atlasDocFormat;
         this.anonymousExportView = anonymousExportView;
+    }
+
+
+    /**
+     * Fluent getter for view.
+     *
+     * @return view
+     */
+    public ContentBody view() {
+        return this.view;
+    }
+
+    /**
+     * Fluent setter for view.
+     *
+     * @param view view
+     * @return this
+     */
+    public ContentTemplateBody view(ContentBody view) {
+        this.view = view;
+        return this;
+    }
+
+    /**
+     * Gets the value of view.
+     *
+     * @return view
+     */
+    @JsonProperty("view")
+    public ContentBody getView() {
+        return this.view;
+    }
+
+    /**
+     * Sets the value of view.
+     *
+     * @param view view
+     */
+    public void setView(ContentBody view) {
+        this.view = view;
+    }
+    /**
+     * Fluent getter for exportView.
+     *
+     * @return exportView
+     */
+    public ContentBody exportView() {
+        return this.exportView;
+    }
+
+    /**
+     * Fluent setter for exportView.
+     *
+     * @param exportView exportView
+     * @return this
+     */
+    public ContentTemplateBody exportView(ContentBody exportView) {
+        this.exportView = exportView;
+        return this;
+    }
+
+    /**
+     * Gets the value of exportView.
+     *
+     * @return exportView
+     */
+    @JsonProperty("export_view")
+    public ContentBody getExportView() {
+        return this.exportView;
+    }
+
+    /**
+     * Sets the value of exportView.
+     *
+     * @param exportView exportView
+     */
+    public void setExportView(ContentBody exportView) {
+        this.exportView = exportView;
+    }
+    /**
+     * Fluent getter for styledView.
+     *
+     * @return styledView
+     */
+    public ContentBody styledView() {
+        return this.styledView;
+    }
+
+    /**
+     * Fluent setter for styledView.
+     *
+     * @param styledView styledView
+     * @return this
+     */
+    public ContentTemplateBody styledView(ContentBody styledView) {
+        this.styledView = styledView;
+        return this;
+    }
+
+    /**
+     * Gets the value of styledView.
+     *
+     * @return styledView
+     */
+    @JsonProperty("styled_view")
+    public ContentBody getStyledView() {
+        return this.styledView;
+    }
+
+    /**
+     * Sets the value of styledView.
+     *
+     * @param styledView styledView
+     */
+    public void setStyledView(ContentBody styledView) {
+        this.styledView = styledView;
+    }
+    /**
+     * Fluent getter for storage.
+     *
+     * @return storage
+     */
+    public ContentBody storage() {
+        return this.storage;
+    }
+
+    /**
+     * Fluent setter for storage.
+     *
+     * @param storage storage
+     * @return this
+     */
+    public ContentTemplateBody storage(ContentBody storage) {
+        this.storage = storage;
+        return this;
+    }
+
+    /**
+     * Gets the value of storage.
+     *
+     * @return storage
+     */
+    @JsonProperty("storage")
+    public ContentBody getStorage() {
+        return this.storage;
+    }
+
+    /**
+     * Sets the value of storage.
+     *
+     * @param storage storage
+     */
+    public void setStorage(ContentBody storage) {
+        this.storage = storage;
+    }
+    /**
+     * Fluent getter for editor.
+     *
+     * @return editor
+     */
+    public ContentBody editor() {
+        return this.editor;
+    }
+
+    /**
+     * Fluent setter for editor.
+     *
+     * @param editor editor
+     * @return this
+     */
+    public ContentTemplateBody editor(ContentBody editor) {
+        this.editor = editor;
+        return this;
+    }
+
+    /**
+     * Gets the value of editor.
+     *
+     * @return editor
+     */
+    @JsonProperty("editor")
+    public ContentBody getEditor() {
+        return this.editor;
+    }
+
+    /**
+     * Sets the value of editor.
+     *
+     * @param editor editor
+     */
+    public void setEditor(ContentBody editor) {
+        this.editor = editor;
+    }
+    /**
+     * Fluent getter for editor2.
+     *
+     * @return editor2
+     */
+    public ContentBody editor2() {
+        return this.editor2;
+    }
+
+    /**
+     * Fluent setter for editor2.
+     *
+     * @param editor2 editor2
+     * @return this
+     */
+    public ContentTemplateBody editor2(ContentBody editor2) {
+        this.editor2 = editor2;
+        return this;
+    }
+
+    /**
+     * Gets the value of editor2.
+     *
+     * @return editor2
+     */
+    @JsonProperty("editor2")
+    public ContentBody getEditor2() {
+        return this.editor2;
+    }
+
+    /**
+     * Sets the value of editor2.
+     *
+     * @param editor2 editor2
+     */
+    public void setEditor2(ContentBody editor2) {
+        this.editor2 = editor2;
+    }
+    /**
+     * Fluent getter for wiki.
+     *
+     * @return wiki
+     */
+    public ContentBody wiki() {
+        return this.wiki;
+    }
+
+    /**
+     * Fluent setter for wiki.
+     *
+     * @param wiki wiki
+     * @return this
+     */
+    public ContentTemplateBody wiki(ContentBody wiki) {
+        this.wiki = wiki;
+        return this;
+    }
+
+    /**
+     * Gets the value of wiki.
+     *
+     * @return wiki
+     */
+    @JsonProperty("wiki")
+    public ContentBody getWiki() {
+        return this.wiki;
+    }
+
+    /**
+     * Sets the value of wiki.
+     *
+     * @param wiki wiki
+     */
+    public void setWiki(ContentBody wiki) {
+        this.wiki = wiki;
+    }
+    /**
+     * Fluent getter for atlasDocFormat.
+     *
+     * @return atlasDocFormat
+     */
+    public ContentBody atlasDocFormat() {
+        return this.atlasDocFormat;
+    }
+
+    /**
+     * Fluent setter for atlasDocFormat.
+     *
+     * @param atlasDocFormat atlasDocFormat
+     * @return this
+     */
+    public ContentTemplateBody atlasDocFormat(ContentBody atlasDocFormat) {
+        this.atlasDocFormat = atlasDocFormat;
+        return this;
+    }
+
+    /**
+     * Gets the value of atlasDocFormat.
+     *
+     * @return atlasDocFormat
+     */
+    @JsonProperty("atlas_doc_format")
+    public ContentBody getAtlasDocFormat() {
+        return this.atlasDocFormat;
+    }
+
+    /**
+     * Sets the value of atlasDocFormat.
+     *
+     * @param atlasDocFormat atlasDocFormat
+     */
+    public void setAtlasDocFormat(ContentBody atlasDocFormat) {
+        this.atlasDocFormat = atlasDocFormat;
+    }
+    /**
+     * Fluent getter for anonymousExportView.
+     *
+     * @return anonymousExportView
+     */
+    public ContentBody anonymousExportView() {
+        return this.anonymousExportView;
+    }
+
+    /**
+     * Fluent setter for anonymousExportView.
+     *
+     * @param anonymousExportView anonymousExportView
+     * @return this
+     */
+    public ContentTemplateBody anonymousExportView(ContentBody anonymousExportView) {
+        this.anonymousExportView = anonymousExportView;
+        return this;
+    }
+
+    /**
+     * Gets the value of anonymousExportView.
+     *
+     * @return anonymousExportView
+     */
+    @JsonProperty("anonymous_export_view")
+    public ContentBody getAnonymousExportView() {
+        return this.anonymousExportView;
+    }
+
+    /**
+     * Sets the value of anonymousExportView.
+     *
+     * @param anonymousExportView anonymousExportView
+     */
+    public void setAnonymousExportView(ContentBody anonymousExportView) {
+        this.anonymousExportView = anonymousExportView;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentTemplateBody that = (ContentTemplateBody) o;
+        return
+            Objects.equals(this.view, that.view) &&
+            Objects.equals(this.exportView, that.exportView) &&
+            Objects.equals(this.styledView, that.styledView) &&
+            Objects.equals(this.storage, that.storage) &&
+            Objects.equals(this.editor, that.editor) &&
+            Objects.equals(this.editor2, that.editor2) &&
+            Objects.equals(this.wiki, that.wiki) &&
+            Objects.equals(this.atlasDocFormat, that.atlasDocFormat) &&
+            Objects.equals(this.anonymousExportView, that.anonymousExportView);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.view, 
+            this.exportView, 
+            this.styledView, 
+            this.storage, 
+            this.editor, 
+            this.editor2, 
+            this.wiki, 
+            this.atlasDocFormat, 
+            this.anonymousExportView
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentTemplateBody{" +
+            "view=" + view + ", " + 
+            "exportView=" + exportView + ", " + 
+            "styledView=" + styledView + ", " + 
+            "storage=" + storage + ", " + 
+            "editor=" + editor + ", " + 
+            "editor2=" + editor2 + ", " + 
+            "wiki=" + wiki + ", " + 
+            "atlasDocFormat=" + atlasDocFormat + ", " + 
+            "anonymousExportView=" + anonymousExportView +
+            "}";
     }
 }

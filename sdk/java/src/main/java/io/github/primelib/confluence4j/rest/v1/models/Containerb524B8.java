@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The new content to attach the attachment to.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Containerb524B8")
 @JsonPropertyOrder({
     "id",
@@ -60,6 +48,13 @@ of type: `page`, `blogpost`.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Containerb524B8() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Containerb524B8}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Containerb524B8(Consumer)} instead.
@@ -71,5 +66,129 @@ of type: `page`, `blogpost`.
     public Containerb524B8(String id, String type) {
         this.id = id;
         this.type = type;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @param id id
+     * @return this
+     */
+    public Containerb524B8 id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * The content type. You can only attach attachments to content
+     * of type: `page`, `blogpost`.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * The content type. You can only attach attachments to content
+     * of type: `page`, `blogpost`.
+     *
+     * @param type type
+     * @return this
+     */
+    public Containerb524B8 type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * The content type. You can only attach attachments to content
+     * of type: `page`, `blogpost`.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * The content type. You can only attach attachments to content
+     * of type: `page`, `blogpost`.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Containerb524B8 that = (Containerb524B8) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.type
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Containerb524B8{" +
+            "id=" + id + ", " + 
+            "type=" + type +
+            "}";
     }
 }

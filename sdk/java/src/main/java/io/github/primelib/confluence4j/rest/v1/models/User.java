@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * User
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("User")
 @JsonPropertyOrder({
     "type",
@@ -46,8 +34,8 @@ import org.jetbrains.annotations.ApiStatus;
     "operations",
     "details",
     "personalSpace",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class User {
@@ -142,10 +130,10 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     protected Space personalSpace;
 
     @JsonProperty("_expandable")
-    protected Expandable5C5D70 Expandable;
+    protected Expandable5C5D70 additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link User}.
@@ -155,6 +143,13 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     public User(Consumer<User> spec) {
         super();
         spec.accept(this);
+    }
+
+    /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected User() {
     }
 
     /**
@@ -182,11 +177,11 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
      * @param operations operations
      * @param details details
      * @param personalSpace personalSpace
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public User(String type, String username, String userKey, String accountId, String accountType, String email, String publicName, Icon profilePicture, String displayName, String timeZone, Boolean externalCollaborator, Boolean isExternalCollaborator, Boolean isGuest, List<OperationCheckResult> operations, UserDetails details, Space personalSpace, Expandable5C5D70 Expandable, Map<String, Object> Links) {
+    public User(String type, String username, String userKey, String accountId, String accountType, String email, String publicName, Icon profilePicture, String displayName, String timeZone, Boolean externalCollaborator, Boolean isExternalCollaborator, Boolean isGuest, List<OperationCheckResult> operations, UserDetails details, Space personalSpace, Expandable5C5D70 additionalExpandable, Map<String, Object> additionalLinks) {
         this.type = type;
         this.username = username;
         this.userKey = userKey;
@@ -203,7 +198,883 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
         this.operations = operations;
         this.details = details;
         this.personalSpace = personalSpace;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public User type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    public String username() {
+        return this.username;
+    }
+
+    /**
+     * Fluent setter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     * @return this
+     */
+    public User username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Gets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    @JsonProperty("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Sets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    /**
+     * Fluent getter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    public String userKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Fluent setter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     * @return this
+     */
+    public User userKey(String userKey) {
+        this.userKey = userKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    @JsonProperty("userKey")
+    public String getUserKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Sets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     */
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+    /**
+     * Fluent getter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Fluent setter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     * @return this
+     */
+    public User accountId(String accountId) {
+        this.accountId = accountId;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    @JsonProperty("accountId")
+    public String getAccountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Sets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+    /**
+     * Fluent getter for accountType.
+     * <p>
+     * The account type of the user, may return empty string if unavailable. App is if the user is a bot user created on behalf of an Atlassian app.
+     *
+     * @return accountType
+     */
+    public String accountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Fluent setter for accountType.
+     * <p>
+     * The account type of the user, may return empty string if unavailable. App is if the user is a bot user created on behalf of an Atlassian app.
+     *
+     * @param accountType accountType
+     * @return this
+     */
+    public User accountType(String accountType) {
+        this.accountType = accountType;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountType.
+     * <p>
+     * The account type of the user, may return empty string if unavailable. App is if the user is a bot user created on behalf of an Atlassian app.
+     *
+     * @return accountType
+     */
+    @JsonProperty("accountType")
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Sets the value of accountType.
+     * <p>
+     * The account type of the user, may return empty string if unavailable. App is if the user is a bot user created on behalf of an Atlassian app.
+     *
+     * @param accountType accountType
+     */
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+    /**
+     * Fluent getter for email.
+     * <p>
+     * The email address of the user. Depending on the user's privacy setting, this may return an empty string.
+     *
+     * @return email
+     */
+    public String email() {
+        return this.email;
+    }
+
+    /**
+     * Fluent setter for email.
+     * <p>
+     * The email address of the user. Depending on the user's privacy setting, this may return an empty string.
+     *
+     * @param email email
+     * @return this
+     */
+    public User email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * Gets the value of email.
+     * <p>
+     * The email address of the user. Depending on the user's privacy setting, this may return an empty string.
+     *
+     * @return email
+     */
+    @JsonProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
+     * Sets the value of email.
+     * <p>
+     * The email address of the user. Depending on the user's privacy setting, this may return an empty string.
+     *
+     * @param email email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    /**
+     * Fluent getter for publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @return publicName
+     */
+    public String publicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Fluent setter for publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @param publicName publicName
+     * @return this
+     */
+    public User publicName(String publicName) {
+        this.publicName = publicName;
+        return this;
+    }
+
+    /**
+     * Gets the value of publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @return publicName
+     */
+    @JsonProperty("publicName")
+    public String getPublicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Sets the value of publicName.
+     * <p>
+     * The public name or nickname of the user. Will always contain a value.
+     *
+     * @param publicName publicName
+     */
+    public void setPublicName(String publicName) {
+        this.publicName = publicName;
+    }
+    /**
+     * Fluent getter for profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return profilePicture
+     */
+    public Icon profilePicture() {
+        return this.profilePicture;
+    }
+
+    /**
+     * Fluent setter for profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param profilePicture profilePicture
+     * @return this
+     */
+    public User profilePicture(Icon profilePicture) {
+        this.profilePicture = profilePicture;
+        return this;
+    }
+
+    /**
+     * Gets the value of profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return profilePicture
+     */
+    @JsonProperty("profilePicture")
+    public Icon getProfilePicture() {
+        return this.profilePicture;
+    }
+
+    /**
+     * Sets the value of profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param profilePicture profilePicture
+     */
+    public void setProfilePicture(Icon profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+    /**
+     * Fluent getter for displayName.
+     * <p>
+     * The displays name of the user. Depending on the user's privacy setting, this may be the same as publicName.
+     *
+     * @return displayName
+     */
+    public String displayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Fluent setter for displayName.
+     * <p>
+     * The displays name of the user. Depending on the user's privacy setting, this may be the same as publicName.
+     *
+     * @param displayName displayName
+     * @return this
+     */
+    public User displayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Gets the value of displayName.
+     * <p>
+     * The displays name of the user. Depending on the user's privacy setting, this may be the same as publicName.
+     *
+     * @return displayName
+     */
+    @JsonProperty("displayName")
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Sets the value of displayName.
+     * <p>
+     * The displays name of the user. Depending on the user's privacy setting, this may be the same as publicName.
+     *
+     * @param displayName displayName
+     */
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+    /**
+     * Fluent getter for timeZone.
+     * <p>
+     * This displays user time zone. Depending on the user's privacy setting, this may return null.
+     *
+     * @return timeZone
+     */
+    public String timeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Fluent setter for timeZone.
+     * <p>
+     * This displays user time zone. Depending on the user's privacy setting, this may return null.
+     *
+     * @param timeZone timeZone
+     * @return this
+     */
+    public User timeZone(String timeZone) {
+        this.timeZone = timeZone;
+        return this;
+    }
+
+    /**
+     * Gets the value of timeZone.
+     * <p>
+     * This displays user time zone. Depending on the user's privacy setting, this may return null.
+     *
+     * @return timeZone
+     */
+    @JsonProperty("timeZone")
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Sets the value of timeZone.
+     * <p>
+     * This displays user time zone. Depending on the user's privacy setting, this may return null.
+     *
+     * @param timeZone timeZone
+     */
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+    /**
+     * Fluent getter for externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @return externalCollaborator
+     */
+    public Boolean externalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Fluent setter for externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @param externalCollaborator externalCollaborator
+     * @return this
+     */
+    public User externalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @return externalCollaborator
+     */
+    @JsonProperty("externalCollaborator")
+    public Boolean getExternalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Sets the value of externalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @param externalCollaborator externalCollaborator
+     */
+    public void setExternalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+    }
+    /**
+     * Fluent getter for isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @return isExternalCollaborator
+     */
+    public Boolean isExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Fluent setter for isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     * @return this
+     */
+    public User isExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @return isExternalCollaborator
+     */
+    @JsonProperty("isExternalCollaborator")
+    public Boolean getIsExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Sets the value of isExternalCollaborator.
+     * <p>
+     * This is deprecated. Use `isGuest` instead to find out whether the user is a guest user.
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     */
+    public void setIsExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+    }
+    /**
+     * Fluent getter for isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @return isGuest
+     */
+    public Boolean isGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Fluent setter for isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @param isGuest isGuest
+     * @return this
+     */
+    public User isGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+        return this;
+    }
+
+    /**
+     * Gets the value of isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @return isGuest
+     */
+    @JsonProperty("isGuest")
+    public Boolean getIsGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Sets the value of isGuest.
+     * <p>
+     * Whether the user is a guest user
+     *
+     * @param isGuest isGuest
+     */
+    public void setIsGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public List<OperationCheckResult> operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public User operations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public List<OperationCheckResult> getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for details.
+     *
+     * @return details
+     */
+    public UserDetails details() {
+        return this.details;
+    }
+
+    /**
+     * Fluent setter for details.
+     *
+     * @param details details
+     * @return this
+     */
+    public User details(UserDetails details) {
+        this.details = details;
+        return this;
+    }
+
+    /**
+     * Gets the value of details.
+     *
+     * @return details
+     */
+    @JsonProperty("details")
+    public UserDetails getDetails() {
+        return this.details;
+    }
+
+    /**
+     * Sets the value of details.
+     *
+     * @param details details
+     */
+    public void setDetails(UserDetails details) {
+        this.details = details;
+    }
+    /**
+     * Fluent getter for personalSpace.
+     *
+     * @return personalSpace
+     */
+    public Space personalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Fluent setter for personalSpace.
+     *
+     * @param personalSpace personalSpace
+     * @return this
+     */
+    public User personalSpace(Space personalSpace) {
+        this.personalSpace = personalSpace;
+        return this;
+    }
+
+    /**
+     * Gets the value of personalSpace.
+     *
+     * @return personalSpace
+     */
+    @JsonProperty("personalSpace")
+    public Space getPersonalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Sets the value of personalSpace.
+     *
+     * @param personalSpace personalSpace
+     */
+    public void setPersonalSpace(Space personalSpace) {
+        this.personalSpace = personalSpace;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable5C5D70 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public User additionalExpandable(Expandable5C5D70 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable5C5D70 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable5C5D70 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public User additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User that = (User) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.username, that.username) &&
+            Objects.equals(this.userKey, that.userKey) &&
+            Objects.equals(this.accountId, that.accountId) &&
+            Objects.equals(this.accountType, that.accountType) &&
+            Objects.equals(this.email, that.email) &&
+            Objects.equals(this.publicName, that.publicName) &&
+            Objects.equals(this.profilePicture, that.profilePicture) &&
+            Objects.equals(this.displayName, that.displayName) &&
+            Objects.equals(this.timeZone, that.timeZone) &&
+            Objects.equals(this.externalCollaborator, that.externalCollaborator) &&
+            Objects.equals(this.isExternalCollaborator, that.isExternalCollaborator) &&
+            Objects.equals(this.isGuest, that.isGuest) &&
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.details, that.details) &&
+            Objects.equals(this.personalSpace, that.personalSpace) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.username, 
+            this.userKey, 
+            this.accountId, 
+            this.accountType, 
+            this.email, 
+            this.publicName, 
+            this.profilePicture, 
+            this.displayName, 
+            this.timeZone, 
+            this.externalCollaborator, 
+            this.isExternalCollaborator, 
+            this.isGuest, 
+            this.operations, 
+            this.details, 
+            this.personalSpace, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "type=" + type + ", " + 
+            "username=" + username + ", " + 
+            "userKey=" + userKey + ", " + 
+            "accountId=" + accountId + ", " + 
+            "accountType=" + accountType + ", " + 
+            "email=" + email + ", " + 
+            "publicName=" + publicName + ", " + 
+            "profilePicture=" + profilePicture + ", " + 
+            "displayName=" + displayName + ", " + 
+            "timeZone=" + timeZone + ", " + 
+            "externalCollaborator=" + externalCollaborator + ", " + 
+            "isExternalCollaborator=" + isExternalCollaborator + ", " + 
+            "isGuest=" + isGuest + ", " + 
+            "operations=" + operations + ", " + 
+            "details=" + details + ", " + 
+            "personalSpace=" + personalSpace + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

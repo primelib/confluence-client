@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AvailableContentStates
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AvailableContentStates")
 @JsonPropertyOrder({
     "spaceContentStates",
@@ -63,6 +51,13 @@ Only the calling user has access to place these states on content, but all users
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AvailableContentStates() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AvailableContentStates}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AvailableContentStates(Consumer)} instead.
@@ -78,5 +73,145 @@ Only the calling user has access to place these states on content, but all users
     public AvailableContentStates(List<ContentState> spaceContentStates, List<ContentState> customContentStates) {
         this.spaceContentStates = spaceContentStates;
         this.customContentStates = customContentStates;
+    }
+
+
+    /**
+     * Fluent getter for spaceContentStates.
+     * <p>
+     * Space suggested content states that can be used in the space.
+     * This list can be empty if there are no space content states defined in the space or if space content states are disabled in the space.
+     * All spaces start with 4 default space content states, and this can be modified in the UI under space settings.
+     *
+     * @return spaceContentStates
+     */
+    public List<ContentState> spaceContentStates() {
+        return this.spaceContentStates;
+    }
+
+    /**
+     * Fluent setter for spaceContentStates.
+     * <p>
+     * Space suggested content states that can be used in the space.
+     * This list can be empty if there are no space content states defined in the space or if space content states are disabled in the space.
+     * All spaces start with 4 default space content states, and this can be modified in the UI under space settings.
+     *
+     * @param spaceContentStates spaceContentStates
+     * @return this
+     */
+    public AvailableContentStates spaceContentStates(List<ContentState> spaceContentStates) {
+        this.spaceContentStates = spaceContentStates;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceContentStates.
+     * <p>
+     * Space suggested content states that can be used in the space.
+     * This list can be empty if there are no space content states defined in the space or if space content states are disabled in the space.
+     * All spaces start with 4 default space content states, and this can be modified in the UI under space settings.
+     *
+     * @return spaceContentStates
+     */
+    @JsonProperty("spaceContentStates")
+    public List<ContentState> getSpaceContentStates() {
+        return this.spaceContentStates;
+    }
+
+    /**
+     * Sets the value of spaceContentStates.
+     * <p>
+     * Space suggested content states that can be used in the space.
+     * This list can be empty if there are no space content states defined in the space or if space content states are disabled in the space.
+     * All spaces start with 4 default space content states, and this can be modified in the UI under space settings.
+     *
+     * @param spaceContentStates spaceContentStates
+     */
+    public void setSpaceContentStates(List<ContentState> spaceContentStates) {
+        this.spaceContentStates = spaceContentStates;
+    }
+    /**
+     * Fluent getter for customContentStates.
+     * <p>
+     * Custom content states that can be used by the user on the content of this call.
+     * This list can be empty if there are no custom content states defined by the user or if custom content states are disabled in the space of the content.
+     * This will at most have 3 of the most recently published content states. 
+     * Only the calling user has access to place these states on content, but all users can see these states once they are placed.
+     *
+     * @return customContentStates
+     */
+    public List<ContentState> customContentStates() {
+        return this.customContentStates;
+    }
+
+    /**
+     * Fluent setter for customContentStates.
+     * <p>
+     * Custom content states that can be used by the user on the content of this call.
+     * This list can be empty if there are no custom content states defined by the user or if custom content states are disabled in the space of the content.
+     * This will at most have 3 of the most recently published content states. 
+     * Only the calling user has access to place these states on content, but all users can see these states once they are placed.
+     *
+     * @param customContentStates customContentStates
+     * @return this
+     */
+    public AvailableContentStates customContentStates(List<ContentState> customContentStates) {
+        this.customContentStates = customContentStates;
+        return this;
+    }
+
+    /**
+     * Gets the value of customContentStates.
+     * <p>
+     * Custom content states that can be used by the user on the content of this call.
+     * This list can be empty if there are no custom content states defined by the user or if custom content states are disabled in the space of the content.
+     * This will at most have 3 of the most recently published content states. 
+     * Only the calling user has access to place these states on content, but all users can see these states once they are placed.
+     *
+     * @return customContentStates
+     */
+    @JsonProperty("customContentStates")
+    public List<ContentState> getCustomContentStates() {
+        return this.customContentStates;
+    }
+
+    /**
+     * Sets the value of customContentStates.
+     * <p>
+     * Custom content states that can be used by the user on the content of this call.
+     * This list can be empty if there are no custom content states defined by the user or if custom content states are disabled in the space of the content.
+     * This will at most have 3 of the most recently published content states. 
+     * Only the calling user has access to place these states on content, but all users can see these states once they are placed.
+     *
+     * @param customContentStates customContentStates
+     */
+    public void setCustomContentStates(List<ContentState> customContentStates) {
+        this.customContentStates = customContentStates;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AvailableContentStates that = (AvailableContentStates) o;
+        return
+            Objects.equals(this.spaceContentStates, that.spaceContentStates) &&
+            Objects.equals(this.customContentStates, that.customContentStates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.spaceContentStates, 
+            this.customContentStates
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AvailableContentStates{" +
+            "spaceContentStates=" + spaceContentStates + ", " + 
+            "customContentStates=" + customContentStates +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentStateResponse
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentStateResponse")
 @JsonPropertyOrder({
     "contentState",
@@ -54,6 +42,13 @@ public class ContentStateResponse {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentStateResponse() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentStateResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentStateResponse(Consumer)} instead.
@@ -64,5 +59,117 @@ public class ContentStateResponse {
     public ContentStateResponse(ContentState contentState, String lastUpdated) {
         this.contentState = contentState;
         this.lastUpdated = lastUpdated;
+    }
+
+
+    /**
+     * Fluent getter for contentState.
+     *
+     * @return contentState
+     */
+    public ContentState contentState() {
+        return this.contentState;
+    }
+
+    /**
+     * Fluent setter for contentState.
+     *
+     * @param contentState contentState
+     * @return this
+     */
+    public ContentStateResponse contentState(ContentState contentState) {
+        this.contentState = contentState;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentState.
+     *
+     * @return contentState
+     */
+    @JsonProperty("contentState")
+    public ContentState getContentState() {
+        return this.contentState;
+    }
+
+    /**
+     * Sets the value of contentState.
+     *
+     * @param contentState contentState
+     */
+    public void setContentState(ContentState contentState) {
+        this.contentState = contentState;
+    }
+    /**
+     * Fluent getter for lastUpdated.
+     * <p>
+     * Timestamp of last publish event where content state changed
+     *
+     * @return lastUpdated
+     */
+    public String lastUpdated() {
+        return this.lastUpdated;
+    }
+
+    /**
+     * Fluent setter for lastUpdated.
+     * <p>
+     * Timestamp of last publish event where content state changed
+     *
+     * @param lastUpdated lastUpdated
+     * @return this
+     */
+    public ContentStateResponse lastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastUpdated.
+     * <p>
+     * Timestamp of last publish event where content state changed
+     *
+     * @return lastUpdated
+     */
+    @JsonProperty("lastUpdated")
+    public String getLastUpdated() {
+        return this.lastUpdated;
+    }
+
+    /**
+     * Sets the value of lastUpdated.
+     * <p>
+     * Timestamp of last publish event where content state changed
+     *
+     * @param lastUpdated lastUpdated
+     */
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentStateResponse that = (ContentStateResponse) o;
+        return
+            Objects.equals(this.contentState, that.contentState) &&
+            Objects.equals(this.lastUpdated, that.lastUpdated);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.contentState, 
+            this.lastUpdated
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentStateResponse{" +
+            "contentState=" + contentState + ", " + 
+            "lastUpdated=" + lastUpdated +
+            "}";
     }
 }

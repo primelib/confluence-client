@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SpacePropertyCreateNoKey
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePropertyCreateNoKey")
 @JsonPropertyOrder({
     "value"
@@ -59,6 +47,13 @@ For example,
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePropertyCreateNoKey() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePropertyCreateNoKey}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePropertyCreateNoKey(Consumer)} instead.
@@ -76,5 +71,112 @@ For example,
     @ApiStatus.Internal
     public SpacePropertyCreateNoKey(Object value) {
         this.value = value;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The value of the property. This can be empty or a complex object. 64KB Size Limit
+     * For example,
+     * ```
+     * "value": {
+     *   "example1": "value",
+     *   "example2": true,
+     *   "example3": 123,
+     *   "example4": ["value1", "value2"],
+     * }
+     * ```
+     *
+     * @return value
+     */
+    public Object value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The value of the property. This can be empty or a complex object. 64KB Size Limit
+     * For example,
+     * ```
+     * "value": {
+     *   "example1": "value",
+     *   "example2": true,
+     *   "example3": 123,
+     *   "example4": ["value1", "value2"],
+     * }
+     * ```
+     *
+     * @param value value
+     * @return this
+     */
+    public SpacePropertyCreateNoKey value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The value of the property. This can be empty or a complex object. 64KB Size Limit
+     * For example,
+     * ```
+     * "value": {
+     *   "example1": "value",
+     *   "example2": true,
+     *   "example3": 123,
+     *   "example4": ["value1", "value2"],
+     * }
+     * ```
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The value of the property. This can be empty or a complex object. 64KB Size Limit
+     * For example,
+     * ```
+     * "value": {
+     *   "example1": "value",
+     *   "example2": true,
+     *   "example3": 123,
+     *   "example4": ["value1", "value2"],
+     * }
+     * ```
+     *
+     * @param value value
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePropertyCreateNoKey that = (SpacePropertyCreateNoKey) o;
+        return
+            Objects.equals(this.value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePropertyCreateNoKey{" +
+            "value=" + value +
+            "}";
     }
 }

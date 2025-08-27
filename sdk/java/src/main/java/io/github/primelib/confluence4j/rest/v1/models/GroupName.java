@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * GroupName
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("GroupName")
 @JsonPropertyOrder({
     "name"
@@ -47,6 +35,13 @@ public class GroupName {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected GroupName() {
+    }
+
+    /**
      * Constructs a validated instance of {@link GroupName}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GroupName(Consumer)} instead.
@@ -55,5 +50,68 @@ public class GroupName {
     @ApiStatus.Internal
     public GroupName(String name) {
         this.name = name;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public GroupName name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroupName that = (GroupName) o;
+        return
+            Objects.equals(this.name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "GroupName{" +
+            "name=" + name +
+            "}";
     }
 }

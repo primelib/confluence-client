@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * OperationsItem
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("OperationsItem")
 @JsonPropertyOrder({
     "key",
@@ -64,6 +52,13 @@ public class OperationsItem {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected OperationsItem() {
+    }
+
+    /**
      * Constructs a validated instance of {@link OperationsItem}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OperationsItem(Consumer)} instead.
@@ -76,5 +71,174 @@ public class OperationsItem {
         this.key = key;
         this.target = target;
         this.access = access;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     * <p>
+     * The operation type
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     * <p>
+     * The operation type
+     *
+     * @param key key
+     * @return this
+     */
+    public OperationsItem key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     * <p>
+     * The operation type
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     * <p>
+     * The operation type
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for target.
+     * <p>
+     * The custom content type
+     *
+     * @return target
+     */
+    public String target() {
+        return this.target;
+    }
+
+    /**
+     * Fluent setter for target.
+     * <p>
+     * The custom content type
+     *
+     * @param target target
+     * @return this
+     */
+    public OperationsItem target(String target) {
+        this.target = target;
+        return this;
+    }
+
+    /**
+     * Gets the value of target.
+     * <p>
+     * The custom content type
+     *
+     * @return target
+     */
+    @JsonProperty("target")
+    public String getTarget() {
+        return this.target;
+    }
+
+    /**
+     * Sets the value of target.
+     * <p>
+     * The custom content type
+     *
+     * @param target target
+     */
+    public void setTarget(String target) {
+        this.target = target;
+    }
+    /**
+     * Fluent getter for access.
+     * <p>
+     * Grant or restrict access
+     *
+     * @return access
+     */
+    public Boolean access() {
+        return this.access;
+    }
+
+    /**
+     * Fluent setter for access.
+     * <p>
+     * Grant or restrict access
+     *
+     * @param access access
+     * @return this
+     */
+    public OperationsItem access(Boolean access) {
+        this.access = access;
+        return this;
+    }
+
+    /**
+     * Gets the value of access.
+     * <p>
+     * Grant or restrict access
+     *
+     * @return access
+     */
+    @JsonProperty("access")
+    public Boolean getAccess() {
+        return this.access;
+    }
+
+    /**
+     * Sets the value of access.
+     * <p>
+     * Grant or restrict access
+     *
+     * @param access access
+     */
+    public void setAccess(Boolean access) {
+        this.access = access;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OperationsItem that = (OperationsItem) o;
+        return
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.target, that.target) &&
+            Objects.equals(this.access, that.access);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key, 
+            this.target, 
+            this.access
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "OperationsItem{" +
+            "key=" + key + ", " + 
+            "target=" + target + ", " + 
+            "access=" + access +
+            "}";
     }
 }

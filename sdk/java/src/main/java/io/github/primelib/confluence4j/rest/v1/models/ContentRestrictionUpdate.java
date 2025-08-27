@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentRestrictionUpdate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentRestrictionUpdate")
 @JsonPropertyOrder({
     "operation",
@@ -66,6 +54,13 @@ Representation of a blogpost (content)
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentRestrictionUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentRestrictionUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentRestrictionUpdate(Consumer)} instead.
@@ -80,5 +75,182 @@ Representation of a blogpost (content)
         this.operation = operation;
         this.restrictions = restrictions;
         this.content = content;
+    }
+
+
+    /**
+     * Fluent getter for operation.
+     * <p>
+     * The restriction operation applied to content.
+     *
+     * @return operation
+     */
+    public String operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     * <p>
+     * The restriction operation applied to content.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public ContentRestrictionUpdate operation(String operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     * <p>
+     * The restriction operation applied to content.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public String getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     * <p>
+     * The restriction operation applied to content.
+     *
+     * @param operation operation
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+    /**
+     * Fluent getter for restrictions.
+     * <p>
+     * The users/groups that the restrictions will be applied to. At least one of
+     * `user` or `group` must be specified for this object.
+     *
+     * @return restrictions
+     */
+    public Restrictionsf477D3 restrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Fluent setter for restrictions.
+     * <p>
+     * The users/groups that the restrictions will be applied to. At least one of
+     * `user` or `group` must be specified for this object.
+     *
+     * @param restrictions restrictions
+     * @return this
+     */
+    public ContentRestrictionUpdate restrictions(Restrictionsf477D3 restrictions) {
+        this.restrictions = restrictions;
+        return this;
+    }
+
+    /**
+     * Gets the value of restrictions.
+     * <p>
+     * The users/groups that the restrictions will be applied to. At least one of
+     * `user` or `group` must be specified for this object.
+     *
+     * @return restrictions
+     */
+    @JsonProperty("restrictions")
+    public Restrictionsf477D3 getRestrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Sets the value of restrictions.
+     * <p>
+     * The users/groups that the restrictions will be applied to. At least one of
+     * `user` or `group` must be specified for this object.
+     *
+     * @param restrictions restrictions
+     */
+    public void setRestrictions(Restrictionsf477D3 restrictions) {
+        this.restrictions = restrictions;
+    }
+    /**
+     * Fluent getter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    public Content content() {
+        return this.content;
+    }
+
+    /**
+     * Fluent setter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     * @return this
+     */
+    public ContentRestrictionUpdate content(Content content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    @JsonProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    /**
+     * Sets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     */
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentRestrictionUpdate that = (ContentRestrictionUpdate) o;
+        return
+            Objects.equals(this.operation, that.operation) &&
+            Objects.equals(this.restrictions, that.restrictions) &&
+            Objects.equals(this.content, that.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operation, 
+            this.restrictions, 
+            this.content
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentRestrictionUpdate{" +
+            "operation=" + operation + ", " + 
+            "restrictions=" + restrictions + ", " + 
+            "content=" + content +
+            "}";
     }
 }

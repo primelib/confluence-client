@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The users and/or groups that the permission applies to.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Subjects96Eb79")
 @JsonPropertyOrder({
     "user",
@@ -53,6 +41,13 @@ public class Subjects96Eb79 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Subjects96Eb79() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Subjects96Eb79}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Subjects96Eb79(Consumer)} instead.
@@ -63,5 +58,109 @@ public class Subjects96Eb79 {
     public Subjects96Eb79(User19953C user, Groupcf0E10 group) {
         this.user = user;
         this.group = group;
+    }
+
+
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public User19953C user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public Subjects96Eb79 user(User19953C user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public User19953C getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(User19953C user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for group.
+     *
+     * @return group
+     */
+    public Groupcf0E10 group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     *
+     * @param group group
+     * @return this
+     */
+    public Subjects96Eb79 group(Groupcf0E10 group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public Groupcf0E10 getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     *
+     * @param group group
+     */
+    public void setGroup(Groupcf0E10 group) {
+        this.group = group;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subjects96Eb79 that = (Subjects96Eb79) o;
+        return
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.group, that.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.user, 
+            this.group
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Subjects96Eb79{" +
+            "user=" + user + ", " + 
+            "group=" + group +
+            "}";
     }
 }

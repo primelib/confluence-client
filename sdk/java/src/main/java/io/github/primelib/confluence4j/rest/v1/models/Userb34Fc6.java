@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Userb34Fc6
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Userb34Fc6")
 @JsonPropertyOrder({
     "results",
@@ -61,6 +49,13 @@ public class Userb34Fc6 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Userb34Fc6() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Userb34Fc6}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Userb34Fc6(Consumer)} instead.
@@ -75,5 +70,191 @@ public class Userb34Fc6 {
         this.size = size;
         this.start = start;
         this.limit = limit;
+    }
+
+
+    /**
+     * Fluent getter for results.
+     *
+     * @return results
+     */
+    public List<Map<String, Object>> results() {
+        return this.results;
+    }
+
+    /**
+     * Fluent setter for results.
+     *
+     * @param results results
+     * @return this
+     */
+    public Userb34Fc6 results(List<Map<String, Object>> results) {
+        this.results = results;
+        return this;
+    }
+
+    /**
+     * Gets the value of results.
+     *
+     * @return results
+     */
+    @JsonProperty("results")
+    public List<Map<String, Object>> getResults() {
+        return this.results;
+    }
+
+    /**
+     * Sets the value of results.
+     *
+     * @param results results
+     */
+    public void setResults(List<Map<String, Object>> results) {
+        this.results = results;
+    }
+    /**
+     * Fluent getter for size.
+     *
+     * @return size
+     */
+    public Integer size() {
+        return this.size;
+    }
+
+    /**
+     * Fluent setter for size.
+     *
+     * @param size size
+     * @return this
+     */
+    public Userb34Fc6 size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Gets the value of size.
+     *
+     * @return size
+     */
+    @JsonProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    /**
+     * Sets the value of size.
+     *
+     * @param size size
+     */
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+    /**
+     * Fluent getter for start.
+     *
+     * @return start
+     */
+    public Integer start() {
+        return this.start;
+    }
+
+    /**
+     * Fluent setter for start.
+     *
+     * @param start start
+     * @return this
+     */
+    public Userb34Fc6 start(Integer start) {
+        this.start = start;
+        return this;
+    }
+
+    /**
+     * Gets the value of start.
+     *
+     * @return start
+     */
+    @JsonProperty("start")
+    public Integer getStart() {
+        return this.start;
+    }
+
+    /**
+     * Sets the value of start.
+     *
+     * @param start start
+     */
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+    /**
+     * Fluent getter for limit.
+     *
+     * @return limit
+     */
+    public Integer limit() {
+        return this.limit;
+    }
+
+    /**
+     * Fluent setter for limit.
+     *
+     * @param limit limit
+     * @return this
+     */
+    public Userb34Fc6 limit(Integer limit) {
+        this.limit = limit;
+        return this;
+    }
+
+    /**
+     * Gets the value of limit.
+     *
+     * @return limit
+     */
+    @JsonProperty("limit")
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    /**
+     * Sets the value of limit.
+     *
+     * @param limit limit
+     */
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Userb34Fc6 that = (Userb34Fc6) o;
+        return
+            Objects.equals(this.results, that.results) &&
+            Objects.equals(this.size, that.size) &&
+            Objects.equals(this.start, that.start) &&
+            Objects.equals(this.limit, that.limit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.results, 
+            this.size, 
+            this.start, 
+            this.limit
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Userb34Fc6{" +
+            "results=" + results + ", " + 
+            "size=" + size + ", " + 
+            "start=" + start + ", " + 
+            "limit=" + limit +
+            "}";
     }
 }

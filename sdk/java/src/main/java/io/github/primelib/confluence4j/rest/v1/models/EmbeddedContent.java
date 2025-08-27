@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * EmbeddedContent
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("EmbeddedContent")
 @JsonPropertyOrder({
     "entityId",
@@ -56,6 +44,13 @@ public class EmbeddedContent {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected EmbeddedContent() {
+    }
+
+    /**
      * Constructs a validated instance of {@link EmbeddedContent}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EmbeddedContent(Consumer)} instead.
@@ -68,5 +63,150 @@ public class EmbeddedContent {
         this.entityId = entityId;
         this.entityType = entityType;
         this.entity = entity;
+    }
+
+
+    /**
+     * Fluent getter for entityId.
+     *
+     * @return entityId
+     */
+    public Long entityId() {
+        return this.entityId;
+    }
+
+    /**
+     * Fluent setter for entityId.
+     *
+     * @param entityId entityId
+     * @return this
+     */
+    public EmbeddedContent entityId(Long entityId) {
+        this.entityId = entityId;
+        return this;
+    }
+
+    /**
+     * Gets the value of entityId.
+     *
+     * @return entityId
+     */
+    @JsonProperty("entityId")
+    public Long getEntityId() {
+        return this.entityId;
+    }
+
+    /**
+     * Sets the value of entityId.
+     *
+     * @param entityId entityId
+     */
+    public void setEntityId(Long entityId) {
+        this.entityId = entityId;
+    }
+    /**
+     * Fluent getter for entityType.
+     *
+     * @return entityType
+     */
+    public String entityType() {
+        return this.entityType;
+    }
+
+    /**
+     * Fluent setter for entityType.
+     *
+     * @param entityType entityType
+     * @return this
+     */
+    public EmbeddedContent entityType(String entityType) {
+        this.entityType = entityType;
+        return this;
+    }
+
+    /**
+     * Gets the value of entityType.
+     *
+     * @return entityType
+     */
+    @JsonProperty("entityType")
+    public String getEntityType() {
+        return this.entityType;
+    }
+
+    /**
+     * Sets the value of entityType.
+     *
+     * @param entityType entityType
+     */
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
+    /**
+     * Fluent getter for entity.
+     *
+     * @return entity
+     */
+    public Map<String, Object> entity() {
+        return this.entity;
+    }
+
+    /**
+     * Fluent setter for entity.
+     *
+     * @param entity entity
+     * @return this
+     */
+    public EmbeddedContent entity(Map<String, Object> entity) {
+        this.entity = entity;
+        return this;
+    }
+
+    /**
+     * Gets the value of entity.
+     *
+     * @return entity
+     */
+    @JsonProperty("entity")
+    public Map<String, Object> getEntity() {
+        return this.entity;
+    }
+
+    /**
+     * Sets the value of entity.
+     *
+     * @param entity entity
+     */
+    public void setEntity(Map<String, Object> entity) {
+        this.entity = entity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmbeddedContent that = (EmbeddedContent) o;
+        return
+            Objects.equals(this.entityId, that.entityId) &&
+            Objects.equals(this.entityType, that.entityType) &&
+            Objects.equals(this.entity, that.entity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.entityId, 
+            this.entityType, 
+            this.entity
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "EmbeddedContent{" +
+            "entityId=" + entityId + ", " + 
+            "entityType=" + entityType + ", " + 
+            "entity=" + entity +
+            "}";
     }
 }

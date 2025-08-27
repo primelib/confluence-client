@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,17 +16,11 @@ import org.jetbrains.annotations.ApiStatus;
  * The users and/or groups that the permission applies to.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Subjects")
 @JsonPropertyOrder({
     "user",
     "group",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Subjects {
@@ -44,7 +32,7 @@ public class Subjects {
     protected Group3997Ca group;
 
     @JsonProperty("_expandable")
-    protected Expandableac2380 Expandable;
+    protected Expandableac2380 additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link Subjects}.
@@ -57,17 +45,169 @@ public class Subjects {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Subjects() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Subjects}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Subjects(Consumer)} instead.
      * @param user user
      * @param group group
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public Subjects(Userb34Fc6 user, Group3997Ca group, Expandableac2380 Expandable) {
+    public Subjects(Userb34Fc6 user, Group3997Ca group, Expandableac2380 additionalExpandable) {
         this.user = user;
         this.group = group;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public Userb34Fc6 user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public Subjects user(Userb34Fc6 user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public Userb34Fc6 getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(Userb34Fc6 user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for group.
+     *
+     * @return group
+     */
+    public Group3997Ca group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     *
+     * @param group group
+     * @return this
+     */
+    public Subjects group(Group3997Ca group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public Group3997Ca getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     *
+     * @param group group
+     */
+    public void setGroup(Group3997Ca group) {
+        this.group = group;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandableac2380 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Subjects additionalExpandable(Expandableac2380 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandableac2380 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandableac2380 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Subjects that = (Subjects) o;
+        return
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.group, that.group) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.user, 
+            this.group, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Subjects{" +
+            "user=" + user + ", " + 
+            "group=" + group + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

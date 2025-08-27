@@ -7,15 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -34,17 +28,11 @@ import org.jetbrains.annotations.ApiStatus;
  * - Anonymous user does not have permission to the content
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("PermissionCheckResponse")
 @JsonPropertyOrder({
     "hasPermission",
     "errors",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class PermissionCheckResponse {
@@ -56,7 +44,7 @@ public class PermissionCheckResponse {
     protected List<Map<String, Object>> errors;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link PermissionCheckResponse}.
@@ -69,17 +57,169 @@ public class PermissionCheckResponse {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected PermissionCheckResponse() {
+    }
+
+    /**
      * Constructs a validated instance of {@link PermissionCheckResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PermissionCheckResponse(Consumer)} instead.
      * @param hasPermission hasPermission
      * @param errors errors
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public PermissionCheckResponse(Boolean hasPermission, List<Map<String, Object>> errors, Map<String, Object> Links) {
+    public PermissionCheckResponse(Boolean hasPermission, List<Map<String, Object>> errors, Map<String, Object> additionalLinks) {
         this.hasPermission = hasPermission;
         this.errors = errors;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for hasPermission.
+     *
+     * @return hasPermission
+     */
+    public Boolean hasPermission() {
+        return this.hasPermission;
+    }
+
+    /**
+     * Fluent setter for hasPermission.
+     *
+     * @param hasPermission hasPermission
+     * @return this
+     */
+    public PermissionCheckResponse hasPermission(Boolean hasPermission) {
+        this.hasPermission = hasPermission;
+        return this;
+    }
+
+    /**
+     * Gets the value of hasPermission.
+     *
+     * @return hasPermission
+     */
+    @JsonProperty("hasPermission")
+    public Boolean getHasPermission() {
+        return this.hasPermission;
+    }
+
+    /**
+     * Sets the value of hasPermission.
+     *
+     * @param hasPermission hasPermission
+     */
+    public void setHasPermission(Boolean hasPermission) {
+        this.hasPermission = hasPermission;
+    }
+    /**
+     * Fluent getter for errors.
+     *
+     * @return errors
+     */
+    public List<Map<String, Object>> errors() {
+        return this.errors;
+    }
+
+    /**
+     * Fluent setter for errors.
+     *
+     * @param errors errors
+     * @return this
+     */
+    public PermissionCheckResponse errors(List<Map<String, Object>> errors) {
+        this.errors = errors;
+        return this;
+    }
+
+    /**
+     * Gets the value of errors.
+     *
+     * @return errors
+     */
+    @JsonProperty("errors")
+    public List<Map<String, Object>> getErrors() {
+        return this.errors;
+    }
+
+    /**
+     * Sets the value of errors.
+     *
+     * @param errors errors
+     */
+    public void setErrors(List<Map<String, Object>> errors) {
+        this.errors = errors;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public PermissionCheckResponse additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PermissionCheckResponse that = (PermissionCheckResponse) o;
+        return
+            Objects.equals(this.hasPermission, that.hasPermission) &&
+            Objects.equals(this.errors, that.errors) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.hasPermission, 
+            this.errors, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "PermissionCheckResponse{" +
+            "hasPermission=" + hasPermission + ", " + 
+            "errors=" + errors + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

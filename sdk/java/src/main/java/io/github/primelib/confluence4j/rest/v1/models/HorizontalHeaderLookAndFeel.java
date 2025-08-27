@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * HorizontalHeaderLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("HorizontalHeaderLookAndFeel")
 @JsonPropertyOrder({
     "backgroundColor",
@@ -63,6 +51,13 @@ public class HorizontalHeaderLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected HorizontalHeaderLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link HorizontalHeaderLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HorizontalHeaderLookAndFeel(Consumer)} instead.
@@ -79,5 +74,232 @@ public class HorizontalHeaderLookAndFeel {
         this.primaryNavigation = primaryNavigation;
         this.secondaryNavigation = secondaryNavigation;
         this.search = search;
+    }
+
+
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public HorizontalHeaderLookAndFeel backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+    /**
+     * Fluent getter for button.
+     *
+     * @return button
+     */
+    public ButtonLookAndFeel button() {
+        return this.button;
+    }
+
+    /**
+     * Fluent setter for button.
+     *
+     * @param button button
+     * @return this
+     */
+    public HorizontalHeaderLookAndFeel button(ButtonLookAndFeel button) {
+        this.button = button;
+        return this;
+    }
+
+    /**
+     * Gets the value of button.
+     *
+     * @return button
+     */
+    @JsonProperty("button")
+    public ButtonLookAndFeel getButton() {
+        return this.button;
+    }
+
+    /**
+     * Sets the value of button.
+     *
+     * @param button button
+     */
+    public void setButton(ButtonLookAndFeel button) {
+        this.button = button;
+    }
+    /**
+     * Fluent getter for primaryNavigation.
+     *
+     * @return primaryNavigation
+     */
+    public TopNavigationLookAndFeel primaryNavigation() {
+        return this.primaryNavigation;
+    }
+
+    /**
+     * Fluent setter for primaryNavigation.
+     *
+     * @param primaryNavigation primaryNavigation
+     * @return this
+     */
+    public HorizontalHeaderLookAndFeel primaryNavigation(TopNavigationLookAndFeel primaryNavigation) {
+        this.primaryNavigation = primaryNavigation;
+        return this;
+    }
+
+    /**
+     * Gets the value of primaryNavigation.
+     *
+     * @return primaryNavigation
+     */
+    @JsonProperty("primaryNavigation")
+    public TopNavigationLookAndFeel getPrimaryNavigation() {
+        return this.primaryNavigation;
+    }
+
+    /**
+     * Sets the value of primaryNavigation.
+     *
+     * @param primaryNavigation primaryNavigation
+     */
+    public void setPrimaryNavigation(TopNavigationLookAndFeel primaryNavigation) {
+        this.primaryNavigation = primaryNavigation;
+    }
+    /**
+     * Fluent getter for secondaryNavigation.
+     *
+     * @return secondaryNavigation
+     */
+    public NavigationLookAndFeel secondaryNavigation() {
+        return this.secondaryNavigation;
+    }
+
+    /**
+     * Fluent setter for secondaryNavigation.
+     *
+     * @param secondaryNavigation secondaryNavigation
+     * @return this
+     */
+    public HorizontalHeaderLookAndFeel secondaryNavigation(NavigationLookAndFeel secondaryNavigation) {
+        this.secondaryNavigation = secondaryNavigation;
+        return this;
+    }
+
+    /**
+     * Gets the value of secondaryNavigation.
+     *
+     * @return secondaryNavigation
+     */
+    @JsonProperty("secondaryNavigation")
+    public NavigationLookAndFeel getSecondaryNavigation() {
+        return this.secondaryNavigation;
+    }
+
+    /**
+     * Sets the value of secondaryNavigation.
+     *
+     * @param secondaryNavigation secondaryNavigation
+     */
+    public void setSecondaryNavigation(NavigationLookAndFeel secondaryNavigation) {
+        this.secondaryNavigation = secondaryNavigation;
+    }
+    /**
+     * Fluent getter for search.
+     *
+     * @return search
+     */
+    public SearchFieldLookAndFeel search() {
+        return this.search;
+    }
+
+    /**
+     * Fluent setter for search.
+     *
+     * @param search search
+     * @return this
+     */
+    public HorizontalHeaderLookAndFeel search(SearchFieldLookAndFeel search) {
+        this.search = search;
+        return this;
+    }
+
+    /**
+     * Gets the value of search.
+     *
+     * @return search
+     */
+    @JsonProperty("search")
+    public SearchFieldLookAndFeel getSearch() {
+        return this.search;
+    }
+
+    /**
+     * Sets the value of search.
+     *
+     * @param search search
+     */
+    public void setSearch(SearchFieldLookAndFeel search) {
+        this.search = search;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HorizontalHeaderLookAndFeel that = (HorizontalHeaderLookAndFeel) o;
+        return
+            Objects.equals(this.backgroundColor, that.backgroundColor) &&
+            Objects.equals(this.button, that.button) &&
+            Objects.equals(this.primaryNavigation, that.primaryNavigation) &&
+            Objects.equals(this.secondaryNavigation, that.secondaryNavigation) &&
+            Objects.equals(this.search, that.search);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.backgroundColor, 
+            this.button, 
+            this.primaryNavigation, 
+            this.secondaryNavigation, 
+            this.search
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "HorizontalHeaderLookAndFeel{" +
+            "backgroundColor=" + backgroundColor + ", " + 
+            "button=" + button + ", " + 
+            "primaryNavigation=" + primaryNavigation + ", " + 
+            "secondaryNavigation=" + secondaryNavigation + ", " + 
+            "search=" + search +
+            "}";
     }
 }

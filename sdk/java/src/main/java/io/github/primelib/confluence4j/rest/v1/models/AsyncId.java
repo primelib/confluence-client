@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AsyncId
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AsyncId")
 @JsonPropertyOrder({
     "asyncId"
@@ -47,6 +35,13 @@ public class AsyncId {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AsyncId() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AsyncId}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AsyncId(Consumer)} instead.
@@ -55,5 +50,68 @@ public class AsyncId {
     @ApiStatus.Internal
     public AsyncId(String asyncId) {
         this.asyncId = asyncId;
+    }
+
+
+    /**
+     * Fluent getter for asyncId.
+     *
+     * @return asyncId
+     */
+    public String asyncId() {
+        return this.asyncId;
+    }
+
+    /**
+     * Fluent setter for asyncId.
+     *
+     * @param asyncId asyncId
+     * @return this
+     */
+    public AsyncId asyncId(String asyncId) {
+        this.asyncId = asyncId;
+        return this;
+    }
+
+    /**
+     * Gets the value of asyncId.
+     *
+     * @return asyncId
+     */
+    @JsonProperty("asyncId")
+    public String getAsyncId() {
+        return this.asyncId;
+    }
+
+    /**
+     * Sets the value of asyncId.
+     *
+     * @param asyncId asyncId
+     */
+    public void setAsyncId(String asyncId) {
+        this.asyncId = asyncId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AsyncId that = (AsyncId) o;
+        return
+            Objects.equals(this.asyncId, that.asyncId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.asyncId
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AsyncId{" +
+            "asyncId=" + asyncId +
+            "}";
     }
 }

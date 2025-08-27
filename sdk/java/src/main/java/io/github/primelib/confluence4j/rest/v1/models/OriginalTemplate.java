@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * OriginalTemplate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("OriginalTemplate")
 @JsonPropertyOrder({
     "pluginKey",
@@ -51,6 +39,13 @@ public class OriginalTemplate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected OriginalTemplate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link OriginalTemplate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OriginalTemplate(Consumer)} instead.
@@ -61,5 +56,109 @@ public class OriginalTemplate {
     public OriginalTemplate(String pluginKey, String moduleKey) {
         this.pluginKey = pluginKey;
         this.moduleKey = moduleKey;
+    }
+
+
+    /**
+     * Fluent getter for pluginKey.
+     *
+     * @return pluginKey
+     */
+    public String pluginKey() {
+        return this.pluginKey;
+    }
+
+    /**
+     * Fluent setter for pluginKey.
+     *
+     * @param pluginKey pluginKey
+     * @return this
+     */
+    public OriginalTemplate pluginKey(String pluginKey) {
+        this.pluginKey = pluginKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of pluginKey.
+     *
+     * @return pluginKey
+     */
+    @JsonProperty("pluginKey")
+    public String getPluginKey() {
+        return this.pluginKey;
+    }
+
+    /**
+     * Sets the value of pluginKey.
+     *
+     * @param pluginKey pluginKey
+     */
+    public void setPluginKey(String pluginKey) {
+        this.pluginKey = pluginKey;
+    }
+    /**
+     * Fluent getter for moduleKey.
+     *
+     * @return moduleKey
+     */
+    public String moduleKey() {
+        return this.moduleKey;
+    }
+
+    /**
+     * Fluent setter for moduleKey.
+     *
+     * @param moduleKey moduleKey
+     * @return this
+     */
+    public OriginalTemplate moduleKey(String moduleKey) {
+        this.moduleKey = moduleKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of moduleKey.
+     *
+     * @return moduleKey
+     */
+    @JsonProperty("moduleKey")
+    public String getModuleKey() {
+        return this.moduleKey;
+    }
+
+    /**
+     * Sets the value of moduleKey.
+     *
+     * @param moduleKey moduleKey
+     */
+    public void setModuleKey(String moduleKey) {
+        this.moduleKey = moduleKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OriginalTemplate that = (OriginalTemplate) o;
+        return
+            Objects.equals(this.pluginKey, that.pluginKey) &&
+            Objects.equals(this.moduleKey, that.moduleKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.pluginKey, 
+            this.moduleKey
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "OriginalTemplate{" +
+            "pluginKey=" + pluginKey + ", " + 
+            "moduleKey=" + moduleKey +
+            "}";
     }
 }

@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Favourited
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Favourited")
 @JsonPropertyOrder({
     "isFavourite",
@@ -52,6 +40,13 @@ public class Favourited {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Favourited() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Favourited}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Favourited(Consumer)} instead.
@@ -62,5 +57,109 @@ public class Favourited {
     public Favourited(Boolean isFavourite, Instant favouritedDate) {
         this.isFavourite = isFavourite;
         this.favouritedDate = favouritedDate;
+    }
+
+
+    /**
+     * Fluent getter for isFavourite.
+     *
+     * @return isFavourite
+     */
+    public Boolean isFavourite() {
+        return this.isFavourite;
+    }
+
+    /**
+     * Fluent setter for isFavourite.
+     *
+     * @param isFavourite isFavourite
+     * @return this
+     */
+    public Favourited isFavourite(Boolean isFavourite) {
+        this.isFavourite = isFavourite;
+        return this;
+    }
+
+    /**
+     * Gets the value of isFavourite.
+     *
+     * @return isFavourite
+     */
+    @JsonProperty("isFavourite")
+    public Boolean getIsFavourite() {
+        return this.isFavourite;
+    }
+
+    /**
+     * Sets the value of isFavourite.
+     *
+     * @param isFavourite isFavourite
+     */
+    public void setIsFavourite(Boolean isFavourite) {
+        this.isFavourite = isFavourite;
+    }
+    /**
+     * Fluent getter for favouritedDate.
+     *
+     * @return favouritedDate
+     */
+    public Instant favouritedDate() {
+        return this.favouritedDate;
+    }
+
+    /**
+     * Fluent setter for favouritedDate.
+     *
+     * @param favouritedDate favouritedDate
+     * @return this
+     */
+    public Favourited favouritedDate(Instant favouritedDate) {
+        this.favouritedDate = favouritedDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of favouritedDate.
+     *
+     * @return favouritedDate
+     */
+    @JsonProperty("favouritedDate")
+    public Instant getFavouritedDate() {
+        return this.favouritedDate;
+    }
+
+    /**
+     * Sets the value of favouritedDate.
+     *
+     * @param favouritedDate favouritedDate
+     */
+    public void setFavouritedDate(Instant favouritedDate) {
+        this.favouritedDate = favouritedDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Favourited that = (Favourited) o;
+        return
+            Objects.equals(this.isFavourite, that.isFavourite) &&
+            Objects.equals(this.favouritedDate, that.favouritedDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.isFavourite, 
+            this.favouritedDate
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Favourited{" +
+            "isFavourite=" + isFavourite + ", " + 
+            "favouritedDate=" + favouritedDate +
+            "}";
     }
 }

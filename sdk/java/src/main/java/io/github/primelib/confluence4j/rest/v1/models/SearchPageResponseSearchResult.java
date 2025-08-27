@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SearchPageResponseSearchResult
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SearchPageResponseSearchResult")
 @JsonPropertyOrder({
     "results",
@@ -38,7 +26,7 @@ import org.jetbrains.annotations.ApiStatus;
     "cqlQuery",
     "searchDuration",
     "archivedResultCount",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class SearchPageResponseSearchResult {
@@ -68,7 +56,7 @@ public class SearchPageResponseSearchResult {
     protected Integer archivedResultCount;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link SearchPageResponseSearchResult}.
@@ -78,6 +66,13 @@ public class SearchPageResponseSearchResult {
     public SearchPageResponseSearchResult(Consumer<SearchPageResponseSearchResult> spec) {
         super();
         spec.accept(this);
+    }
+
+    /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SearchPageResponseSearchResult() {
     }
 
     /**
@@ -92,10 +87,10 @@ public class SearchPageResponseSearchResult {
      * @param cqlQuery cqlQuery
      * @param searchDuration searchDuration
      * @param archivedResultCount archivedResultCount
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public SearchPageResponseSearchResult(List<SearchResult> results, Integer start, Integer limit, Integer size, Integer totalSize, String cqlQuery, Integer searchDuration, Integer archivedResultCount, Map<String, Object> Links) {
+    public SearchPageResponseSearchResult(List<SearchResult> results, Integer start, Integer limit, Integer size, Integer totalSize, String cqlQuery, Integer searchDuration, Integer archivedResultCount, Map<String, Object> additionalLinks) {
         this.results = results;
         this.start = start;
         this.limit = limit;
@@ -104,6 +99,397 @@ public class SearchPageResponseSearchResult {
         this.cqlQuery = cqlQuery;
         this.searchDuration = searchDuration;
         this.archivedResultCount = archivedResultCount;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for results.
+     *
+     * @return results
+     */
+    public List<SearchResult> results() {
+        return this.results;
+    }
+
+    /**
+     * Fluent setter for results.
+     *
+     * @param results results
+     * @return this
+     */
+    public SearchPageResponseSearchResult results(List<SearchResult> results) {
+        this.results = results;
+        return this;
+    }
+
+    /**
+     * Gets the value of results.
+     *
+     * @return results
+     */
+    @JsonProperty("results")
+    public List<SearchResult> getResults() {
+        return this.results;
+    }
+
+    /**
+     * Sets the value of results.
+     *
+     * @param results results
+     */
+    public void setResults(List<SearchResult> results) {
+        this.results = results;
+    }
+    /**
+     * Fluent getter for start.
+     *
+     * @return start
+     */
+    public Integer start() {
+        return this.start;
+    }
+
+    /**
+     * Fluent setter for start.
+     *
+     * @param start start
+     * @return this
+     */
+    public SearchPageResponseSearchResult start(Integer start) {
+        this.start = start;
+        return this;
+    }
+
+    /**
+     * Gets the value of start.
+     *
+     * @return start
+     */
+    @JsonProperty("start")
+    public Integer getStart() {
+        return this.start;
+    }
+
+    /**
+     * Sets the value of start.
+     *
+     * @param start start
+     */
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+    /**
+     * Fluent getter for limit.
+     *
+     * @return limit
+     */
+    public Integer limit() {
+        return this.limit;
+    }
+
+    /**
+     * Fluent setter for limit.
+     *
+     * @param limit limit
+     * @return this
+     */
+    public SearchPageResponseSearchResult limit(Integer limit) {
+        this.limit = limit;
+        return this;
+    }
+
+    /**
+     * Gets the value of limit.
+     *
+     * @return limit
+     */
+    @JsonProperty("limit")
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    /**
+     * Sets the value of limit.
+     *
+     * @param limit limit
+     */
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+    /**
+     * Fluent getter for size.
+     *
+     * @return size
+     */
+    public Integer size() {
+        return this.size;
+    }
+
+    /**
+     * Fluent setter for size.
+     *
+     * @param size size
+     * @return this
+     */
+    public SearchPageResponseSearchResult size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Gets the value of size.
+     *
+     * @return size
+     */
+    @JsonProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    /**
+     * Sets the value of size.
+     *
+     * @param size size
+     */
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+    /**
+     * Fluent getter for totalSize.
+     *
+     * @return totalSize
+     */
+    public Integer totalSize() {
+        return this.totalSize;
+    }
+
+    /**
+     * Fluent setter for totalSize.
+     *
+     * @param totalSize totalSize
+     * @return this
+     */
+    public SearchPageResponseSearchResult totalSize(Integer totalSize) {
+        this.totalSize = totalSize;
+        return this;
+    }
+
+    /**
+     * Gets the value of totalSize.
+     *
+     * @return totalSize
+     */
+    @JsonProperty("totalSize")
+    public Integer getTotalSize() {
+        return this.totalSize;
+    }
+
+    /**
+     * Sets the value of totalSize.
+     *
+     * @param totalSize totalSize
+     */
+    public void setTotalSize(Integer totalSize) {
+        this.totalSize = totalSize;
+    }
+    /**
+     * Fluent getter for cqlQuery.
+     *
+     * @return cqlQuery
+     */
+    public String cqlQuery() {
+        return this.cqlQuery;
+    }
+
+    /**
+     * Fluent setter for cqlQuery.
+     *
+     * @param cqlQuery cqlQuery
+     * @return this
+     */
+    public SearchPageResponseSearchResult cqlQuery(String cqlQuery) {
+        this.cqlQuery = cqlQuery;
+        return this;
+    }
+
+    /**
+     * Gets the value of cqlQuery.
+     *
+     * @return cqlQuery
+     */
+    @JsonProperty("cqlQuery")
+    public String getCqlQuery() {
+        return this.cqlQuery;
+    }
+
+    /**
+     * Sets the value of cqlQuery.
+     *
+     * @param cqlQuery cqlQuery
+     */
+    public void setCqlQuery(String cqlQuery) {
+        this.cqlQuery = cqlQuery;
+    }
+    /**
+     * Fluent getter for searchDuration.
+     *
+     * @return searchDuration
+     */
+    public Integer searchDuration() {
+        return this.searchDuration;
+    }
+
+    /**
+     * Fluent setter for searchDuration.
+     *
+     * @param searchDuration searchDuration
+     * @return this
+     */
+    public SearchPageResponseSearchResult searchDuration(Integer searchDuration) {
+        this.searchDuration = searchDuration;
+        return this;
+    }
+
+    /**
+     * Gets the value of searchDuration.
+     *
+     * @return searchDuration
+     */
+    @JsonProperty("searchDuration")
+    public Integer getSearchDuration() {
+        return this.searchDuration;
+    }
+
+    /**
+     * Sets the value of searchDuration.
+     *
+     * @param searchDuration searchDuration
+     */
+    public void setSearchDuration(Integer searchDuration) {
+        this.searchDuration = searchDuration;
+    }
+    /**
+     * Fluent getter for archivedResultCount.
+     *
+     * @return archivedResultCount
+     */
+    public Integer archivedResultCount() {
+        return this.archivedResultCount;
+    }
+
+    /**
+     * Fluent setter for archivedResultCount.
+     *
+     * @param archivedResultCount archivedResultCount
+     * @return this
+     */
+    public SearchPageResponseSearchResult archivedResultCount(Integer archivedResultCount) {
+        this.archivedResultCount = archivedResultCount;
+        return this;
+    }
+
+    /**
+     * Gets the value of archivedResultCount.
+     *
+     * @return archivedResultCount
+     */
+    @JsonProperty("archivedResultCount")
+    public Integer getArchivedResultCount() {
+        return this.archivedResultCount;
+    }
+
+    /**
+     * Sets the value of archivedResultCount.
+     *
+     * @param archivedResultCount archivedResultCount
+     */
+    public void setArchivedResultCount(Integer archivedResultCount) {
+        this.archivedResultCount = archivedResultCount;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public SearchPageResponseSearchResult additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchPageResponseSearchResult that = (SearchPageResponseSearchResult) o;
+        return
+            Objects.equals(this.results, that.results) &&
+            Objects.equals(this.start, that.start) &&
+            Objects.equals(this.limit, that.limit) &&
+            Objects.equals(this.size, that.size) &&
+            Objects.equals(this.totalSize, that.totalSize) &&
+            Objects.equals(this.cqlQuery, that.cqlQuery) &&
+            Objects.equals(this.searchDuration, that.searchDuration) &&
+            Objects.equals(this.archivedResultCount, that.archivedResultCount) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.results, 
+            this.start, 
+            this.limit, 
+            this.size, 
+            this.totalSize, 
+            this.cqlQuery, 
+            this.searchDuration, 
+            this.archivedResultCount, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SearchPageResponseSearchResult{" +
+            "results=" + results + ", " + 
+            "start=" + start + ", " + 
+            "limit=" + limit + ", " + 
+            "size=" + size + ", " + 
+            "totalSize=" + totalSize + ", " + 
+            "cqlQuery=" + cqlQuery + ", " + 
+            "searchDuration=" + searchDuration + ", " + 
+            "archivedResultCount=" + archivedResultCount + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

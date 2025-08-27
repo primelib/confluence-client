@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable3263E2
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable3263E2")
 @JsonPropertyOrder({
     "attachment",
@@ -71,6 +59,13 @@ public class Expandable3263E2 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable3263E2() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable3263E2}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable3263E2(Consumer)} instead.
@@ -91,5 +86,314 @@ public class Expandable3263E2 {
         this.database = database;
         this.embed = embed;
         this.folder = folder;
+    }
+
+
+    /**
+     * Fluent getter for attachment.
+     *
+     * @return attachment
+     */
+    public String attachment() {
+        return this.attachment;
+    }
+
+    /**
+     * Fluent setter for attachment.
+     *
+     * @param attachment attachment
+     * @return this
+     */
+    public Expandable3263E2 attachment(String attachment) {
+        this.attachment = attachment;
+        return this;
+    }
+
+    /**
+     * Gets the value of attachment.
+     *
+     * @return attachment
+     */
+    @JsonProperty("attachment")
+    public String getAttachment() {
+        return this.attachment;
+    }
+
+    /**
+     * Sets the value of attachment.
+     *
+     * @param attachment attachment
+     */
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
+    }
+    /**
+     * Fluent getter for comment.
+     *
+     * @return comment
+     */
+    public String comment() {
+        return this.comment;
+    }
+
+    /**
+     * Fluent setter for comment.
+     *
+     * @param comment comment
+     * @return this
+     */
+    public Expandable3263E2 comment(String comment) {
+        this.comment = comment;
+        return this;
+    }
+
+    /**
+     * Gets the value of comment.
+     *
+     * @return comment
+     */
+    @JsonProperty("comment")
+    public String getComment() {
+        return this.comment;
+    }
+
+    /**
+     * Sets the value of comment.
+     *
+     * @param comment comment
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+    /**
+     * Fluent getter for page.
+     *
+     * @return page
+     */
+    public String page() {
+        return this.page;
+    }
+
+    /**
+     * Fluent setter for page.
+     *
+     * @param page page
+     * @return this
+     */
+    public Expandable3263E2 page(String page) {
+        this.page = page;
+        return this;
+    }
+
+    /**
+     * Gets the value of page.
+     *
+     * @return page
+     */
+    @JsonProperty("page")
+    public String getPage() {
+        return this.page;
+    }
+
+    /**
+     * Sets the value of page.
+     *
+     * @param page page
+     */
+    public void setPage(String page) {
+        this.page = page;
+    }
+    /**
+     * Fluent getter for whiteboard.
+     *
+     * @return whiteboard
+     */
+    public String whiteboard() {
+        return this.whiteboard;
+    }
+
+    /**
+     * Fluent setter for whiteboard.
+     *
+     * @param whiteboard whiteboard
+     * @return this
+     */
+    public Expandable3263E2 whiteboard(String whiteboard) {
+        this.whiteboard = whiteboard;
+        return this;
+    }
+
+    /**
+     * Gets the value of whiteboard.
+     *
+     * @return whiteboard
+     */
+    @JsonProperty("whiteboard")
+    public String getWhiteboard() {
+        return this.whiteboard;
+    }
+
+    /**
+     * Sets the value of whiteboard.
+     *
+     * @param whiteboard whiteboard
+     */
+    public void setWhiteboard(String whiteboard) {
+        this.whiteboard = whiteboard;
+    }
+    /**
+     * Fluent getter for database.
+     *
+     * @return database
+     */
+    public String database() {
+        return this.database;
+    }
+
+    /**
+     * Fluent setter for database.
+     *
+     * @param database database
+     * @return this
+     */
+    public Expandable3263E2 database(String database) {
+        this.database = database;
+        return this;
+    }
+
+    /**
+     * Gets the value of database.
+     *
+     * @return database
+     */
+    @JsonProperty("database")
+    public String getDatabase() {
+        return this.database;
+    }
+
+    /**
+     * Sets the value of database.
+     *
+     * @param database database
+     */
+    public void setDatabase(String database) {
+        this.database = database;
+    }
+    /**
+     * Fluent getter for embed.
+     *
+     * @return embed
+     */
+    public String embed() {
+        return this.embed;
+    }
+
+    /**
+     * Fluent setter for embed.
+     *
+     * @param embed embed
+     * @return this
+     */
+    public Expandable3263E2 embed(String embed) {
+        this.embed = embed;
+        return this;
+    }
+
+    /**
+     * Gets the value of embed.
+     *
+     * @return embed
+     */
+    @JsonProperty("embed")
+    public String getEmbed() {
+        return this.embed;
+    }
+
+    /**
+     * Sets the value of embed.
+     *
+     * @param embed embed
+     */
+    public void setEmbed(String embed) {
+        this.embed = embed;
+    }
+    /**
+     * Fluent getter for folder.
+     *
+     * @return folder
+     */
+    public String folder() {
+        return this.folder;
+    }
+
+    /**
+     * Fluent setter for folder.
+     *
+     * @param folder folder
+     * @return this
+     */
+    public Expandable3263E2 folder(String folder) {
+        this.folder = folder;
+        return this;
+    }
+
+    /**
+     * Gets the value of folder.
+     *
+     * @return folder
+     */
+    @JsonProperty("folder")
+    public String getFolder() {
+        return this.folder;
+    }
+
+    /**
+     * Sets the value of folder.
+     *
+     * @param folder folder
+     */
+    public void setFolder(String folder) {
+        this.folder = folder;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable3263E2 that = (Expandable3263E2) o;
+        return
+            Objects.equals(this.attachment, that.attachment) &&
+            Objects.equals(this.comment, that.comment) &&
+            Objects.equals(this.page, that.page) &&
+            Objects.equals(this.whiteboard, that.whiteboard) &&
+            Objects.equals(this.database, that.database) &&
+            Objects.equals(this.embed, that.embed) &&
+            Objects.equals(this.folder, that.folder);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.attachment, 
+            this.comment, 
+            this.page, 
+            this.whiteboard, 
+            this.database, 
+            this.embed, 
+            this.folder
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable3263E2{" +
+            "attachment=" + attachment + ", " + 
+            "comment=" + comment + ", " + 
+            "page=" + page + ", " + 
+            "whiteboard=" + whiteboard + ", " + 
+            "database=" + database + ", " + 
+            "embed=" + embed + ", " + 
+            "folder=" + folder +
+            "}";
     }
 }

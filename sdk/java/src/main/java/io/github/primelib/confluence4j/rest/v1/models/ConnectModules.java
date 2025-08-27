@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ConnectModules
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ConnectModules")
 @JsonPropertyOrder({
     "modules"
@@ -52,6 +40,13 @@ public class ConnectModules {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ConnectModules() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ConnectModules}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ConnectModules(Consumer)} instead.
@@ -61,5 +56,80 @@ public class ConnectModules {
     @ApiStatus.Internal
     public ConnectModules(List<Object> modules) {
         this.modules = modules;
+    }
+
+
+    /**
+     * Fluent getter for modules.
+     * <p>
+     * A list of app modules in the same format as the `modules` property in the
+     * [app descriptor](https://developer.atlassian.com/cloud/confluence/app-descriptor/).
+     *
+     * @return modules
+     */
+    public List<Object> modules() {
+        return this.modules;
+    }
+
+    /**
+     * Fluent setter for modules.
+     * <p>
+     * A list of app modules in the same format as the `modules` property in the
+     * [app descriptor](https://developer.atlassian.com/cloud/confluence/app-descriptor/).
+     *
+     * @param modules modules
+     * @return this
+     */
+    public ConnectModules modules(List<Object> modules) {
+        this.modules = modules;
+        return this;
+    }
+
+    /**
+     * Gets the value of modules.
+     * <p>
+     * A list of app modules in the same format as the `modules` property in the
+     * [app descriptor](https://developer.atlassian.com/cloud/confluence/app-descriptor/).
+     *
+     * @return modules
+     */
+    @JsonProperty("modules")
+    public List<Object> getModules() {
+        return this.modules;
+    }
+
+    /**
+     * Sets the value of modules.
+     * <p>
+     * A list of app modules in the same format as the `modules` property in the
+     * [app descriptor](https://developer.atlassian.com/cloud/confluence/app-descriptor/).
+     *
+     * @param modules modules
+     */
+    public void setModules(List<Object> modules) {
+        this.modules = modules;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ConnectModules that = (ConnectModules) o;
+        return
+            Objects.equals(this.modules, that.modules);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.modules
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ConnectModules{" +
+            "modules=" + modules +
+            "}";
     }
 }

@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The version for the new content.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Versiona9Ec0E")
 @JsonPropertyOrder({
     "number"
@@ -52,6 +40,13 @@ public class Versiona9Ec0E {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Versiona9Ec0E() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Versiona9Ec0E}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Versiona9Ec0E(Consumer)} instead.
@@ -60,5 +55,76 @@ public class Versiona9Ec0E {
     @ApiStatus.Internal
     public Versiona9Ec0E(Integer number) {
         this.number = number;
+    }
+
+
+    /**
+     * Fluent getter for number.
+     * <p>
+     * The version number. Set this to `1`.
+     *
+     * @return number
+     */
+    public Integer number() {
+        return this.number;
+    }
+
+    /**
+     * Fluent setter for number.
+     * <p>
+     * The version number. Set this to `1`.
+     *
+     * @param number number
+     * @return this
+     */
+    public Versiona9Ec0E number(Integer number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * Gets the value of number.
+     * <p>
+     * The version number. Set this to `1`.
+     *
+     * @return number
+     */
+    @JsonProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Sets the value of number.
+     * <p>
+     * The version number. Set this to `1`.
+     *
+     * @param number number
+     */
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Versiona9Ec0E that = (Versiona9Ec0E) o;
+        return
+            Objects.equals(this.number, that.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.number
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Versiona9Ec0E{" +
+            "number=" + number +
+            "}";
     }
 }

@@ -6,33 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SuperBatchWebResources
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SuperBatchWebResources")
 @JsonPropertyOrder({
     "uris",
     "tags",
     "metatags",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class SuperBatchWebResources {
@@ -47,7 +35,7 @@ public class SuperBatchWebResources {
     protected String metatags;
 
     @JsonProperty("_expandable")
-    protected Map<String, Object> Expandable;
+    protected Map<String, Object> additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link SuperBatchWebResources}.
@@ -60,19 +48,212 @@ public class SuperBatchWebResources {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SuperBatchWebResources() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SuperBatchWebResources}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SuperBatchWebResources(Consumer)} instead.
      * @param uris uris
      * @param tags tags
      * @param metatags metatags
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public SuperBatchWebResources(Uris uris, Tags tags, String metatags, Map<String, Object> Expandable) {
+    public SuperBatchWebResources(Uris uris, Tags tags, String metatags, Map<String, Object> additionalExpandable) {
         this.uris = uris;
         this.tags = tags;
         this.metatags = metatags;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for uris.
+     *
+     * @return uris
+     */
+    public Uris uris() {
+        return this.uris;
+    }
+
+    /**
+     * Fluent setter for uris.
+     *
+     * @param uris uris
+     * @return this
+     */
+    public SuperBatchWebResources uris(Uris uris) {
+        this.uris = uris;
+        return this;
+    }
+
+    /**
+     * Gets the value of uris.
+     *
+     * @return uris
+     */
+    @JsonProperty("uris")
+    public Uris getUris() {
+        return this.uris;
+    }
+
+    /**
+     * Sets the value of uris.
+     *
+     * @param uris uris
+     */
+    public void setUris(Uris uris) {
+        this.uris = uris;
+    }
+    /**
+     * Fluent getter for tags.
+     *
+     * @return tags
+     */
+    public Tags tags() {
+        return this.tags;
+    }
+
+    /**
+     * Fluent setter for tags.
+     *
+     * @param tags tags
+     * @return this
+     */
+    public SuperBatchWebResources tags(Tags tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    /**
+     * Gets the value of tags.
+     *
+     * @return tags
+     */
+    @JsonProperty("tags")
+    public Tags getTags() {
+        return this.tags;
+    }
+
+    /**
+     * Sets the value of tags.
+     *
+     * @param tags tags
+     */
+    public void setTags(Tags tags) {
+        this.tags = tags;
+    }
+    /**
+     * Fluent getter for metatags.
+     *
+     * @return metatags
+     */
+    public String metatags() {
+        return this.metatags;
+    }
+
+    /**
+     * Fluent setter for metatags.
+     *
+     * @param metatags metatags
+     * @return this
+     */
+    public SuperBatchWebResources metatags(String metatags) {
+        this.metatags = metatags;
+        return this;
+    }
+
+    /**
+     * Gets the value of metatags.
+     *
+     * @return metatags
+     */
+    @JsonProperty("metatags")
+    public String getMetatags() {
+        return this.metatags;
+    }
+
+    /**
+     * Sets the value of metatags.
+     *
+     * @param metatags metatags
+     */
+    public void setMetatags(String metatags) {
+        this.metatags = metatags;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Map<String, Object> additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public SuperBatchWebResources additionalExpandable(Map<String, Object> additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Map<String, Object> getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Map<String, Object> additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SuperBatchWebResources that = (SuperBatchWebResources) o;
+        return
+            Objects.equals(this.uris, that.uris) &&
+            Objects.equals(this.tags, that.tags) &&
+            Objects.equals(this.metatags, that.metatags) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.uris, 
+            this.tags, 
+            this.metatags, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SuperBatchWebResources{" +
+            "uris=" + uris + ", " + 
+            "tags=" + tags + ", " + 
+            "metatags=" + metatags + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

@@ -2311,7 +2311,7 @@ paths:
         description: "An array of parameters to create content body conversion tasks."
         content:
           "application/json":
-            schema: {"$ref": "#/components/schemas/ContentBodyConversionInputArray"}
+            schema: {"$ref": "#/components/schemas/BulkContentBodyConversionInput"}
         required: true
       responses:
         "200":
@@ -6626,10 +6626,13 @@ components:
         - "to"
         - "body"
       title: ContentBodyConversionInput
-    "ContentBodyConversionInputArray":
-      type: "array"
-      items: {"$ref": "#/components/schemas/ContentBodyConversionInput"}
-      title: ContentBodyConversionInputArray
+    "BulkContentBodyConversionInput":
+      type: "object"
+      properties:
+        "conversionInputs":
+          type: "array"
+          items: {"$ref": "#/components/schemas/ContentBodyConversionInput"}
+      title: BulkContentBodyConversionInput
     "CopyPageHierarchyRequest":
       type: "object"
       properties:
@@ -10313,10 +10316,10 @@ components:
       title: Value
     ResultsItem:
       type: "object"
+      title: ResultsItem
       properties:
         "key":
           type: "string"
-      title: ResultsItem
     Value96656d:
       title: Value96656d
       type: "object"

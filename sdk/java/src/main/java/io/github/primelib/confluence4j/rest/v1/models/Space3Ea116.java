@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * template.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Space3Ea116")
 @JsonPropertyOrder({
     "key"
@@ -51,6 +39,13 @@ public class Space3Ea116 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Space3Ea116() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Space3Ea116}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Space3Ea116(Consumer)} instead.
@@ -59,5 +54,68 @@ public class Space3Ea116 {
     @ApiStatus.Internal
     public Space3Ea116(String key) {
         this.key = key;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public Space3Ea116 key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Space3Ea116 that = (Space3Ea116) o;
+        return
+            Objects.equals(this.key, that.key);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Space3Ea116{" +
+            "key=" + key +
+            "}";
     }
 }

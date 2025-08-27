@@ -15,12 +15,12 @@ import io.github.primelib.confluence4j.rest.v1.models.AuditRecordArray;
 import io.github.primelib.confluence4j.rest.v1.models.AuditRecordCreate;
 import io.github.primelib.confluence4j.rest.v1.models.AvailableContentStates;
 import io.github.primelib.confluence4j.rest.v1.models.BlueprintTemplateArray;
+import io.github.primelib.confluence4j.rest.v1.models.BulkContentBodyConversionInput;
 import io.github.primelib.confluence4j.rest.v1.models.BulkUserLookupArray;
 import io.github.primelib.confluence4j.rest.v1.models.ConnectModules;
 import io.github.primelib.confluence4j.rest.v1.models.Content;
 import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
 import io.github.primelib.confluence4j.rest.v1.models.ContentBody;
-import io.github.primelib.confluence4j.rest.v1.models.ContentBodyConversionInput;
 import io.github.primelib.confluence4j.rest.v1.models.ContentPermissionRequest;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestriction;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestrictionArray;
@@ -2078,7 +2078,7 @@ public interface ConfluenceRestClientApi {
         "Accept: application/json"
     })
     List<AsyncId> postContentbodyConvertAsyncBulkTasksV1(
-            @NonNull List<ContentBodyConversionInput> payload
+            @NonNull BulkContentBodyConversionInput payload
     );
 
     /**

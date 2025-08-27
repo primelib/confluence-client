@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable5Ee9Fc
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable5Ee9Fc")
 @JsonPropertyOrder({
     "view",
@@ -51,6 +39,13 @@ public class Expandable5Ee9Fc {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable5Ee9Fc() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable5Ee9Fc}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable5Ee9Fc(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Expandable5Ee9Fc {
     public Expandable5Ee9Fc(String view, String plain) {
         this.view = view;
         this.plain = plain;
+    }
+
+
+    /**
+     * Fluent getter for view.
+     *
+     * @return view
+     */
+    public String view() {
+        return this.view;
+    }
+
+    /**
+     * Fluent setter for view.
+     *
+     * @param view view
+     * @return this
+     */
+    public Expandable5Ee9Fc view(String view) {
+        this.view = view;
+        return this;
+    }
+
+    /**
+     * Gets the value of view.
+     *
+     * @return view
+     */
+    @JsonProperty("view")
+    public String getView() {
+        return this.view;
+    }
+
+    /**
+     * Sets the value of view.
+     *
+     * @param view view
+     */
+    public void setView(String view) {
+        this.view = view;
+    }
+    /**
+     * Fluent getter for plain.
+     *
+     * @return plain
+     */
+    public String plain() {
+        return this.plain;
+    }
+
+    /**
+     * Fluent setter for plain.
+     *
+     * @param plain plain
+     * @return this
+     */
+    public Expandable5Ee9Fc plain(String plain) {
+        this.plain = plain;
+        return this;
+    }
+
+    /**
+     * Gets the value of plain.
+     *
+     * @return plain
+     */
+    @JsonProperty("plain")
+    public String getPlain() {
+        return this.plain;
+    }
+
+    /**
+     * Sets the value of plain.
+     *
+     * @param plain plain
+     */
+    public void setPlain(String plain) {
+        this.plain = plain;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable5Ee9Fc that = (Expandable5Ee9Fc) o;
+        return
+            Objects.equals(this.view, that.view) &&
+            Objects.equals(this.plain, that.plain);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.view, 
+            this.plain
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable5Ee9Fc{" +
+            "view=" + view + ", " + 
+            "plain=" + plain +
+            "}";
     }
 }

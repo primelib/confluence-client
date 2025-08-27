@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ScreenLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ScreenLookAndFeel")
 @JsonPropertyOrder({
     "background",
@@ -103,6 +91,13 @@ public class ScreenLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ScreenLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ScreenLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ScreenLookAndFeel(Consumer)} instead.
@@ -139,5 +134,642 @@ public class ScreenLookAndFeel {
         this.gutterRight = gutterRight;
         this.gutterBottom = gutterBottom;
         this.gutterLeft = gutterLeft;
+    }
+
+
+    /**
+     * Fluent getter for background.
+     *
+     * @return background
+     */
+    public String background() {
+        return this.background;
+    }
+
+    /**
+     * Fluent setter for background.
+     *
+     * @param background background
+     * @return this
+     */
+    public ScreenLookAndFeel background(String background) {
+        this.background = background;
+        return this;
+    }
+
+    /**
+     * Gets the value of background.
+     *
+     * @return background
+     */
+    @JsonProperty("background")
+    public String getBackground() {
+        return this.background;
+    }
+
+    /**
+     * Sets the value of background.
+     *
+     * @param background background
+     */
+    public void setBackground(String background) {
+        this.background = background;
+    }
+    /**
+     * Fluent getter for backgroundAttachment.
+     *
+     * @return backgroundAttachment
+     */
+    public String backgroundAttachment() {
+        return this.backgroundAttachment;
+    }
+
+    /**
+     * Fluent setter for backgroundAttachment.
+     *
+     * @param backgroundAttachment backgroundAttachment
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundAttachment(String backgroundAttachment) {
+        this.backgroundAttachment = backgroundAttachment;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundAttachment.
+     *
+     * @return backgroundAttachment
+     */
+    @JsonProperty("backgroundAttachment")
+    public String getBackgroundAttachment() {
+        return this.backgroundAttachment;
+    }
+
+    /**
+     * Sets the value of backgroundAttachment.
+     *
+     * @param backgroundAttachment backgroundAttachment
+     */
+    public void setBackgroundAttachment(String backgroundAttachment) {
+        this.backgroundAttachment = backgroundAttachment;
+    }
+    /**
+     * Fluent getter for backgroundBlendMode.
+     *
+     * @return backgroundBlendMode
+     */
+    public String backgroundBlendMode() {
+        return this.backgroundBlendMode;
+    }
+
+    /**
+     * Fluent setter for backgroundBlendMode.
+     *
+     * @param backgroundBlendMode backgroundBlendMode
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundBlendMode(String backgroundBlendMode) {
+        this.backgroundBlendMode = backgroundBlendMode;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundBlendMode.
+     *
+     * @return backgroundBlendMode
+     */
+    @JsonProperty("backgroundBlendMode")
+    public String getBackgroundBlendMode() {
+        return this.backgroundBlendMode;
+    }
+
+    /**
+     * Sets the value of backgroundBlendMode.
+     *
+     * @param backgroundBlendMode backgroundBlendMode
+     */
+    public void setBackgroundBlendMode(String backgroundBlendMode) {
+        this.backgroundBlendMode = backgroundBlendMode;
+    }
+    /**
+     * Fluent getter for backgroundClip.
+     *
+     * @return backgroundClip
+     */
+    public String backgroundClip() {
+        return this.backgroundClip;
+    }
+
+    /**
+     * Fluent setter for backgroundClip.
+     *
+     * @param backgroundClip backgroundClip
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundClip(String backgroundClip) {
+        this.backgroundClip = backgroundClip;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundClip.
+     *
+     * @return backgroundClip
+     */
+    @JsonProperty("backgroundClip")
+    public String getBackgroundClip() {
+        return this.backgroundClip;
+    }
+
+    /**
+     * Sets the value of backgroundClip.
+     *
+     * @param backgroundClip backgroundClip
+     */
+    public void setBackgroundClip(String backgroundClip) {
+        this.backgroundClip = backgroundClip;
+    }
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+    /**
+     * Fluent getter for backgroundImage.
+     *
+     * @return backgroundImage
+     */
+    public String backgroundImage() {
+        return this.backgroundImage;
+    }
+
+    /**
+     * Fluent setter for backgroundImage.
+     *
+     * @param backgroundImage backgroundImage
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundImage.
+     *
+     * @return backgroundImage
+     */
+    @JsonProperty("backgroundImage")
+    public String getBackgroundImage() {
+        return this.backgroundImage;
+    }
+
+    /**
+     * Sets the value of backgroundImage.
+     *
+     * @param backgroundImage backgroundImage
+     */
+    public void setBackgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
+    }
+    /**
+     * Fluent getter for backgroundOrigin.
+     *
+     * @return backgroundOrigin
+     */
+    public String backgroundOrigin() {
+        return this.backgroundOrigin;
+    }
+
+    /**
+     * Fluent setter for backgroundOrigin.
+     *
+     * @param backgroundOrigin backgroundOrigin
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundOrigin(String backgroundOrigin) {
+        this.backgroundOrigin = backgroundOrigin;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundOrigin.
+     *
+     * @return backgroundOrigin
+     */
+    @JsonProperty("backgroundOrigin")
+    public String getBackgroundOrigin() {
+        return this.backgroundOrigin;
+    }
+
+    /**
+     * Sets the value of backgroundOrigin.
+     *
+     * @param backgroundOrigin backgroundOrigin
+     */
+    public void setBackgroundOrigin(String backgroundOrigin) {
+        this.backgroundOrigin = backgroundOrigin;
+    }
+    /**
+     * Fluent getter for backgroundPosition.
+     *
+     * @return backgroundPosition
+     */
+    public String backgroundPosition() {
+        return this.backgroundPosition;
+    }
+
+    /**
+     * Fluent setter for backgroundPosition.
+     *
+     * @param backgroundPosition backgroundPosition
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundPosition(String backgroundPosition) {
+        this.backgroundPosition = backgroundPosition;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundPosition.
+     *
+     * @return backgroundPosition
+     */
+    @JsonProperty("backgroundPosition")
+    public String getBackgroundPosition() {
+        return this.backgroundPosition;
+    }
+
+    /**
+     * Sets the value of backgroundPosition.
+     *
+     * @param backgroundPosition backgroundPosition
+     */
+    public void setBackgroundPosition(String backgroundPosition) {
+        this.backgroundPosition = backgroundPosition;
+    }
+    /**
+     * Fluent getter for backgroundRepeat.
+     *
+     * @return backgroundRepeat
+     */
+    public String backgroundRepeat() {
+        return this.backgroundRepeat;
+    }
+
+    /**
+     * Fluent setter for backgroundRepeat.
+     *
+     * @param backgroundRepeat backgroundRepeat
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundRepeat(String backgroundRepeat) {
+        this.backgroundRepeat = backgroundRepeat;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundRepeat.
+     *
+     * @return backgroundRepeat
+     */
+    @JsonProperty("backgroundRepeat")
+    public String getBackgroundRepeat() {
+        return this.backgroundRepeat;
+    }
+
+    /**
+     * Sets the value of backgroundRepeat.
+     *
+     * @param backgroundRepeat backgroundRepeat
+     */
+    public void setBackgroundRepeat(String backgroundRepeat) {
+        this.backgroundRepeat = backgroundRepeat;
+    }
+    /**
+     * Fluent getter for backgroundSize.
+     *
+     * @return backgroundSize
+     */
+    public String backgroundSize() {
+        return this.backgroundSize;
+    }
+
+    /**
+     * Fluent setter for backgroundSize.
+     *
+     * @param backgroundSize backgroundSize
+     * @return this
+     */
+    public ScreenLookAndFeel backgroundSize(String backgroundSize) {
+        this.backgroundSize = backgroundSize;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundSize.
+     *
+     * @return backgroundSize
+     */
+    @JsonProperty("backgroundSize")
+    public String getBackgroundSize() {
+        return this.backgroundSize;
+    }
+
+    /**
+     * Sets the value of backgroundSize.
+     *
+     * @param backgroundSize backgroundSize
+     */
+    public void setBackgroundSize(String backgroundSize) {
+        this.backgroundSize = backgroundSize;
+    }
+    /**
+     * Fluent getter for layer.
+     *
+     * @return layer
+     */
+    public Layer layer() {
+        return this.layer;
+    }
+
+    /**
+     * Fluent setter for layer.
+     *
+     * @param layer layer
+     * @return this
+     */
+    public ScreenLookAndFeel layer(Layer layer) {
+        this.layer = layer;
+        return this;
+    }
+
+    /**
+     * Gets the value of layer.
+     *
+     * @return layer
+     */
+    @JsonProperty("layer")
+    public Layer getLayer() {
+        return this.layer;
+    }
+
+    /**
+     * Sets the value of layer.
+     *
+     * @param layer layer
+     */
+    public void setLayer(Layer layer) {
+        this.layer = layer;
+    }
+    /**
+     * Fluent getter for gutterTop.
+     *
+     * @return gutterTop
+     */
+    public String gutterTop() {
+        return this.gutterTop;
+    }
+
+    /**
+     * Fluent setter for gutterTop.
+     *
+     * @param gutterTop gutterTop
+     * @return this
+     */
+    public ScreenLookAndFeel gutterTop(String gutterTop) {
+        this.gutterTop = gutterTop;
+        return this;
+    }
+
+    /**
+     * Gets the value of gutterTop.
+     *
+     * @return gutterTop
+     */
+    @JsonProperty("gutterTop")
+    public String getGutterTop() {
+        return this.gutterTop;
+    }
+
+    /**
+     * Sets the value of gutterTop.
+     *
+     * @param gutterTop gutterTop
+     */
+    public void setGutterTop(String gutterTop) {
+        this.gutterTop = gutterTop;
+    }
+    /**
+     * Fluent getter for gutterRight.
+     *
+     * @return gutterRight
+     */
+    public String gutterRight() {
+        return this.gutterRight;
+    }
+
+    /**
+     * Fluent setter for gutterRight.
+     *
+     * @param gutterRight gutterRight
+     * @return this
+     */
+    public ScreenLookAndFeel gutterRight(String gutterRight) {
+        this.gutterRight = gutterRight;
+        return this;
+    }
+
+    /**
+     * Gets the value of gutterRight.
+     *
+     * @return gutterRight
+     */
+    @JsonProperty("gutterRight")
+    public String getGutterRight() {
+        return this.gutterRight;
+    }
+
+    /**
+     * Sets the value of gutterRight.
+     *
+     * @param gutterRight gutterRight
+     */
+    public void setGutterRight(String gutterRight) {
+        this.gutterRight = gutterRight;
+    }
+    /**
+     * Fluent getter for gutterBottom.
+     *
+     * @return gutterBottom
+     */
+    public String gutterBottom() {
+        return this.gutterBottom;
+    }
+
+    /**
+     * Fluent setter for gutterBottom.
+     *
+     * @param gutterBottom gutterBottom
+     * @return this
+     */
+    public ScreenLookAndFeel gutterBottom(String gutterBottom) {
+        this.gutterBottom = gutterBottom;
+        return this;
+    }
+
+    /**
+     * Gets the value of gutterBottom.
+     *
+     * @return gutterBottom
+     */
+    @JsonProperty("gutterBottom")
+    public String getGutterBottom() {
+        return this.gutterBottom;
+    }
+
+    /**
+     * Sets the value of gutterBottom.
+     *
+     * @param gutterBottom gutterBottom
+     */
+    public void setGutterBottom(String gutterBottom) {
+        this.gutterBottom = gutterBottom;
+    }
+    /**
+     * Fluent getter for gutterLeft.
+     *
+     * @return gutterLeft
+     */
+    public String gutterLeft() {
+        return this.gutterLeft;
+    }
+
+    /**
+     * Fluent setter for gutterLeft.
+     *
+     * @param gutterLeft gutterLeft
+     * @return this
+     */
+    public ScreenLookAndFeel gutterLeft(String gutterLeft) {
+        this.gutterLeft = gutterLeft;
+        return this;
+    }
+
+    /**
+     * Gets the value of gutterLeft.
+     *
+     * @return gutterLeft
+     */
+    @JsonProperty("gutterLeft")
+    public String getGutterLeft() {
+        return this.gutterLeft;
+    }
+
+    /**
+     * Sets the value of gutterLeft.
+     *
+     * @param gutterLeft gutterLeft
+     */
+    public void setGutterLeft(String gutterLeft) {
+        this.gutterLeft = gutterLeft;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ScreenLookAndFeel that = (ScreenLookAndFeel) o;
+        return
+            Objects.equals(this.background, that.background) &&
+            Objects.equals(this.backgroundAttachment, that.backgroundAttachment) &&
+            Objects.equals(this.backgroundBlendMode, that.backgroundBlendMode) &&
+            Objects.equals(this.backgroundClip, that.backgroundClip) &&
+            Objects.equals(this.backgroundColor, that.backgroundColor) &&
+            Objects.equals(this.backgroundImage, that.backgroundImage) &&
+            Objects.equals(this.backgroundOrigin, that.backgroundOrigin) &&
+            Objects.equals(this.backgroundPosition, that.backgroundPosition) &&
+            Objects.equals(this.backgroundRepeat, that.backgroundRepeat) &&
+            Objects.equals(this.backgroundSize, that.backgroundSize) &&
+            Objects.equals(this.layer, that.layer) &&
+            Objects.equals(this.gutterTop, that.gutterTop) &&
+            Objects.equals(this.gutterRight, that.gutterRight) &&
+            Objects.equals(this.gutterBottom, that.gutterBottom) &&
+            Objects.equals(this.gutterLeft, that.gutterLeft);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.background, 
+            this.backgroundAttachment, 
+            this.backgroundBlendMode, 
+            this.backgroundClip, 
+            this.backgroundColor, 
+            this.backgroundImage, 
+            this.backgroundOrigin, 
+            this.backgroundPosition, 
+            this.backgroundRepeat, 
+            this.backgroundSize, 
+            this.layer, 
+            this.gutterTop, 
+            this.gutterRight, 
+            this.gutterBottom, 
+            this.gutterLeft
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ScreenLookAndFeel{" +
+            "background=" + background + ", " + 
+            "backgroundAttachment=" + backgroundAttachment + ", " + 
+            "backgroundBlendMode=" + backgroundBlendMode + ", " + 
+            "backgroundClip=" + backgroundClip + ", " + 
+            "backgroundColor=" + backgroundColor + ", " + 
+            "backgroundImage=" + backgroundImage + ", " + 
+            "backgroundOrigin=" + backgroundOrigin + ", " + 
+            "backgroundPosition=" + backgroundPosition + ", " + 
+            "backgroundRepeat=" + backgroundRepeat + ", " + 
+            "backgroundSize=" + backgroundSize + ", " + 
+            "layer=" + layer + ", " + 
+            "gutterTop=" + gutterTop + ", " + 
+            "gutterRight=" + gutterRight + ", " + 
+            "gutterBottom=" + gutterBottom + ", " + 
+            "gutterLeft=" + gutterLeft +
+            "}";
     }
 }

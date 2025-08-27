@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * HoverOrFocus
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("HoverOrFocus")
 @JsonPropertyOrder({
     "backgroundColor"
@@ -47,6 +35,13 @@ public class HoverOrFocus {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected HoverOrFocus() {
+    }
+
+    /**
      * Constructs a validated instance of {@link HoverOrFocus}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HoverOrFocus(Consumer)} instead.
@@ -55,5 +50,68 @@ public class HoverOrFocus {
     @ApiStatus.Internal
     public HoverOrFocus(String backgroundColor) {
         this.backgroundColor = backgroundColor;
+    }
+
+
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public HoverOrFocus backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HoverOrFocus that = (HoverOrFocus) o;
+        return
+            Objects.equals(this.backgroundColor, that.backgroundColor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.backgroundColor
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "HoverOrFocus{" +
+            "backgroundColor=" + backgroundColor +
+            "}";
     }
 }

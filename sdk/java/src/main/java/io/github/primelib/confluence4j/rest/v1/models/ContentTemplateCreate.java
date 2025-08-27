@@ -7,15 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * This object is used to create content templates.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentTemplateCreate")
 @JsonPropertyOrder({
     "name",
@@ -97,6 +85,13 @@ template.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentTemplateCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentTemplateCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentTemplateCreate(Consumer)} instead.
@@ -123,5 +118,353 @@ template.
         this.description = description;
         this.labels = labels;
         this.space = space;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     * <p>
+     * The name of the new template.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * The name of the new template.
+     *
+     * @param name name
+     * @return this
+     */
+    public ContentTemplateCreate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * The name of the new template.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * The name of the new template.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for templateType.
+     * <p>
+     * The type of the new template. Set to `page`.
+     *
+     * @return templateType
+     */
+    public String templateType() {
+        return this.templateType;
+    }
+
+    /**
+     * Fluent setter for templateType.
+     * <p>
+     * The type of the new template. Set to `page`.
+     *
+     * @param templateType templateType
+     * @return this
+     */
+    public ContentTemplateCreate templateType(String templateType) {
+        this.templateType = templateType;
+        return this;
+    }
+
+    /**
+     * Gets the value of templateType.
+     * <p>
+     * The type of the new template. Set to `page`.
+     *
+     * @return templateType
+     */
+    @JsonProperty("templateType")
+    public String getTemplateType() {
+        return this.templateType;
+    }
+
+    /**
+     * Sets the value of templateType.
+     * <p>
+     * The type of the new template. Set to `page`.
+     *
+     * @param templateType templateType
+     */
+    public void setTemplateType(String templateType) {
+        this.templateType = templateType;
+    }
+    /**
+     * Fluent getter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    public ContentTemplateBodyCreate body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     * @return this
+     */
+    public ContentTemplateCreate body(ContentTemplateBodyCreate body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public ContentTemplateBodyCreate getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     */
+    public void setBody(ContentTemplateBodyCreate body) {
+        this.body = body;
+    }
+    /**
+     * Fluent getter for description.
+     * <p>
+     * A description of the new template.
+     *
+     * @return description
+     */
+    public String description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     * <p>
+     * A description of the new template.
+     *
+     * @param description description
+     * @return this
+     */
+    public ContentTemplateCreate description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     * <p>
+     * A description of the new template.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     * <p>
+     * A description of the new template.
+     *
+     * @param description description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for labels.
+     * <p>
+     * Labels for the new template.
+     *
+     * @return labels
+     */
+    public List<Label> labels() {
+        return this.labels;
+    }
+
+    /**
+     * Fluent setter for labels.
+     * <p>
+     * Labels for the new template.
+     *
+     * @param labels labels
+     * @return this
+     */
+    public ContentTemplateCreate labels(List<Label> labels) {
+        this.labels = labels;
+        return this;
+    }
+
+    /**
+     * Gets the value of labels.
+     * <p>
+     * Labels for the new template.
+     *
+     * @return labels
+     */
+    @JsonProperty("labels")
+    public List<Label> getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets the value of labels.
+     * <p>
+     * Labels for the new template.
+     *
+     * @param labels labels
+     */
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
+    }
+    /**
+     * Fluent getter for space.
+     * <p>
+     * The key for the space of the new template. Only applies to space templates.
+     * If the spaceKey is not specified, the template will be created as a global
+     * template.
+     *
+     * @return space
+     */
+    public Map<String, Object> space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     * <p>
+     * The key for the space of the new template. Only applies to space templates.
+     * If the spaceKey is not specified, the template will be created as a global
+     * template.
+     *
+     * @param space space
+     * @return this
+     */
+    public ContentTemplateCreate space(Map<String, Object> space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     * <p>
+     * The key for the space of the new template. Only applies to space templates.
+     * If the spaceKey is not specified, the template will be created as a global
+     * template.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Map<String, Object> getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     * <p>
+     * The key for the space of the new template. Only applies to space templates.
+     * If the spaceKey is not specified, the template will be created as a global
+     * template.
+     *
+     * @param space space
+     */
+    public void setSpace(Map<String, Object> space) {
+        this.space = space;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentTemplateCreate that = (ContentTemplateCreate) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.templateType, that.templateType) &&
+            Objects.equals(this.body, that.body) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.labels, that.labels) &&
+            Objects.equals(this.space, that.space);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.templateType, 
+            this.body, 
+            this.description, 
+            this.labels, 
+            this.space
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentTemplateCreate{" +
+            "name=" + name + ", " + 
+            "templateType=" + templateType + ", " + 
+            "body=" + body + ", " + 
+            "description=" + description + ", " + 
+            "labels=" + labels + ", " + 
+            "space=" + space +
+            "}";
     }
 }

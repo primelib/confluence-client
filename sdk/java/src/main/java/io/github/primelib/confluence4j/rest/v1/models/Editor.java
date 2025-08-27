@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Editor
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Editor")
 @JsonPropertyOrder({
     "page",
@@ -55,6 +43,13 @@ public class Editor {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Editor() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Editor}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Editor(Consumer)} instead.
@@ -67,5 +62,150 @@ public class Editor {
         this.page = page;
         this.blogpost = blogpost;
         this.defaultProp = defaultProp;
+    }
+
+
+    /**
+     * Fluent getter for page.
+     *
+     * @return page
+     */
+    public String page() {
+        return this.page;
+    }
+
+    /**
+     * Fluent setter for page.
+     *
+     * @param page page
+     * @return this
+     */
+    public Editor page(String page) {
+        this.page = page;
+        return this;
+    }
+
+    /**
+     * Gets the value of page.
+     *
+     * @return page
+     */
+    @JsonProperty("page")
+    public String getPage() {
+        return this.page;
+    }
+
+    /**
+     * Sets the value of page.
+     *
+     * @param page page
+     */
+    public void setPage(String page) {
+        this.page = page;
+    }
+    /**
+     * Fluent getter for blogpost.
+     *
+     * @return blogpost
+     */
+    public String blogpost() {
+        return this.blogpost;
+    }
+
+    /**
+     * Fluent setter for blogpost.
+     *
+     * @param blogpost blogpost
+     * @return this
+     */
+    public Editor blogpost(String blogpost) {
+        this.blogpost = blogpost;
+        return this;
+    }
+
+    /**
+     * Gets the value of blogpost.
+     *
+     * @return blogpost
+     */
+    @JsonProperty("blogpost")
+    public String getBlogpost() {
+        return this.blogpost;
+    }
+
+    /**
+     * Sets the value of blogpost.
+     *
+     * @param blogpost blogpost
+     */
+    public void setBlogpost(String blogpost) {
+        this.blogpost = blogpost;
+    }
+    /**
+     * Fluent getter for defaultProp.
+     *
+     * @return defaultProp
+     */
+    public String defaultProp() {
+        return this.defaultProp;
+    }
+
+    /**
+     * Fluent setter for defaultProp.
+     *
+     * @param defaultProp defaultProp
+     * @return this
+     */
+    public Editor defaultProp(String defaultProp) {
+        this.defaultProp = defaultProp;
+        return this;
+    }
+
+    /**
+     * Gets the value of defaultProp.
+     *
+     * @return defaultProp
+     */
+    @JsonProperty("default")
+    public String getDefaultProp() {
+        return this.defaultProp;
+    }
+
+    /**
+     * Sets the value of defaultProp.
+     *
+     * @param defaultProp defaultProp
+     */
+    public void setDefaultProp(String defaultProp) {
+        this.defaultProp = defaultProp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Editor that = (Editor) o;
+        return
+            Objects.equals(this.page, that.page) &&
+            Objects.equals(this.blogpost, that.blogpost) &&
+            Objects.equals(this.defaultProp, that.defaultProp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.page, 
+            this.blogpost, 
+            this.defaultProp
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Editor{" +
+            "page=" + page + ", " + 
+            "blogpost=" + blogpost + ", " + 
+            "defaultProp=" + defaultProp +
+            "}";
     }
 }

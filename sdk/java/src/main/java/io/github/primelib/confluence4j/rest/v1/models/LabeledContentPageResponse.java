@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LabeledContentPageResponse
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LabeledContentPageResponse")
 @JsonPropertyOrder({
     "results",
@@ -60,6 +48,13 @@ public class LabeledContentPageResponse {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LabeledContentPageResponse() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LabeledContentPageResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LabeledContentPageResponse(Consumer)} instead.
@@ -74,5 +69,191 @@ public class LabeledContentPageResponse {
         this.start = start;
         this.limit = limit;
         this.size = size;
+    }
+
+
+    /**
+     * Fluent getter for results.
+     *
+     * @return results
+     */
+    public List<LabeledContent> results() {
+        return this.results;
+    }
+
+    /**
+     * Fluent setter for results.
+     *
+     * @param results results
+     * @return this
+     */
+    public LabeledContentPageResponse results(List<LabeledContent> results) {
+        this.results = results;
+        return this;
+    }
+
+    /**
+     * Gets the value of results.
+     *
+     * @return results
+     */
+    @JsonProperty("results")
+    public List<LabeledContent> getResults() {
+        return this.results;
+    }
+
+    /**
+     * Sets the value of results.
+     *
+     * @param results results
+     */
+    public void setResults(List<LabeledContent> results) {
+        this.results = results;
+    }
+    /**
+     * Fluent getter for start.
+     *
+     * @return start
+     */
+    public Integer start() {
+        return this.start;
+    }
+
+    /**
+     * Fluent setter for start.
+     *
+     * @param start start
+     * @return this
+     */
+    public LabeledContentPageResponse start(Integer start) {
+        this.start = start;
+        return this;
+    }
+
+    /**
+     * Gets the value of start.
+     *
+     * @return start
+     */
+    @JsonProperty("start")
+    public Integer getStart() {
+        return this.start;
+    }
+
+    /**
+     * Sets the value of start.
+     *
+     * @param start start
+     */
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+    /**
+     * Fluent getter for limit.
+     *
+     * @return limit
+     */
+    public Integer limit() {
+        return this.limit;
+    }
+
+    /**
+     * Fluent setter for limit.
+     *
+     * @param limit limit
+     * @return this
+     */
+    public LabeledContentPageResponse limit(Integer limit) {
+        this.limit = limit;
+        return this;
+    }
+
+    /**
+     * Gets the value of limit.
+     *
+     * @return limit
+     */
+    @JsonProperty("limit")
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    /**
+     * Sets the value of limit.
+     *
+     * @param limit limit
+     */
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+    /**
+     * Fluent getter for size.
+     *
+     * @return size
+     */
+    public Integer size() {
+        return this.size;
+    }
+
+    /**
+     * Fluent setter for size.
+     *
+     * @param size size
+     * @return this
+     */
+    public LabeledContentPageResponse size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Gets the value of size.
+     *
+     * @return size
+     */
+    @JsonProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    /**
+     * Sets the value of size.
+     *
+     * @param size size
+     */
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LabeledContentPageResponse that = (LabeledContentPageResponse) o;
+        return
+            Objects.equals(this.results, that.results) &&
+            Objects.equals(this.start, that.start) &&
+            Objects.equals(this.limit, that.limit) &&
+            Objects.equals(this.size, that.size);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.results, 
+            this.start, 
+            this.limit, 
+            this.size
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LabeledContentPageResponse{" +
+            "results=" + results + ", " + 
+            "start=" + start + ", " + 
+            "limit=" + limit + ", " + 
+            "size=" + size +
+            "}";
     }
 }

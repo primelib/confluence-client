@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Currentuser
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Currentuser")
 @JsonPropertyOrder({
     "favourited",
@@ -33,7 +21,7 @@ import org.jetbrains.annotations.ApiStatus;
     "lastcontributed",
     "viewed",
     "scheduled",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Currentuser {
@@ -54,7 +42,7 @@ public class Currentuser {
     protected Object scheduled;
 
     @JsonProperty("_expandable")
-    protected Expandable6A8E6D Expandable;
+    protected Expandable6A8E6D additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link Currentuser}.
@@ -67,6 +55,13 @@ public class Currentuser {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Currentuser() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Currentuser}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Currentuser(Consumer)} instead.
@@ -75,15 +70,283 @@ public class Currentuser {
      * @param lastcontributed lastcontributed
      * @param viewed viewed
      * @param scheduled scheduled
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public Currentuser(Favourited favourited, Lastmodified lastmodified, Lastcontributed lastcontributed, Viewed viewed, Object scheduled, Expandable6A8E6D Expandable) {
+    public Currentuser(Favourited favourited, Lastmodified lastmodified, Lastcontributed lastcontributed, Viewed viewed, Object scheduled, Expandable6A8E6D additionalExpandable) {
         this.favourited = favourited;
         this.lastmodified = lastmodified;
         this.lastcontributed = lastcontributed;
         this.viewed = viewed;
         this.scheduled = scheduled;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for favourited.
+     *
+     * @return favourited
+     */
+    public Favourited favourited() {
+        return this.favourited;
+    }
+
+    /**
+     * Fluent setter for favourited.
+     *
+     * @param favourited favourited
+     * @return this
+     */
+    public Currentuser favourited(Favourited favourited) {
+        this.favourited = favourited;
+        return this;
+    }
+
+    /**
+     * Gets the value of favourited.
+     *
+     * @return favourited
+     */
+    @JsonProperty("favourited")
+    public Favourited getFavourited() {
+        return this.favourited;
+    }
+
+    /**
+     * Sets the value of favourited.
+     *
+     * @param favourited favourited
+     */
+    public void setFavourited(Favourited favourited) {
+        this.favourited = favourited;
+    }
+    /**
+     * Fluent getter for lastmodified.
+     *
+     * @return lastmodified
+     */
+    public Lastmodified lastmodified() {
+        return this.lastmodified;
+    }
+
+    /**
+     * Fluent setter for lastmodified.
+     *
+     * @param lastmodified lastmodified
+     * @return this
+     */
+    public Currentuser lastmodified(Lastmodified lastmodified) {
+        this.lastmodified = lastmodified;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastmodified.
+     *
+     * @return lastmodified
+     */
+    @JsonProperty("lastmodified")
+    public Lastmodified getLastmodified() {
+        return this.lastmodified;
+    }
+
+    /**
+     * Sets the value of lastmodified.
+     *
+     * @param lastmodified lastmodified
+     */
+    public void setLastmodified(Lastmodified lastmodified) {
+        this.lastmodified = lastmodified;
+    }
+    /**
+     * Fluent getter for lastcontributed.
+     *
+     * @return lastcontributed
+     */
+    public Lastcontributed lastcontributed() {
+        return this.lastcontributed;
+    }
+
+    /**
+     * Fluent setter for lastcontributed.
+     *
+     * @param lastcontributed lastcontributed
+     * @return this
+     */
+    public Currentuser lastcontributed(Lastcontributed lastcontributed) {
+        this.lastcontributed = lastcontributed;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastcontributed.
+     *
+     * @return lastcontributed
+     */
+    @JsonProperty("lastcontributed")
+    public Lastcontributed getLastcontributed() {
+        return this.lastcontributed;
+    }
+
+    /**
+     * Sets the value of lastcontributed.
+     *
+     * @param lastcontributed lastcontributed
+     */
+    public void setLastcontributed(Lastcontributed lastcontributed) {
+        this.lastcontributed = lastcontributed;
+    }
+    /**
+     * Fluent getter for viewed.
+     *
+     * @return viewed
+     */
+    public Viewed viewed() {
+        return this.viewed;
+    }
+
+    /**
+     * Fluent setter for viewed.
+     *
+     * @param viewed viewed
+     * @return this
+     */
+    public Currentuser viewed(Viewed viewed) {
+        this.viewed = viewed;
+        return this;
+    }
+
+    /**
+     * Gets the value of viewed.
+     *
+     * @return viewed
+     */
+    @JsonProperty("viewed")
+    public Viewed getViewed() {
+        return this.viewed;
+    }
+
+    /**
+     * Sets the value of viewed.
+     *
+     * @param viewed viewed
+     */
+    public void setViewed(Viewed viewed) {
+        this.viewed = viewed;
+    }
+    /**
+     * Fluent getter for scheduled.
+     *
+     * @return scheduled
+     */
+    public Object scheduled() {
+        return this.scheduled;
+    }
+
+    /**
+     * Fluent setter for scheduled.
+     *
+     * @param scheduled scheduled
+     * @return this
+     */
+    public Currentuser scheduled(Object scheduled) {
+        this.scheduled = scheduled;
+        return this;
+    }
+
+    /**
+     * Gets the value of scheduled.
+     *
+     * @return scheduled
+     */
+    @JsonProperty("scheduled")
+    public Object getScheduled() {
+        return this.scheduled;
+    }
+
+    /**
+     * Sets the value of scheduled.
+     *
+     * @param scheduled scheduled
+     */
+    public void setScheduled(Object scheduled) {
+        this.scheduled = scheduled;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable6A8E6D additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Currentuser additionalExpandable(Expandable6A8E6D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable6A8E6D getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable6A8E6D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Currentuser that = (Currentuser) o;
+        return
+            Objects.equals(this.favourited, that.favourited) &&
+            Objects.equals(this.lastmodified, that.lastmodified) &&
+            Objects.equals(this.lastcontributed, that.lastcontributed) &&
+            Objects.equals(this.viewed, that.viewed) &&
+            Objects.equals(this.scheduled, that.scheduled) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.favourited, 
+            this.lastmodified, 
+            this.lastcontributed, 
+            this.viewed, 
+            this.scheduled, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Currentuser{" +
+            "favourited=" + favourited + ", " + 
+            "lastmodified=" + lastmodified + ", " + 
+            "lastcontributed=" + lastcontributed + ", " + 
+            "viewed=" + viewed + ", " + 
+            "scheduled=" + scheduled + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

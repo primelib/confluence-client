@@ -7,15 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -45,12 +39,6 @@ import org.jetbrains.annotations.ApiStatus;
  * - `UNKNOWN_STATUS` - Message when status is unknown
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LongTaskStatusWithLinks")
 @JsonPropertyOrder({
     "ari",
@@ -61,7 +49,7 @@ import org.jetbrains.annotations.ApiStatus;
     "successful",
     "finished",
     "messages",
-    "Links",
+    "additionalLinks",
     "status",
     "errors",
     "additionalDetails"
@@ -97,7 +85,7 @@ public class LongTaskStatusWithLinks {
     protected List<Map<String, Object>> messages;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     @JsonProperty("status")
     protected String status;
@@ -119,6 +107,13 @@ public class LongTaskStatusWithLinks {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LongTaskStatusWithLinks() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LongTaskStatusWithLinks}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LongTaskStatusWithLinks(Consumer)} instead.
@@ -130,13 +125,13 @@ public class LongTaskStatusWithLinks {
      * @param successful successful
      * @param finished finished
      * @param messages messages
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      * @param status status
      * @param errors errors
      * @param additionalDetails additionalDetails
      */
     @ApiStatus.Internal
-    public LongTaskStatusWithLinks(String ari, String id, Name name, Long elapsedTime, Integer percentageComplete, Boolean successful, Boolean finished, List<Map<String, Object>> messages, Map<String, Object> Links, String status, List<Map<String, Object>> errors, AdditionalDetails7A6F26 additionalDetails) {
+    public LongTaskStatusWithLinks(String ari, String id, Name name, Long elapsedTime, Integer percentageComplete, Boolean successful, Boolean finished, List<Map<String, Object>> messages, Map<String, Object> additionalLinks, String status, List<Map<String, Object>> errors, AdditionalDetails7A6F26 additionalDetails) {
         this.ari = ari;
         this.id = id;
         this.name = name;
@@ -145,9 +140,531 @@ public class LongTaskStatusWithLinks {
         this.successful = successful;
         this.finished = finished;
         this.messages = messages;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
         this.status = status;
         this.errors = errors;
         this.additionalDetails = additionalDetails;
+    }
+
+
+    /**
+     * Fluent getter for ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @return ari
+     */
+    public String ari() {
+        return this.ari;
+    }
+
+    /**
+     * Fluent setter for ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @param ari ari
+     * @return this
+     */
+    public LongTaskStatusWithLinks ari(String ari) {
+        this.ari = ari;
+        return this;
+    }
+
+    /**
+     * Gets the value of ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @return ari
+     */
+    @JsonProperty("ari")
+    public String getAri() {
+        return this.ari;
+    }
+
+    /**
+     * Sets the value of ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @param ari ari
+     */
+    public void setAri(String ari) {
+        this.ari = ari;
+    }
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public LongTaskStatusWithLinks id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public Name name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public LongTaskStatusWithLinks name(Name name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public Name getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(Name name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for elapsedTime.
+     *
+     * @return elapsedTime
+     */
+    public Long elapsedTime() {
+        return this.elapsedTime;
+    }
+
+    /**
+     * Fluent setter for elapsedTime.
+     *
+     * @param elapsedTime elapsedTime
+     * @return this
+     */
+    public LongTaskStatusWithLinks elapsedTime(Long elapsedTime) {
+        this.elapsedTime = elapsedTime;
+        return this;
+    }
+
+    /**
+     * Gets the value of elapsedTime.
+     *
+     * @return elapsedTime
+     */
+    @JsonProperty("elapsedTime")
+    public Long getElapsedTime() {
+        return this.elapsedTime;
+    }
+
+    /**
+     * Sets the value of elapsedTime.
+     *
+     * @param elapsedTime elapsedTime
+     */
+    public void setElapsedTime(Long elapsedTime) {
+        this.elapsedTime = elapsedTime;
+    }
+    /**
+     * Fluent getter for percentageComplete.
+     *
+     * @return percentageComplete
+     */
+    public Integer percentageComplete() {
+        return this.percentageComplete;
+    }
+
+    /**
+     * Fluent setter for percentageComplete.
+     *
+     * @param percentageComplete percentageComplete
+     * @return this
+     */
+    public LongTaskStatusWithLinks percentageComplete(Integer percentageComplete) {
+        this.percentageComplete = percentageComplete;
+        return this;
+    }
+
+    /**
+     * Gets the value of percentageComplete.
+     *
+     * @return percentageComplete
+     */
+    @JsonProperty("percentageComplete")
+    public Integer getPercentageComplete() {
+        return this.percentageComplete;
+    }
+
+    /**
+     * Sets the value of percentageComplete.
+     *
+     * @param percentageComplete percentageComplete
+     */
+    public void setPercentageComplete(Integer percentageComplete) {
+        this.percentageComplete = percentageComplete;
+    }
+    /**
+     * Fluent getter for successful.
+     *
+     * @return successful
+     */
+    public Boolean successful() {
+        return this.successful;
+    }
+
+    /**
+     * Fluent setter for successful.
+     *
+     * @param successful successful
+     * @return this
+     */
+    public LongTaskStatusWithLinks successful(Boolean successful) {
+        this.successful = successful;
+        return this;
+    }
+
+    /**
+     * Gets the value of successful.
+     *
+     * @return successful
+     */
+    @JsonProperty("successful")
+    public Boolean getSuccessful() {
+        return this.successful;
+    }
+
+    /**
+     * Sets the value of successful.
+     *
+     * @param successful successful
+     */
+    public void setSuccessful(Boolean successful) {
+        this.successful = successful;
+    }
+    /**
+     * Fluent getter for finished.
+     *
+     * @return finished
+     */
+    public Boolean finished() {
+        return this.finished;
+    }
+
+    /**
+     * Fluent setter for finished.
+     *
+     * @param finished finished
+     * @return this
+     */
+    public LongTaskStatusWithLinks finished(Boolean finished) {
+        this.finished = finished;
+        return this;
+    }
+
+    /**
+     * Gets the value of finished.
+     *
+     * @return finished
+     */
+    @JsonProperty("finished")
+    public Boolean getFinished() {
+        return this.finished;
+    }
+
+    /**
+     * Sets the value of finished.
+     *
+     * @param finished finished
+     */
+    public void setFinished(Boolean finished) {
+        this.finished = finished;
+    }
+    /**
+     * Fluent getter for messages.
+     *
+     * @return messages
+     */
+    public List<Map<String, Object>> messages() {
+        return this.messages;
+    }
+
+    /**
+     * Fluent setter for messages.
+     *
+     * @param messages messages
+     * @return this
+     */
+    public LongTaskStatusWithLinks messages(List<Map<String, Object>> messages) {
+        this.messages = messages;
+        return this;
+    }
+
+    /**
+     * Gets the value of messages.
+     *
+     * @return messages
+     */
+    @JsonProperty("messages")
+    public List<Map<String, Object>> getMessages() {
+        return this.messages;
+    }
+
+    /**
+     * Sets the value of messages.
+     *
+     * @param messages messages
+     */
+    public void setMessages(List<Map<String, Object>> messages) {
+        this.messages = messages;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public LongTaskStatusWithLinks additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+    /**
+     * Fluent getter for status.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     *
+     * @param status status
+     * @return this
+     */
+    public LongTaskStatusWithLinks status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for errors.
+     *
+     * @return errors
+     */
+    public List<Map<String, Object>> errors() {
+        return this.errors;
+    }
+
+    /**
+     * Fluent setter for errors.
+     *
+     * @param errors errors
+     * @return this
+     */
+    public LongTaskStatusWithLinks errors(List<Map<String, Object>> errors) {
+        this.errors = errors;
+        return this;
+    }
+
+    /**
+     * Gets the value of errors.
+     *
+     * @return errors
+     */
+    @JsonProperty("errors")
+    public List<Map<String, Object>> getErrors() {
+        return this.errors;
+    }
+
+    /**
+     * Sets the value of errors.
+     *
+     * @param errors errors
+     */
+    public void setErrors(List<Map<String, Object>> errors) {
+        this.errors = errors;
+    }
+    /**
+     * Fluent getter for additionalDetails.
+     *
+     * @return additionalDetails
+     */
+    public AdditionalDetails7A6F26 additionalDetails() {
+        return this.additionalDetails;
+    }
+
+    /**
+     * Fluent setter for additionalDetails.
+     *
+     * @param additionalDetails additionalDetails
+     * @return this
+     */
+    public LongTaskStatusWithLinks additionalDetails(AdditionalDetails7A6F26 additionalDetails) {
+        this.additionalDetails = additionalDetails;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalDetails.
+     *
+     * @return additionalDetails
+     */
+    @JsonProperty("additionalDetails")
+    public AdditionalDetails7A6F26 getAdditionalDetails() {
+        return this.additionalDetails;
+    }
+
+    /**
+     * Sets the value of additionalDetails.
+     *
+     * @param additionalDetails additionalDetails
+     */
+    public void setAdditionalDetails(AdditionalDetails7A6F26 additionalDetails) {
+        this.additionalDetails = additionalDetails;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LongTaskStatusWithLinks that = (LongTaskStatusWithLinks) o;
+        return
+            Objects.equals(this.ari, that.ari) &&
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.elapsedTime, that.elapsedTime) &&
+            Objects.equals(this.percentageComplete, that.percentageComplete) &&
+            Objects.equals(this.successful, that.successful) &&
+            Objects.equals(this.finished, that.finished) &&
+            Objects.equals(this.messages, that.messages) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks) &&
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.errors, that.errors) &&
+            Objects.equals(this.additionalDetails, that.additionalDetails);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.ari, 
+            this.id, 
+            this.name, 
+            this.elapsedTime, 
+            this.percentageComplete, 
+            this.successful, 
+            this.finished, 
+            this.messages, 
+            this.additionalLinks, 
+            this.status, 
+            this.errors, 
+            this.additionalDetails
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LongTaskStatusWithLinks{" +
+            "ari=" + ari + ", " + 
+            "id=" + id + ", " + 
+            "name=" + name + ", " + 
+            "elapsedTime=" + elapsedTime + ", " + 
+            "percentageComplete=" + percentageComplete + ", " + 
+            "successful=" + successful + ", " + 
+            "finished=" + finished + ", " + 
+            "messages=" + messages + ", " + 
+            "additionalLinks=" + additionalLinks + ", " + 
+            "status=" + status + ", " + 
+            "errors=" + errors + ", " + 
+            "additionalDetails=" + additionalDetails +
+            "}";
     }
 }

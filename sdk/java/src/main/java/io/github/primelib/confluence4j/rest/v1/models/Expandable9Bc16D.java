@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable9Bc16D
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable9Bc16D")
 @JsonPropertyOrder({
     "content",
@@ -59,6 +47,13 @@ public class Expandable9Bc16D {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable9Bc16D() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable9Bc16D}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable9Bc16D(Consumer)} instead.
@@ -73,5 +68,191 @@ public class Expandable9Bc16D {
         this.embeddedContent = embeddedContent;
         this.webresource = webresource;
         this.mediaToken = mediaToken;
+    }
+
+
+    /**
+     * Fluent getter for content.
+     *
+     * @return content
+     */
+    public String content() {
+        return this.content;
+    }
+
+    /**
+     * Fluent setter for content.
+     *
+     * @param content content
+     * @return this
+     */
+    public Expandable9Bc16D content(String content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets the value of content.
+     *
+     * @return content
+     */
+    @JsonProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    /**
+     * Sets the value of content.
+     *
+     * @param content content
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+    /**
+     * Fluent getter for embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    public String embeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Fluent setter for embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     * @return this
+     */
+    public Expandable9Bc16D embeddedContent(String embeddedContent) {
+        this.embeddedContent = embeddedContent;
+        return this;
+    }
+
+    /**
+     * Gets the value of embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    @JsonProperty("embeddedContent")
+    public String getEmbeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Sets the value of embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     */
+    public void setEmbeddedContent(String embeddedContent) {
+        this.embeddedContent = embeddedContent;
+    }
+    /**
+     * Fluent getter for webresource.
+     *
+     * @return webresource
+     */
+    public String webresource() {
+        return this.webresource;
+    }
+
+    /**
+     * Fluent setter for webresource.
+     *
+     * @param webresource webresource
+     * @return this
+     */
+    public Expandable9Bc16D webresource(String webresource) {
+        this.webresource = webresource;
+        return this;
+    }
+
+    /**
+     * Gets the value of webresource.
+     *
+     * @return webresource
+     */
+    @JsonProperty("webresource")
+    public String getWebresource() {
+        return this.webresource;
+    }
+
+    /**
+     * Sets the value of webresource.
+     *
+     * @param webresource webresource
+     */
+    public void setWebresource(String webresource) {
+        this.webresource = webresource;
+    }
+    /**
+     * Fluent getter for mediaToken.
+     *
+     * @return mediaToken
+     */
+    public String mediaToken() {
+        return this.mediaToken;
+    }
+
+    /**
+     * Fluent setter for mediaToken.
+     *
+     * @param mediaToken mediaToken
+     * @return this
+     */
+    public Expandable9Bc16D mediaToken(String mediaToken) {
+        this.mediaToken = mediaToken;
+        return this;
+    }
+
+    /**
+     * Gets the value of mediaToken.
+     *
+     * @return mediaToken
+     */
+    @JsonProperty("mediaToken")
+    public String getMediaToken() {
+        return this.mediaToken;
+    }
+
+    /**
+     * Sets the value of mediaToken.
+     *
+     * @param mediaToken mediaToken
+     */
+    public void setMediaToken(String mediaToken) {
+        this.mediaToken = mediaToken;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable9Bc16D that = (Expandable9Bc16D) o;
+        return
+            Objects.equals(this.content, that.content) &&
+            Objects.equals(this.embeddedContent, that.embeddedContent) &&
+            Objects.equals(this.webresource, that.webresource) &&
+            Objects.equals(this.mediaToken, that.mediaToken);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.content, 
+            this.embeddedContent, 
+            this.webresource, 
+            this.mediaToken
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable9Bc16D{" +
+            "content=" + content + ", " + 
+            "embeddedContent=" + embeddedContent + ", " + 
+            "webresource=" + webresource + ", " + 
+            "mediaToken=" + mediaToken +
+            "}";
     }
 }

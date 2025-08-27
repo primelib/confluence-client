@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Uris
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Uris")
 @JsonPropertyOrder({
     "all",
@@ -55,6 +43,13 @@ public class Uris {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Uris() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Uris}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Uris(Consumer)} instead.
@@ -67,5 +62,150 @@ public class Uris {
         this.all = all;
         this.css = css;
         this.js = js;
+    }
+
+
+    /**
+     * Fluent getter for all.
+     *
+     * @return all
+     */
+    public Object all() {
+        return this.all;
+    }
+
+    /**
+     * Fluent setter for all.
+     *
+     * @param all all
+     * @return this
+     */
+    public Uris all(Object all) {
+        this.all = all;
+        return this;
+    }
+
+    /**
+     * Gets the value of all.
+     *
+     * @return all
+     */
+    @JsonProperty("all")
+    public Object getAll() {
+        return this.all;
+    }
+
+    /**
+     * Sets the value of all.
+     *
+     * @param all all
+     */
+    public void setAll(Object all) {
+        this.all = all;
+    }
+    /**
+     * Fluent getter for css.
+     *
+     * @return css
+     */
+    public Object css() {
+        return this.css;
+    }
+
+    /**
+     * Fluent setter for css.
+     *
+     * @param css css
+     * @return this
+     */
+    public Uris css(Object css) {
+        this.css = css;
+        return this;
+    }
+
+    /**
+     * Gets the value of css.
+     *
+     * @return css
+     */
+    @JsonProperty("css")
+    public Object getCss() {
+        return this.css;
+    }
+
+    /**
+     * Sets the value of css.
+     *
+     * @param css css
+     */
+    public void setCss(Object css) {
+        this.css = css;
+    }
+    /**
+     * Fluent getter for js.
+     *
+     * @return js
+     */
+    public Object js() {
+        return this.js;
+    }
+
+    /**
+     * Fluent setter for js.
+     *
+     * @param js js
+     * @return this
+     */
+    public Uris js(Object js) {
+        this.js = js;
+        return this;
+    }
+
+    /**
+     * Gets the value of js.
+     *
+     * @return js
+     */
+    @JsonProperty("js")
+    public Object getJs() {
+        return this.js;
+    }
+
+    /**
+     * Sets the value of js.
+     *
+     * @param js js
+     */
+    public void setJs(Object js) {
+        this.js = js;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Uris that = (Uris) o;
+        return
+            Objects.equals(this.all, that.all) &&
+            Objects.equals(this.css, that.css) &&
+            Objects.equals(this.js, that.js);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.all, 
+            this.css, 
+            this.js
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Uris{" +
+            "all=" + all + ", " + 
+            "css=" + css + ", " + 
+            "js=" + js +
+            "}";
     }
 }

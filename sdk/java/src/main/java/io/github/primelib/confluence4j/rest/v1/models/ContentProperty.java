@@ -6,35 +6,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentProperty
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentProperty")
 @JsonPropertyOrder({
     "id",
     "key",
     "value",
     "version",
-    "Links",
-    "Expandable"
+    "additionalLinks",
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class ContentProperty {
@@ -55,10 +43,10 @@ public class ContentProperty {
     protected Map<String, Object> version;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     @JsonProperty("_expandable")
-    protected Expandableabce4D Expandable;
+    protected Expandableabce4D additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link ContentProperty}.
@@ -71,6 +59,13 @@ public class ContentProperty {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentProperty() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentProperty(Consumer)} instead.
@@ -78,16 +73,292 @@ public class ContentProperty {
      * @param key key
      * @param value The value of the content property. This can be empty or a complex object.
      * @param version version
-     * @param Links Links
-     * @param Expandable Expandable
+     * @param additionalLinks additionalLinks
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public ContentProperty(String id, String key, Object value, Map<String, Object> version, Map<String, Object> Links, Expandableabce4D Expandable) {
+    public ContentProperty(String id, String key, Object value, Map<String, Object> version, Map<String, Object> additionalLinks, Expandableabce4D additionalExpandable) {
         this.id = id;
         this.key = key;
         this.value = value;
         this.version = version;
-        this.Links = Links;
-        this.Expandable = Expandable;
+        this.additionalLinks = additionalLinks;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public ContentProperty id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public ContentProperty key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    public Object value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     * @return this
+     */
+    public ContentProperty value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for version.
+     *
+     * @return version
+     */
+    public Map<String, Object> version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     *
+     * @param version version
+     * @return this
+     */
+    public ContentProperty version(Map<String, Object> version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Map<String, Object> getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     *
+     * @param version version
+     */
+    public void setVersion(Map<String, Object> version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public ContentProperty additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandableabce4D additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public ContentProperty additionalExpandable(Expandableabce4D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandableabce4D getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandableabce4D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentProperty that = (ContentProperty) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.key, 
+            this.value, 
+            this.version, 
+            this.additionalLinks, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentProperty{" +
+            "id=" + id + ", " + 
+            "key=" + key + ", " + 
+            "value=" + value + ", " + 
+            "version=" + version + ", " + 
+            "additionalLinks=" + additionalLinks + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

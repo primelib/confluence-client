@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Headings
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Headings")
 @JsonPropertyOrder({
     "color"
@@ -47,6 +35,13 @@ public class Headings {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Headings() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Headings}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Headings(Consumer)} instead.
@@ -55,5 +50,68 @@ public class Headings {
     @ApiStatus.Internal
     public Headings(String color) {
         this.color = color;
+    }
+
+
+    /**
+     * Fluent getter for color.
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     *
+     * @param color color
+     * @return this
+     */
+    public Headings color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Headings that = (Headings) o;
+        return
+            Objects.equals(this.color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.color
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Headings{" +
+            "color=" + color +
+            "}";
     }
 }

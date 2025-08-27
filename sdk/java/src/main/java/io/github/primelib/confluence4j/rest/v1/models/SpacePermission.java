@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -32,12 +26,6 @@ import org.jetbrains.annotations.ApiStatus;
  *   - 'administer': 'space'
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePermission")
 @JsonPropertyOrder({
     "id",
@@ -88,6 +76,13 @@ with the 'read space' operation.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePermission() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePermission}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePermission(Consumer)} instead.
@@ -105,5 +100,268 @@ with the 'read space' operation.
         this.operation = operation;
         this.anonymousAccess = anonymousAccess;
         this.unlicensedAccess = unlicensedAccess;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public SpacePermission id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for subjects.
+     * <p>
+     * The users and/or groups that the permission applies to.
+     *
+     * @return subjects
+     */
+    public Subjects subjects() {
+        return this.subjects;
+    }
+
+    /**
+     * Fluent setter for subjects.
+     * <p>
+     * The users and/or groups that the permission applies to.
+     *
+     * @param subjects subjects
+     * @return this
+     */
+    public SpacePermission subjects(Subjects subjects) {
+        this.subjects = subjects;
+        return this;
+    }
+
+    /**
+     * Gets the value of subjects.
+     * <p>
+     * The users and/or groups that the permission applies to.
+     *
+     * @return subjects
+     */
+    @JsonProperty("subjects")
+    public Subjects getSubjects() {
+        return this.subjects;
+    }
+
+    /**
+     * Sets the value of subjects.
+     * <p>
+     * The users and/or groups that the permission applies to.
+     *
+     * @param subjects subjects
+     */
+    public void setSubjects(Subjects subjects) {
+        this.subjects = subjects;
+    }
+    /**
+     * Fluent getter for operation.
+     * <p>
+     * An operation and the target entity that it applies to, e.g. create page.
+     *
+     * @return operation
+     */
+    public OperationCheckResult operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     * <p>
+     * An operation and the target entity that it applies to, e.g. create page.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public SpacePermission operation(OperationCheckResult operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     * <p>
+     * An operation and the target entity that it applies to, e.g. create page.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public OperationCheckResult getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     * <p>
+     * An operation and the target entity that it applies to, e.g. create page.
+     *
+     * @param operation operation
+     */
+    public void setOperation(OperationCheckResult operation) {
+        this.operation = operation;
+    }
+    /**
+     * Fluent getter for anonymousAccess.
+     * <p>
+     * Grant anonymous users permission to use the operation.
+     *
+     * @return anonymousAccess
+     */
+    public Boolean anonymousAccess() {
+        return this.anonymousAccess;
+    }
+
+    /**
+     * Fluent setter for anonymousAccess.
+     * <p>
+     * Grant anonymous users permission to use the operation.
+     *
+     * @param anonymousAccess anonymousAccess
+     * @return this
+     */
+    public SpacePermission anonymousAccess(Boolean anonymousAccess) {
+        this.anonymousAccess = anonymousAccess;
+        return this;
+    }
+
+    /**
+     * Gets the value of anonymousAccess.
+     * <p>
+     * Grant anonymous users permission to use the operation.
+     *
+     * @return anonymousAccess
+     */
+    @JsonProperty("anonymousAccess")
+    public Boolean getAnonymousAccess() {
+        return this.anonymousAccess;
+    }
+
+    /**
+     * Sets the value of anonymousAccess.
+     * <p>
+     * Grant anonymous users permission to use the operation.
+     *
+     * @param anonymousAccess anonymousAccess
+     */
+    public void setAnonymousAccess(Boolean anonymousAccess) {
+        this.anonymousAccess = anonymousAccess;
+    }
+    /**
+     * Fluent getter for unlicensedAccess.
+     * <p>
+     * Grants access to unlicensed users from JIRA Service Desk when used
+     * with the 'read space' operation.
+     *
+     * @return unlicensedAccess
+     */
+    public Boolean unlicensedAccess() {
+        return this.unlicensedAccess;
+    }
+
+    /**
+     * Fluent setter for unlicensedAccess.
+     * <p>
+     * Grants access to unlicensed users from JIRA Service Desk when used
+     * with the 'read space' operation.
+     *
+     * @param unlicensedAccess unlicensedAccess
+     * @return this
+     */
+    public SpacePermission unlicensedAccess(Boolean unlicensedAccess) {
+        this.unlicensedAccess = unlicensedAccess;
+        return this;
+    }
+
+    /**
+     * Gets the value of unlicensedAccess.
+     * <p>
+     * Grants access to unlicensed users from JIRA Service Desk when used
+     * with the 'read space' operation.
+     *
+     * @return unlicensedAccess
+     */
+    @JsonProperty("unlicensedAccess")
+    public Boolean getUnlicensedAccess() {
+        return this.unlicensedAccess;
+    }
+
+    /**
+     * Sets the value of unlicensedAccess.
+     * <p>
+     * Grants access to unlicensed users from JIRA Service Desk when used
+     * with the 'read space' operation.
+     *
+     * @param unlicensedAccess unlicensedAccess
+     */
+    public void setUnlicensedAccess(Boolean unlicensedAccess) {
+        this.unlicensedAccess = unlicensedAccess;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePermission that = (SpacePermission) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.subjects, that.subjects) &&
+            Objects.equals(this.operation, that.operation) &&
+            Objects.equals(this.anonymousAccess, that.anonymousAccess) &&
+            Objects.equals(this.unlicensedAccess, that.unlicensedAccess);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.subjects, 
+            this.operation, 
+            this.anonymousAccess, 
+            this.unlicensedAccess
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePermission{" +
+            "id=" + id + ", " + 
+            "subjects=" + subjects + ", " + 
+            "operation=" + operation + ", " + 
+            "anonymousAccess=" + anonymousAccess + ", " + 
+            "unlicensedAccess=" + unlicensedAccess +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Breadcrumb
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Breadcrumb")
 @JsonPropertyOrder({
     "label",
@@ -55,6 +43,13 @@ public class Breadcrumb {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Breadcrumb() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Breadcrumb}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Breadcrumb(Consumer)} instead.
@@ -67,5 +62,150 @@ public class Breadcrumb {
         this.label = label;
         this.url = url;
         this.separator = separator;
+    }
+
+
+    /**
+     * Fluent getter for label.
+     *
+     * @return label
+     */
+    public String label() {
+        return this.label;
+    }
+
+    /**
+     * Fluent setter for label.
+     *
+     * @param label label
+     * @return this
+     */
+    public Breadcrumb label(String label) {
+        this.label = label;
+        return this;
+    }
+
+    /**
+     * Gets the value of label.
+     *
+     * @return label
+     */
+    @JsonProperty("label")
+    public String getLabel() {
+        return this.label;
+    }
+
+    /**
+     * Sets the value of label.
+     *
+     * @param label label
+     */
+    public void setLabel(String label) {
+        this.label = label;
+    }
+    /**
+     * Fluent getter for url.
+     *
+     * @return url
+     */
+    public String url() {
+        return this.url;
+    }
+
+    /**
+     * Fluent setter for url.
+     *
+     * @param url url
+     * @return this
+     */
+    public Breadcrumb url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    /**
+     * Gets the value of url.
+     *
+     * @return url
+     */
+    @JsonProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    /**
+     * Sets the value of url.
+     *
+     * @param url url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    /**
+     * Fluent getter for separator.
+     *
+     * @return separator
+     */
+    public String separator() {
+        return this.separator;
+    }
+
+    /**
+     * Fluent setter for separator.
+     *
+     * @param separator separator
+     * @return this
+     */
+    public Breadcrumb separator(String separator) {
+        this.separator = separator;
+        return this;
+    }
+
+    /**
+     * Gets the value of separator.
+     *
+     * @return separator
+     */
+    @JsonProperty("separator")
+    public String getSeparator() {
+        return this.separator;
+    }
+
+    /**
+     * Sets the value of separator.
+     *
+     * @param separator separator
+     */
+    public void setSeparator(String separator) {
+        this.separator = separator;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Breadcrumb that = (Breadcrumb) o;
+        return
+            Objects.equals(this.label, that.label) &&
+            Objects.equals(this.url, that.url) &&
+            Objects.equals(this.separator, that.separator);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.label, 
+            this.url, 
+            this.separator
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Breadcrumb{" +
+            "label=" + label + ", " + 
+            "url=" + url + ", " + 
+            "separator=" + separator +
+            "}";
     }
 }

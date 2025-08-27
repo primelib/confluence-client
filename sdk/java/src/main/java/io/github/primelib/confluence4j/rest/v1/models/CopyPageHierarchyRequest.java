@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * CopyPageHierarchyRequest
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("CopyPageHierarchyRequest")
 @JsonPropertyOrder({
     "copyAttachments",
@@ -96,6 +84,13 @@ public class CopyPageHierarchyRequest {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected CopyPageHierarchyRequest() {
+    }
+
+    /**
      * Constructs a validated instance of {@link CopyPageHierarchyRequest}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CopyPageHierarchyRequest(Consumer)} instead.
@@ -118,5 +113,411 @@ public class CopyPageHierarchyRequest {
         this.copyDescendants = copyDescendants;
         this.destinationPageId = destinationPageId;
         this.titleOptions = titleOptions;
+    }
+
+
+    /**
+     * Fluent getter for copyAttachments.
+     * <p>
+     * If set to `true`, attachments are copied to the destination page.
+     *
+     * @return copyAttachments
+     */
+    public Boolean copyAttachments() {
+        return this.copyAttachments;
+    }
+
+    /**
+     * Fluent setter for copyAttachments.
+     * <p>
+     * If set to `true`, attachments are copied to the destination page.
+     *
+     * @param copyAttachments copyAttachments
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyAttachments(Boolean copyAttachments) {
+        this.copyAttachments = copyAttachments;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyAttachments.
+     * <p>
+     * If set to `true`, attachments are copied to the destination page.
+     *
+     * @return copyAttachments
+     */
+    @JsonProperty("copyAttachments")
+    public Boolean getCopyAttachments() {
+        return this.copyAttachments;
+    }
+
+    /**
+     * Sets the value of copyAttachments.
+     * <p>
+     * If set to `true`, attachments are copied to the destination page.
+     *
+     * @param copyAttachments copyAttachments
+     */
+    public void setCopyAttachments(Boolean copyAttachments) {
+        this.copyAttachments = copyAttachments;
+    }
+    /**
+     * Fluent getter for copyPermissions.
+     * <p>
+     * If set to `true`, page permissions are copied to the destination page.
+     *
+     * @return copyPermissions
+     */
+    public Boolean copyPermissions() {
+        return this.copyPermissions;
+    }
+
+    /**
+     * Fluent setter for copyPermissions.
+     * <p>
+     * If set to `true`, page permissions are copied to the destination page.
+     *
+     * @param copyPermissions copyPermissions
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyPermissions(Boolean copyPermissions) {
+        this.copyPermissions = copyPermissions;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyPermissions.
+     * <p>
+     * If set to `true`, page permissions are copied to the destination page.
+     *
+     * @return copyPermissions
+     */
+    @JsonProperty("copyPermissions")
+    public Boolean getCopyPermissions() {
+        return this.copyPermissions;
+    }
+
+    /**
+     * Sets the value of copyPermissions.
+     * <p>
+     * If set to `true`, page permissions are copied to the destination page.
+     *
+     * @param copyPermissions copyPermissions
+     */
+    public void setCopyPermissions(Boolean copyPermissions) {
+        this.copyPermissions = copyPermissions;
+    }
+    /**
+     * Fluent getter for copyProperties.
+     * <p>
+     * If set to `true`, content properties are copied to the destination page.
+     *
+     * @return copyProperties
+     */
+    public Boolean copyProperties() {
+        return this.copyProperties;
+    }
+
+    /**
+     * Fluent setter for copyProperties.
+     * <p>
+     * If set to `true`, content properties are copied to the destination page.
+     *
+     * @param copyProperties copyProperties
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyProperties(Boolean copyProperties) {
+        this.copyProperties = copyProperties;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyProperties.
+     * <p>
+     * If set to `true`, content properties are copied to the destination page.
+     *
+     * @return copyProperties
+     */
+    @JsonProperty("copyProperties")
+    public Boolean getCopyProperties() {
+        return this.copyProperties;
+    }
+
+    /**
+     * Sets the value of copyProperties.
+     * <p>
+     * If set to `true`, content properties are copied to the destination page.
+     *
+     * @param copyProperties copyProperties
+     */
+    public void setCopyProperties(Boolean copyProperties) {
+        this.copyProperties = copyProperties;
+    }
+    /**
+     * Fluent getter for copyLabels.
+     * <p>
+     * If set to `true`, labels are copied to the destination page.
+     *
+     * @return copyLabels
+     */
+    public Boolean copyLabels() {
+        return this.copyLabels;
+    }
+
+    /**
+     * Fluent setter for copyLabels.
+     * <p>
+     * If set to `true`, labels are copied to the destination page.
+     *
+     * @param copyLabels copyLabels
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyLabels(Boolean copyLabels) {
+        this.copyLabels = copyLabels;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyLabels.
+     * <p>
+     * If set to `true`, labels are copied to the destination page.
+     *
+     * @return copyLabels
+     */
+    @JsonProperty("copyLabels")
+    public Boolean getCopyLabels() {
+        return this.copyLabels;
+    }
+
+    /**
+     * Sets the value of copyLabels.
+     * <p>
+     * If set to `true`, labels are copied to the destination page.
+     *
+     * @param copyLabels copyLabels
+     */
+    public void setCopyLabels(Boolean copyLabels) {
+        this.copyLabels = copyLabels;
+    }
+    /**
+     * Fluent getter for copyCustomContents.
+     * <p>
+     * If set to `true`, custom contents are copied to the destination page.
+     *
+     * @return copyCustomContents
+     */
+    public Boolean copyCustomContents() {
+        return this.copyCustomContents;
+    }
+
+    /**
+     * Fluent setter for copyCustomContents.
+     * <p>
+     * If set to `true`, custom contents are copied to the destination page.
+     *
+     * @param copyCustomContents copyCustomContents
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyCustomContents(Boolean copyCustomContents) {
+        this.copyCustomContents = copyCustomContents;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyCustomContents.
+     * <p>
+     * If set to `true`, custom contents are copied to the destination page.
+     *
+     * @return copyCustomContents
+     */
+    @JsonProperty("copyCustomContents")
+    public Boolean getCopyCustomContents() {
+        return this.copyCustomContents;
+    }
+
+    /**
+     * Sets the value of copyCustomContents.
+     * <p>
+     * If set to `true`, custom contents are copied to the destination page.
+     *
+     * @param copyCustomContents copyCustomContents
+     */
+    public void setCopyCustomContents(Boolean copyCustomContents) {
+        this.copyCustomContents = copyCustomContents;
+    }
+    /**
+     * Fluent getter for copyDescendants.
+     * <p>
+     * If set to `true`, descendants are copied to the destination page.
+     *
+     * @return copyDescendants
+     */
+    public Boolean copyDescendants() {
+        return this.copyDescendants;
+    }
+
+    /**
+     * Fluent setter for copyDescendants.
+     * <p>
+     * If set to `true`, descendants are copied to the destination page.
+     *
+     * @param copyDescendants copyDescendants
+     * @return this
+     */
+    public CopyPageHierarchyRequest copyDescendants(Boolean copyDescendants) {
+        this.copyDescendants = copyDescendants;
+        return this;
+    }
+
+    /**
+     * Gets the value of copyDescendants.
+     * <p>
+     * If set to `true`, descendants are copied to the destination page.
+     *
+     * @return copyDescendants
+     */
+    @JsonProperty("copyDescendants")
+    public Boolean getCopyDescendants() {
+        return this.copyDescendants;
+    }
+
+    /**
+     * Sets the value of copyDescendants.
+     * <p>
+     * If set to `true`, descendants are copied to the destination page.
+     *
+     * @param copyDescendants copyDescendants
+     */
+    public void setCopyDescendants(Boolean copyDescendants) {
+        this.copyDescendants = copyDescendants;
+    }
+    /**
+     * Fluent getter for destinationPageId.
+     *
+     * @return destinationPageId
+     */
+    public String destinationPageId() {
+        return this.destinationPageId;
+    }
+
+    /**
+     * Fluent setter for destinationPageId.
+     *
+     * @param destinationPageId destinationPageId
+     * @return this
+     */
+    public CopyPageHierarchyRequest destinationPageId(String destinationPageId) {
+        this.destinationPageId = destinationPageId;
+        return this;
+    }
+
+    /**
+     * Gets the value of destinationPageId.
+     *
+     * @return destinationPageId
+     */
+    @JsonProperty("destinationPageId")
+    public String getDestinationPageId() {
+        return this.destinationPageId;
+    }
+
+    /**
+     * Sets the value of destinationPageId.
+     *
+     * @param destinationPageId destinationPageId
+     */
+    public void setDestinationPageId(String destinationPageId) {
+        this.destinationPageId = destinationPageId;
+    }
+    /**
+     * Fluent getter for titleOptions.
+     * <p>
+     * Required for copying page in the same space.
+     *
+     * @return titleOptions
+     */
+    public CopyPageHierarchyTitleOptions titleOptions() {
+        return this.titleOptions;
+    }
+
+    /**
+     * Fluent setter for titleOptions.
+     * <p>
+     * Required for copying page in the same space.
+     *
+     * @param titleOptions titleOptions
+     * @return this
+     */
+    public CopyPageHierarchyRequest titleOptions(CopyPageHierarchyTitleOptions titleOptions) {
+        this.titleOptions = titleOptions;
+        return this;
+    }
+
+    /**
+     * Gets the value of titleOptions.
+     * <p>
+     * Required for copying page in the same space.
+     *
+     * @return titleOptions
+     */
+    @JsonProperty("titleOptions")
+    public CopyPageHierarchyTitleOptions getTitleOptions() {
+        return this.titleOptions;
+    }
+
+    /**
+     * Sets the value of titleOptions.
+     * <p>
+     * Required for copying page in the same space.
+     *
+     * @param titleOptions titleOptions
+     */
+    public void setTitleOptions(CopyPageHierarchyTitleOptions titleOptions) {
+        this.titleOptions = titleOptions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CopyPageHierarchyRequest that = (CopyPageHierarchyRequest) o;
+        return
+            Objects.equals(this.copyAttachments, that.copyAttachments) &&
+            Objects.equals(this.copyPermissions, that.copyPermissions) &&
+            Objects.equals(this.copyProperties, that.copyProperties) &&
+            Objects.equals(this.copyLabels, that.copyLabels) &&
+            Objects.equals(this.copyCustomContents, that.copyCustomContents) &&
+            Objects.equals(this.copyDescendants, that.copyDescendants) &&
+            Objects.equals(this.destinationPageId, that.destinationPageId) &&
+            Objects.equals(this.titleOptions, that.titleOptions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.copyAttachments, 
+            this.copyPermissions, 
+            this.copyProperties, 
+            this.copyLabels, 
+            this.copyCustomContents, 
+            this.copyDescendants, 
+            this.destinationPageId, 
+            this.titleOptions
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "CopyPageHierarchyRequest{" +
+            "copyAttachments=" + copyAttachments + ", " + 
+            "copyPermissions=" + copyPermissions + ", " + 
+            "copyProperties=" + copyProperties + ", " + 
+            "copyLabels=" + copyLabels + ", " + 
+            "copyCustomContents=" + copyCustomContents + ", " + 
+            "copyDescendants=" + copyDescendants + ", " + 
+            "destinationPageId=" + destinationPageId + ", " + 
+            "titleOptions=" + titleOptions +
+            "}";
     }
 }

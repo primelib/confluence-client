@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SearchFieldLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SearchFieldLookAndFeel")
 @JsonPropertyOrder({
     "backgroundColor",
@@ -51,6 +39,13 @@ public class SearchFieldLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SearchFieldLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SearchFieldLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SearchFieldLookAndFeel(Consumer)} instead.
@@ -61,5 +56,109 @@ public class SearchFieldLookAndFeel {
     public SearchFieldLookAndFeel(String backgroundColor, String color) {
         this.backgroundColor = backgroundColor;
         this.color = color;
+    }
+
+
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public SearchFieldLookAndFeel backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+    /**
+     * Fluent getter for color.
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     *
+     * @param color color
+     * @return this
+     */
+    public SearchFieldLookAndFeel color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchFieldLookAndFeel that = (SearchFieldLookAndFeel) o;
+        return
+            Objects.equals(this.backgroundColor, that.backgroundColor) &&
+            Objects.equals(this.color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.backgroundColor, 
+            this.color
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SearchFieldLookAndFeel{" +
+            "backgroundColor=" + backgroundColor + ", " + 
+            "color=" + color +
+            "}";
     }
 }

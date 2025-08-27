@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,12 +17,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The converted CQL queries.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("CqlpersonalDataConvertedQueries")
 @JsonPropertyOrder({
     "queryStrings"
@@ -54,6 +42,13 @@ place of user identifiers.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected CqlpersonalDataConvertedQueries() {
+    }
+
+    /**
      * Constructs a validated instance of {@link CqlpersonalDataConvertedQueries}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CqlpersonalDataConvertedQueries(Consumer)} instead.
@@ -63,5 +58,80 @@ place of user identifiers.
     @ApiStatus.Internal
     public CqlpersonalDataConvertedQueries(List<String> queryStrings) {
         this.queryStrings = queryStrings;
+    }
+
+
+    /**
+     * Fluent getter for queryStrings.
+     * <p>
+     * The list of converted CQL query strings with account IDs in
+     * place of user identifiers.
+     *
+     * @return queryStrings
+     */
+    public List<String> queryStrings() {
+        return this.queryStrings;
+    }
+
+    /**
+     * Fluent setter for queryStrings.
+     * <p>
+     * The list of converted CQL query strings with account IDs in
+     * place of user identifiers.
+     *
+     * @param queryStrings queryStrings
+     * @return this
+     */
+    public CqlpersonalDataConvertedQueries queryStrings(List<String> queryStrings) {
+        this.queryStrings = queryStrings;
+        return this;
+    }
+
+    /**
+     * Gets the value of queryStrings.
+     * <p>
+     * The list of converted CQL query strings with account IDs in
+     * place of user identifiers.
+     *
+     * @return queryStrings
+     */
+    @JsonProperty("queryStrings")
+    public List<String> getQueryStrings() {
+        return this.queryStrings;
+    }
+
+    /**
+     * Sets the value of queryStrings.
+     * <p>
+     * The list of converted CQL query strings with account IDs in
+     * place of user identifiers.
+     *
+     * @param queryStrings queryStrings
+     */
+    public void setQueryStrings(List<String> queryStrings) {
+        this.queryStrings = queryStrings;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CqlpersonalDataConvertedQueries that = (CqlpersonalDataConvertedQueries) o;
+        return
+            Objects.equals(this.queryStrings, that.queryStrings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.queryStrings
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "CqlpersonalDataConvertedQueries{" +
+            "queryStrings=" + queryStrings +
+            "}";
     }
 }

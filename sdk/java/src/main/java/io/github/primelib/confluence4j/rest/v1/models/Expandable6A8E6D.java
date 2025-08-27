@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable6A8E6D
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable6A8E6D")
 @JsonPropertyOrder({
     "favourited",
@@ -63,6 +51,13 @@ public class Expandable6A8E6D {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable6A8E6D() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable6A8E6D}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable6A8E6D(Consumer)} instead.
@@ -79,5 +74,232 @@ public class Expandable6A8E6D {
         this.lastcontributed = lastcontributed;
         this.viewed = viewed;
         this.scheduled = scheduled;
+    }
+
+
+    /**
+     * Fluent getter for favourited.
+     *
+     * @return favourited
+     */
+    public String favourited() {
+        return this.favourited;
+    }
+
+    /**
+     * Fluent setter for favourited.
+     *
+     * @param favourited favourited
+     * @return this
+     */
+    public Expandable6A8E6D favourited(String favourited) {
+        this.favourited = favourited;
+        return this;
+    }
+
+    /**
+     * Gets the value of favourited.
+     *
+     * @return favourited
+     */
+    @JsonProperty("favourited")
+    public String getFavourited() {
+        return this.favourited;
+    }
+
+    /**
+     * Sets the value of favourited.
+     *
+     * @param favourited favourited
+     */
+    public void setFavourited(String favourited) {
+        this.favourited = favourited;
+    }
+    /**
+     * Fluent getter for lastmodified.
+     *
+     * @return lastmodified
+     */
+    public String lastmodified() {
+        return this.lastmodified;
+    }
+
+    /**
+     * Fluent setter for lastmodified.
+     *
+     * @param lastmodified lastmodified
+     * @return this
+     */
+    public Expandable6A8E6D lastmodified(String lastmodified) {
+        this.lastmodified = lastmodified;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastmodified.
+     *
+     * @return lastmodified
+     */
+    @JsonProperty("lastmodified")
+    public String getLastmodified() {
+        return this.lastmodified;
+    }
+
+    /**
+     * Sets the value of lastmodified.
+     *
+     * @param lastmodified lastmodified
+     */
+    public void setLastmodified(String lastmodified) {
+        this.lastmodified = lastmodified;
+    }
+    /**
+     * Fluent getter for lastcontributed.
+     *
+     * @return lastcontributed
+     */
+    public String lastcontributed() {
+        return this.lastcontributed;
+    }
+
+    /**
+     * Fluent setter for lastcontributed.
+     *
+     * @param lastcontributed lastcontributed
+     * @return this
+     */
+    public Expandable6A8E6D lastcontributed(String lastcontributed) {
+        this.lastcontributed = lastcontributed;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastcontributed.
+     *
+     * @return lastcontributed
+     */
+    @JsonProperty("lastcontributed")
+    public String getLastcontributed() {
+        return this.lastcontributed;
+    }
+
+    /**
+     * Sets the value of lastcontributed.
+     *
+     * @param lastcontributed lastcontributed
+     */
+    public void setLastcontributed(String lastcontributed) {
+        this.lastcontributed = lastcontributed;
+    }
+    /**
+     * Fluent getter for viewed.
+     *
+     * @return viewed
+     */
+    public String viewed() {
+        return this.viewed;
+    }
+
+    /**
+     * Fluent setter for viewed.
+     *
+     * @param viewed viewed
+     * @return this
+     */
+    public Expandable6A8E6D viewed(String viewed) {
+        this.viewed = viewed;
+        return this;
+    }
+
+    /**
+     * Gets the value of viewed.
+     *
+     * @return viewed
+     */
+    @JsonProperty("viewed")
+    public String getViewed() {
+        return this.viewed;
+    }
+
+    /**
+     * Sets the value of viewed.
+     *
+     * @param viewed viewed
+     */
+    public void setViewed(String viewed) {
+        this.viewed = viewed;
+    }
+    /**
+     * Fluent getter for scheduled.
+     *
+     * @return scheduled
+     */
+    public String scheduled() {
+        return this.scheduled;
+    }
+
+    /**
+     * Fluent setter for scheduled.
+     *
+     * @param scheduled scheduled
+     * @return this
+     */
+    public Expandable6A8E6D scheduled(String scheduled) {
+        this.scheduled = scheduled;
+        return this;
+    }
+
+    /**
+     * Gets the value of scheduled.
+     *
+     * @return scheduled
+     */
+    @JsonProperty("scheduled")
+    public String getScheduled() {
+        return this.scheduled;
+    }
+
+    /**
+     * Sets the value of scheduled.
+     *
+     * @param scheduled scheduled
+     */
+    public void setScheduled(String scheduled) {
+        this.scheduled = scheduled;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable6A8E6D that = (Expandable6A8E6D) o;
+        return
+            Objects.equals(this.favourited, that.favourited) &&
+            Objects.equals(this.lastmodified, that.lastmodified) &&
+            Objects.equals(this.lastcontributed, that.lastcontributed) &&
+            Objects.equals(this.viewed, that.viewed) &&
+            Objects.equals(this.scheduled, that.scheduled);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.favourited, 
+            this.lastmodified, 
+            this.lastcontributed, 
+            this.viewed, 
+            this.scheduled
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable6A8E6D{" +
+            "favourited=" + favourited + ", " + 
+            "lastmodified=" + lastmodified + ", " + 
+            "lastcontributed=" + lastcontributed + ", " + 
+            "viewed=" + viewed + ", " + 
+            "scheduled=" + scheduled +
+            "}";
     }
 }

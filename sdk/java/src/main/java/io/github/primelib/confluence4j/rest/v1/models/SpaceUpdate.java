@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The properties of a space that can be updated.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpaceUpdate")
 @JsonPropertyOrder({
     "name",
@@ -81,6 +69,13 @@ can be used for the description when creating or updating a space.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpaceUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpaceUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceUpdate(Consumer)} instead.
@@ -98,5 +93,276 @@ can be used for the description when creating or updating a space.
         this.homepage = homepage;
         this.type = type;
         this.status = status;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     * <p>
+     * The updated name of the space.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * The updated name of the space.
+     *
+     * @param name name
+     * @return this
+     */
+    public SpaceUpdate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * The updated name of the space.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * The updated name of the space.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @return description
+     */
+    public SpaceDescriptionCreate description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @param description description
+     * @return this
+     */
+    public SpaceUpdate description(SpaceDescriptionCreate description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public SpaceDescriptionCreate getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     * <p>
+     * The description of the new/updated space. Note, only the 'plain' representation
+     * can be used for the description when creating or updating a space.
+     *
+     * @param description description
+     */
+    public void setDescription(SpaceDescriptionCreate description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for homepage.
+     * <p>
+     * The updated homepage for this space
+     *
+     * @return homepage
+     */
+    public Object homepage() {
+        return this.homepage;
+    }
+
+    /**
+     * Fluent setter for homepage.
+     * <p>
+     * The updated homepage for this space
+     *
+     * @param homepage homepage
+     * @return this
+     */
+    public SpaceUpdate homepage(Object homepage) {
+        this.homepage = homepage;
+        return this;
+    }
+
+    /**
+     * Gets the value of homepage.
+     * <p>
+     * The updated homepage for this space
+     *
+     * @return homepage
+     */
+    @JsonProperty("homepage")
+    public Object getHomepage() {
+        return this.homepage;
+    }
+
+    /**
+     * Sets the value of homepage.
+     * <p>
+     * The updated homepage for this space
+     *
+     * @param homepage homepage
+     */
+    public void setHomepage(Object homepage) {
+        this.homepage = homepage;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * The updated type for this space.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * The updated type for this space.
+     *
+     * @param type type
+     * @return this
+     */
+    public SpaceUpdate type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * The updated type for this space.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * The updated type for this space.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for status.
+     * <p>
+     * The updated status for this space.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     * <p>
+     * The updated status for this space.
+     *
+     * @param status status
+     * @return this
+     */
+    public SpaceUpdate status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     * <p>
+     * The updated status for this space.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     * <p>
+     * The updated status for this space.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceUpdate that = (SpaceUpdate) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.homepage, that.homepage) &&
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.status, that.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.description, 
+            this.homepage, 
+            this.type, 
+            this.status
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpaceUpdate{" +
+            "name=" + name + ", " + 
+            "description=" + description + ", " + 
+            "homepage=" + homepage + ", " + 
+            "type=" + type + ", " + 
+            "status=" + status +
+            "}";
     }
 }

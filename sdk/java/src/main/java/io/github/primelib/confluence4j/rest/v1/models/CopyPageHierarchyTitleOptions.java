@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * Required for copying page in the same space.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("CopyPageHierarchyTitleOptions")
 @JsonPropertyOrder({
     "prefix",
@@ -57,6 +45,13 @@ public class CopyPageHierarchyTitleOptions {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected CopyPageHierarchyTitleOptions() {
+    }
+
+    /**
      * Constructs a validated instance of {@link CopyPageHierarchyTitleOptions}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CopyPageHierarchyTitleOptions(Consumer)} instead.
@@ -69,5 +64,150 @@ public class CopyPageHierarchyTitleOptions {
         this.prefix = prefix;
         this.replace = replace;
         this.search = search;
+    }
+
+
+    /**
+     * Fluent getter for prefix.
+     *
+     * @return prefix
+     */
+    public String prefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Fluent setter for prefix.
+     *
+     * @param prefix prefix
+     * @return this
+     */
+    public CopyPageHierarchyTitleOptions prefix(String prefix) {
+        this.prefix = prefix;
+        return this;
+    }
+
+    /**
+     * Gets the value of prefix.
+     *
+     * @return prefix
+     */
+    @JsonProperty("prefix")
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Sets the value of prefix.
+     *
+     * @param prefix prefix
+     */
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+    /**
+     * Fluent getter for replace.
+     *
+     * @return replace
+     */
+    public String replace() {
+        return this.replace;
+    }
+
+    /**
+     * Fluent setter for replace.
+     *
+     * @param replace replace
+     * @return this
+     */
+    public CopyPageHierarchyTitleOptions replace(String replace) {
+        this.replace = replace;
+        return this;
+    }
+
+    /**
+     * Gets the value of replace.
+     *
+     * @return replace
+     */
+    @JsonProperty("replace")
+    public String getReplace() {
+        return this.replace;
+    }
+
+    /**
+     * Sets the value of replace.
+     *
+     * @param replace replace
+     */
+    public void setReplace(String replace) {
+        this.replace = replace;
+    }
+    /**
+     * Fluent getter for search.
+     *
+     * @return search
+     */
+    public String search() {
+        return this.search;
+    }
+
+    /**
+     * Fluent setter for search.
+     *
+     * @param search search
+     * @return this
+     */
+    public CopyPageHierarchyTitleOptions search(String search) {
+        this.search = search;
+        return this;
+    }
+
+    /**
+     * Gets the value of search.
+     *
+     * @return search
+     */
+    @JsonProperty("search")
+    public String getSearch() {
+        return this.search;
+    }
+
+    /**
+     * Sets the value of search.
+     *
+     * @param search search
+     */
+    public void setSearch(String search) {
+        this.search = search;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CopyPageHierarchyTitleOptions that = (CopyPageHierarchyTitleOptions) o;
+        return
+            Objects.equals(this.prefix, that.prefix) &&
+            Objects.equals(this.replace, that.replace) &&
+            Objects.equals(this.search, that.search);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.prefix, 
+            this.replace, 
+            this.search
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "CopyPageHierarchyTitleOptions{" +
+            "prefix=" + prefix + ", " + 
+            "replace=" + replace + ", " + 
+            "search=" + search +
+            "}";
     }
 }

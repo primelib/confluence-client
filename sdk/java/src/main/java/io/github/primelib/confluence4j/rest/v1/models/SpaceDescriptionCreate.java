@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * can be used for the description when creating or updating a space.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpaceDescriptionCreate")
 @JsonPropertyOrder({
     "plain"
@@ -51,6 +39,13 @@ public class SpaceDescriptionCreate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpaceDescriptionCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpaceDescriptionCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceDescriptionCreate(Consumer)} instead.
@@ -59,5 +54,68 @@ public class SpaceDescriptionCreate {
     @ApiStatus.Internal
     public SpaceDescriptionCreate(Map<String, Object> plain) {
         this.plain = plain;
+    }
+
+
+    /**
+     * Fluent getter for plain.
+     *
+     * @return plain
+     */
+    public Map<String, Object> plain() {
+        return this.plain;
+    }
+
+    /**
+     * Fluent setter for plain.
+     *
+     * @param plain plain
+     * @return this
+     */
+    public SpaceDescriptionCreate plain(Map<String, Object> plain) {
+        this.plain = plain;
+        return this;
+    }
+
+    /**
+     * Gets the value of plain.
+     *
+     * @return plain
+     */
+    @JsonProperty("plain")
+    public Map<String, Object> getPlain() {
+        return this.plain;
+    }
+
+    /**
+     * Sets the value of plain.
+     *
+     * @param plain plain
+     */
+    public void setPlain(Map<String, Object> plain) {
+        this.plain = plain;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceDescriptionCreate that = (SpaceDescriptionCreate) o;
+        return
+            Objects.equals(this.plain, that.plain);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.plain
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpaceDescriptionCreate{" +
+            "plain=" + plain +
+            "}";
     }
 }

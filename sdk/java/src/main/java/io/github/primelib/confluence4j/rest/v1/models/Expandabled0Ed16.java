@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandabled0Ed16
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandabled0Ed16")
 @JsonPropertyOrder({
     "operations"
@@ -47,6 +35,13 @@ public class Expandabled0Ed16 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandabled0Ed16() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandabled0Ed16}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandabled0Ed16(Consumer)} instead.
@@ -55,5 +50,68 @@ public class Expandabled0Ed16 {
     @ApiStatus.Internal
     public Expandabled0Ed16(String operations) {
         this.operations = operations;
+    }
+
+
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public String operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public Expandabled0Ed16 operations(String operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public String getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(String operations) {
+        this.operations = operations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandabled0Ed16 that = (Expandabled0Ed16) o;
+        return
+            Objects.equals(this.operations, that.operations);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operations
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandabled0Ed16{" +
+            "operations=" + operations +
+            "}";
     }
 }

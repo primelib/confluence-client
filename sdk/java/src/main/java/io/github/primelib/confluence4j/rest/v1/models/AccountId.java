@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AccountId
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AccountId")
 @JsonPropertyOrder({
     "accountId"
@@ -47,6 +35,13 @@ public class AccountId {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AccountId() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AccountId}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AccountId(Consumer)} instead.
@@ -55,5 +50,68 @@ public class AccountId {
     @ApiStatus.Internal
     public AccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+
+    /**
+     * Fluent getter for accountId.
+     *
+     * @return accountId
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Fluent setter for accountId.
+     *
+     * @param accountId accountId
+     * @return this
+     */
+    public AccountId accountId(String accountId) {
+        this.accountId = accountId;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountId.
+     *
+     * @return accountId
+     */
+    @JsonProperty("accountId")
+    public String getAccountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Sets the value of accountId.
+     *
+     * @param accountId accountId
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountId that = (AccountId) o;
+        return
+            Objects.equals(this.accountId, that.accountId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.accountId
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AccountId{" +
+            "accountId=" + accountId +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Metadata
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Metadata")
 @JsonPropertyOrder({
     "mediaType",
@@ -57,6 +45,13 @@ public class Metadata {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Metadata() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Metadata}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Metadata(Consumer)} instead.
@@ -67,5 +62,125 @@ public class Metadata {
     public Metadata(String mediaType, String comment) {
         this.mediaType = mediaType;
         this.comment = comment;
+    }
+
+
+    /**
+     * Fluent getter for mediaType.
+     * <p>
+     * The media type of the attachment, e.g. 'img/jpg'.
+     *
+     * @return mediaType
+     */
+    public String mediaType() {
+        return this.mediaType;
+    }
+
+    /**
+     * Fluent setter for mediaType.
+     * <p>
+     * The media type of the attachment, e.g. 'img/jpg'.
+     *
+     * @param mediaType mediaType
+     * @return this
+     */
+    public Metadata mediaType(String mediaType) {
+        this.mediaType = mediaType;
+        return this;
+    }
+
+    /**
+     * Gets the value of mediaType.
+     * <p>
+     * The media type of the attachment, e.g. 'img/jpg'.
+     *
+     * @return mediaType
+     */
+    @JsonProperty("mediaType")
+    public String getMediaType() {
+        return this.mediaType;
+    }
+
+    /**
+     * Sets the value of mediaType.
+     * <p>
+     * The media type of the attachment, e.g. 'img/jpg'.
+     *
+     * @param mediaType mediaType
+     */
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
+    /**
+     * Fluent getter for comment.
+     * <p>
+     * The comment for this update.
+     *
+     * @return comment
+     */
+    public String comment() {
+        return this.comment;
+    }
+
+    /**
+     * Fluent setter for comment.
+     * <p>
+     * The comment for this update.
+     *
+     * @param comment comment
+     * @return this
+     */
+    public Metadata comment(String comment) {
+        this.comment = comment;
+        return this;
+    }
+
+    /**
+     * Gets the value of comment.
+     * <p>
+     * The comment for this update.
+     *
+     * @return comment
+     */
+    @JsonProperty("comment")
+    public String getComment() {
+        return this.comment;
+    }
+
+    /**
+     * Sets the value of comment.
+     * <p>
+     * The comment for this update.
+     *
+     * @param comment comment
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Metadata that = (Metadata) o;
+        return
+            Objects.equals(this.mediaType, that.mediaType) &&
+            Objects.equals(this.comment, that.comment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.mediaType, 
+            this.comment
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Metadata{" +
+            "mediaType=" + mediaType + ", " + 
+            "comment=" + comment +
+            "}";
     }
 }

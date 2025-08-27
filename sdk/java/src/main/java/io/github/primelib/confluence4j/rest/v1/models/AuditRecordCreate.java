@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AuditRecordCreate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AuditRecordCreate")
 @JsonPropertyOrder({
     "author",
@@ -120,6 +108,13 @@ space.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AuditRecordCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AuditRecordCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AuditRecordCreate(Consumer)} instead.
@@ -155,5 +150,545 @@ space.
         this.affectedObject = affectedObject;
         this.changedValues = changedValues;
         this.associatedObjects = associatedObjects;
+    }
+
+
+    /**
+     * Fluent getter for author.
+     * <p>
+     * The user that actioned the event. If `author` is not specified, then all
+     * `author` properties will be set to null/empty, except for `type` which
+     * will be set to 'user'.
+     *
+     * @return author
+     */
+    public Author0D1A37 author() {
+        return this.author;
+    }
+
+    /**
+     * Fluent setter for author.
+     * <p>
+     * The user that actioned the event. If `author` is not specified, then all
+     * `author` properties will be set to null/empty, except for `type` which
+     * will be set to 'user'.
+     *
+     * @param author author
+     * @return this
+     */
+    public AuditRecordCreate author(Author0D1A37 author) {
+        this.author = author;
+        return this;
+    }
+
+    /**
+     * Gets the value of author.
+     * <p>
+     * The user that actioned the event. If `author` is not specified, then all
+     * `author` properties will be set to null/empty, except for `type` which
+     * will be set to 'user'.
+     *
+     * @return author
+     */
+    @JsonProperty("author")
+    public Author0D1A37 getAuthor() {
+        return this.author;
+    }
+
+    /**
+     * Sets the value of author.
+     * <p>
+     * The user that actioned the event. If `author` is not specified, then all
+     * `author` properties will be set to null/empty, except for `type` which
+     * will be set to 'user'.
+     *
+     * @param author author
+     */
+    public void setAuthor(Author0D1A37 author) {
+        this.author = author;
+    }
+    /**
+     * Fluent getter for remoteAddress.
+     * <p>
+     * The IP address of the computer where the event was initiated from.
+     *
+     * @return remoteAddress
+     */
+    public String remoteAddress() {
+        return this.remoteAddress;
+    }
+
+    /**
+     * Fluent setter for remoteAddress.
+     * <p>
+     * The IP address of the computer where the event was initiated from.
+     *
+     * @param remoteAddress remoteAddress
+     * @return this
+     */
+    public AuditRecordCreate remoteAddress(String remoteAddress) {
+        this.remoteAddress = remoteAddress;
+        return this;
+    }
+
+    /**
+     * Gets the value of remoteAddress.
+     * <p>
+     * The IP address of the computer where the event was initiated from.
+     *
+     * @return remoteAddress
+     */
+    @JsonProperty("remoteAddress")
+    public String getRemoteAddress() {
+        return this.remoteAddress;
+    }
+
+    /**
+     * Sets the value of remoteAddress.
+     * <p>
+     * The IP address of the computer where the event was initiated from.
+     *
+     * @param remoteAddress remoteAddress
+     */
+    public void setRemoteAddress(String remoteAddress) {
+        this.remoteAddress = remoteAddress;
+    }
+    /**
+     * Fluent getter for creationDate.
+     * <p>
+     * The creation date-time of the audit record, as a timestamp. This is converted
+     * to a date-time display in the Confluence UI. If the `creationDate` is not
+     * specified, then it will be set to the timestamp for the current date-time.
+     *
+     * @return creationDate
+     */
+    public Long creationDate() {
+        return this.creationDate;
+    }
+
+    /**
+     * Fluent setter for creationDate.
+     * <p>
+     * The creation date-time of the audit record, as a timestamp. This is converted
+     * to a date-time display in the Confluence UI. If the `creationDate` is not
+     * specified, then it will be set to the timestamp for the current date-time.
+     *
+     * @param creationDate creationDate
+     * @return this
+     */
+    public AuditRecordCreate creationDate(Long creationDate) {
+        this.creationDate = creationDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of creationDate.
+     * <p>
+     * The creation date-time of the audit record, as a timestamp. This is converted
+     * to a date-time display in the Confluence UI. If the `creationDate` is not
+     * specified, then it will be set to the timestamp for the current date-time.
+     *
+     * @return creationDate
+     */
+    @JsonProperty("creationDate")
+    public Long getCreationDate() {
+        return this.creationDate;
+    }
+
+    /**
+     * Sets the value of creationDate.
+     * <p>
+     * The creation date-time of the audit record, as a timestamp. This is converted
+     * to a date-time display in the Confluence UI. If the `creationDate` is not
+     * specified, then it will be set to the timestamp for the current date-time.
+     *
+     * @param creationDate creationDate
+     */
+    public void setCreationDate(Long creationDate) {
+        this.creationDate = creationDate;
+    }
+    /**
+     * Fluent getter for summary.
+     * <p>
+     * The summary of the event, which is displayed in the 'Change' column on
+     * the audit log in the Confluence UI.
+     *
+     * @return summary
+     */
+    public String summary() {
+        return this.summary;
+    }
+
+    /**
+     * Fluent setter for summary.
+     * <p>
+     * The summary of the event, which is displayed in the 'Change' column on
+     * the audit log in the Confluence UI.
+     *
+     * @param summary summary
+     * @return this
+     */
+    public AuditRecordCreate summary(String summary) {
+        this.summary = summary;
+        return this;
+    }
+
+    /**
+     * Gets the value of summary.
+     * <p>
+     * The summary of the event, which is displayed in the 'Change' column on
+     * the audit log in the Confluence UI.
+     *
+     * @return summary
+     */
+    @JsonProperty("summary")
+    public String getSummary() {
+        return this.summary;
+    }
+
+    /**
+     * Sets the value of summary.
+     * <p>
+     * The summary of the event, which is displayed in the 'Change' column on
+     * the audit log in the Confluence UI.
+     *
+     * @param summary summary
+     */
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+    /**
+     * Fluent getter for description.
+     * <p>
+     * A long description of the event, which is displayed in the 'Description'
+     * field on the audit log in the Confluence UI.
+     *
+     * @return description
+     */
+    public String description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     * <p>
+     * A long description of the event, which is displayed in the 'Description'
+     * field on the audit log in the Confluence UI.
+     *
+     * @param description description
+     * @return this
+     */
+    public AuditRecordCreate description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     * <p>
+     * A long description of the event, which is displayed in the 'Description'
+     * field on the audit log in the Confluence UI.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     * <p>
+     * A long description of the event, which is displayed in the 'Description'
+     * field on the audit log in the Confluence UI.
+     *
+     * @param description description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for category.
+     * <p>
+     * The category of the event, which is displayed in the 'Event type' column
+     * on the audit log in the Confluence UI.
+     *
+     * @return category
+     */
+    public String category() {
+        return this.category;
+    }
+
+    /**
+     * Fluent setter for category.
+     * <p>
+     * The category of the event, which is displayed in the 'Event type' column
+     * on the audit log in the Confluence UI.
+     *
+     * @param category category
+     * @return this
+     */
+    public AuditRecordCreate category(String category) {
+        this.category = category;
+        return this;
+    }
+
+    /**
+     * Gets the value of category.
+     * <p>
+     * The category of the event, which is displayed in the 'Event type' column
+     * on the audit log in the Confluence UI.
+     *
+     * @return category
+     */
+    @JsonProperty("category")
+    public String getCategory() {
+        return this.category;
+    }
+
+    /**
+     * Sets the value of category.
+     * <p>
+     * The category of the event, which is displayed in the 'Event type' column
+     * on the audit log in the Confluence UI.
+     *
+     * @param category category
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    /**
+     * Fluent getter for sysAdmin.
+     * <p>
+     * Indicates whether the event was actioned by a system administrator.
+     *
+     * @return sysAdmin
+     */
+    public Boolean sysAdmin() {
+        return this.sysAdmin;
+    }
+
+    /**
+     * Fluent setter for sysAdmin.
+     * <p>
+     * Indicates whether the event was actioned by a system administrator.
+     *
+     * @param sysAdmin sysAdmin
+     * @return this
+     */
+    public AuditRecordCreate sysAdmin(Boolean sysAdmin) {
+        this.sysAdmin = sysAdmin;
+        return this;
+    }
+
+    /**
+     * Gets the value of sysAdmin.
+     * <p>
+     * Indicates whether the event was actioned by a system administrator.
+     *
+     * @return sysAdmin
+     */
+    @JsonProperty("sysAdmin")
+    public Boolean getSysAdmin() {
+        return this.sysAdmin;
+    }
+
+    /**
+     * Sets the value of sysAdmin.
+     * <p>
+     * Indicates whether the event was actioned by a system administrator.
+     *
+     * @param sysAdmin sysAdmin
+     */
+    public void setSysAdmin(Boolean sysAdmin) {
+        this.sysAdmin = sysAdmin;
+    }
+    /**
+     * Fluent getter for affectedObject.
+     *
+     * @return affectedObject
+     */
+    public AffectedObject affectedObject() {
+        return this.affectedObject;
+    }
+
+    /**
+     * Fluent setter for affectedObject.
+     *
+     * @param affectedObject affectedObject
+     * @return this
+     */
+    public AuditRecordCreate affectedObject(AffectedObject affectedObject) {
+        this.affectedObject = affectedObject;
+        return this;
+    }
+
+    /**
+     * Gets the value of affectedObject.
+     *
+     * @return affectedObject
+     */
+    @JsonProperty("affectedObject")
+    public AffectedObject getAffectedObject() {
+        return this.affectedObject;
+    }
+
+    /**
+     * Sets the value of affectedObject.
+     *
+     * @param affectedObject affectedObject
+     */
+    public void setAffectedObject(AffectedObject affectedObject) {
+        this.affectedObject = affectedObject;
+    }
+    /**
+     * Fluent getter for changedValues.
+     * <p>
+     * The values that were changed in the event.
+     *
+     * @return changedValues
+     */
+    public List<ChangedValue> changedValues() {
+        return this.changedValues;
+    }
+
+    /**
+     * Fluent setter for changedValues.
+     * <p>
+     * The values that were changed in the event.
+     *
+     * @param changedValues changedValues
+     * @return this
+     */
+    public AuditRecordCreate changedValues(List<ChangedValue> changedValues) {
+        this.changedValues = changedValues;
+        return this;
+    }
+
+    /**
+     * Gets the value of changedValues.
+     * <p>
+     * The values that were changed in the event.
+     *
+     * @return changedValues
+     */
+    @JsonProperty("changedValues")
+    public List<ChangedValue> getChangedValues() {
+        return this.changedValues;
+    }
+
+    /**
+     * Sets the value of changedValues.
+     * <p>
+     * The values that were changed in the event.
+     *
+     * @param changedValues changedValues
+     */
+    public void setChangedValues(List<ChangedValue> changedValues) {
+        this.changedValues = changedValues;
+    }
+    /**
+     * Fluent getter for associatedObjects.
+     * <p>
+     * Objects that were associated with the event. For example, if the event
+     * was a space permission change then the associated object would be the
+     * space.
+     *
+     * @return associatedObjects
+     */
+    public List<AffectedObject> associatedObjects() {
+        return this.associatedObjects;
+    }
+
+    /**
+     * Fluent setter for associatedObjects.
+     * <p>
+     * Objects that were associated with the event. For example, if the event
+     * was a space permission change then the associated object would be the
+     * space.
+     *
+     * @param associatedObjects associatedObjects
+     * @return this
+     */
+    public AuditRecordCreate associatedObjects(List<AffectedObject> associatedObjects) {
+        this.associatedObjects = associatedObjects;
+        return this;
+    }
+
+    /**
+     * Gets the value of associatedObjects.
+     * <p>
+     * Objects that were associated with the event. For example, if the event
+     * was a space permission change then the associated object would be the
+     * space.
+     *
+     * @return associatedObjects
+     */
+    @JsonProperty("associatedObjects")
+    public List<AffectedObject> getAssociatedObjects() {
+        return this.associatedObjects;
+    }
+
+    /**
+     * Sets the value of associatedObjects.
+     * <p>
+     * Objects that were associated with the event. For example, if the event
+     * was a space permission change then the associated object would be the
+     * space.
+     *
+     * @param associatedObjects associatedObjects
+     */
+    public void setAssociatedObjects(List<AffectedObject> associatedObjects) {
+        this.associatedObjects = associatedObjects;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AuditRecordCreate that = (AuditRecordCreate) o;
+        return
+            Objects.equals(this.author, that.author) &&
+            Objects.equals(this.remoteAddress, that.remoteAddress) &&
+            Objects.equals(this.creationDate, that.creationDate) &&
+            Objects.equals(this.summary, that.summary) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.category, that.category) &&
+            Objects.equals(this.sysAdmin, that.sysAdmin) &&
+            Objects.equals(this.affectedObject, that.affectedObject) &&
+            Objects.equals(this.changedValues, that.changedValues) &&
+            Objects.equals(this.associatedObjects, that.associatedObjects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.author, 
+            this.remoteAddress, 
+            this.creationDate, 
+            this.summary, 
+            this.description, 
+            this.category, 
+            this.sysAdmin, 
+            this.affectedObject, 
+            this.changedValues, 
+            this.associatedObjects
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AuditRecordCreate{" +
+            "author=" + author + ", " + 
+            "remoteAddress=" + remoteAddress + ", " + 
+            "creationDate=" + creationDate + ", " + 
+            "summary=" + summary + ", " + 
+            "description=" + description + ", " + 
+            "category=" + category + ", " + 
+            "sysAdmin=" + sysAdmin + ", " + 
+            "affectedObject=" + affectedObject + ", " + 
+            "changedValues=" + changedValues + ", " + 
+            "associatedObjects=" + associatedObjects +
+            "}";
     }
 }

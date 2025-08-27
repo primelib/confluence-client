@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContainerLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContainerLookAndFeel")
 @JsonPropertyOrder({
     "background",
@@ -91,6 +79,13 @@ public class ContainerLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContainerLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContainerLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContainerLookAndFeel(Consumer)} instead.
@@ -121,5 +116,519 @@ public class ContainerLookAndFeel {
         this.backgroundSize = backgroundSize;
         this.padding = padding;
         this.borderRadius = borderRadius;
+    }
+
+
+    /**
+     * Fluent getter for background.
+     *
+     * @return background
+     */
+    public String background() {
+        return this.background;
+    }
+
+    /**
+     * Fluent setter for background.
+     *
+     * @param background background
+     * @return this
+     */
+    public ContainerLookAndFeel background(String background) {
+        this.background = background;
+        return this;
+    }
+
+    /**
+     * Gets the value of background.
+     *
+     * @return background
+     */
+    @JsonProperty("background")
+    public String getBackground() {
+        return this.background;
+    }
+
+    /**
+     * Sets the value of background.
+     *
+     * @param background background
+     */
+    public void setBackground(String background) {
+        this.background = background;
+    }
+    /**
+     * Fluent getter for backgroundAttachment.
+     *
+     * @return backgroundAttachment
+     */
+    public String backgroundAttachment() {
+        return this.backgroundAttachment;
+    }
+
+    /**
+     * Fluent setter for backgroundAttachment.
+     *
+     * @param backgroundAttachment backgroundAttachment
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundAttachment(String backgroundAttachment) {
+        this.backgroundAttachment = backgroundAttachment;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundAttachment.
+     *
+     * @return backgroundAttachment
+     */
+    @JsonProperty("backgroundAttachment")
+    public String getBackgroundAttachment() {
+        return this.backgroundAttachment;
+    }
+
+    /**
+     * Sets the value of backgroundAttachment.
+     *
+     * @param backgroundAttachment backgroundAttachment
+     */
+    public void setBackgroundAttachment(String backgroundAttachment) {
+        this.backgroundAttachment = backgroundAttachment;
+    }
+    /**
+     * Fluent getter for backgroundBlendMode.
+     *
+     * @return backgroundBlendMode
+     */
+    public String backgroundBlendMode() {
+        return this.backgroundBlendMode;
+    }
+
+    /**
+     * Fluent setter for backgroundBlendMode.
+     *
+     * @param backgroundBlendMode backgroundBlendMode
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundBlendMode(String backgroundBlendMode) {
+        this.backgroundBlendMode = backgroundBlendMode;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundBlendMode.
+     *
+     * @return backgroundBlendMode
+     */
+    @JsonProperty("backgroundBlendMode")
+    public String getBackgroundBlendMode() {
+        return this.backgroundBlendMode;
+    }
+
+    /**
+     * Sets the value of backgroundBlendMode.
+     *
+     * @param backgroundBlendMode backgroundBlendMode
+     */
+    public void setBackgroundBlendMode(String backgroundBlendMode) {
+        this.backgroundBlendMode = backgroundBlendMode;
+    }
+    /**
+     * Fluent getter for backgroundClip.
+     *
+     * @return backgroundClip
+     */
+    public String backgroundClip() {
+        return this.backgroundClip;
+    }
+
+    /**
+     * Fluent setter for backgroundClip.
+     *
+     * @param backgroundClip backgroundClip
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundClip(String backgroundClip) {
+        this.backgroundClip = backgroundClip;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundClip.
+     *
+     * @return backgroundClip
+     */
+    @JsonProperty("backgroundClip")
+    public String getBackgroundClip() {
+        return this.backgroundClip;
+    }
+
+    /**
+     * Sets the value of backgroundClip.
+     *
+     * @param backgroundClip backgroundClip
+     */
+    public void setBackgroundClip(String backgroundClip) {
+        this.backgroundClip = backgroundClip;
+    }
+    /**
+     * Fluent getter for backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    public String backgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Fluent setter for backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return backgroundColor
+     */
+    @JsonProperty("backgroundColor")
+    public String getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param backgroundColor backgroundColor
+     */
+    public void setBackgroundColor(String backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+    /**
+     * Fluent getter for backgroundImage.
+     *
+     * @return backgroundImage
+     */
+    public String backgroundImage() {
+        return this.backgroundImage;
+    }
+
+    /**
+     * Fluent setter for backgroundImage.
+     *
+     * @param backgroundImage backgroundImage
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundImage.
+     *
+     * @return backgroundImage
+     */
+    @JsonProperty("backgroundImage")
+    public String getBackgroundImage() {
+        return this.backgroundImage;
+    }
+
+    /**
+     * Sets the value of backgroundImage.
+     *
+     * @param backgroundImage backgroundImage
+     */
+    public void setBackgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
+    }
+    /**
+     * Fluent getter for backgroundOrigin.
+     *
+     * @return backgroundOrigin
+     */
+    public String backgroundOrigin() {
+        return this.backgroundOrigin;
+    }
+
+    /**
+     * Fluent setter for backgroundOrigin.
+     *
+     * @param backgroundOrigin backgroundOrigin
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundOrigin(String backgroundOrigin) {
+        this.backgroundOrigin = backgroundOrigin;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundOrigin.
+     *
+     * @return backgroundOrigin
+     */
+    @JsonProperty("backgroundOrigin")
+    public String getBackgroundOrigin() {
+        return this.backgroundOrigin;
+    }
+
+    /**
+     * Sets the value of backgroundOrigin.
+     *
+     * @param backgroundOrigin backgroundOrigin
+     */
+    public void setBackgroundOrigin(String backgroundOrigin) {
+        this.backgroundOrigin = backgroundOrigin;
+    }
+    /**
+     * Fluent getter for backgroundPosition.
+     *
+     * @return backgroundPosition
+     */
+    public String backgroundPosition() {
+        return this.backgroundPosition;
+    }
+
+    /**
+     * Fluent setter for backgroundPosition.
+     *
+     * @param backgroundPosition backgroundPosition
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundPosition(String backgroundPosition) {
+        this.backgroundPosition = backgroundPosition;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundPosition.
+     *
+     * @return backgroundPosition
+     */
+    @JsonProperty("backgroundPosition")
+    public String getBackgroundPosition() {
+        return this.backgroundPosition;
+    }
+
+    /**
+     * Sets the value of backgroundPosition.
+     *
+     * @param backgroundPosition backgroundPosition
+     */
+    public void setBackgroundPosition(String backgroundPosition) {
+        this.backgroundPosition = backgroundPosition;
+    }
+    /**
+     * Fluent getter for backgroundRepeat.
+     *
+     * @return backgroundRepeat
+     */
+    public String backgroundRepeat() {
+        return this.backgroundRepeat;
+    }
+
+    /**
+     * Fluent setter for backgroundRepeat.
+     *
+     * @param backgroundRepeat backgroundRepeat
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundRepeat(String backgroundRepeat) {
+        this.backgroundRepeat = backgroundRepeat;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundRepeat.
+     *
+     * @return backgroundRepeat
+     */
+    @JsonProperty("backgroundRepeat")
+    public String getBackgroundRepeat() {
+        return this.backgroundRepeat;
+    }
+
+    /**
+     * Sets the value of backgroundRepeat.
+     *
+     * @param backgroundRepeat backgroundRepeat
+     */
+    public void setBackgroundRepeat(String backgroundRepeat) {
+        this.backgroundRepeat = backgroundRepeat;
+    }
+    /**
+     * Fluent getter for backgroundSize.
+     *
+     * @return backgroundSize
+     */
+    public String backgroundSize() {
+        return this.backgroundSize;
+    }
+
+    /**
+     * Fluent setter for backgroundSize.
+     *
+     * @param backgroundSize backgroundSize
+     * @return this
+     */
+    public ContainerLookAndFeel backgroundSize(String backgroundSize) {
+        this.backgroundSize = backgroundSize;
+        return this;
+    }
+
+    /**
+     * Gets the value of backgroundSize.
+     *
+     * @return backgroundSize
+     */
+    @JsonProperty("backgroundSize")
+    public String getBackgroundSize() {
+        return this.backgroundSize;
+    }
+
+    /**
+     * Sets the value of backgroundSize.
+     *
+     * @param backgroundSize backgroundSize
+     */
+    public void setBackgroundSize(String backgroundSize) {
+        this.backgroundSize = backgroundSize;
+    }
+    /**
+     * Fluent getter for padding.
+     *
+     * @return padding
+     */
+    public String padding() {
+        return this.padding;
+    }
+
+    /**
+     * Fluent setter for padding.
+     *
+     * @param padding padding
+     * @return this
+     */
+    public ContainerLookAndFeel padding(String padding) {
+        this.padding = padding;
+        return this;
+    }
+
+    /**
+     * Gets the value of padding.
+     *
+     * @return padding
+     */
+    @JsonProperty("padding")
+    public String getPadding() {
+        return this.padding;
+    }
+
+    /**
+     * Sets the value of padding.
+     *
+     * @param padding padding
+     */
+    public void setPadding(String padding) {
+        this.padding = padding;
+    }
+    /**
+     * Fluent getter for borderRadius.
+     *
+     * @return borderRadius
+     */
+    public String borderRadius() {
+        return this.borderRadius;
+    }
+
+    /**
+     * Fluent setter for borderRadius.
+     *
+     * @param borderRadius borderRadius
+     * @return this
+     */
+    public ContainerLookAndFeel borderRadius(String borderRadius) {
+        this.borderRadius = borderRadius;
+        return this;
+    }
+
+    /**
+     * Gets the value of borderRadius.
+     *
+     * @return borderRadius
+     */
+    @JsonProperty("borderRadius")
+    public String getBorderRadius() {
+        return this.borderRadius;
+    }
+
+    /**
+     * Sets the value of borderRadius.
+     *
+     * @param borderRadius borderRadius
+     */
+    public void setBorderRadius(String borderRadius) {
+        this.borderRadius = borderRadius;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContainerLookAndFeel that = (ContainerLookAndFeel) o;
+        return
+            Objects.equals(this.background, that.background) &&
+            Objects.equals(this.backgroundAttachment, that.backgroundAttachment) &&
+            Objects.equals(this.backgroundBlendMode, that.backgroundBlendMode) &&
+            Objects.equals(this.backgroundClip, that.backgroundClip) &&
+            Objects.equals(this.backgroundColor, that.backgroundColor) &&
+            Objects.equals(this.backgroundImage, that.backgroundImage) &&
+            Objects.equals(this.backgroundOrigin, that.backgroundOrigin) &&
+            Objects.equals(this.backgroundPosition, that.backgroundPosition) &&
+            Objects.equals(this.backgroundRepeat, that.backgroundRepeat) &&
+            Objects.equals(this.backgroundSize, that.backgroundSize) &&
+            Objects.equals(this.padding, that.padding) &&
+            Objects.equals(this.borderRadius, that.borderRadius);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.background, 
+            this.backgroundAttachment, 
+            this.backgroundBlendMode, 
+            this.backgroundClip, 
+            this.backgroundColor, 
+            this.backgroundImage, 
+            this.backgroundOrigin, 
+            this.backgroundPosition, 
+            this.backgroundRepeat, 
+            this.backgroundSize, 
+            this.padding, 
+            this.borderRadius
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContainerLookAndFeel{" +
+            "background=" + background + ", " + 
+            "backgroundAttachment=" + backgroundAttachment + ", " + 
+            "backgroundBlendMode=" + backgroundBlendMode + ", " + 
+            "backgroundClip=" + backgroundClip + ", " + 
+            "backgroundColor=" + backgroundColor + ", " + 
+            "backgroundImage=" + backgroundImage + ", " + 
+            "backgroundOrigin=" + backgroundOrigin + ", " + 
+            "backgroundPosition=" + backgroundPosition + ", " + 
+            "backgroundRepeat=" + backgroundRepeat + ", " + 
+            "backgroundSize=" + backgroundSize + ", " + 
+            "padding=" + padding + ", " + 
+            "borderRadius=" + borderRadius +
+            "}";
     }
 }

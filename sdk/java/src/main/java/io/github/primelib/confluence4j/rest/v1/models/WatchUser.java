@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * no `_expandable` property (therefore, different required fields).
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("WatchUser")
 @JsonPropertyOrder({
     "type",
@@ -128,6 +116,13 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected WatchUser() {
+    }
+
+    /**
      * Constructs a validated instance of {@link WatchUser}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WatchUser(Consumer)} instead.
@@ -171,5 +166,735 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
         this.email = email;
         this.publicName = publicName;
         this.personalSpace = personalSpace;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public WatchUser type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    public String username() {
+        return this.username;
+    }
+
+    /**
+     * Fluent setter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     * @return this
+     */
+    public WatchUser username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Gets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    @JsonProperty("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Sets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    /**
+     * Fluent getter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    public String userKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Fluent setter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     * @return this
+     */
+    public WatchUser userKey(String userKey) {
+        this.userKey = userKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    @JsonProperty("userKey")
+    public String getUserKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Sets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     */
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+    /**
+     * Fluent getter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Fluent setter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     * @return this
+     */
+    public WatchUser accountId(String accountId) {
+        this.accountId = accountId;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    @JsonProperty("accountId")
+    public String getAccountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Sets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+    /**
+     * Fluent getter for profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return profilePicture
+     */
+    public Icon profilePicture() {
+        return this.profilePicture;
+    }
+
+    /**
+     * Fluent setter for profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param profilePicture profilePicture
+     * @return this
+     */
+    public WatchUser profilePicture(Icon profilePicture) {
+        this.profilePicture = profilePicture;
+        return this;
+    }
+
+    /**
+     * Gets the value of profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return profilePicture
+     */
+    @JsonProperty("profilePicture")
+    public Icon getProfilePicture() {
+        return this.profilePicture;
+    }
+
+    /**
+     * Sets the value of profilePicture.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param profilePicture profilePicture
+     */
+    public void setProfilePicture(Icon profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+    /**
+     * Fluent getter for displayName.
+     *
+     * @return displayName
+     */
+    public String displayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Fluent setter for displayName.
+     *
+     * @param displayName displayName
+     * @return this
+     */
+    public WatchUser displayName(String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Gets the value of displayName.
+     *
+     * @return displayName
+     */
+    @JsonProperty("displayName")
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    /**
+     * Sets the value of displayName.
+     *
+     * @param displayName displayName
+     */
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+    /**
+     * Fluent getter for timeZone.
+     *
+     * @return timeZone
+     */
+    public String timeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Fluent setter for timeZone.
+     *
+     * @param timeZone timeZone
+     * @return this
+     */
+    public WatchUser timeZone(String timeZone) {
+        this.timeZone = timeZone;
+        return this;
+    }
+
+    /**
+     * Gets the value of timeZone.
+     *
+     * @return timeZone
+     */
+    @JsonProperty("timeZone")
+    public String getTimeZone() {
+        return this.timeZone;
+    }
+
+    /**
+     * Sets the value of timeZone.
+     *
+     * @param timeZone timeZone
+     */
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public List<OperationCheckResult> operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public WatchUser operations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public List<OperationCheckResult> getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for externalCollaborator.
+     *
+     * @return externalCollaborator
+     */
+    public Boolean externalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Fluent setter for externalCollaborator.
+     *
+     * @param externalCollaborator externalCollaborator
+     * @return this
+     */
+    public WatchUser externalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of externalCollaborator.
+     *
+     * @return externalCollaborator
+     */
+    @JsonProperty("externalCollaborator")
+    public Boolean getExternalCollaborator() {
+        return this.externalCollaborator;
+    }
+
+    /**
+     * Sets the value of externalCollaborator.
+     *
+     * @param externalCollaborator externalCollaborator
+     */
+    public void setExternalCollaborator(Boolean externalCollaborator) {
+        this.externalCollaborator = externalCollaborator;
+    }
+    /**
+     * Fluent getter for isGuest.
+     *
+     * @return isGuest
+     */
+    public Boolean isGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Fluent setter for isGuest.
+     *
+     * @param isGuest isGuest
+     * @return this
+     */
+    public WatchUser isGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+        return this;
+    }
+
+    /**
+     * Gets the value of isGuest.
+     *
+     * @return isGuest
+     */
+    @JsonProperty("isGuest")
+    public Boolean getIsGuest() {
+        return this.isGuest;
+    }
+
+    /**
+     * Sets the value of isGuest.
+     *
+     * @param isGuest isGuest
+     */
+    public void setIsGuest(Boolean isGuest) {
+        this.isGuest = isGuest;
+    }
+    /**
+     * Fluent getter for isExternalCollaborator.
+     *
+     * @return isExternalCollaborator
+     */
+    public Boolean isExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Fluent setter for isExternalCollaborator.
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     * @return this
+     */
+    public WatchUser isExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+        return this;
+    }
+
+    /**
+     * Gets the value of isExternalCollaborator.
+     *
+     * @return isExternalCollaborator
+     */
+    @JsonProperty("isExternalCollaborator")
+    public Boolean getIsExternalCollaborator() {
+        return this.isExternalCollaborator;
+    }
+
+    /**
+     * Sets the value of isExternalCollaborator.
+     *
+     * @param isExternalCollaborator isExternalCollaborator
+     */
+    public void setIsExternalCollaborator(Boolean isExternalCollaborator) {
+        this.isExternalCollaborator = isExternalCollaborator;
+    }
+    /**
+     * Fluent getter for details.
+     *
+     * @return details
+     */
+    public UserDetails details() {
+        return this.details;
+    }
+
+    /**
+     * Fluent setter for details.
+     *
+     * @param details details
+     * @return this
+     */
+    public WatchUser details(UserDetails details) {
+        this.details = details;
+        return this;
+    }
+
+    /**
+     * Gets the value of details.
+     *
+     * @return details
+     */
+    @JsonProperty("details")
+    public UserDetails getDetails() {
+        return this.details;
+    }
+
+    /**
+     * Sets the value of details.
+     *
+     * @param details details
+     */
+    public void setDetails(UserDetails details) {
+        this.details = details;
+    }
+    /**
+     * Fluent getter for accountType.
+     *
+     * @return accountType
+     */
+    public String accountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Fluent setter for accountType.
+     *
+     * @param accountType accountType
+     * @return this
+     */
+    public WatchUser accountType(String accountType) {
+        this.accountType = accountType;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountType.
+     *
+     * @return accountType
+     */
+    @JsonProperty("accountType")
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Sets the value of accountType.
+     *
+     * @param accountType accountType
+     */
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+    /**
+     * Fluent getter for email.
+     *
+     * @return email
+     */
+    public String email() {
+        return this.email;
+    }
+
+    /**
+     * Fluent setter for email.
+     *
+     * @param email email
+     * @return this
+     */
+    public WatchUser email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * Gets the value of email.
+     *
+     * @return email
+     */
+    @JsonProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
+     * Sets the value of email.
+     *
+     * @param email email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    /**
+     * Fluent getter for publicName.
+     *
+     * @return publicName
+     */
+    public String publicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Fluent setter for publicName.
+     *
+     * @param publicName publicName
+     * @return this
+     */
+    public WatchUser publicName(String publicName) {
+        this.publicName = publicName;
+        return this;
+    }
+
+    /**
+     * Gets the value of publicName.
+     *
+     * @return publicName
+     */
+    @JsonProperty("publicName")
+    public String getPublicName() {
+        return this.publicName;
+    }
+
+    /**
+     * Sets the value of publicName.
+     *
+     * @param publicName publicName
+     */
+    public void setPublicName(String publicName) {
+        this.publicName = publicName;
+    }
+    /**
+     * Fluent getter for personalSpace.
+     *
+     * @return personalSpace
+     */
+    public Object personalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Fluent setter for personalSpace.
+     *
+     * @param personalSpace personalSpace
+     * @return this
+     */
+    public WatchUser personalSpace(Object personalSpace) {
+        this.personalSpace = personalSpace;
+        return this;
+    }
+
+    /**
+     * Gets the value of personalSpace.
+     *
+     * @return personalSpace
+     */
+    @JsonProperty("personalSpace")
+    public Object getPersonalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Sets the value of personalSpace.
+     *
+     * @param personalSpace personalSpace
+     */
+    public void setPersonalSpace(Object personalSpace) {
+        this.personalSpace = personalSpace;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WatchUser that = (WatchUser) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.username, that.username) &&
+            Objects.equals(this.userKey, that.userKey) &&
+            Objects.equals(this.accountId, that.accountId) &&
+            Objects.equals(this.profilePicture, that.profilePicture) &&
+            Objects.equals(this.displayName, that.displayName) &&
+            Objects.equals(this.timeZone, that.timeZone) &&
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.externalCollaborator, that.externalCollaborator) &&
+            Objects.equals(this.isGuest, that.isGuest) &&
+            Objects.equals(this.isExternalCollaborator, that.isExternalCollaborator) &&
+            Objects.equals(this.details, that.details) &&
+            Objects.equals(this.accountType, that.accountType) &&
+            Objects.equals(this.email, that.email) &&
+            Objects.equals(this.publicName, that.publicName) &&
+            Objects.equals(this.personalSpace, that.personalSpace);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.username, 
+            this.userKey, 
+            this.accountId, 
+            this.profilePicture, 
+            this.displayName, 
+            this.timeZone, 
+            this.operations, 
+            this.externalCollaborator, 
+            this.isGuest, 
+            this.isExternalCollaborator, 
+            this.details, 
+            this.accountType, 
+            this.email, 
+            this.publicName, 
+            this.personalSpace
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "WatchUser{" +
+            "type=" + type + ", " + 
+            "username=" + username + ", " + 
+            "userKey=" + userKey + ", " + 
+            "accountId=" + accountId + ", " + 
+            "profilePicture=" + profilePicture + ", " + 
+            "displayName=" + displayName + ", " + 
+            "timeZone=" + timeZone + ", " + 
+            "operations=" + operations + ", " + 
+            "externalCollaborator=" + externalCollaborator + ", " + 
+            "isGuest=" + isGuest + ", " + 
+            "isExternalCollaborator=" + isExternalCollaborator + ", " + 
+            "details=" + details + ", " + 
+            "accountType=" + accountType + ", " + 
+            "email=" + email + ", " + 
+            "publicName=" + publicName + ", " + 
+            "personalSpace=" + personalSpace +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Tags
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Tags")
 @JsonPropertyOrder({
     "all",
@@ -59,6 +47,13 @@ public class Tags {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Tags() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Tags}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Tags(Consumer)} instead.
@@ -73,5 +68,191 @@ public class Tags {
         this.css = css;
         this.data = data;
         this.js = js;
+    }
+
+
+    /**
+     * Fluent getter for all.
+     *
+     * @return all
+     */
+    public String all() {
+        return this.all;
+    }
+
+    /**
+     * Fluent setter for all.
+     *
+     * @param all all
+     * @return this
+     */
+    public Tags all(String all) {
+        this.all = all;
+        return this;
+    }
+
+    /**
+     * Gets the value of all.
+     *
+     * @return all
+     */
+    @JsonProperty("all")
+    public String getAll() {
+        return this.all;
+    }
+
+    /**
+     * Sets the value of all.
+     *
+     * @param all all
+     */
+    public void setAll(String all) {
+        this.all = all;
+    }
+    /**
+     * Fluent getter for css.
+     *
+     * @return css
+     */
+    public String css() {
+        return this.css;
+    }
+
+    /**
+     * Fluent setter for css.
+     *
+     * @param css css
+     * @return this
+     */
+    public Tags css(String css) {
+        this.css = css;
+        return this;
+    }
+
+    /**
+     * Gets the value of css.
+     *
+     * @return css
+     */
+    @JsonProperty("css")
+    public String getCss() {
+        return this.css;
+    }
+
+    /**
+     * Sets the value of css.
+     *
+     * @param css css
+     */
+    public void setCss(String css) {
+        this.css = css;
+    }
+    /**
+     * Fluent getter for data.
+     *
+     * @return data
+     */
+    public String data() {
+        return this.data;
+    }
+
+    /**
+     * Fluent setter for data.
+     *
+     * @param data data
+     * @return this
+     */
+    public Tags data(String data) {
+        this.data = data;
+        return this;
+    }
+
+    /**
+     * Gets the value of data.
+     *
+     * @return data
+     */
+    @JsonProperty("data")
+    public String getData() {
+        return this.data;
+    }
+
+    /**
+     * Sets the value of data.
+     *
+     * @param data data
+     */
+    public void setData(String data) {
+        this.data = data;
+    }
+    /**
+     * Fluent getter for js.
+     *
+     * @return js
+     */
+    public String js() {
+        return this.js;
+    }
+
+    /**
+     * Fluent setter for js.
+     *
+     * @param js js
+     * @return this
+     */
+    public Tags js(String js) {
+        this.js = js;
+        return this;
+    }
+
+    /**
+     * Gets the value of js.
+     *
+     * @return js
+     */
+    @JsonProperty("js")
+    public String getJs() {
+        return this.js;
+    }
+
+    /**
+     * Sets the value of js.
+     *
+     * @param js js
+     */
+    public void setJs(String js) {
+        this.js = js;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tags that = (Tags) o;
+        return
+            Objects.equals(this.all, that.all) &&
+            Objects.equals(this.css, that.css) &&
+            Objects.equals(this.data, that.data) &&
+            Objects.equals(this.js, that.js);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.all, 
+            this.css, 
+            this.data, 
+            this.js
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Tags{" +
+            "all=" + all + ", " + 
+            "css=" + css + ", " + 
+            "data=" + data + ", " + 
+            "js=" + js +
+            "}";
     }
 }

@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Space
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Space")
 @JsonPropertyOrder({
     "id",
@@ -46,8 +34,8 @@ import org.jetbrains.annotations.ApiStatus;
     "theme",
     "lookAndFeel",
     "history",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Space {
@@ -111,10 +99,10 @@ Representation of a blogpost (content)
     protected History history;
 
     @JsonProperty("_expandable")
-    protected Expandable52D461 Expandable;
+    protected Expandable52D461 additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link Space}.
@@ -124,6 +112,13 @@ Representation of a blogpost (content)
     public Space(Consumer<Space> spec) {
         super();
         spec.accept(this);
+    }
+
+    /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Space() {
     }
 
     /**
@@ -147,11 +142,11 @@ Representation of a blogpost (content)
      * @param theme theme
      * @param lookAndFeel Look and feel settings returned after an update.
      * @param history history
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public Space(Long id, String key, String alias, String name, Icon icon, Description description, Content homepage, String type, Metadata5Bfc61 metadata, List<OperationCheckResult> operations, List<SpacePermission> permissions, String status, SpaceSettings settings, Theme theme, LookAndFeel lookAndFeel, History history, Expandable52D461 Expandable, Map<String, Object> Links) {
+    public Space(Long id, String key, String alias, String name, Icon icon, Description description, Content homepage, String type, Metadata5Bfc61 metadata, List<OperationCheckResult> operations, List<SpacePermission> permissions, String status, SpaceSettings settings, Theme theme, LookAndFeel lookAndFeel, History history, Expandable52D461 additionalExpandable, Map<String, Object> additionalLinks) {
         this.id = id;
         this.key = key;
         this.alias = alias;
@@ -168,7 +163,795 @@ Representation of a blogpost (content)
         this.theme = theme;
         this.lookAndFeel = lookAndFeel;
         this.history = history;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public Space id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public Space key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for alias.
+     *
+     * @return alias
+     */
+    public String alias() {
+        return this.alias;
+    }
+
+    /**
+     * Fluent setter for alias.
+     *
+     * @param alias alias
+     * @return this
+     */
+    public Space alias(String alias) {
+        this.alias = alias;
+        return this;
+    }
+
+    /**
+     * Gets the value of alias.
+     *
+     * @return alias
+     */
+    @JsonProperty("alias")
+    public String getAlias() {
+        return this.alias;
+    }
+
+    /**
+     * Sets the value of alias.
+     *
+     * @param alias alias
+     */
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public Space name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    public Icon icon() {
+        return this.icon;
+    }
+
+    /**
+     * Fluent setter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     * @return this
+     */
+    public Space icon(Icon icon) {
+        this.icon = icon;
+        return this;
+    }
+
+    /**
+     * Gets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    @JsonProperty("icon")
+    public Icon getIcon() {
+        return this.icon;
+    }
+
+    /**
+     * Sets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     */
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
+    /**
+     * Fluent getter for description.
+     *
+     * @return description
+     */
+    public Description description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     *
+     * @param description description
+     * @return this
+     */
+    public Space description(Description description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public Description getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     *
+     * @param description description
+     */
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for homepage.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return homepage
+     */
+    public Content homepage() {
+        return this.homepage;
+    }
+
+    /**
+     * Fluent setter for homepage.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param homepage homepage
+     * @return this
+     */
+    public Space homepage(Content homepage) {
+        this.homepage = homepage;
+        return this;
+    }
+
+    /**
+     * Gets the value of homepage.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return homepage
+     */
+    @JsonProperty("homepage")
+    public Content getHomepage() {
+        return this.homepage;
+    }
+
+    /**
+     * Sets the value of homepage.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param homepage homepage
+     */
+    public void setHomepage(Content homepage) {
+        this.homepage = homepage;
+    }
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public Space type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for metadata.
+     *
+     * @return metadata
+     */
+    public Metadata5Bfc61 metadata() {
+        return this.metadata;
+    }
+
+    /**
+     * Fluent setter for metadata.
+     *
+     * @param metadata metadata
+     * @return this
+     */
+    public Space metadata(Metadata5Bfc61 metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * Gets the value of metadata.
+     *
+     * @return metadata
+     */
+    @JsonProperty("metadata")
+    public Metadata5Bfc61 getMetadata() {
+        return this.metadata;
+    }
+
+    /**
+     * Sets the value of metadata.
+     *
+     * @param metadata metadata
+     */
+    public void setMetadata(Metadata5Bfc61 metadata) {
+        this.metadata = metadata;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public List<OperationCheckResult> operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public Space operations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public List<OperationCheckResult> getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for permissions.
+     *
+     * @return permissions
+     */
+    public List<SpacePermission> permissions() {
+        return this.permissions;
+    }
+
+    /**
+     * Fluent setter for permissions.
+     *
+     * @param permissions permissions
+     * @return this
+     */
+    public Space permissions(List<SpacePermission> permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Gets the value of permissions.
+     *
+     * @return permissions
+     */
+    @JsonProperty("permissions")
+    public List<SpacePermission> getPermissions() {
+        return this.permissions;
+    }
+
+    /**
+     * Sets the value of permissions.
+     *
+     * @param permissions permissions
+     */
+    public void setPermissions(List<SpacePermission> permissions) {
+        this.permissions = permissions;
+    }
+    /**
+     * Fluent getter for status.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     *
+     * @param status status
+     * @return this
+     */
+    public Space status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for settings.
+     *
+     * @return settings
+     */
+    public SpaceSettings settings() {
+        return this.settings;
+    }
+
+    /**
+     * Fluent setter for settings.
+     *
+     * @param settings settings
+     * @return this
+     */
+    public Space settings(SpaceSettings settings) {
+        this.settings = settings;
+        return this;
+    }
+
+    /**
+     * Gets the value of settings.
+     *
+     * @return settings
+     */
+    @JsonProperty("settings")
+    public SpaceSettings getSettings() {
+        return this.settings;
+    }
+
+    /**
+     * Sets the value of settings.
+     *
+     * @param settings settings
+     */
+    public void setSettings(SpaceSettings settings) {
+        this.settings = settings;
+    }
+    /**
+     * Fluent getter for theme.
+     *
+     * @return theme
+     */
+    public Theme theme() {
+        return this.theme;
+    }
+
+    /**
+     * Fluent setter for theme.
+     *
+     * @param theme theme
+     * @return this
+     */
+    public Space theme(Theme theme) {
+        this.theme = theme;
+        return this;
+    }
+
+    /**
+     * Gets the value of theme.
+     *
+     * @return theme
+     */
+    @JsonProperty("theme")
+    public Theme getTheme() {
+        return this.theme;
+    }
+
+    /**
+     * Sets the value of theme.
+     *
+     * @param theme theme
+     */
+    public void setTheme(Theme theme) {
+        this.theme = theme;
+    }
+    /**
+     * Fluent getter for lookAndFeel.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return lookAndFeel
+     */
+    public LookAndFeel lookAndFeel() {
+        return this.lookAndFeel;
+    }
+
+    /**
+     * Fluent setter for lookAndFeel.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param lookAndFeel lookAndFeel
+     * @return this
+     */
+    public Space lookAndFeel(LookAndFeel lookAndFeel) {
+        this.lookAndFeel = lookAndFeel;
+        return this;
+    }
+
+    /**
+     * Gets the value of lookAndFeel.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return lookAndFeel
+     */
+    @JsonProperty("lookAndFeel")
+    public LookAndFeel getLookAndFeel() {
+        return this.lookAndFeel;
+    }
+
+    /**
+     * Sets the value of lookAndFeel.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param lookAndFeel lookAndFeel
+     */
+    public void setLookAndFeel(LookAndFeel lookAndFeel) {
+        this.lookAndFeel = lookAndFeel;
+    }
+    /**
+     * Fluent getter for history.
+     *
+     * @return history
+     */
+    public History history() {
+        return this.history;
+    }
+
+    /**
+     * Fluent setter for history.
+     *
+     * @param history history
+     * @return this
+     */
+    public Space history(History history) {
+        this.history = history;
+        return this;
+    }
+
+    /**
+     * Gets the value of history.
+     *
+     * @return history
+     */
+    @JsonProperty("history")
+    public History getHistory() {
+        return this.history;
+    }
+
+    /**
+     * Sets the value of history.
+     *
+     * @param history history
+     */
+    public void setHistory(History history) {
+        this.history = history;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable52D461 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Space additionalExpandable(Expandable52D461 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable52D461 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable52D461 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Space additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Space that = (Space) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.alias, that.alias) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.icon, that.icon) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.homepage, that.homepage) &&
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.metadata, that.metadata) &&
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.permissions, that.permissions) &&
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.settings, that.settings) &&
+            Objects.equals(this.theme, that.theme) &&
+            Objects.equals(this.lookAndFeel, that.lookAndFeel) &&
+            Objects.equals(this.history, that.history) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.key, 
+            this.alias, 
+            this.name, 
+            this.icon, 
+            this.description, 
+            this.homepage, 
+            this.type, 
+            this.metadata, 
+            this.operations, 
+            this.permissions, 
+            this.status, 
+            this.settings, 
+            this.theme, 
+            this.lookAndFeel, 
+            this.history, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Space{" +
+            "id=" + id + ", " + 
+            "key=" + key + ", " + 
+            "alias=" + alias + ", " + 
+            "name=" + name + ", " + 
+            "icon=" + icon + ", " + 
+            "description=" + description + ", " + 
+            "homepage=" + homepage + ", " + 
+            "type=" + type + ", " + 
+            "metadata=" + metadata + ", " + 
+            "operations=" + operations + ", " + 
+            "permissions=" + permissions + ", " + 
+            "status=" + status + ", " + 
+            "settings=" + settings + ", " + 
+            "theme=" + theme + ", " + 
+            "lookAndFeel=" + lookAndFeel + ", " + 
+            "history=" + history + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandabled312Ab
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandabled312Ab")
 @JsonPropertyOrder({
     "lastUpdated",
@@ -67,6 +55,13 @@ public class Expandabled312Ab {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandabled312Ab() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandabled312Ab}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandabled312Ab(Consumer)} instead.
@@ -85,5 +80,273 @@ public class Expandabled312Ab {
         this.nextVersion = nextVersion;
         this.ownedBy = ownedBy;
         this.lastOwnedBy = lastOwnedBy;
+    }
+
+
+    /**
+     * Fluent getter for lastUpdated.
+     *
+     * @return lastUpdated
+     */
+    public String lastUpdated() {
+        return this.lastUpdated;
+    }
+
+    /**
+     * Fluent setter for lastUpdated.
+     *
+     * @param lastUpdated lastUpdated
+     * @return this
+     */
+    public Expandabled312Ab lastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastUpdated.
+     *
+     * @return lastUpdated
+     */
+    @JsonProperty("lastUpdated")
+    public String getLastUpdated() {
+        return this.lastUpdated;
+    }
+
+    /**
+     * Sets the value of lastUpdated.
+     *
+     * @param lastUpdated lastUpdated
+     */
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+    /**
+     * Fluent getter for previousVersion.
+     *
+     * @return previousVersion
+     */
+    public String previousVersion() {
+        return this.previousVersion;
+    }
+
+    /**
+     * Fluent setter for previousVersion.
+     *
+     * @param previousVersion previousVersion
+     * @return this
+     */
+    public Expandabled312Ab previousVersion(String previousVersion) {
+        this.previousVersion = previousVersion;
+        return this;
+    }
+
+    /**
+     * Gets the value of previousVersion.
+     *
+     * @return previousVersion
+     */
+    @JsonProperty("previousVersion")
+    public String getPreviousVersion() {
+        return this.previousVersion;
+    }
+
+    /**
+     * Sets the value of previousVersion.
+     *
+     * @param previousVersion previousVersion
+     */
+    public void setPreviousVersion(String previousVersion) {
+        this.previousVersion = previousVersion;
+    }
+    /**
+     * Fluent getter for contributors.
+     *
+     * @return contributors
+     */
+    public String contributors() {
+        return this.contributors;
+    }
+
+    /**
+     * Fluent setter for contributors.
+     *
+     * @param contributors contributors
+     * @return this
+     */
+    public Expandabled312Ab contributors(String contributors) {
+        this.contributors = contributors;
+        return this;
+    }
+
+    /**
+     * Gets the value of contributors.
+     *
+     * @return contributors
+     */
+    @JsonProperty("contributors")
+    public String getContributors() {
+        return this.contributors;
+    }
+
+    /**
+     * Sets the value of contributors.
+     *
+     * @param contributors contributors
+     */
+    public void setContributors(String contributors) {
+        this.contributors = contributors;
+    }
+    /**
+     * Fluent getter for nextVersion.
+     *
+     * @return nextVersion
+     */
+    public String nextVersion() {
+        return this.nextVersion;
+    }
+
+    /**
+     * Fluent setter for nextVersion.
+     *
+     * @param nextVersion nextVersion
+     * @return this
+     */
+    public Expandabled312Ab nextVersion(String nextVersion) {
+        this.nextVersion = nextVersion;
+        return this;
+    }
+
+    /**
+     * Gets the value of nextVersion.
+     *
+     * @return nextVersion
+     */
+    @JsonProperty("nextVersion")
+    public String getNextVersion() {
+        return this.nextVersion;
+    }
+
+    /**
+     * Sets the value of nextVersion.
+     *
+     * @param nextVersion nextVersion
+     */
+    public void setNextVersion(String nextVersion) {
+        this.nextVersion = nextVersion;
+    }
+    /**
+     * Fluent getter for ownedBy.
+     *
+     * @return ownedBy
+     */
+    public String ownedBy() {
+        return this.ownedBy;
+    }
+
+    /**
+     * Fluent setter for ownedBy.
+     *
+     * @param ownedBy ownedBy
+     * @return this
+     */
+    public Expandabled312Ab ownedBy(String ownedBy) {
+        this.ownedBy = ownedBy;
+        return this;
+    }
+
+    /**
+     * Gets the value of ownedBy.
+     *
+     * @return ownedBy
+     */
+    @JsonProperty("ownedBy")
+    public String getOwnedBy() {
+        return this.ownedBy;
+    }
+
+    /**
+     * Sets the value of ownedBy.
+     *
+     * @param ownedBy ownedBy
+     */
+    public void setOwnedBy(String ownedBy) {
+        this.ownedBy = ownedBy;
+    }
+    /**
+     * Fluent getter for lastOwnedBy.
+     *
+     * @return lastOwnedBy
+     */
+    public String lastOwnedBy() {
+        return this.lastOwnedBy;
+    }
+
+    /**
+     * Fluent setter for lastOwnedBy.
+     *
+     * @param lastOwnedBy lastOwnedBy
+     * @return this
+     */
+    public Expandabled312Ab lastOwnedBy(String lastOwnedBy) {
+        this.lastOwnedBy = lastOwnedBy;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastOwnedBy.
+     *
+     * @return lastOwnedBy
+     */
+    @JsonProperty("lastOwnedBy")
+    public String getLastOwnedBy() {
+        return this.lastOwnedBy;
+    }
+
+    /**
+     * Sets the value of lastOwnedBy.
+     *
+     * @param lastOwnedBy lastOwnedBy
+     */
+    public void setLastOwnedBy(String lastOwnedBy) {
+        this.lastOwnedBy = lastOwnedBy;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandabled312Ab that = (Expandabled312Ab) o;
+        return
+            Objects.equals(this.lastUpdated, that.lastUpdated) &&
+            Objects.equals(this.previousVersion, that.previousVersion) &&
+            Objects.equals(this.contributors, that.contributors) &&
+            Objects.equals(this.nextVersion, that.nextVersion) &&
+            Objects.equals(this.ownedBy, that.ownedBy) &&
+            Objects.equals(this.lastOwnedBy, that.lastOwnedBy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.lastUpdated, 
+            this.previousVersion, 
+            this.contributors, 
+            this.nextVersion, 
+            this.ownedBy, 
+            this.lastOwnedBy
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandabled312Ab{" +
+            "lastUpdated=" + lastUpdated + ", " + 
+            "previousVersion=" + previousVersion + ", " + 
+            "contributors=" + contributors + ", " + 
+            "nextVersion=" + nextVersion + ", " + 
+            "ownedBy=" + ownedBy + ", " + 
+            "lastOwnedBy=" + lastOwnedBy +
+            "}";
     }
 }

@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -51,17 +45,11 @@ import org.jetbrains.annotations.ApiStatus;
  * ```
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePermissionRequest")
 @JsonPropertyOrder({
     "subject",
     "operation",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class SpacePermissionRequest {
@@ -76,7 +64,7 @@ public class SpacePermissionRequest {
     protected Operation operation;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link SpacePermissionRequest}.
@@ -89,17 +77,177 @@ public class SpacePermissionRequest {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePermissionRequest() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePermissionRequest}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePermissionRequest(Consumer)} instead.
      * @param subject The user or group that the permission applies to.
      * @param operation operation
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public SpacePermissionRequest(PermissionSubject subject, Operation operation, Map<String, Object> Links) {
+    public SpacePermissionRequest(PermissionSubject subject, Operation operation, Map<String, Object> additionalLinks) {
         this.subject = subject;
         this.operation = operation;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    public PermissionSubject subject() {
+        return this.subject;
+    }
+
+    /**
+     * Fluent setter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     * @return this
+     */
+    public SpacePermissionRequest subject(PermissionSubject subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * Gets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    @JsonProperty("subject")
+    public PermissionSubject getSubject() {
+        return this.subject;
+    }
+
+    /**
+     * Sets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     */
+    public void setSubject(PermissionSubject subject) {
+        this.subject = subject;
+    }
+    /**
+     * Fluent getter for operation.
+     *
+     * @return operation
+     */
+    public Operation operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public SpacePermissionRequest operation(Operation operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public Operation getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     *
+     * @param operation operation
+     */
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public SpacePermissionRequest additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePermissionRequest that = (SpacePermissionRequest) o;
+        return
+            Objects.equals(this.subject, that.subject) &&
+            Objects.equals(this.operation, that.operation) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.subject, 
+            this.operation, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePermissionRequest{" +
+            "subject=" + subject + ", " + 
+            "operation=" + operation + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

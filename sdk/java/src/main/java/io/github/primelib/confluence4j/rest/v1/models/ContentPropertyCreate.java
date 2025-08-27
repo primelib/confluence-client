@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentPropertyCreate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentPropertyCreate")
 @JsonPropertyOrder({
     "key",
@@ -57,6 +45,13 @@ public class ContentPropertyCreate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentPropertyCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentPropertyCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentPropertyCreate(Consumer)} instead.
@@ -67,5 +62,125 @@ public class ContentPropertyCreate {
     public ContentPropertyCreate(String key, Object value) {
         this.key = key;
         this.value = value;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     * <p>
+     * The key of the new property.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     * <p>
+     * The key of the new property.
+     *
+     * @param key key
+     * @return this
+     */
+    public ContentPropertyCreate key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     * <p>
+     * The key of the new property.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     * <p>
+     * The key of the new property.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    public Object value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     * @return this
+     */
+    public ContentPropertyCreate value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentPropertyCreate that = (ContentPropertyCreate) o;
+        return
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key, 
+            this.value
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentPropertyCreate{" +
+            "key=" + key + ", " + 
+            "value=" + value +
+            "}";
     }
 }

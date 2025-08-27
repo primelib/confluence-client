@@ -7,7 +7,7 @@ import feign.Param;
 import feign.RequestLine;
 import io.github.primelib.confluence4j.rest.v1.models.AsyncContentBody;
 import io.github.primelib.confluence4j.rest.v1.models.AsyncId;
-import io.github.primelib.confluence4j.rest.v1.models.ContentBodyConversionInput;
+import io.github.primelib.confluence4j.rest.v1.models.BulkContentBodyConversionInput;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.processing.Generated;
@@ -174,7 +174,7 @@ public interface ConfluenceRestClientContentBodyApi {
         "Accept: application/json"
     })
     List<AsyncId> PostContentbodyConvertAsyncBulkTasksV1(
-            @NotNull List<ContentBodyConversionInput> payload
+            @NotNull BulkContentBodyConversionInput payload
     );
 
 }

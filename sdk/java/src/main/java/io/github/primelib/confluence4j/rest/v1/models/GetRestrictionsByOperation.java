@@ -6,31 +6,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * GetRestrictionsByOperation
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("GetRestrictionsByOperation")
 @JsonPropertyOrder({
     "operationType",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class GetRestrictionsByOperation {
@@ -39,7 +27,7 @@ public class GetRestrictionsByOperation {
     protected ContentRestriction operationType;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link GetRestrictionsByOperation}.
@@ -52,15 +40,126 @@ public class GetRestrictionsByOperation {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected GetRestrictionsByOperation() {
+    }
+
+    /**
      * Constructs a validated instance of {@link GetRestrictionsByOperation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GetRestrictionsByOperation(Consumer)} instead.
      * @param operationType operationType
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public GetRestrictionsByOperation(ContentRestriction operationType, Map<String, Object> Links) {
+    public GetRestrictionsByOperation(ContentRestriction operationType, Map<String, Object> additionalLinks) {
         this.operationType = operationType;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for operationType.
+     *
+     * @return operationType
+     */
+    public ContentRestriction operationType() {
+        return this.operationType;
+    }
+
+    /**
+     * Fluent setter for operationType.
+     *
+     * @param operationType operationType
+     * @return this
+     */
+    public GetRestrictionsByOperation operationType(ContentRestriction operationType) {
+        this.operationType = operationType;
+        return this;
+    }
+
+    /**
+     * Gets the value of operationType.
+     *
+     * @return operationType
+     */
+    @JsonProperty("operationType")
+    public ContentRestriction getOperationType() {
+        return this.operationType;
+    }
+
+    /**
+     * Sets the value of operationType.
+     *
+     * @param operationType operationType
+     */
+    public void setOperationType(ContentRestriction operationType) {
+        this.operationType = operationType;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public GetRestrictionsByOperation additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GetRestrictionsByOperation that = (GetRestrictionsByOperation) o;
+        return
+            Objects.equals(this.operationType, that.operationType) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operationType, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "GetRestrictionsByOperation{" +
+            "operationType=" + operationType + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

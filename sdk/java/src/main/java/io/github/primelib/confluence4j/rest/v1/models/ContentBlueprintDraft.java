@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentBlueprintDraft
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentBlueprintDraft")
 @JsonPropertyOrder({
     "version",
@@ -93,6 +81,13 @@ will be selected as the parent page for the content.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentBlueprintDraft() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentBlueprintDraft}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentBlueprintDraft(Consumer)} instead.
@@ -117,5 +112,345 @@ will be selected as the parent page for the content.
         this.status = status;
         this.space = space;
         this.ancestors = ancestors;
+    }
+
+
+    /**
+     * Fluent getter for version.
+     * <p>
+     * The version for the new content.
+     *
+     * @return version
+     */
+    public Map<String, Object> version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     * <p>
+     * The version for the new content.
+     *
+     * @param version version
+     * @return this
+     */
+    public ContentBlueprintDraft version(Map<String, Object> version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     * <p>
+     * The version for the new content.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Map<String, Object> getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     * <p>
+     * The version for the new content.
+     *
+     * @param version version
+     */
+    public void setVersion(Map<String, Object> version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for title.
+     * <p>
+     * The title of the content. If you don't want to change the title,
+     * set this to the current title of the draft.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     * <p>
+     * The title of the content. If you don't want to change the title,
+     * set this to the current title of the draft.
+     *
+     * @param title title
+     * @return this
+     */
+    public ContentBlueprintDraft title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     * <p>
+     * The title of the content. If you don't want to change the title,
+     * set this to the current title of the draft.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     * <p>
+     * The title of the content. If you don't want to change the title,
+     * set this to the current title of the draft.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * The type of content. Set this to `page`.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * The type of content. Set this to `page`.
+     *
+     * @param type type
+     * @return this
+     */
+    public ContentBlueprintDraft type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * The type of content. Set this to `page`.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * The type of content. Set this to `page`.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for status.
+     * <p>
+     * The status of the content. Set this to `current` or omit it altogether.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     * <p>
+     * The status of the content. Set this to `current` or omit it altogether.
+     *
+     * @param status status
+     * @return this
+     */
+    public ContentBlueprintDraft status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     * <p>
+     * The status of the content. Set this to `current` or omit it altogether.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     * <p>
+     * The status of the content. Set this to `current` or omit it altogether.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for space.
+     * <p>
+     * The space for the content.
+     *
+     * @return space
+     */
+    public Map<String, Object> space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     * <p>
+     * The space for the content.
+     *
+     * @param space space
+     * @return this
+     */
+    public ContentBlueprintDraft space(Map<String, Object> space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     * <p>
+     * The space for the content.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Map<String, Object> getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     * <p>
+     * The space for the content.
+     *
+     * @param space space
+     */
+    public void setSpace(Map<String, Object> space) {
+        this.space = space;
+    }
+    /**
+     * Fluent getter for ancestors.
+     * <p>
+     * The new ancestor (i.e. parent page) for the content. If you have
+     * specified an ancestor, you must also specify a `space` property
+     * in the request body for the space that the ancestor is in.
+     * 
+     * Note, if you specify more than one ancestor, the last ID in the array
+     * will be selected as the parent page for the content.
+     *
+     * @return ancestors
+     */
+    public List<AncestorsItem> ancestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Fluent setter for ancestors.
+     * <p>
+     * The new ancestor (i.e. parent page) for the content. If you have
+     * specified an ancestor, you must also specify a `space` property
+     * in the request body for the space that the ancestor is in.
+     * 
+     * Note, if you specify more than one ancestor, the last ID in the array
+     * will be selected as the parent page for the content.
+     *
+     * @param ancestors ancestors
+     * @return this
+     */
+    public ContentBlueprintDraft ancestors(List<AncestorsItem> ancestors) {
+        this.ancestors = ancestors;
+        return this;
+    }
+
+    /**
+     * Gets the value of ancestors.
+     * <p>
+     * The new ancestor (i.e. parent page) for the content. If you have
+     * specified an ancestor, you must also specify a `space` property
+     * in the request body for the space that the ancestor is in.
+     * 
+     * Note, if you specify more than one ancestor, the last ID in the array
+     * will be selected as the parent page for the content.
+     *
+     * @return ancestors
+     */
+    @JsonProperty("ancestors")
+    public List<AncestorsItem> getAncestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Sets the value of ancestors.
+     * <p>
+     * The new ancestor (i.e. parent page) for the content. If you have
+     * specified an ancestor, you must also specify a `space` property
+     * in the request body for the space that the ancestor is in.
+     * 
+     * Note, if you specify more than one ancestor, the last ID in the array
+     * will be selected as the parent page for the content.
+     *
+     * @param ancestors ancestors
+     */
+    public void setAncestors(List<AncestorsItem> ancestors) {
+        this.ancestors = ancestors;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentBlueprintDraft that = (ContentBlueprintDraft) o;
+        return
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.title, that.title) &&
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.space, that.space) &&
+            Objects.equals(this.ancestors, that.ancestors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.version, 
+            this.title, 
+            this.type, 
+            this.status, 
+            this.space, 
+            this.ancestors
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentBlueprintDraft{" +
+            "version=" + version + ", " + 
+            "title=" + title + ", " + 
+            "type=" + type + ", " + 
+            "status=" + status + ", " + 
+            "space=" + space + ", " + 
+            "ancestors=" + ancestors +
+            "}";
     }
 }

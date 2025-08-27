@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LookAndFeelSettings
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LookAndFeelSettings")
 @JsonPropertyOrder({
     "selected",
@@ -68,6 +56,13 @@ public class LookAndFeelSettings {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LookAndFeelSettings() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LookAndFeelSettings}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LookAndFeelSettings(Consumer)} instead.
@@ -82,5 +77,215 @@ public class LookAndFeelSettings {
         this.global = global;
         this.theme = theme;
         this.custom = custom;
+    }
+
+
+    /**
+     * Fluent getter for selected.
+     *
+     * @return selected
+     */
+    public String selected() {
+        return this.selected;
+    }
+
+    /**
+     * Fluent setter for selected.
+     *
+     * @param selected selected
+     * @return this
+     */
+    public LookAndFeelSettings selected(String selected) {
+        this.selected = selected;
+        return this;
+    }
+
+    /**
+     * Gets the value of selected.
+     *
+     * @return selected
+     */
+    @JsonProperty("selected")
+    public String getSelected() {
+        return this.selected;
+    }
+
+    /**
+     * Sets the value of selected.
+     *
+     * @param selected selected
+     */
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }
+    /**
+     * Fluent getter for global.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return global
+     */
+    public LookAndFeel global() {
+        return this.global;
+    }
+
+    /**
+     * Fluent setter for global.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param global global
+     * @return this
+     */
+    public LookAndFeelSettings global(LookAndFeel global) {
+        this.global = global;
+        return this;
+    }
+
+    /**
+     * Gets the value of global.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return global
+     */
+    @JsonProperty("global")
+    public LookAndFeel getGlobal() {
+        return this.global;
+    }
+
+    /**
+     * Sets the value of global.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param global global
+     */
+    public void setGlobal(LookAndFeel global) {
+        this.global = global;
+    }
+    /**
+     * Fluent getter for theme.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return theme
+     */
+    public LookAndFeel theme() {
+        return this.theme;
+    }
+
+    /**
+     * Fluent setter for theme.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param theme theme
+     * @return this
+     */
+    public LookAndFeelSettings theme(LookAndFeel theme) {
+        this.theme = theme;
+        return this;
+    }
+
+    /**
+     * Gets the value of theme.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return theme
+     */
+    @JsonProperty("theme")
+    public LookAndFeel getTheme() {
+        return this.theme;
+    }
+
+    /**
+     * Sets the value of theme.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param theme theme
+     */
+    public void setTheme(LookAndFeel theme) {
+        this.theme = theme;
+    }
+    /**
+     * Fluent getter for custom.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return custom
+     */
+    public LookAndFeel custom() {
+        return this.custom;
+    }
+
+    /**
+     * Fluent setter for custom.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param custom custom
+     * @return this
+     */
+    public LookAndFeelSettings custom(LookAndFeel custom) {
+        this.custom = custom;
+        return this;
+    }
+
+    /**
+     * Gets the value of custom.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @return custom
+     */
+    @JsonProperty("custom")
+    public LookAndFeel getCustom() {
+        return this.custom;
+    }
+
+    /**
+     * Sets the value of custom.
+     * <p>
+     * Look and feel settings returned after an update.
+     *
+     * @param custom custom
+     */
+    public void setCustom(LookAndFeel custom) {
+        this.custom = custom;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LookAndFeelSettings that = (LookAndFeelSettings) o;
+        return
+            Objects.equals(this.selected, that.selected) &&
+            Objects.equals(this.global, that.global) &&
+            Objects.equals(this.theme, that.theme) &&
+            Objects.equals(this.custom, that.custom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.selected, 
+            this.global, 
+            this.theme, 
+            this.custom
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LookAndFeelSettings{" +
+            "selected=" + selected + ", " + 
+            "global=" + global + ", " + 
+            "theme=" + theme + ", " + 
+            "custom=" + custom +
+            "}";
     }
 }

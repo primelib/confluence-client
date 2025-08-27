@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SystemInfoEntity
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SystemInfoEntity")
 @JsonPropertyOrder({
     "cloudId",
@@ -79,6 +67,13 @@ public class SystemInfoEntity {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SystemInfoEntity() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SystemInfoEntity}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SystemInfoEntity(Consumer)} instead.
@@ -103,5 +98,396 @@ public class SystemInfoEntity {
         this.defaultLocale = defaultLocale;
         this.defaultTimeZone = defaultTimeZone;
         this.microsPerimeter = microsPerimeter;
+    }
+
+
+    /**
+     * Fluent getter for cloudId.
+     *
+     * @return cloudId
+     */
+    public String cloudId() {
+        return this.cloudId;
+    }
+
+    /**
+     * Fluent setter for cloudId.
+     *
+     * @param cloudId cloudId
+     * @return this
+     */
+    public SystemInfoEntity cloudId(String cloudId) {
+        this.cloudId = cloudId;
+        return this;
+    }
+
+    /**
+     * Gets the value of cloudId.
+     *
+     * @return cloudId
+     */
+    @JsonProperty("cloudId")
+    public String getCloudId() {
+        return this.cloudId;
+    }
+
+    /**
+     * Sets the value of cloudId.
+     *
+     * @param cloudId cloudId
+     */
+    public void setCloudId(String cloudId) {
+        this.cloudId = cloudId;
+    }
+    /**
+     * Fluent getter for commitHash.
+     *
+     * @return commitHash
+     */
+    public String commitHash() {
+        return this.commitHash;
+    }
+
+    /**
+     * Fluent setter for commitHash.
+     *
+     * @param commitHash commitHash
+     * @return this
+     */
+    public SystemInfoEntity commitHash(String commitHash) {
+        this.commitHash = commitHash;
+        return this;
+    }
+
+    /**
+     * Gets the value of commitHash.
+     *
+     * @return commitHash
+     */
+    @JsonProperty("commitHash")
+    public String getCommitHash() {
+        return this.commitHash;
+    }
+
+    /**
+     * Sets the value of commitHash.
+     *
+     * @param commitHash commitHash
+     */
+    public void setCommitHash(String commitHash) {
+        this.commitHash = commitHash;
+    }
+    /**
+     * Fluent getter for baseUrl.
+     *
+     * @return baseUrl
+     */
+    public String baseUrl() {
+        return this.baseUrl;
+    }
+
+    /**
+     * Fluent setter for baseUrl.
+     *
+     * @param baseUrl baseUrl
+     * @return this
+     */
+    public SystemInfoEntity baseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+        return this;
+    }
+
+    /**
+     * Gets the value of baseUrl.
+     *
+     * @return baseUrl
+     */
+    @JsonProperty("baseUrl")
+    public String getBaseUrl() {
+        return this.baseUrl;
+    }
+
+    /**
+     * Sets the value of baseUrl.
+     *
+     * @param baseUrl baseUrl
+     */
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+    /**
+     * Fluent getter for fallbackBaseUrl.
+     *
+     * @return fallbackBaseUrl
+     */
+    public String fallbackBaseUrl() {
+        return this.fallbackBaseUrl;
+    }
+
+    /**
+     * Fluent setter for fallbackBaseUrl.
+     *
+     * @param fallbackBaseUrl fallbackBaseUrl
+     * @return this
+     */
+    public SystemInfoEntity fallbackBaseUrl(String fallbackBaseUrl) {
+        this.fallbackBaseUrl = fallbackBaseUrl;
+        return this;
+    }
+
+    /**
+     * Gets the value of fallbackBaseUrl.
+     *
+     * @return fallbackBaseUrl
+     */
+    @JsonProperty("fallbackBaseUrl")
+    public String getFallbackBaseUrl() {
+        return this.fallbackBaseUrl;
+    }
+
+    /**
+     * Sets the value of fallbackBaseUrl.
+     *
+     * @param fallbackBaseUrl fallbackBaseUrl
+     */
+    public void setFallbackBaseUrl(String fallbackBaseUrl) {
+        this.fallbackBaseUrl = fallbackBaseUrl;
+    }
+    /**
+     * Fluent getter for edition.
+     *
+     * @return edition
+     */
+    public String edition() {
+        return this.edition;
+    }
+
+    /**
+     * Fluent setter for edition.
+     *
+     * @param edition edition
+     * @return this
+     */
+    public SystemInfoEntity edition(String edition) {
+        this.edition = edition;
+        return this;
+    }
+
+    /**
+     * Gets the value of edition.
+     *
+     * @return edition
+     */
+    @JsonProperty("edition")
+    public String getEdition() {
+        return this.edition;
+    }
+
+    /**
+     * Sets the value of edition.
+     *
+     * @param edition edition
+     */
+    public void setEdition(String edition) {
+        this.edition = edition;
+    }
+    /**
+     * Fluent getter for siteTitle.
+     *
+     * @return siteTitle
+     */
+    public String siteTitle() {
+        return this.siteTitle;
+    }
+
+    /**
+     * Fluent setter for siteTitle.
+     *
+     * @param siteTitle siteTitle
+     * @return this
+     */
+    public SystemInfoEntity siteTitle(String siteTitle) {
+        this.siteTitle = siteTitle;
+        return this;
+    }
+
+    /**
+     * Gets the value of siteTitle.
+     *
+     * @return siteTitle
+     */
+    @JsonProperty("siteTitle")
+    public String getSiteTitle() {
+        return this.siteTitle;
+    }
+
+    /**
+     * Sets the value of siteTitle.
+     *
+     * @param siteTitle siteTitle
+     */
+    public void setSiteTitle(String siteTitle) {
+        this.siteTitle = siteTitle;
+    }
+    /**
+     * Fluent getter for defaultLocale.
+     *
+     * @return defaultLocale
+     */
+    public String defaultLocale() {
+        return this.defaultLocale;
+    }
+
+    /**
+     * Fluent setter for defaultLocale.
+     *
+     * @param defaultLocale defaultLocale
+     * @return this
+     */
+    public SystemInfoEntity defaultLocale(String defaultLocale) {
+        this.defaultLocale = defaultLocale;
+        return this;
+    }
+
+    /**
+     * Gets the value of defaultLocale.
+     *
+     * @return defaultLocale
+     */
+    @JsonProperty("defaultLocale")
+    public String getDefaultLocale() {
+        return this.defaultLocale;
+    }
+
+    /**
+     * Sets the value of defaultLocale.
+     *
+     * @param defaultLocale defaultLocale
+     */
+    public void setDefaultLocale(String defaultLocale) {
+        this.defaultLocale = defaultLocale;
+    }
+    /**
+     * Fluent getter for defaultTimeZone.
+     *
+     * @return defaultTimeZone
+     */
+    public String defaultTimeZone() {
+        return this.defaultTimeZone;
+    }
+
+    /**
+     * Fluent setter for defaultTimeZone.
+     *
+     * @param defaultTimeZone defaultTimeZone
+     * @return this
+     */
+    public SystemInfoEntity defaultTimeZone(String defaultTimeZone) {
+        this.defaultTimeZone = defaultTimeZone;
+        return this;
+    }
+
+    /**
+     * Gets the value of defaultTimeZone.
+     *
+     * @return defaultTimeZone
+     */
+    @JsonProperty("defaultTimeZone")
+    public String getDefaultTimeZone() {
+        return this.defaultTimeZone;
+    }
+
+    /**
+     * Sets the value of defaultTimeZone.
+     *
+     * @param defaultTimeZone defaultTimeZone
+     */
+    public void setDefaultTimeZone(String defaultTimeZone) {
+        this.defaultTimeZone = defaultTimeZone;
+    }
+    /**
+     * Fluent getter for microsPerimeter.
+     *
+     * @return microsPerimeter
+     */
+    public String microsPerimeter() {
+        return this.microsPerimeter;
+    }
+
+    /**
+     * Fluent setter for microsPerimeter.
+     *
+     * @param microsPerimeter microsPerimeter
+     * @return this
+     */
+    public SystemInfoEntity microsPerimeter(String microsPerimeter) {
+        this.microsPerimeter = microsPerimeter;
+        return this;
+    }
+
+    /**
+     * Gets the value of microsPerimeter.
+     *
+     * @return microsPerimeter
+     */
+    @JsonProperty("microsPerimeter")
+    public String getMicrosPerimeter() {
+        return this.microsPerimeter;
+    }
+
+    /**
+     * Sets the value of microsPerimeter.
+     *
+     * @param microsPerimeter microsPerimeter
+     */
+    public void setMicrosPerimeter(String microsPerimeter) {
+        this.microsPerimeter = microsPerimeter;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SystemInfoEntity that = (SystemInfoEntity) o;
+        return
+            Objects.equals(this.cloudId, that.cloudId) &&
+            Objects.equals(this.commitHash, that.commitHash) &&
+            Objects.equals(this.baseUrl, that.baseUrl) &&
+            Objects.equals(this.fallbackBaseUrl, that.fallbackBaseUrl) &&
+            Objects.equals(this.edition, that.edition) &&
+            Objects.equals(this.siteTitle, that.siteTitle) &&
+            Objects.equals(this.defaultLocale, that.defaultLocale) &&
+            Objects.equals(this.defaultTimeZone, that.defaultTimeZone) &&
+            Objects.equals(this.microsPerimeter, that.microsPerimeter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.cloudId, 
+            this.commitHash, 
+            this.baseUrl, 
+            this.fallbackBaseUrl, 
+            this.edition, 
+            this.siteTitle, 
+            this.defaultLocale, 
+            this.defaultTimeZone, 
+            this.microsPerimeter
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SystemInfoEntity{" +
+            "cloudId=" + cloudId + ", " + 
+            "commitHash=" + commitHash + ", " + 
+            "baseUrl=" + baseUrl + ", " + 
+            "fallbackBaseUrl=" + fallbackBaseUrl + ", " + 
+            "edition=" + edition + ", " + 
+            "siteTitle=" + siteTitle + ", " + 
+            "defaultLocale=" + defaultLocale + ", " + 
+            "defaultTimeZone=" + defaultTimeZone + ", " + 
+            "microsPerimeter=" + microsPerimeter +
+            "}";
     }
 }

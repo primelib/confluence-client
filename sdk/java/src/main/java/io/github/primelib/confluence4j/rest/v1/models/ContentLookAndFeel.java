@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentLookAndFeel")
 @JsonPropertyOrder({
     "screen",
@@ -59,6 +47,13 @@ public class ContentLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentLookAndFeel(Consumer)} instead.
@@ -73,5 +68,191 @@ public class ContentLookAndFeel {
         this.container = container;
         this.header = header;
         this.body = body;
+    }
+
+
+    /**
+     * Fluent getter for screen.
+     *
+     * @return screen
+     */
+    public ScreenLookAndFeel screen() {
+        return this.screen;
+    }
+
+    /**
+     * Fluent setter for screen.
+     *
+     * @param screen screen
+     * @return this
+     */
+    public ContentLookAndFeel screen(ScreenLookAndFeel screen) {
+        this.screen = screen;
+        return this;
+    }
+
+    /**
+     * Gets the value of screen.
+     *
+     * @return screen
+     */
+    @JsonProperty("screen")
+    public ScreenLookAndFeel getScreen() {
+        return this.screen;
+    }
+
+    /**
+     * Sets the value of screen.
+     *
+     * @param screen screen
+     */
+    public void setScreen(ScreenLookAndFeel screen) {
+        this.screen = screen;
+    }
+    /**
+     * Fluent getter for container.
+     *
+     * @return container
+     */
+    public ContainerLookAndFeel container() {
+        return this.container;
+    }
+
+    /**
+     * Fluent setter for container.
+     *
+     * @param container container
+     * @return this
+     */
+    public ContentLookAndFeel container(ContainerLookAndFeel container) {
+        this.container = container;
+        return this;
+    }
+
+    /**
+     * Gets the value of container.
+     *
+     * @return container
+     */
+    @JsonProperty("container")
+    public ContainerLookAndFeel getContainer() {
+        return this.container;
+    }
+
+    /**
+     * Sets the value of container.
+     *
+     * @param container container
+     */
+    public void setContainer(ContainerLookAndFeel container) {
+        this.container = container;
+    }
+    /**
+     * Fluent getter for header.
+     *
+     * @return header
+     */
+    public ContainerLookAndFeel header() {
+        return this.header;
+    }
+
+    /**
+     * Fluent setter for header.
+     *
+     * @param header header
+     * @return this
+     */
+    public ContentLookAndFeel header(ContainerLookAndFeel header) {
+        this.header = header;
+        return this;
+    }
+
+    /**
+     * Gets the value of header.
+     *
+     * @return header
+     */
+    @JsonProperty("header")
+    public ContainerLookAndFeel getHeader() {
+        return this.header;
+    }
+
+    /**
+     * Sets the value of header.
+     *
+     * @param header header
+     */
+    public void setHeader(ContainerLookAndFeel header) {
+        this.header = header;
+    }
+    /**
+     * Fluent getter for body.
+     *
+     * @return body
+     */
+    public ContainerLookAndFeel body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     *
+     * @param body body
+     * @return this
+     */
+    public ContentLookAndFeel body(ContainerLookAndFeel body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public ContainerLookAndFeel getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     *
+     * @param body body
+     */
+    public void setBody(ContainerLookAndFeel body) {
+        this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentLookAndFeel that = (ContentLookAndFeel) o;
+        return
+            Objects.equals(this.screen, that.screen) &&
+            Objects.equals(this.container, that.container) &&
+            Objects.equals(this.header, that.header) &&
+            Objects.equals(this.body, that.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.screen, 
+            this.container, 
+            this.header, 
+            this.body
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentLookAndFeel{" +
+            "screen=" + screen + ", " + 
+            "container=" + container + ", " + 
+            "header=" + header + ", " + 
+            "body=" + body +
+            "}";
     }
 }

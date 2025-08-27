@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * RelationData
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("RelationData")
 @JsonPropertyOrder({
     "createdBy",
@@ -57,6 +45,13 @@ public class RelationData {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected RelationData() {
+    }
+
+    /**
      * Constructs a validated instance of {@link RelationData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RelationData(Consumer)} instead.
@@ -69,5 +64,150 @@ public class RelationData {
         this.createdBy = createdBy;
         this.createdDate = createdDate;
         this.friendlyCreatedDate = friendlyCreatedDate;
+    }
+
+
+    /**
+     * Fluent getter for createdBy.
+     *
+     * @return createdBy
+     */
+    public Map<String, Object> createdBy() {
+        return this.createdBy;
+    }
+
+    /**
+     * Fluent setter for createdBy.
+     *
+     * @param createdBy createdBy
+     * @return this
+     */
+    public RelationData createdBy(Map<String, Object> createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
+
+    /**
+     * Gets the value of createdBy.
+     *
+     * @return createdBy
+     */
+    @JsonProperty("createdBy")
+    public Map<String, Object> getCreatedBy() {
+        return this.createdBy;
+    }
+
+    /**
+     * Sets the value of createdBy.
+     *
+     * @param createdBy createdBy
+     */
+    public void setCreatedBy(Map<String, Object> createdBy) {
+        this.createdBy = createdBy;
+    }
+    /**
+     * Fluent getter for createdDate.
+     *
+     * @return createdDate
+     */
+    public Instant createdDate() {
+        return this.createdDate;
+    }
+
+    /**
+     * Fluent setter for createdDate.
+     *
+     * @param createdDate createdDate
+     * @return this
+     */
+    public RelationData createdDate(Instant createdDate) {
+        this.createdDate = createdDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of createdDate.
+     *
+     * @return createdDate
+     */
+    @JsonProperty("createdDate")
+    public Instant getCreatedDate() {
+        return this.createdDate;
+    }
+
+    /**
+     * Sets the value of createdDate.
+     *
+     * @param createdDate createdDate
+     */
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+    /**
+     * Fluent getter for friendlyCreatedDate.
+     *
+     * @return friendlyCreatedDate
+     */
+    public String friendlyCreatedDate() {
+        return this.friendlyCreatedDate;
+    }
+
+    /**
+     * Fluent setter for friendlyCreatedDate.
+     *
+     * @param friendlyCreatedDate friendlyCreatedDate
+     * @return this
+     */
+    public RelationData friendlyCreatedDate(String friendlyCreatedDate) {
+        this.friendlyCreatedDate = friendlyCreatedDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of friendlyCreatedDate.
+     *
+     * @return friendlyCreatedDate
+     */
+    @JsonProperty("friendlyCreatedDate")
+    public String getFriendlyCreatedDate() {
+        return this.friendlyCreatedDate;
+    }
+
+    /**
+     * Sets the value of friendlyCreatedDate.
+     *
+     * @param friendlyCreatedDate friendlyCreatedDate
+     */
+    public void setFriendlyCreatedDate(String friendlyCreatedDate) {
+        this.friendlyCreatedDate = friendlyCreatedDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RelationData that = (RelationData) o;
+        return
+            Objects.equals(this.createdBy, that.createdBy) &&
+            Objects.equals(this.createdDate, that.createdDate) &&
+            Objects.equals(this.friendlyCreatedDate, that.friendlyCreatedDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.createdBy, 
+            this.createdDate, 
+            this.friendlyCreatedDate
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "RelationData{" +
+            "createdBy=" + createdBy + ", " + 
+            "createdDate=" + createdDate + ", " + 
+            "friendlyCreatedDate=" + friendlyCreatedDate +
+            "}";
     }
 }

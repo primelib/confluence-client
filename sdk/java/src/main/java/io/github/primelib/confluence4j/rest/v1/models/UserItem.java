@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,12 +17,6 @@ import org.jetbrains.annotations.ApiStatus;
  * or the `userKey` must be specified to identify the user.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UserItem")
 @JsonPropertyOrder({
     "type",
@@ -79,6 +67,13 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UserItem() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UserItem}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UserItem(Consumer)} instead.
@@ -98,5 +93,243 @@ For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
         this.username = username;
         this.userKey = userKey;
         this.accountId = accountId;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     * <p>
+     * Set to 'known'.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * Set to 'known'.
+     *
+     * @param type type
+     * @return this
+     */
+    public UserItem type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * Set to 'known'.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * Set to 'known'.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    public String username() {
+        return this.username;
+    }
+
+    /**
+     * Fluent setter for username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     * @return this
+     */
+    public UserItem username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    /**
+     * Gets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return username
+     */
+    @JsonProperty("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Sets the value of username.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param username username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    /**
+     * Fluent getter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    public String userKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Fluent setter for userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     * @return this
+     */
+    public UserItem userKey(String userKey) {
+        this.userKey = userKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @return userKey
+     */
+    @JsonProperty("userKey")
+    public String getUserKey() {
+        return this.userKey;
+    }
+
+    /**
+     * Sets the value of userKey.
+     * <p>
+     * This property is no longer available and will be removed from the documentation soon.
+     * Use `accountId` instead.
+     * See the [deprecation notice](/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/) for details.
+     *
+     * @param userKey userKey
+     */
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
+    }
+    /**
+     * Fluent getter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    public String accountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Fluent setter for accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     * @return this
+     */
+    public UserItem accountId(String accountId) {
+        this.accountId = accountId;
+        return this;
+    }
+
+    /**
+     * Gets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @return accountId
+     */
+    @JsonProperty("accountId")
+    public String getAccountId() {
+        return this.accountId;
+    }
+
+    /**
+     * Sets the value of accountId.
+     * <p>
+     * The account ID of the user, which uniquely identifies the user across all Atlassian products.
+     * For example, `384093:32b4d9w0-f6a5-3535-11a3-9c8c88d10192`.
+     *
+     * @param accountId accountId
+     */
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserItem that = (UserItem) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.username, that.username) &&
+            Objects.equals(this.userKey, that.userKey) &&
+            Objects.equals(this.accountId, that.accountId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.username, 
+            this.userKey, 
+            this.accountId
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UserItem{" +
+            "type=" + type + ", " + 
+            "username=" + username + ", " + 
+            "userKey=" + userKey + ", " + 
+            "accountId=" + accountId +
+            "}";
     }
 }

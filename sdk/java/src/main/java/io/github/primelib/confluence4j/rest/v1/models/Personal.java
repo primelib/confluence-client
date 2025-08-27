@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Personal
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Personal")
 @JsonPropertyOrder({
     "phone",
@@ -79,6 +67,13 @@ for details.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Personal() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Personal}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Personal(Consumer)} instead.
@@ -101,5 +96,255 @@ for details.
         this.im = im;
         this.website = website;
         this.email = email;
+    }
+
+
+    /**
+     * Fluent getter for phone.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return phone
+     */
+    public String phone() {
+        return this.phone;
+    }
+
+    /**
+     * Fluent setter for phone.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param phone phone
+     * @return this
+     */
+    public Personal phone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    /**
+     * Gets the value of phone.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return phone
+     */
+    @JsonProperty("phone")
+    public String getPhone() {
+        return this.phone;
+    }
+
+    /**
+     * Sets the value of phone.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param phone phone
+     */
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    /**
+     * Fluent getter for im.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return im
+     */
+    public String im() {
+        return this.im;
+    }
+
+    /**
+     * Fluent setter for im.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param im im
+     * @return this
+     */
+    public Personal im(String im) {
+        this.im = im;
+        return this;
+    }
+
+    /**
+     * Gets the value of im.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return im
+     */
+    @JsonProperty("im")
+    public String getIm() {
+        return this.im;
+    }
+
+    /**
+     * Sets the value of im.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param im im
+     */
+    public void setIm(String im) {
+        this.im = im;
+    }
+    /**
+     * Fluent getter for website.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return website
+     */
+    public String website() {
+        return this.website;
+    }
+
+    /**
+     * Fluent setter for website.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param website website
+     * @return this
+     */
+    public Personal website(String website) {
+        this.website = website;
+        return this;
+    }
+
+    /**
+     * Gets the value of website.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return website
+     */
+    @JsonProperty("website")
+    public String getWebsite() {
+        return this.website;
+    }
+
+    /**
+     * Sets the value of website.
+     * <p>
+     * This property has been deprecated due to privacy changes. There is no replacement. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param website website
+     */
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+    /**
+     * Fluent getter for email.
+     * <p>
+     * This property has been deprecated due to privacy changes. Use the `User.email` property instead. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return email
+     */
+    public String email() {
+        return this.email;
+    }
+
+    /**
+     * Fluent setter for email.
+     * <p>
+     * This property has been deprecated due to privacy changes. Use the `User.email` property instead. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param email email
+     * @return this
+     */
+    public Personal email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * Gets the value of email.
+     * <p>
+     * This property has been deprecated due to privacy changes. Use the `User.email` property instead. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @return email
+     */
+    @JsonProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
+     * Sets the value of email.
+     * <p>
+     * This property has been deprecated due to privacy changes. Use the `User.email` property instead. See the
+     * [migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)
+     * for details.
+     *
+     * @param email email
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personal that = (Personal) o;
+        return
+            Objects.equals(this.phone, that.phone) &&
+            Objects.equals(this.im, that.im) &&
+            Objects.equals(this.website, that.website) &&
+            Objects.equals(this.email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.phone, 
+            this.im, 
+            this.website, 
+            this.email
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Personal{" +
+            "phone=" + phone + ", " + 
+            "im=" + im + ", " + 
+            "website=" + website + ", " + 
+            "email=" + email +
+            "}";
     }
 }

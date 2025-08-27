@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * `user` or `group` must be specified for this object.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Restrictionsa50726")
 @JsonPropertyOrder({
     "user",
@@ -63,6 +51,13 @@ have at least one item, otherwise it should be omitted.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Restrictionsa50726() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Restrictionsa50726}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Restrictionsa50726(Consumer)} instead.
@@ -75,5 +70,133 @@ have at least one item, otherwise it should be omitted.
     public Restrictionsa50726(List<UserItem> user, List<GroupIteme9D8Fc> group) {
         this.user = user;
         this.group = group;
+    }
+
+
+    /**
+     * Fluent getter for user.
+     * <p>
+     * The users that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return user
+     */
+    public List<UserItem> user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     * <p>
+     * The users that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param user user
+     * @return this
+     */
+    public Restrictionsa50726 user(List<UserItem> user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     * <p>
+     * The users that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public List<UserItem> getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     * <p>
+     * The users that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param user user
+     */
+    public void setUser(List<UserItem> user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return group
+     */
+    public List<GroupIteme9D8Fc> group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param group group
+     * @return this
+     */
+    public Restrictionsa50726 group(List<GroupIteme9D8Fc> group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public List<GroupIteme9D8Fc> getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param group group
+     */
+    public void setGroup(List<GroupIteme9D8Fc> group) {
+        this.group = group;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restrictionsa50726 that = (Restrictionsa50726) o;
+        return
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.group, that.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.user, 
+            this.group
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Restrictionsa50726{" +
+            "user=" + user + ", " + 
+            "group=" + group +
+            "}";
     }
 }

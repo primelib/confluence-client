@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * This object represents the request for the content permission check API.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentPermissionRequest")
 @JsonPropertyOrder({
     "subject",
@@ -59,6 +47,13 @@ public class ContentPermissionRequest {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentPermissionRequest() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentPermissionRequest}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentPermissionRequest(Consumer)} instead.
@@ -69,5 +64,125 @@ public class ContentPermissionRequest {
     public ContentPermissionRequest(PermissionSubjectWithGroupId subject, String operation) {
         this.subject = subject;
         this.operation = operation;
+    }
+
+
+    /**
+     * Fluent getter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    public PermissionSubjectWithGroupId subject() {
+        return this.subject;
+    }
+
+    /**
+     * Fluent setter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     * @return this
+     */
+    public ContentPermissionRequest subject(PermissionSubjectWithGroupId subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * Gets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    @JsonProperty("subject")
+    public PermissionSubjectWithGroupId getSubject() {
+        return this.subject;
+    }
+
+    /**
+     * Sets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     */
+    public void setSubject(PermissionSubjectWithGroupId subject) {
+        this.subject = subject;
+    }
+    /**
+     * Fluent getter for operation.
+     * <p>
+     * The content permission operation to check.
+     *
+     * @return operation
+     */
+    public String operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     * <p>
+     * The content permission operation to check.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public ContentPermissionRequest operation(String operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     * <p>
+     * The content permission operation to check.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public String getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     * <p>
+     * The content permission operation to check.
+     *
+     * @param operation operation
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentPermissionRequest that = (ContentPermissionRequest) o;
+        return
+            Objects.equals(this.subject, that.subject) &&
+            Objects.equals(this.operation, that.operation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.subject, 
+            this.operation
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentPermissionRequest{" +
+            "subject=" + subject + ", " + 
+            "operation=" + operation +
+            "}";
     }
 }

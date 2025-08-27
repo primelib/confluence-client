@@ -6,34 +6,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Theme
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Theme")
 @JsonPropertyOrder({
     "themeKey",
     "name",
     "description",
     "icon",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Theme {
@@ -54,7 +42,7 @@ public class Theme {
     protected Icon icon;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link Theme}.
@@ -67,6 +55,13 @@ public class Theme {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Theme() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Theme}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Theme(Consumer)} instead.
@@ -74,14 +69,249 @@ public class Theme {
      * @param name name
      * @param description description
      * @param icon This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public Theme(String themeKey, String name, String description, Icon icon, Map<String, Object> Links) {
+    public Theme(String themeKey, String name, String description, Icon icon, Map<String, Object> additionalLinks) {
         this.themeKey = themeKey;
         this.name = name;
         this.description = description;
         this.icon = icon;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for themeKey.
+     *
+     * @return themeKey
+     */
+    public String themeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Fluent setter for themeKey.
+     *
+     * @param themeKey themeKey
+     * @return this
+     */
+    public Theme themeKey(String themeKey) {
+        this.themeKey = themeKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of themeKey.
+     *
+     * @return themeKey
+     */
+    @JsonProperty("themeKey")
+    public String getThemeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Sets the value of themeKey.
+     *
+     * @param themeKey themeKey
+     */
+    public void setThemeKey(String themeKey) {
+        this.themeKey = themeKey;
+    }
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public Theme name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for description.
+     *
+     * @return description
+     */
+    public String description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     *
+     * @param description description
+     * @return this
+     */
+    public Theme description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     *
+     * @param description description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    public Icon icon() {
+        return this.icon;
+    }
+
+    /**
+     * Fluent setter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     * @return this
+     */
+    public Theme icon(Icon icon) {
+        this.icon = icon;
+        return this;
+    }
+
+    /**
+     * Gets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    @JsonProperty("icon")
+    public Icon getIcon() {
+        return this.icon;
+    }
+
+    /**
+     * Sets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     */
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Theme additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Theme that = (Theme) o;
+        return
+            Objects.equals(this.themeKey, that.themeKey) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.icon, that.icon) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.themeKey, 
+            this.name, 
+            this.description, 
+            this.icon, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Theme{" +
+            "themeKey=" + themeKey + ", " + 
+            "name=" + name + ", " + 
+            "description=" + description + ", " + 
+            "icon=" + icon + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

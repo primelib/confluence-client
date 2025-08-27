@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * MovePageR200
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("MovePageR200")
 @JsonPropertyOrder({
     "pageId"
@@ -47,6 +35,13 @@ public class MovePageR200 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected MovePageR200() {
+    }
+
+    /**
      * Constructs a validated instance of {@link MovePageR200}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MovePageR200(Consumer)} instead.
@@ -55,5 +50,68 @@ public class MovePageR200 {
     @ApiStatus.Internal
     public MovePageR200(String pageId) {
         this.pageId = pageId;
+    }
+
+
+    /**
+     * Fluent getter for pageId.
+     *
+     * @return pageId
+     */
+    public String pageId() {
+        return this.pageId;
+    }
+
+    /**
+     * Fluent setter for pageId.
+     *
+     * @param pageId pageId
+     * @return this
+     */
+    public MovePageR200 pageId(String pageId) {
+        this.pageId = pageId;
+        return this;
+    }
+
+    /**
+     * Gets the value of pageId.
+     *
+     * @return pageId
+     */
+    @JsonProperty("pageId")
+    public String getPageId() {
+        return this.pageId;
+    }
+
+    /**
+     * Sets the value of pageId.
+     *
+     * @param pageId pageId
+     */
+    public void setPageId(String pageId) {
+        this.pageId = pageId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovePageR200 that = (MovePageR200) o;
+        return
+            Objects.equals(this.pageId, that.pageId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.pageId
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "MovePageR200{" +
+            "pageId=" + pageId +
+            "}";
     }
 }

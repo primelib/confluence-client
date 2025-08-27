@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Icon")
 @JsonPropertyOrder({
     "path",
@@ -61,6 +49,13 @@ public class Icon {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Icon() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Icon}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Icon(Consumer)} instead.
@@ -75,5 +70,191 @@ public class Icon {
         this.width = width;
         this.height = height;
         this.isDefault = isDefault;
+    }
+
+
+    /**
+     * Fluent getter for path.
+     *
+     * @return path
+     */
+    public String path() {
+        return this.path;
+    }
+
+    /**
+     * Fluent setter for path.
+     *
+     * @param path path
+     * @return this
+     */
+    public Icon path(String path) {
+        this.path = path;
+        return this;
+    }
+
+    /**
+     * Gets the value of path.
+     *
+     * @return path
+     */
+    @JsonProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    /**
+     * Sets the value of path.
+     *
+     * @param path path
+     */
+    public void setPath(String path) {
+        this.path = path;
+    }
+    /**
+     * Fluent getter for width.
+     *
+     * @return width
+     */
+    public Integer width() {
+        return this.width;
+    }
+
+    /**
+     * Fluent setter for width.
+     *
+     * @param width width
+     * @return this
+     */
+    public Icon width(Integer width) {
+        this.width = width;
+        return this;
+    }
+
+    /**
+     * Gets the value of width.
+     *
+     * @return width
+     */
+    @JsonProperty("width")
+    public Integer getWidth() {
+        return this.width;
+    }
+
+    /**
+     * Sets the value of width.
+     *
+     * @param width width
+     */
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+    /**
+     * Fluent getter for height.
+     *
+     * @return height
+     */
+    public Integer height() {
+        return this.height;
+    }
+
+    /**
+     * Fluent setter for height.
+     *
+     * @param height height
+     * @return this
+     */
+    public Icon height(Integer height) {
+        this.height = height;
+        return this;
+    }
+
+    /**
+     * Gets the value of height.
+     *
+     * @return height
+     */
+    @JsonProperty("height")
+    public Integer getHeight() {
+        return this.height;
+    }
+
+    /**
+     * Sets the value of height.
+     *
+     * @param height height
+     */
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+    /**
+     * Fluent getter for isDefault.
+     *
+     * @return isDefault
+     */
+    public Boolean isDefault() {
+        return this.isDefault;
+    }
+
+    /**
+     * Fluent setter for isDefault.
+     *
+     * @param isDefault isDefault
+     * @return this
+     */
+    public Icon isDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
+        return this;
+    }
+
+    /**
+     * Gets the value of isDefault.
+     *
+     * @return isDefault
+     */
+    @JsonProperty("isDefault")
+    public Boolean getIsDefault() {
+        return this.isDefault;
+    }
+
+    /**
+     * Sets the value of isDefault.
+     *
+     * @param isDefault isDefault
+     */
+    public void setIsDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Icon that = (Icon) o;
+        return
+            Objects.equals(this.path, that.path) &&
+            Objects.equals(this.width, that.width) &&
+            Objects.equals(this.height, that.height) &&
+            Objects.equals(this.isDefault, that.isDefault);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.path, 
+            this.width, 
+            this.height, 
+            this.isDefault
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Icon{" +
+            "path=" + path + ", " + 
+            "width=" + width + ", " + 
+            "height=" + height + ", " + 
+            "isDefault=" + isDefault +
+            "}";
     }
 }

@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * Theme object without links. Used in ThemeArray.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ThemeNoLinks")
 @JsonPropertyOrder({
     "themeKey",
@@ -64,6 +52,13 @@ public class ThemeNoLinks {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ThemeNoLinks() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ThemeNoLinks}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ThemeNoLinks(Consumer)} instead.
@@ -78,5 +73,199 @@ public class ThemeNoLinks {
         this.name = name;
         this.description = description;
         this.icon = icon;
+    }
+
+
+    /**
+     * Fluent getter for themeKey.
+     *
+     * @return themeKey
+     */
+    public String themeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Fluent setter for themeKey.
+     *
+     * @param themeKey themeKey
+     * @return this
+     */
+    public ThemeNoLinks themeKey(String themeKey) {
+        this.themeKey = themeKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of themeKey.
+     *
+     * @return themeKey
+     */
+    @JsonProperty("themeKey")
+    public String getThemeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Sets the value of themeKey.
+     *
+     * @param themeKey themeKey
+     */
+    public void setThemeKey(String themeKey) {
+        this.themeKey = themeKey;
+    }
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public ThemeNoLinks name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for description.
+     *
+     * @return description
+     */
+    public String description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     *
+     * @param description description
+     * @return this
+     */
+    public ThemeNoLinks description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     *
+     * @param description description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    public Icon icon() {
+        return this.icon;
+    }
+
+    /**
+     * Fluent setter for icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     * @return this
+     */
+    public ThemeNoLinks icon(Icon icon) {
+        this.icon = icon;
+        return this;
+    }
+
+    /**
+     * Gets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @return icon
+     */
+    @JsonProperty("icon")
+    public Icon getIcon() {
+        return this.icon;
+    }
+
+    /**
+     * Sets the value of icon.
+     * <p>
+     * This object represents an icon. If used as a profilePicture, this may be returned as null, depending on the user's privacy setting.
+     *
+     * @param icon icon
+     */
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ThemeNoLinks that = (ThemeNoLinks) o;
+        return
+            Objects.equals(this.themeKey, that.themeKey) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.icon, that.icon);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.themeKey, 
+            this.name, 
+            this.description, 
+            this.icon
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ThemeNoLinks{" +
+            "themeKey=" + themeKey + ", " + 
+            "name=" + name + ", " + 
+            "description=" + description + ", " + 
+            "icon=" + icon +
+            "}";
     }
 }

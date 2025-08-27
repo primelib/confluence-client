@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ThemeUpdate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ThemeUpdate")
 @JsonPropertyOrder({
     "themeKey"
@@ -50,6 +38,13 @@ public class ThemeUpdate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ThemeUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ThemeUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ThemeUpdate(Consumer)} instead.
@@ -58,5 +53,76 @@ public class ThemeUpdate {
     @ApiStatus.Internal
     public ThemeUpdate(String themeKey) {
         this.themeKey = themeKey;
+    }
+
+
+    /**
+     * Fluent getter for themeKey.
+     * <p>
+     * The key of the theme to be set as the space theme.
+     *
+     * @return themeKey
+     */
+    public String themeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Fluent setter for themeKey.
+     * <p>
+     * The key of the theme to be set as the space theme.
+     *
+     * @param themeKey themeKey
+     * @return this
+     */
+    public ThemeUpdate themeKey(String themeKey) {
+        this.themeKey = themeKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of themeKey.
+     * <p>
+     * The key of the theme to be set as the space theme.
+     *
+     * @return themeKey
+     */
+    @JsonProperty("themeKey")
+    public String getThemeKey() {
+        return this.themeKey;
+    }
+
+    /**
+     * Sets the value of themeKey.
+     * <p>
+     * The key of the theme to be set as the space theme.
+     *
+     * @param themeKey themeKey
+     */
+    public void setThemeKey(String themeKey) {
+        this.themeKey = themeKey;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ThemeUpdate that = (ThemeUpdate) o;
+        return
+            Objects.equals(this.themeKey, that.themeKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.themeKey
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ThemeUpdate{" +
+            "themeKey=" + themeKey +
+            "}";
     }
 }

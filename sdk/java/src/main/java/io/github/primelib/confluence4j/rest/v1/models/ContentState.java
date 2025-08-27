@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentState
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentState")
 @JsonPropertyOrder({
     "id",
@@ -64,6 +52,13 @@ public class ContentState {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentState() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentState}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentState(Consumer)} instead.
@@ -76,5 +71,174 @@ public class ContentState {
         this.id = id;
         this.name = name;
         this.color = color;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * identifier of content state. If 0, 1, or 2, this is a default space state
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * identifier of content state. If 0, 1, or 2, this is a default space state
+     *
+     * @param id id
+     * @return this
+     */
+    public ContentState id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * identifier of content state. If 0, 1, or 2, this is a default space state
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * identifier of content state. If 0, 1, or 2, this is a default space state
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for name.
+     * <p>
+     * name of content state.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * name of content state.
+     *
+     * @param name name
+     * @return this
+     */
+    public ContentState name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * name of content state.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * name of content state.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for color.
+     * <p>
+     * hex string representing color of state
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     * <p>
+     * hex string representing color of state
+     *
+     * @param color color
+     * @return this
+     */
+    public ContentState color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     * <p>
+     * hex string representing color of state
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     * <p>
+     * hex string representing color of state
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentState that = (ContentState) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.name, 
+            this.color
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentState{" +
+            "id=" + id + ", " + 
+            "name=" + name + ", " + 
+            "color=" + color +
+            "}";
     }
 }

@@ -8,27 +8,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SearchResult
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SearchResult")
 @JsonPropertyOrder({
     "content",
@@ -106,6 +94,13 @@ Representation of a blogpost (content)
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SearchResult() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SearchResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SearchResult(Consumer)} instead.
@@ -141,5 +136,613 @@ Representation of a blogpost (content)
         this.lastModified = lastModified;
         this.friendlyLastModified = friendlyLastModified;
         this.score = score;
+    }
+
+
+    /**
+     * Fluent getter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    public Content content() {
+        return this.content;
+    }
+
+    /**
+     * Fluent setter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     * @return this
+     */
+    public SearchResult content(Content content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    @JsonProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    /**
+     * Sets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     */
+    public void setContent(Content content) {
+        this.content = content;
+    }
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public Map<String, Object> user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public SearchResult user(Map<String, Object> user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public Map<String, Object> getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(Map<String, Object> user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for space.
+     *
+     * @return space
+     */
+    public Space space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     *
+     * @param space space
+     * @return this
+     */
+    public SearchResult space(Space space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Space getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     *
+     * @param space space
+     */
+    public void setSpace(Space space) {
+        this.space = space;
+    }
+    /**
+     * Fluent getter for title.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     *
+     * @param title title
+     * @return this
+     */
+    public SearchResult title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /**
+     * Fluent getter for excerpt.
+     *
+     * @return excerpt
+     */
+    public String excerpt() {
+        return this.excerpt;
+    }
+
+    /**
+     * Fluent setter for excerpt.
+     *
+     * @param excerpt excerpt
+     * @return this
+     */
+    public SearchResult excerpt(String excerpt) {
+        this.excerpt = excerpt;
+        return this;
+    }
+
+    /**
+     * Gets the value of excerpt.
+     *
+     * @return excerpt
+     */
+    @JsonProperty("excerpt")
+    public String getExcerpt() {
+        return this.excerpt;
+    }
+
+    /**
+     * Sets the value of excerpt.
+     *
+     * @param excerpt excerpt
+     */
+    public void setExcerpt(String excerpt) {
+        this.excerpt = excerpt;
+    }
+    /**
+     * Fluent getter for url.
+     *
+     * @return url
+     */
+    public String url() {
+        return this.url;
+    }
+
+    /**
+     * Fluent setter for url.
+     *
+     * @param url url
+     * @return this
+     */
+    public SearchResult url(String url) {
+        this.url = url;
+        return this;
+    }
+
+    /**
+     * Gets the value of url.
+     *
+     * @return url
+     */
+    @JsonProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    /**
+     * Sets the value of url.
+     *
+     * @param url url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    /**
+     * Fluent getter for resultParentContainer.
+     *
+     * @return resultParentContainer
+     */
+    public ContainerSummary resultParentContainer() {
+        return this.resultParentContainer;
+    }
+
+    /**
+     * Fluent setter for resultParentContainer.
+     *
+     * @param resultParentContainer resultParentContainer
+     * @return this
+     */
+    public SearchResult resultParentContainer(ContainerSummary resultParentContainer) {
+        this.resultParentContainer = resultParentContainer;
+        return this;
+    }
+
+    /**
+     * Gets the value of resultParentContainer.
+     *
+     * @return resultParentContainer
+     */
+    @JsonProperty("resultParentContainer")
+    public ContainerSummary getResultParentContainer() {
+        return this.resultParentContainer;
+    }
+
+    /**
+     * Sets the value of resultParentContainer.
+     *
+     * @param resultParentContainer resultParentContainer
+     */
+    public void setResultParentContainer(ContainerSummary resultParentContainer) {
+        this.resultParentContainer = resultParentContainer;
+    }
+    /**
+     * Fluent getter for resultGlobalContainer.
+     *
+     * @return resultGlobalContainer
+     */
+    public ContainerSummary resultGlobalContainer() {
+        return this.resultGlobalContainer;
+    }
+
+    /**
+     * Fluent setter for resultGlobalContainer.
+     *
+     * @param resultGlobalContainer resultGlobalContainer
+     * @return this
+     */
+    public SearchResult resultGlobalContainer(ContainerSummary resultGlobalContainer) {
+        this.resultGlobalContainer = resultGlobalContainer;
+        return this;
+    }
+
+    /**
+     * Gets the value of resultGlobalContainer.
+     *
+     * @return resultGlobalContainer
+     */
+    @JsonProperty("resultGlobalContainer")
+    public ContainerSummary getResultGlobalContainer() {
+        return this.resultGlobalContainer;
+    }
+
+    /**
+     * Sets the value of resultGlobalContainer.
+     *
+     * @param resultGlobalContainer resultGlobalContainer
+     */
+    public void setResultGlobalContainer(ContainerSummary resultGlobalContainer) {
+        this.resultGlobalContainer = resultGlobalContainer;
+    }
+    /**
+     * Fluent getter for breadcrumbs.
+     *
+     * @return breadcrumbs
+     */
+    public List<Breadcrumb> breadcrumbs() {
+        return this.breadcrumbs;
+    }
+
+    /**
+     * Fluent setter for breadcrumbs.
+     *
+     * @param breadcrumbs breadcrumbs
+     * @return this
+     */
+    public SearchResult breadcrumbs(List<Breadcrumb> breadcrumbs) {
+        this.breadcrumbs = breadcrumbs;
+        return this;
+    }
+
+    /**
+     * Gets the value of breadcrumbs.
+     *
+     * @return breadcrumbs
+     */
+    @JsonProperty("breadcrumbs")
+    public List<Breadcrumb> getBreadcrumbs() {
+        return this.breadcrumbs;
+    }
+
+    /**
+     * Sets the value of breadcrumbs.
+     *
+     * @param breadcrumbs breadcrumbs
+     */
+    public void setBreadcrumbs(List<Breadcrumb> breadcrumbs) {
+        this.breadcrumbs = breadcrumbs;
+    }
+    /**
+     * Fluent getter for entityType.
+     *
+     * @return entityType
+     */
+    public String entityType() {
+        return this.entityType;
+    }
+
+    /**
+     * Fluent setter for entityType.
+     *
+     * @param entityType entityType
+     * @return this
+     */
+    public SearchResult entityType(String entityType) {
+        this.entityType = entityType;
+        return this;
+    }
+
+    /**
+     * Gets the value of entityType.
+     *
+     * @return entityType
+     */
+    @JsonProperty("entityType")
+    public String getEntityType() {
+        return this.entityType;
+    }
+
+    /**
+     * Sets the value of entityType.
+     *
+     * @param entityType entityType
+     */
+    public void setEntityType(String entityType) {
+        this.entityType = entityType;
+    }
+    /**
+     * Fluent getter for iconCssClass.
+     *
+     * @return iconCssClass
+     */
+    public String iconCssClass() {
+        return this.iconCssClass;
+    }
+
+    /**
+     * Fluent setter for iconCssClass.
+     *
+     * @param iconCssClass iconCssClass
+     * @return this
+     */
+    public SearchResult iconCssClass(String iconCssClass) {
+        this.iconCssClass = iconCssClass;
+        return this;
+    }
+
+    /**
+     * Gets the value of iconCssClass.
+     *
+     * @return iconCssClass
+     */
+    @JsonProperty("iconCssClass")
+    public String getIconCssClass() {
+        return this.iconCssClass;
+    }
+
+    /**
+     * Sets the value of iconCssClass.
+     *
+     * @param iconCssClass iconCssClass
+     */
+    public void setIconCssClass(String iconCssClass) {
+        this.iconCssClass = iconCssClass;
+    }
+    /**
+     * Fluent getter for lastModified.
+     *
+     * @return lastModified
+     */
+    public Instant lastModified() {
+        return this.lastModified;
+    }
+
+    /**
+     * Fluent setter for lastModified.
+     *
+     * @param lastModified lastModified
+     * @return this
+     */
+    public SearchResult lastModified(Instant lastModified) {
+        this.lastModified = lastModified;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastModified.
+     *
+     * @return lastModified
+     */
+    @JsonProperty("lastModified")
+    public Instant getLastModified() {
+        return this.lastModified;
+    }
+
+    /**
+     * Sets the value of lastModified.
+     *
+     * @param lastModified lastModified
+     */
+    public void setLastModified(Instant lastModified) {
+        this.lastModified = lastModified;
+    }
+    /**
+     * Fluent getter for friendlyLastModified.
+     *
+     * @return friendlyLastModified
+     */
+    public String friendlyLastModified() {
+        return this.friendlyLastModified;
+    }
+
+    /**
+     * Fluent setter for friendlyLastModified.
+     *
+     * @param friendlyLastModified friendlyLastModified
+     * @return this
+     */
+    public SearchResult friendlyLastModified(String friendlyLastModified) {
+        this.friendlyLastModified = friendlyLastModified;
+        return this;
+    }
+
+    /**
+     * Gets the value of friendlyLastModified.
+     *
+     * @return friendlyLastModified
+     */
+    @JsonProperty("friendlyLastModified")
+    public String getFriendlyLastModified() {
+        return this.friendlyLastModified;
+    }
+
+    /**
+     * Sets the value of friendlyLastModified.
+     *
+     * @param friendlyLastModified friendlyLastModified
+     */
+    public void setFriendlyLastModified(String friendlyLastModified) {
+        this.friendlyLastModified = friendlyLastModified;
+    }
+    /**
+     * Fluent getter for score.
+     *
+     * @return score
+     */
+    public Double score() {
+        return this.score;
+    }
+
+    /**
+     * Fluent setter for score.
+     *
+     * @param score score
+     * @return this
+     */
+    public SearchResult score(Double score) {
+        this.score = score;
+        return this;
+    }
+
+    /**
+     * Gets the value of score.
+     *
+     * @return score
+     */
+    @JsonProperty("score")
+    public Double getScore() {
+        return this.score;
+    }
+
+    /**
+     * Sets the value of score.
+     *
+     * @param score score
+     */
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchResult that = (SearchResult) o;
+        return
+            Objects.equals(this.content, that.content) &&
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.space, that.space) &&
+            Objects.equals(this.title, that.title) &&
+            Objects.equals(this.excerpt, that.excerpt) &&
+            Objects.equals(this.url, that.url) &&
+            Objects.equals(this.resultParentContainer, that.resultParentContainer) &&
+            Objects.equals(this.resultGlobalContainer, that.resultGlobalContainer) &&
+            Objects.equals(this.breadcrumbs, that.breadcrumbs) &&
+            Objects.equals(this.entityType, that.entityType) &&
+            Objects.equals(this.iconCssClass, that.iconCssClass) &&
+            Objects.equals(this.lastModified, that.lastModified) &&
+            Objects.equals(this.friendlyLastModified, that.friendlyLastModified) &&
+            Objects.equals(this.score, that.score);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.content, 
+            this.user, 
+            this.space, 
+            this.title, 
+            this.excerpt, 
+            this.url, 
+            this.resultParentContainer, 
+            this.resultGlobalContainer, 
+            this.breadcrumbs, 
+            this.entityType, 
+            this.iconCssClass, 
+            this.lastModified, 
+            this.friendlyLastModified, 
+            this.score
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SearchResult{" +
+            "content=" + content + ", " + 
+            "user=" + user + ", " + 
+            "space=" + space + ", " + 
+            "title=" + title + ", " + 
+            "excerpt=" + excerpt + ", " + 
+            "url=" + url + ", " + 
+            "resultParentContainer=" + resultParentContainer + ", " + 
+            "resultGlobalContainer=" + resultGlobalContainer + ", " + 
+            "breadcrumbs=" + breadcrumbs + ", " + 
+            "entityType=" + entityType + ", " + 
+            "iconCssClass=" + iconCssClass + ", " + 
+            "lastModified=" + lastModified + ", " + 
+            "friendlyLastModified=" + friendlyLastModified + ", " + 
+            "score=" + score +
+            "}";
     }
 }

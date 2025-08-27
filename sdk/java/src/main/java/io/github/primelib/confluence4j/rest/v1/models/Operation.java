@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Operation
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Operation")
 @JsonPropertyOrder({
     "key",
@@ -54,6 +42,13 @@ public class Operation {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Operation() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Operation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Operation(Consumer)} instead.
@@ -64,5 +59,117 @@ public class Operation {
     public Operation(String key, String target) {
         this.key = key;
         this.target = target;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public Operation key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for target.
+     * <p>
+     * The space or content type that the operation applies to.
+     *
+     * @return target
+     */
+    public String target() {
+        return this.target;
+    }
+
+    /**
+     * Fluent setter for target.
+     * <p>
+     * The space or content type that the operation applies to.
+     *
+     * @param target target
+     * @return this
+     */
+    public Operation target(String target) {
+        this.target = target;
+        return this;
+    }
+
+    /**
+     * Gets the value of target.
+     * <p>
+     * The space or content type that the operation applies to.
+     *
+     * @return target
+     */
+    @JsonProperty("target")
+    public String getTarget() {
+        return this.target;
+    }
+
+    /**
+     * Sets the value of target.
+     * <p>
+     * The space or content type that the operation applies to.
+     *
+     * @param target target
+     */
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Operation that = (Operation) o;
+        return
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.target, that.target);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key, 
+            this.target
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+            "key=" + key + ", " + 
+            "target=" + target +
+            "}";
     }
 }

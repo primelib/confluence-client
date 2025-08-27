@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Version
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Version")
 @JsonPropertyOrder({
     "by",
@@ -38,8 +26,8 @@ import org.jetbrains.annotations.ApiStatus;
     "minorEdit",
     "content",
     "collaborators",
-    "Expandable",
-    "Links",
+    "additionalExpandable",
+    "additionalLinks",
     "contentTypeModified",
     "confRev",
     "syncRev",
@@ -84,10 +72,10 @@ Representation of a blogpost (content)
     protected Map<String, Object> collaborators;
 
     @JsonProperty("_expandable")
-    protected Expandablefdb576 Expandable;
+    protected Expandablefdb576 additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * True if content type is modifed in this version (e.g. page to blog)
@@ -124,6 +112,13 @@ Representation of a blogpost (content)
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Version() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Version}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Version(Consumer)} instead.
@@ -137,15 +132,15 @@ stream will be generated for the change.
      * @param content Base object for all content types.
 Representation of a blogpost (content)
      * @param collaborators collaborators
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      * @param contentTypeModified True if content type is modifed in this version (e.g. page to blog)
      * @param confRev The revision id provided by confluence to be used as a revision in Synchrony
      * @param syncRev The revision id provided by Synchrony
      * @param syncRevSource Source of the synchrony revision
      */
     @ApiStatus.Internal
-    public Version(Map<String, Object> by, Instant when, String friendlyWhen, String message, Integer number, Boolean minorEdit, Content content, Map<String, Object> collaborators, Expandablefdb576 Expandable, Map<String, Object> Links, Boolean contentTypeModified, String confRev, String syncRev, String syncRevSource) {
+    public Version(Map<String, Object> by, Instant when, String friendlyWhen, String message, Integer number, Boolean minorEdit, Content content, Map<String, Object> collaborators, Expandablefdb576 additionalExpandable, Map<String, Object> additionalLinks, Boolean contentTypeModified, String confRev, String syncRev, String syncRevSource) {
         this.by = by;
         this.when = when;
         this.friendlyWhen = friendlyWhen;
@@ -154,11 +149,671 @@ Representation of a blogpost (content)
         this.minorEdit = minorEdit;
         this.content = content;
         this.collaborators = collaborators;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
         this.contentTypeModified = contentTypeModified;
         this.confRev = confRev;
         this.syncRev = syncRev;
         this.syncRevSource = syncRevSource;
+    }
+
+
+    /**
+     * Fluent getter for by.
+     *
+     * @return by
+     */
+    public Map<String, Object> by() {
+        return this.by;
+    }
+
+    /**
+     * Fluent setter for by.
+     *
+     * @param by by
+     * @return this
+     */
+    public Version by(Map<String, Object> by) {
+        this.by = by;
+        return this;
+    }
+
+    /**
+     * Gets the value of by.
+     *
+     * @return by
+     */
+    @JsonProperty("by")
+    public Map<String, Object> getBy() {
+        return this.by;
+    }
+
+    /**
+     * Sets the value of by.
+     *
+     * @param by by
+     */
+    public void setBy(Map<String, Object> by) {
+        this.by = by;
+    }
+    /**
+     * Fluent getter for when.
+     *
+     * @return when
+     */
+    public Instant when() {
+        return this.when;
+    }
+
+    /**
+     * Fluent setter for when.
+     *
+     * @param when when
+     * @return this
+     */
+    public Version when(Instant when) {
+        this.when = when;
+        return this;
+    }
+
+    /**
+     * Gets the value of when.
+     *
+     * @return when
+     */
+    @JsonProperty("when")
+    public Instant getWhen() {
+        return this.when;
+    }
+
+    /**
+     * Sets the value of when.
+     *
+     * @param when when
+     */
+    public void setWhen(Instant when) {
+        this.when = when;
+    }
+    /**
+     * Fluent getter for friendlyWhen.
+     *
+     * @return friendlyWhen
+     */
+    public String friendlyWhen() {
+        return this.friendlyWhen;
+    }
+
+    /**
+     * Fluent setter for friendlyWhen.
+     *
+     * @param friendlyWhen friendlyWhen
+     * @return this
+     */
+    public Version friendlyWhen(String friendlyWhen) {
+        this.friendlyWhen = friendlyWhen;
+        return this;
+    }
+
+    /**
+     * Gets the value of friendlyWhen.
+     *
+     * @return friendlyWhen
+     */
+    @JsonProperty("friendlyWhen")
+    public String getFriendlyWhen() {
+        return this.friendlyWhen;
+    }
+
+    /**
+     * Sets the value of friendlyWhen.
+     *
+     * @param friendlyWhen friendlyWhen
+     */
+    public void setFriendlyWhen(String friendlyWhen) {
+        this.friendlyWhen = friendlyWhen;
+    }
+    /**
+     * Fluent getter for message.
+     *
+     * @return message
+     */
+    public String message() {
+        return this.message;
+    }
+
+    /**
+     * Fluent setter for message.
+     *
+     * @param message message
+     * @return this
+     */
+    public Version message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Gets the value of message.
+     *
+     * @return message
+     */
+    @JsonProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    /**
+     * Sets the value of message.
+     *
+     * @param message message
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    /**
+     * Fluent getter for number.
+     * <p>
+     * Set this to the current version number incremented by one
+     *
+     * @return number
+     */
+    public Integer number() {
+        return this.number;
+    }
+
+    /**
+     * Fluent setter for number.
+     * <p>
+     * Set this to the current version number incremented by one
+     *
+     * @param number number
+     * @return this
+     */
+    public Version number(Integer number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * Gets the value of number.
+     * <p>
+     * Set this to the current version number incremented by one
+     *
+     * @return number
+     */
+    @JsonProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Sets the value of number.
+     * <p>
+     * Set this to the current version number incremented by one
+     *
+     * @param number number
+     */
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+    /**
+     * Fluent getter for minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @return minorEdit
+     */
+    public Boolean minorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Fluent setter for minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @param minorEdit minorEdit
+     * @return this
+     */
+    public Version minorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+        return this;
+    }
+
+    /**
+     * Gets the value of minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @return minorEdit
+     */
+    @JsonProperty("minorEdit")
+    public Boolean getMinorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Sets the value of minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @param minorEdit minorEdit
+     */
+    public void setMinorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+    }
+    /**
+     * Fluent getter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    public Content content() {
+        return this.content;
+    }
+
+    /**
+     * Fluent setter for content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     * @return this
+     */
+    public Version content(Content content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return content
+     */
+    @JsonProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    /**
+     * Sets the value of content.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param content content
+     */
+    public void setContent(Content content) {
+        this.content = content;
+    }
+    /**
+     * Fluent getter for collaborators.
+     *
+     * @return collaborators
+     */
+    public Map<String, Object> collaborators() {
+        return this.collaborators;
+    }
+
+    /**
+     * Fluent setter for collaborators.
+     *
+     * @param collaborators collaborators
+     * @return this
+     */
+    public Version collaborators(Map<String, Object> collaborators) {
+        this.collaborators = collaborators;
+        return this;
+    }
+
+    /**
+     * Gets the value of collaborators.
+     *
+     * @return collaborators
+     */
+    @JsonProperty("collaborators")
+    public Map<String, Object> getCollaborators() {
+        return this.collaborators;
+    }
+
+    /**
+     * Sets the value of collaborators.
+     *
+     * @param collaborators collaborators
+     */
+    public void setCollaborators(Map<String, Object> collaborators) {
+        this.collaborators = collaborators;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandablefdb576 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Version additionalExpandable(Expandablefdb576 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandablefdb576 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandablefdb576 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Version additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+    /**
+     * Fluent getter for contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @return contentTypeModified
+     */
+    public Boolean contentTypeModified() {
+        return this.contentTypeModified;
+    }
+
+    /**
+     * Fluent setter for contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @param contentTypeModified contentTypeModified
+     * @return this
+     */
+    public Version contentTypeModified(Boolean contentTypeModified) {
+        this.contentTypeModified = contentTypeModified;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @return contentTypeModified
+     */
+    @JsonProperty("contentTypeModified")
+    public Boolean getContentTypeModified() {
+        return this.contentTypeModified;
+    }
+
+    /**
+     * Sets the value of contentTypeModified.
+     * <p>
+     * True if content type is modifed in this version (e.g. page to blog)
+     *
+     * @param contentTypeModified contentTypeModified
+     */
+    public void setContentTypeModified(Boolean contentTypeModified) {
+        this.contentTypeModified = contentTypeModified;
+    }
+    /**
+     * Fluent getter for confRev.
+     * <p>
+     * The revision id provided by confluence to be used as a revision in Synchrony
+     *
+     * @return confRev
+     */
+    public String confRev() {
+        return this.confRev;
+    }
+
+    /**
+     * Fluent setter for confRev.
+     * <p>
+     * The revision id provided by confluence to be used as a revision in Synchrony
+     *
+     * @param confRev confRev
+     * @return this
+     */
+    public Version confRev(String confRev) {
+        this.confRev = confRev;
+        return this;
+    }
+
+    /**
+     * Gets the value of confRev.
+     * <p>
+     * The revision id provided by confluence to be used as a revision in Synchrony
+     *
+     * @return confRev
+     */
+    @JsonProperty("confRev")
+    public String getConfRev() {
+        return this.confRev;
+    }
+
+    /**
+     * Sets the value of confRev.
+     * <p>
+     * The revision id provided by confluence to be used as a revision in Synchrony
+     *
+     * @param confRev confRev
+     */
+    public void setConfRev(String confRev) {
+        this.confRev = confRev;
+    }
+    /**
+     * Fluent getter for syncRev.
+     * <p>
+     * The revision id provided by Synchrony
+     *
+     * @return syncRev
+     */
+    public String syncRev() {
+        return this.syncRev;
+    }
+
+    /**
+     * Fluent setter for syncRev.
+     * <p>
+     * The revision id provided by Synchrony
+     *
+     * @param syncRev syncRev
+     * @return this
+     */
+    public Version syncRev(String syncRev) {
+        this.syncRev = syncRev;
+        return this;
+    }
+
+    /**
+     * Gets the value of syncRev.
+     * <p>
+     * The revision id provided by Synchrony
+     *
+     * @return syncRev
+     */
+    @JsonProperty("syncRev")
+    public String getSyncRev() {
+        return this.syncRev;
+    }
+
+    /**
+     * Sets the value of syncRev.
+     * <p>
+     * The revision id provided by Synchrony
+     *
+     * @param syncRev syncRev
+     */
+    public void setSyncRev(String syncRev) {
+        this.syncRev = syncRev;
+    }
+    /**
+     * Fluent getter for syncRevSource.
+     * <p>
+     * Source of the synchrony revision
+     *
+     * @return syncRevSource
+     */
+    public String syncRevSource() {
+        return this.syncRevSource;
+    }
+
+    /**
+     * Fluent setter for syncRevSource.
+     * <p>
+     * Source of the synchrony revision
+     *
+     * @param syncRevSource syncRevSource
+     * @return this
+     */
+    public Version syncRevSource(String syncRevSource) {
+        this.syncRevSource = syncRevSource;
+        return this;
+    }
+
+    /**
+     * Gets the value of syncRevSource.
+     * <p>
+     * Source of the synchrony revision
+     *
+     * @return syncRevSource
+     */
+    @JsonProperty("syncRevSource")
+    public String getSyncRevSource() {
+        return this.syncRevSource;
+    }
+
+    /**
+     * Sets the value of syncRevSource.
+     * <p>
+     * Source of the synchrony revision
+     *
+     * @param syncRevSource syncRevSource
+     */
+    public void setSyncRevSource(String syncRevSource) {
+        this.syncRevSource = syncRevSource;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Version that = (Version) o;
+        return
+            Objects.equals(this.by, that.by) &&
+            Objects.equals(this.when, that.when) &&
+            Objects.equals(this.friendlyWhen, that.friendlyWhen) &&
+            Objects.equals(this.message, that.message) &&
+            Objects.equals(this.number, that.number) &&
+            Objects.equals(this.minorEdit, that.minorEdit) &&
+            Objects.equals(this.content, that.content) &&
+            Objects.equals(this.collaborators, that.collaborators) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks) &&
+            Objects.equals(this.contentTypeModified, that.contentTypeModified) &&
+            Objects.equals(this.confRev, that.confRev) &&
+            Objects.equals(this.syncRev, that.syncRev) &&
+            Objects.equals(this.syncRevSource, that.syncRevSource);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.by, 
+            this.when, 
+            this.friendlyWhen, 
+            this.message, 
+            this.number, 
+            this.minorEdit, 
+            this.content, 
+            this.collaborators, 
+            this.additionalExpandable, 
+            this.additionalLinks, 
+            this.contentTypeModified, 
+            this.confRev, 
+            this.syncRev, 
+            this.syncRevSource
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Version{" +
+            "by=" + by + ", " + 
+            "when=" + when + ", " + 
+            "friendlyWhen=" + friendlyWhen + ", " + 
+            "message=" + message + ", " + 
+            "number=" + number + ", " + 
+            "minorEdit=" + minorEdit + ", " + 
+            "content=" + content + ", " + 
+            "collaborators=" + collaborators + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks + ", " + 
+            "contentTypeModified=" + contentTypeModified + ", " + 
+            "confRev=" + confRev + ", " + 
+            "syncRev=" + syncRev + ", " + 
+            "syncRevSource=" + syncRevSource +
+            "}";
     }
 }

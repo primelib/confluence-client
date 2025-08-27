@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,12 +17,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The CQL queries to be converted.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("CqlpersonalDataMigrationRequest")
 @JsonPropertyOrder({
     "queryStrings"
@@ -53,6 +41,13 @@ public class CqlpersonalDataMigrationRequest {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected CqlpersonalDataMigrationRequest() {
+    }
+
+    /**
      * Constructs a validated instance of {@link CqlpersonalDataMigrationRequest}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CqlpersonalDataMigrationRequest(Consumer)} instead.
@@ -61,5 +56,76 @@ public class CqlpersonalDataMigrationRequest {
     @ApiStatus.Internal
     public CqlpersonalDataMigrationRequest(List<String> queryStrings) {
         this.queryStrings = queryStrings;
+    }
+
+
+    /**
+     * Fluent getter for queryStrings.
+     * <p>
+     * A list of queries with user identifiers. Maximum of 100 queries.
+     *
+     * @return queryStrings
+     */
+    public List<String> queryStrings() {
+        return this.queryStrings;
+    }
+
+    /**
+     * Fluent setter for queryStrings.
+     * <p>
+     * A list of queries with user identifiers. Maximum of 100 queries.
+     *
+     * @param queryStrings queryStrings
+     * @return this
+     */
+    public CqlpersonalDataMigrationRequest queryStrings(List<String> queryStrings) {
+        this.queryStrings = queryStrings;
+        return this;
+    }
+
+    /**
+     * Gets the value of queryStrings.
+     * <p>
+     * A list of queries with user identifiers. Maximum of 100 queries.
+     *
+     * @return queryStrings
+     */
+    @JsonProperty("queryStrings")
+    public List<String> getQueryStrings() {
+        return this.queryStrings;
+    }
+
+    /**
+     * Sets the value of queryStrings.
+     * <p>
+     * A list of queries with user identifiers. Maximum of 100 queries.
+     *
+     * @param queryStrings queryStrings
+     */
+    public void setQueryStrings(List<String> queryStrings) {
+        this.queryStrings = queryStrings;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CqlpersonalDataMigrationRequest that = (CqlpersonalDataMigrationRequest) o;
+        return
+            Objects.equals(this.queryStrings, that.queryStrings);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.queryStrings
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "CqlpersonalDataMigrationRequest{" +
+            "queryStrings=" + queryStrings +
+            "}";
     }
 }

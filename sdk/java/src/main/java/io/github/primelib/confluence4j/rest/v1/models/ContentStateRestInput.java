@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentStateRestInput
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentStateRestInput")
 @JsonPropertyOrder({
     "name",
@@ -69,6 +57,13 @@ public class ContentStateRestInput {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentStateRestInput() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentStateRestInput}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentStateRestInput(Consumer)} instead.
@@ -86,5 +81,194 @@ public class ContentStateRestInput {
         this.name = name;
         this.color = color;
         this.id = id;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     * <p>
+     * Name of content state. Maximum 20 characters.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     * <p>
+     * Name of content state. Maximum 20 characters.
+     *
+     * @param name name
+     * @return this
+     */
+    public ContentStateRestInput name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     * <p>
+     * Name of content state. Maximum 20 characters.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     * <p>
+     * Name of content state. Maximum 20 characters.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for color.
+     * <p>
+     * Color of state. Must be in 6 digit hex form (#FFFFFF). The default colors offered in the UI are:
+     *  #ff7452 (red),
+     *  #2684ff (blue),
+     *  #ffc400 (yellow),
+     *  #57d9a3 (green), and
+     *  #8777d9 (purple)
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     * <p>
+     * Color of state. Must be in 6 digit hex form (#FFFFFF). The default colors offered in the UI are:
+     *  #ff7452 (red),
+     *  #2684ff (blue),
+     *  #ffc400 (yellow),
+     *  #57d9a3 (green), and
+     *  #8777d9 (purple)
+     *
+     * @param color color
+     * @return this
+     */
+    public ContentStateRestInput color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     * <p>
+     * Color of state. Must be in 6 digit hex form (#FFFFFF). The default colors offered in the UI are:
+     *  #ff7452 (red),
+     *  #2684ff (blue),
+     *  #ffc400 (yellow),
+     *  #57d9a3 (green), and
+     *  #8777d9 (purple)
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     * <p>
+     * Color of state. Must be in 6 digit hex form (#FFFFFF). The default colors offered in the UI are:
+     *  #ff7452 (red),
+     *  #2684ff (blue),
+     *  #ffc400 (yellow),
+     *  #57d9a3 (green), and
+     *  #8777d9 (purple)
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+    /**
+     * Fluent getter for id.
+     * <p>
+     * id of state. This can be 0,1, or 2 if you wish to specify a default space state.
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * id of state. This can be 0,1, or 2 if you wish to specify a default space state.
+     *
+     * @param id id
+     * @return this
+     */
+    public ContentStateRestInput id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * id of state. This can be 0,1, or 2 if you wish to specify a default space state.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * id of state. This can be 0,1, or 2 if you wish to specify a default space state.
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentStateRestInput that = (ContentStateRestInput) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.color, that.color) &&
+            Objects.equals(this.id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.color, 
+            this.id
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentStateRestInput{" +
+            "name=" + name + ", " + 
+            "color=" + color + ", " + 
+            "id=" + id +
+            "}";
     }
 }

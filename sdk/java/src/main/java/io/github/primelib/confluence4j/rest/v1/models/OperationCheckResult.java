@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * An operation and the target entity that it applies to, e.g. create page.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("OperationCheckResult")
 @JsonPropertyOrder({
     "operation",
@@ -59,6 +47,13 @@ public class OperationCheckResult {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected OperationCheckResult() {
+    }
+
+    /**
      * Constructs a validated instance of {@link OperationCheckResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OperationCheckResult(Consumer)} instead.
@@ -69,5 +64,125 @@ public class OperationCheckResult {
     public OperationCheckResult(String operation, String targetType) {
         this.operation = operation;
         this.targetType = targetType;
+    }
+
+
+    /**
+     * Fluent getter for operation.
+     * <p>
+     * The operation itself.
+     *
+     * @return operation
+     */
+    public String operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     * <p>
+     * The operation itself.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public OperationCheckResult operation(String operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     * <p>
+     * The operation itself.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public String getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     * <p>
+     * The operation itself.
+     *
+     * @param operation operation
+     */
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+    /**
+     * Fluent getter for targetType.
+     * <p>
+     * The space or content type that the operation applies to. Could be one of- - application - page - blogpost - comment - attachment - space
+     *
+     * @return targetType
+     */
+    public String targetType() {
+        return this.targetType;
+    }
+
+    /**
+     * Fluent setter for targetType.
+     * <p>
+     * The space or content type that the operation applies to. Could be one of- - application - page - blogpost - comment - attachment - space
+     *
+     * @param targetType targetType
+     * @return this
+     */
+    public OperationCheckResult targetType(String targetType) {
+        this.targetType = targetType;
+        return this;
+    }
+
+    /**
+     * Gets the value of targetType.
+     * <p>
+     * The space or content type that the operation applies to. Could be one of- - application - page - blogpost - comment - attachment - space
+     *
+     * @return targetType
+     */
+    @JsonProperty("targetType")
+    public String getTargetType() {
+        return this.targetType;
+    }
+
+    /**
+     * Sets the value of targetType.
+     * <p>
+     * The space or content type that the operation applies to. Could be one of- - application - page - blogpost - comment - attachment - space
+     *
+     * @param targetType targetType
+     */
+    public void setTargetType(String targetType) {
+        this.targetType = targetType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OperationCheckResult that = (OperationCheckResult) o;
+        return
+            Objects.equals(this.operation, that.operation) &&
+            Objects.equals(this.targetType, that.targetType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operation, 
+            this.targetType
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "OperationCheckResult{" +
+            "operation=" + operation + ", " + 
+            "targetType=" + targetType +
+            "}";
     }
 }

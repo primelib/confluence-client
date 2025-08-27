@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * A group that the restriction will be applied to.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("GroupItem")
 @JsonPropertyOrder({
     "type",
@@ -59,6 +47,13 @@ public class GroupItem {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected GroupItem() {
+    }
+
+    /**
      * Constructs a validated instance of {@link GroupItem}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GroupItem(Consumer)} instead.
@@ -69,5 +64,125 @@ public class GroupItem {
     public GroupItem(String type, String id) {
         this.type = type;
         this.id = id;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     * <p>
+     * Set to 'group'.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * Set to 'group'.
+     *
+     * @param type type
+     * @return this
+     */
+    public GroupItem type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * Set to 'group'.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * Set to 'group'.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The id of the group.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The id of the group.
+     *
+     * @param id id
+     * @return this
+     */
+    public GroupItem id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The id of the group.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The id of the group.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GroupItem that = (GroupItem) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.id
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "GroupItem{" +
+            "type=" + type + ", " + 
+            "id=" + id +
+            "}";
     }
 }

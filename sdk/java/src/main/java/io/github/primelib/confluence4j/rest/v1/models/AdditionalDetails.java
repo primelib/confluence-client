@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AdditionalDetails
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AdditionalDetails")
 @JsonPropertyOrder({
     "destinationId",
@@ -59,6 +47,13 @@ public class AdditionalDetails {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AdditionalDetails() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AdditionalDetails}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AdditionalDetails(Consumer)} instead.
@@ -73,5 +68,191 @@ public class AdditionalDetails {
         this.destinationUrl = destinationUrl;
         this.totalPageNeedToCopy = totalPageNeedToCopy;
         this.additionalProperties = additionalProperties;
+    }
+
+
+    /**
+     * Fluent getter for destinationId.
+     *
+     * @return destinationId
+     */
+    public String destinationId() {
+        return this.destinationId;
+    }
+
+    /**
+     * Fluent setter for destinationId.
+     *
+     * @param destinationId destinationId
+     * @return this
+     */
+    public AdditionalDetails destinationId(String destinationId) {
+        this.destinationId = destinationId;
+        return this;
+    }
+
+    /**
+     * Gets the value of destinationId.
+     *
+     * @return destinationId
+     */
+    @JsonProperty("destinationId")
+    public String getDestinationId() {
+        return this.destinationId;
+    }
+
+    /**
+     * Sets the value of destinationId.
+     *
+     * @param destinationId destinationId
+     */
+    public void setDestinationId(String destinationId) {
+        this.destinationId = destinationId;
+    }
+    /**
+     * Fluent getter for destinationUrl.
+     *
+     * @return destinationUrl
+     */
+    public String destinationUrl() {
+        return this.destinationUrl;
+    }
+
+    /**
+     * Fluent setter for destinationUrl.
+     *
+     * @param destinationUrl destinationUrl
+     * @return this
+     */
+    public AdditionalDetails destinationUrl(String destinationUrl) {
+        this.destinationUrl = destinationUrl;
+        return this;
+    }
+
+    /**
+     * Gets the value of destinationUrl.
+     *
+     * @return destinationUrl
+     */
+    @JsonProperty("destinationUrl")
+    public String getDestinationUrl() {
+        return this.destinationUrl;
+    }
+
+    /**
+     * Sets the value of destinationUrl.
+     *
+     * @param destinationUrl destinationUrl
+     */
+    public void setDestinationUrl(String destinationUrl) {
+        this.destinationUrl = destinationUrl;
+    }
+    /**
+     * Fluent getter for totalPageNeedToCopy.
+     *
+     * @return totalPageNeedToCopy
+     */
+    public Long totalPageNeedToCopy() {
+        return this.totalPageNeedToCopy;
+    }
+
+    /**
+     * Fluent setter for totalPageNeedToCopy.
+     *
+     * @param totalPageNeedToCopy totalPageNeedToCopy
+     * @return this
+     */
+    public AdditionalDetails totalPageNeedToCopy(Long totalPageNeedToCopy) {
+        this.totalPageNeedToCopy = totalPageNeedToCopy;
+        return this;
+    }
+
+    /**
+     * Gets the value of totalPageNeedToCopy.
+     *
+     * @return totalPageNeedToCopy
+     */
+    @JsonProperty("totalPageNeedToCopy")
+    public Long getTotalPageNeedToCopy() {
+        return this.totalPageNeedToCopy;
+    }
+
+    /**
+     * Sets the value of totalPageNeedToCopy.
+     *
+     * @param totalPageNeedToCopy totalPageNeedToCopy
+     */
+    public void setTotalPageNeedToCopy(Long totalPageNeedToCopy) {
+        this.totalPageNeedToCopy = totalPageNeedToCopy;
+    }
+    /**
+     * Fluent getter for additionalProperties.
+     *
+     * @return additionalProperties
+     */
+    public String additionalProperties() {
+        return this.additionalProperties;
+    }
+
+    /**
+     * Fluent setter for additionalProperties.
+     *
+     * @param additionalProperties additionalProperties
+     * @return this
+     */
+    public AdditionalDetails additionalProperties(String additionalProperties) {
+        this.additionalProperties = additionalProperties;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalProperties.
+     *
+     * @return additionalProperties
+     */
+    @JsonProperty("additionalProperties")
+    public String getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    /**
+     * Sets the value of additionalProperties.
+     *
+     * @param additionalProperties additionalProperties
+     */
+    public void setAdditionalProperties(String additionalProperties) {
+        this.additionalProperties = additionalProperties;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AdditionalDetails that = (AdditionalDetails) o;
+        return
+            Objects.equals(this.destinationId, that.destinationId) &&
+            Objects.equals(this.destinationUrl, that.destinationUrl) &&
+            Objects.equals(this.totalPageNeedToCopy, that.totalPageNeedToCopy) &&
+            Objects.equals(this.additionalProperties, that.additionalProperties);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.destinationId, 
+            this.destinationUrl, 
+            this.totalPageNeedToCopy, 
+            this.additionalProperties
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AdditionalDetails{" +
+            "destinationId=" + destinationId + ", " + 
+            "destinationUrl=" + destinationUrl + ", " + 
+            "totalPageNeedToCopy=" + totalPageNeedToCopy + ", " + 
+            "additionalProperties=" + additionalProperties +
+            "}";
     }
 }

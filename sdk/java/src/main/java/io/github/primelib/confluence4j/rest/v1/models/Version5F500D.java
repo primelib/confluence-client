@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * To get the current version number, use [Get content by ID](#api-content-id-get) and retrieve `version.number`.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Version5F500D")
 @JsonPropertyOrder({
     "number",
@@ -61,6 +49,13 @@ public class Version5F500D {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Version5F500D() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Version5F500D}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Version5F500D(Consumer)} instead.
@@ -71,5 +66,125 @@ public class Version5F500D {
     public Version5F500D(Integer number, String message) {
         this.number = number;
         this.message = message;
+    }
+
+
+    /**
+     * Fluent getter for number.
+     * <p>
+     * The version number.
+     *
+     * @return number
+     */
+    public Integer number() {
+        return this.number;
+    }
+
+    /**
+     * Fluent setter for number.
+     * <p>
+     * The version number.
+     *
+     * @param number number
+     * @return this
+     */
+    public Version5F500D number(Integer number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * Gets the value of number.
+     * <p>
+     * The version number.
+     *
+     * @return number
+     */
+    @JsonProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Sets the value of number.
+     * <p>
+     * The version number.
+     *
+     * @param number number
+     */
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+    /**
+     * Fluent getter for message.
+     * <p>
+     * An optional message to be stored with the corresponding version.
+     *
+     * @return message
+     */
+    public String message() {
+        return this.message;
+    }
+
+    /**
+     * Fluent setter for message.
+     * <p>
+     * An optional message to be stored with the corresponding version.
+     *
+     * @param message message
+     * @return this
+     */
+    public Version5F500D message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Gets the value of message.
+     * <p>
+     * An optional message to be stored with the corresponding version.
+     *
+     * @return message
+     */
+    @JsonProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    /**
+     * Sets the value of message.
+     * <p>
+     * An optional message to be stored with the corresponding version.
+     *
+     * @param message message
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Version5F500D that = (Version5F500D) o;
+        return
+            Objects.equals(this.number, that.number) &&
+            Objects.equals(this.message, that.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.number, 
+            this.message
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Version5F500D{" +
+            "number=" + number + ", " + 
+            "message=" + message +
+            "}";
     }
 }

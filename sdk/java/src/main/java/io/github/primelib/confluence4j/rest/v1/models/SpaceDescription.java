@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SpaceDescription
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpaceDescription")
 @JsonPropertyOrder({
     "value",
@@ -56,6 +44,13 @@ public class SpaceDescription {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpaceDescription() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpaceDescription}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceDescription(Consumer)} instead.
@@ -68,5 +63,150 @@ public class SpaceDescription {
         this.value = value;
         this.representation = representation;
         this.embeddedContent = embeddedContent;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     *
+     * @return value
+     */
+    public String value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     *
+     * @param value value
+     * @return this
+     */
+    public SpaceDescription value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     *
+     * @param value value
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for representation.
+     *
+     * @return representation
+     */
+    public String representation() {
+        return this.representation;
+    }
+
+    /**
+     * Fluent setter for representation.
+     *
+     * @param representation representation
+     * @return this
+     */
+    public SpaceDescription representation(String representation) {
+        this.representation = representation;
+        return this;
+    }
+
+    /**
+     * Gets the value of representation.
+     *
+     * @return representation
+     */
+    @JsonProperty("representation")
+    public String getRepresentation() {
+        return this.representation;
+    }
+
+    /**
+     * Sets the value of representation.
+     *
+     * @param representation representation
+     */
+    public void setRepresentation(String representation) {
+        this.representation = representation;
+    }
+    /**
+     * Fluent getter for embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    public List<Object> embeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Fluent setter for embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     * @return this
+     */
+    public SpaceDescription embeddedContent(List<Object> embeddedContent) {
+        this.embeddedContent = embeddedContent;
+        return this;
+    }
+
+    /**
+     * Gets the value of embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    @JsonProperty("embeddedContent")
+    public List<Object> getEmbeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Sets the value of embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     */
+    public void setEmbeddedContent(List<Object> embeddedContent) {
+        this.embeddedContent = embeddedContent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceDescription that = (SpaceDescription) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.representation, that.representation) &&
+            Objects.equals(this.embeddedContent, that.embeddedContent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.representation, 
+            this.embeddedContent
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpaceDescription{" +
+            "value=" + value + ", " + 
+            "representation=" + representation + ", " + 
+            "embeddedContent=" + embeddedContent +
+            "}";
     }
 }

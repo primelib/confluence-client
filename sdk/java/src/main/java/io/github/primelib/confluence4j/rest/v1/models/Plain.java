@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Plain
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Plain")
 @JsonPropertyOrder({
     "value",
@@ -57,6 +45,13 @@ public class Plain {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Plain() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Plain}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Plain(Consumer)} instead.
@@ -67,5 +62,125 @@ public class Plain {
     public Plain(String value, String representation) {
         this.value = value;
         this.representation = representation;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The space description.
+     *
+     * @return value
+     */
+    public String value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The space description.
+     *
+     * @param value value
+     * @return this
+     */
+    public Plain value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The space description.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The space description.
+     *
+     * @param value value
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for representation.
+     * <p>
+     * Set to 'plain'.
+     *
+     * @return representation
+     */
+    public String representation() {
+        return this.representation;
+    }
+
+    /**
+     * Fluent setter for representation.
+     * <p>
+     * Set to 'plain'.
+     *
+     * @param representation representation
+     * @return this
+     */
+    public Plain representation(String representation) {
+        this.representation = representation;
+        return this;
+    }
+
+    /**
+     * Gets the value of representation.
+     * <p>
+     * Set to 'plain'.
+     *
+     * @return representation
+     */
+    @JsonProperty("representation")
+    public String getRepresentation() {
+        return this.representation;
+    }
+
+    /**
+     * Sets the value of representation.
+     * <p>
+     * Set to 'plain'.
+     *
+     * @param representation representation
+     */
+    public void setRepresentation(String representation) {
+        this.representation = representation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Plain that = (Plain) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.representation, that.representation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.representation
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Plain{" +
+            "value=" + value + ", " + 
+            "representation=" + representation +
+            "}";
     }
 }

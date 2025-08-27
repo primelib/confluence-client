@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SpacePropertyUpdate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePropertyUpdate")
 @JsonPropertyOrder({
     "key",
@@ -60,6 +48,13 @@ public class SpacePropertyUpdate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePropertyUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePropertyUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePropertyUpdate(Consumer)} instead.
@@ -74,5 +69,191 @@ public class SpacePropertyUpdate {
         this.value = value;
         this.version = version;
         this.space = space;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public SpacePropertyUpdate key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for value.
+     *
+     * @return value
+     */
+    public Object value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     *
+     * @param value value
+     * @return this
+     */
+    public SpacePropertyUpdate value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     *
+     * @param value value
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for version.
+     *
+     * @return version
+     */
+    public Version version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     *
+     * @param version version
+     * @return this
+     */
+    public SpacePropertyUpdate version(Version version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Version getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     *
+     * @param version version
+     */
+    public void setVersion(Version version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for space.
+     *
+     * @return space
+     */
+    public Map<String, Object> space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     *
+     * @param space space
+     * @return this
+     */
+    public SpacePropertyUpdate space(Map<String, Object> space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Map<String, Object> getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     *
+     * @param space space
+     */
+    public void setSpace(Map<String, Object> space) {
+        this.space = space;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePropertyUpdate that = (SpacePropertyUpdate) o;
+        return
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.space, that.space);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key, 
+            this.value, 
+            this.version, 
+            this.space
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePropertyUpdate{" +
+            "key=" + key + ", " + 
+            "value=" + value + ", " + 
+            "version=" + version + ", " + 
+            "space=" + space +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandablea42744
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandablea42744")
 @JsonPropertyOrder({
     "restrictions",
@@ -51,6 +39,13 @@ public class Expandablea42744 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandablea42744() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandablea42744}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandablea42744(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Expandablea42744 {
     public Expandablea42744(String restrictions, String content) {
         this.restrictions = restrictions;
         this.content = content;
+    }
+
+
+    /**
+     * Fluent getter for restrictions.
+     *
+     * @return restrictions
+     */
+    public String restrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Fluent setter for restrictions.
+     *
+     * @param restrictions restrictions
+     * @return this
+     */
+    public Expandablea42744 restrictions(String restrictions) {
+        this.restrictions = restrictions;
+        return this;
+    }
+
+    /**
+     * Gets the value of restrictions.
+     *
+     * @return restrictions
+     */
+    @JsonProperty("restrictions")
+    public String getRestrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Sets the value of restrictions.
+     *
+     * @param restrictions restrictions
+     */
+    public void setRestrictions(String restrictions) {
+        this.restrictions = restrictions;
+    }
+    /**
+     * Fluent getter for content.
+     *
+     * @return content
+     */
+    public String content() {
+        return this.content;
+    }
+
+    /**
+     * Fluent setter for content.
+     *
+     * @param content content
+     * @return this
+     */
+    public Expandablea42744 content(String content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Gets the value of content.
+     *
+     * @return content
+     */
+    @JsonProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    /**
+     * Sets the value of content.
+     *
+     * @param content content
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandablea42744 that = (Expandablea42744) o;
+        return
+            Objects.equals(this.restrictions, that.restrictions) &&
+            Objects.equals(this.content, that.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.restrictions, 
+            this.content
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandablea42744{" +
+            "restrictions=" + restrictions + ", " + 
+            "content=" + content +
+            "}";
     }
 }

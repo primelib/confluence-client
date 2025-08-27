@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The user or group that the permission applies to.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("PermissionSubject")
 @JsonPropertyOrder({
     "type",
@@ -58,6 +46,13 @@ for `type=group`, identifier should be the groupId.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected PermissionSubject() {
+    }
+
+    /**
      * Constructs a validated instance of {@link PermissionSubject}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PermissionSubject(Consumer)} instead.
@@ -70,5 +65,125 @@ for `type=group`, identifier should be the groupId.
     public PermissionSubject(String type, String identifier) {
         this.type = type;
         this.identifier = identifier;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public PermissionSubject type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for identifier.
+     * <p>
+     * for `type=user`, identifier should be user's accountId or `anonymous` for anonymous users
+     * 
+     * for `type=group`, identifier should be the groupId.
+     *
+     * @return identifier
+     */
+    public String identifier() {
+        return this.identifier;
+    }
+
+    /**
+     * Fluent setter for identifier.
+     * <p>
+     * for `type=user`, identifier should be user's accountId or `anonymous` for anonymous users
+     * 
+     * for `type=group`, identifier should be the groupId.
+     *
+     * @param identifier identifier
+     * @return this
+     */
+    public PermissionSubject identifier(String identifier) {
+        this.identifier = identifier;
+        return this;
+    }
+
+    /**
+     * Gets the value of identifier.
+     * <p>
+     * for `type=user`, identifier should be user's accountId or `anonymous` for anonymous users
+     * 
+     * for `type=group`, identifier should be the groupId.
+     *
+     * @return identifier
+     */
+    @JsonProperty("identifier")
+    public String getIdentifier() {
+        return this.identifier;
+    }
+
+    /**
+     * Sets the value of identifier.
+     * <p>
+     * for `type=user`, identifier should be user's accountId or `anonymous` for anonymous users
+     * 
+     * for `type=group`, identifier should be the groupId.
+     *
+     * @param identifier identifier
+     */
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PermissionSubject that = (PermissionSubject) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.identifier, that.identifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.identifier
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "PermissionSubject{" +
+            "type=" + type + ", " + 
+            "identifier=" + identifier +
+            "}";
     }
 }

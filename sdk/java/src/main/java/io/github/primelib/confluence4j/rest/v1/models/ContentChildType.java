@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,18 +17,12 @@ import org.jetbrains.annotations.ApiStatus;
  * Note, this doesn't actually contain the child objects.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentChildType")
 @JsonPropertyOrder({
     "attachment",
     "comment",
     "page",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class ContentChildType {
@@ -49,7 +37,7 @@ public class ContentChildType {
     protected Page page;
 
     @JsonProperty("_expandable")
-    protected Expandable890C87 Expandable;
+    protected Expandable890C87 additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link ContentChildType}.
@@ -62,19 +50,212 @@ public class ContentChildType {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentChildType() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentChildType}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentChildType(Consumer)} instead.
      * @param attachment attachment
      * @param comment comment
      * @param page page
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public ContentChildType(Attachment attachment, Comment comment, Page page, Expandable890C87 Expandable) {
+    public ContentChildType(Attachment attachment, Comment comment, Page page, Expandable890C87 additionalExpandable) {
         this.attachment = attachment;
         this.comment = comment;
         this.page = page;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for attachment.
+     *
+     * @return attachment
+     */
+    public Attachment attachment() {
+        return this.attachment;
+    }
+
+    /**
+     * Fluent setter for attachment.
+     *
+     * @param attachment attachment
+     * @return this
+     */
+    public ContentChildType attachment(Attachment attachment) {
+        this.attachment = attachment;
+        return this;
+    }
+
+    /**
+     * Gets the value of attachment.
+     *
+     * @return attachment
+     */
+    @JsonProperty("attachment")
+    public Attachment getAttachment() {
+        return this.attachment;
+    }
+
+    /**
+     * Sets the value of attachment.
+     *
+     * @param attachment attachment
+     */
+    public void setAttachment(Attachment attachment) {
+        this.attachment = attachment;
+    }
+    /**
+     * Fluent getter for comment.
+     *
+     * @return comment
+     */
+    public Comment comment() {
+        return this.comment;
+    }
+
+    /**
+     * Fluent setter for comment.
+     *
+     * @param comment comment
+     * @return this
+     */
+    public ContentChildType comment(Comment comment) {
+        this.comment = comment;
+        return this;
+    }
+
+    /**
+     * Gets the value of comment.
+     *
+     * @return comment
+     */
+    @JsonProperty("comment")
+    public Comment getComment() {
+        return this.comment;
+    }
+
+    /**
+     * Sets the value of comment.
+     *
+     * @param comment comment
+     */
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+    /**
+     * Fluent getter for page.
+     *
+     * @return page
+     */
+    public Page page() {
+        return this.page;
+    }
+
+    /**
+     * Fluent setter for page.
+     *
+     * @param page page
+     * @return this
+     */
+    public ContentChildType page(Page page) {
+        this.page = page;
+        return this;
+    }
+
+    /**
+     * Gets the value of page.
+     *
+     * @return page
+     */
+    @JsonProperty("page")
+    public Page getPage() {
+        return this.page;
+    }
+
+    /**
+     * Sets the value of page.
+     *
+     * @param page page
+     */
+    public void setPage(Page page) {
+        this.page = page;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable890C87 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public ContentChildType additionalExpandable(Expandable890C87 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable890C87 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable890C87 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentChildType that = (ContentChildType) o;
+        return
+            Objects.equals(this.attachment, that.attachment) &&
+            Objects.equals(this.comment, that.comment) &&
+            Objects.equals(this.page, that.page) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.attachment, 
+            this.comment, 
+            this.page, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentChildType{" +
+            "attachment=" + attachment + ", " + 
+            "comment=" + comment + ", " + 
+            "page=" + page + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

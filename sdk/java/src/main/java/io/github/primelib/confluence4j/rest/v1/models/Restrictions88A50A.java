@@ -5,32 +5,20 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Restrictions88A50A
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Restrictions88A50A")
 @JsonPropertyOrder({
     "user",
     "group",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Restrictions88A50A {
@@ -42,7 +30,7 @@ public class Restrictions88A50A {
     protected GroupArray group;
 
     @JsonProperty("_expandable")
-    protected Expandableac2380 Expandable;
+    protected Expandableac2380 additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link Restrictions88A50A}.
@@ -55,17 +43,169 @@ public class Restrictions88A50A {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Restrictions88A50A() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Restrictions88A50A}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Restrictions88A50A(Consumer)} instead.
      * @param user user
      * @param group group
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public Restrictions88A50A(UserArray user, GroupArray group, Expandableac2380 Expandable) {
+    public Restrictions88A50A(UserArray user, GroupArray group, Expandableac2380 additionalExpandable) {
         this.user = user;
         this.group = group;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public UserArray user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public Restrictions88A50A user(UserArray user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public UserArray getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(UserArray user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for group.
+     *
+     * @return group
+     */
+    public GroupArray group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     *
+     * @param group group
+     * @return this
+     */
+    public Restrictions88A50A group(GroupArray group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public GroupArray getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     *
+     * @param group group
+     */
+    public void setGroup(GroupArray group) {
+        this.group = group;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandableac2380 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Restrictions88A50A additionalExpandable(Expandableac2380 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandableac2380 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandableac2380 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restrictions88A50A that = (Restrictions88A50A) o;
+        return
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.group, that.group) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.user, 
+            this.group, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Restrictions88A50A{" +
+            "user=" + user + ", " + 
+            "group=" + group + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

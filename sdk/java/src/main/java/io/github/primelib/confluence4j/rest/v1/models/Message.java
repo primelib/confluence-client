@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Message
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Message")
 @JsonPropertyOrder({
     "translation",
@@ -52,6 +40,13 @@ public class Message {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Message() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Message}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Message(Consumer)} instead.
@@ -62,5 +57,109 @@ public class Message {
     public Message(String translation, List<Object> args) {
         this.translation = translation;
         this.args = args;
+    }
+
+
+    /**
+     * Fluent getter for translation.
+     *
+     * @return translation
+     */
+    public String translation() {
+        return this.translation;
+    }
+
+    /**
+     * Fluent setter for translation.
+     *
+     * @param translation translation
+     * @return this
+     */
+    public Message translation(String translation) {
+        this.translation = translation;
+        return this;
+    }
+
+    /**
+     * Gets the value of translation.
+     *
+     * @return translation
+     */
+    @JsonProperty("translation")
+    public String getTranslation() {
+        return this.translation;
+    }
+
+    /**
+     * Sets the value of translation.
+     *
+     * @param translation translation
+     */
+    public void setTranslation(String translation) {
+        this.translation = translation;
+    }
+    /**
+     * Fluent getter for args.
+     *
+     * @return args
+     */
+    public List<Object> args() {
+        return this.args;
+    }
+
+    /**
+     * Fluent setter for args.
+     *
+     * @param args args
+     * @return this
+     */
+    public Message args(List<Object> args) {
+        this.args = args;
+        return this;
+    }
+
+    /**
+     * Gets the value of args.
+     *
+     * @return args
+     */
+    @JsonProperty("args")
+    public List<Object> getArgs() {
+        return this.args;
+    }
+
+    /**
+     * Sets the value of args.
+     *
+     * @param args args
+     */
+    public void setArgs(List<Object> args) {
+        this.args = args;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message that = (Message) o;
+        return
+            Objects.equals(this.translation, that.translation) &&
+            Objects.equals(this.args, that.args);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.translation, 
+            this.args
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+            "translation=" + translation + ", " + 
+            "args=" + args +
+            "}";
     }
 }

@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ArchivePagesB
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ArchivePagesB")
 @JsonPropertyOrder({
     "pages"
@@ -48,6 +36,13 @@ public class ArchivePagesB {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ArchivePagesB() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ArchivePagesB}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArchivePagesB(Consumer)} instead.
@@ -56,5 +51,68 @@ public class ArchivePagesB {
     @ApiStatus.Internal
     public ArchivePagesB(List<PagesItem> pages) {
         this.pages = pages;
+    }
+
+
+    /**
+     * Fluent getter for pages.
+     *
+     * @return pages
+     */
+    public List<PagesItem> pages() {
+        return this.pages;
+    }
+
+    /**
+     * Fluent setter for pages.
+     *
+     * @param pages pages
+     * @return this
+     */
+    public ArchivePagesB pages(List<PagesItem> pages) {
+        this.pages = pages;
+        return this;
+    }
+
+    /**
+     * Gets the value of pages.
+     *
+     * @return pages
+     */
+    @JsonProperty("pages")
+    public List<PagesItem> getPages() {
+        return this.pages;
+    }
+
+    /**
+     * Sets the value of pages.
+     *
+     * @param pages pages
+     */
+    public void setPages(List<PagesItem> pages) {
+        this.pages = pages;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArchivePagesB that = (ArchivePagesB) o;
+        return
+            Objects.equals(this.pages, that.pages);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.pages
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ArchivePagesB{" +
+            "pages=" + pages +
+            "}";
     }
 }

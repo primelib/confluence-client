@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AffectedObject
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AffectedObject")
 @JsonPropertyOrder({
     "name",
@@ -51,6 +39,13 @@ public class AffectedObject {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AffectedObject() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AffectedObject}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AffectedObject(Consumer)} instead.
@@ -61,5 +56,109 @@ public class AffectedObject {
     public AffectedObject(String name, String objectType) {
         this.name = name;
         this.objectType = objectType;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public AffectedObject name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for objectType.
+     *
+     * @return objectType
+     */
+    public String objectType() {
+        return this.objectType;
+    }
+
+    /**
+     * Fluent setter for objectType.
+     *
+     * @param objectType objectType
+     * @return this
+     */
+    public AffectedObject objectType(String objectType) {
+        this.objectType = objectType;
+        return this;
+    }
+
+    /**
+     * Gets the value of objectType.
+     *
+     * @return objectType
+     */
+    @JsonProperty("objectType")
+    public String getObjectType() {
+        return this.objectType;
+    }
+
+    /**
+     * Sets the value of objectType.
+     *
+     * @param objectType objectType
+     */
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AffectedObject that = (AffectedObject) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.objectType, that.objectType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.objectType
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AffectedObject{" +
+            "name=" + name + ", " + 
+            "objectType=" + objectType +
+            "}";
     }
 }

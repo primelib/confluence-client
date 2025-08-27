@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LabeledContent
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LabeledContent")
 @JsonPropertyOrder({
     "contentType",
@@ -58,6 +46,13 @@ public class LabeledContent {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LabeledContent() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LabeledContent}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LabeledContent(Consumer)} instead.
@@ -70,5 +65,158 @@ public class LabeledContent {
         this.contentType = contentType;
         this.contentId = contentId;
         this.title = title;
+    }
+
+
+    /**
+     * Fluent getter for contentType.
+     *
+     * @return contentType
+     */
+    public String contentType() {
+        return this.contentType;
+    }
+
+    /**
+     * Fluent setter for contentType.
+     *
+     * @param contentType contentType
+     * @return this
+     */
+    public LabeledContent contentType(String contentType) {
+        this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentType.
+     *
+     * @return contentType
+     */
+    @JsonProperty("contentType")
+    public String getContentType() {
+        return this.contentType;
+    }
+
+    /**
+     * Sets the value of contentType.
+     *
+     * @param contentType contentType
+     */
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+    /**
+     * Fluent getter for contentId.
+     *
+     * @return contentId
+     */
+    public Long contentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Fluent setter for contentId.
+     *
+     * @param contentId contentId
+     * @return this
+     */
+    public LabeledContent contentId(Long contentId) {
+        this.contentId = contentId;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentId.
+     *
+     * @return contentId
+     */
+    @JsonProperty("contentId")
+    public Long getContentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Sets the value of contentId.
+     *
+     * @param contentId contentId
+     */
+    public void setContentId(Long contentId) {
+        this.contentId = contentId;
+    }
+    /**
+     * Fluent getter for title.
+     * <p>
+     * Title of the content.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     * <p>
+     * Title of the content.
+     *
+     * @param title title
+     * @return this
+     */
+    public LabeledContent title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     * <p>
+     * Title of the content.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     * <p>
+     * Title of the content.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LabeledContent that = (LabeledContent) o;
+        return
+            Objects.equals(this.contentType, that.contentType) &&
+            Objects.equals(this.contentId, that.contentId) &&
+            Objects.equals(this.title, that.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.contentType, 
+            this.contentId, 
+            this.title
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LabeledContent{" +
+            "contentType=" + contentType + ", " + 
+            "contentId=" + contentId + ", " + 
+            "title=" + title +
+            "}";
     }
 }

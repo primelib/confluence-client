@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandablef62071
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandablef62071")
 @JsonPropertyOrder({
     "uris"
@@ -47,6 +35,13 @@ public class Expandablef62071 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandablef62071() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandablef62071}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandablef62071(Consumer)} instead.
@@ -55,5 +50,68 @@ public class Expandablef62071 {
     @ApiStatus.Internal
     public Expandablef62071(Object uris) {
         this.uris = uris;
+    }
+
+
+    /**
+     * Fluent getter for uris.
+     *
+     * @return uris
+     */
+    public Object uris() {
+        return this.uris;
+    }
+
+    /**
+     * Fluent setter for uris.
+     *
+     * @param uris uris
+     * @return this
+     */
+    public Expandablef62071 uris(Object uris) {
+        this.uris = uris;
+        return this;
+    }
+
+    /**
+     * Gets the value of uris.
+     *
+     * @return uris
+     */
+    @JsonProperty("uris")
+    public Object getUris() {
+        return this.uris;
+    }
+
+    /**
+     * Sets the value of uris.
+     *
+     * @param uris uris
+     */
+    public void setUris(Object uris) {
+        this.uris = uris;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandablef62071 that = (Expandablef62071) o;
+        return
+            Objects.equals(this.uris, that.uris);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.uris
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandablef62071{" +
+            "uris=" + uris +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandableb48Ed1
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandableb48Ed1")
 @JsonPropertyOrder({
     "relationData",
@@ -55,6 +43,13 @@ public class Expandableb48Ed1 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandableb48Ed1() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandableb48Ed1}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandableb48Ed1(Consumer)} instead.
@@ -67,5 +62,150 @@ public class Expandableb48Ed1 {
         this.relationData = relationData;
         this.source = source;
         this.target = target;
+    }
+
+
+    /**
+     * Fluent getter for relationData.
+     *
+     * @return relationData
+     */
+    public String relationData() {
+        return this.relationData;
+    }
+
+    /**
+     * Fluent setter for relationData.
+     *
+     * @param relationData relationData
+     * @return this
+     */
+    public Expandableb48Ed1 relationData(String relationData) {
+        this.relationData = relationData;
+        return this;
+    }
+
+    /**
+     * Gets the value of relationData.
+     *
+     * @return relationData
+     */
+    @JsonProperty("relationData")
+    public String getRelationData() {
+        return this.relationData;
+    }
+
+    /**
+     * Sets the value of relationData.
+     *
+     * @param relationData relationData
+     */
+    public void setRelationData(String relationData) {
+        this.relationData = relationData;
+    }
+    /**
+     * Fluent getter for source.
+     *
+     * @return source
+     */
+    public String source() {
+        return this.source;
+    }
+
+    /**
+     * Fluent setter for source.
+     *
+     * @param source source
+     * @return this
+     */
+    public Expandableb48Ed1 source(String source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Gets the value of source.
+     *
+     * @return source
+     */
+    @JsonProperty("source")
+    public String getSource() {
+        return this.source;
+    }
+
+    /**
+     * Sets the value of source.
+     *
+     * @param source source
+     */
+    public void setSource(String source) {
+        this.source = source;
+    }
+    /**
+     * Fluent getter for target.
+     *
+     * @return target
+     */
+    public String target() {
+        return this.target;
+    }
+
+    /**
+     * Fluent setter for target.
+     *
+     * @param target target
+     * @return this
+     */
+    public Expandableb48Ed1 target(String target) {
+        this.target = target;
+        return this;
+    }
+
+    /**
+     * Gets the value of target.
+     *
+     * @return target
+     */
+    @JsonProperty("target")
+    public String getTarget() {
+        return this.target;
+    }
+
+    /**
+     * Sets the value of target.
+     *
+     * @param target target
+     */
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandableb48Ed1 that = (Expandableb48Ed1) o;
+        return
+            Objects.equals(this.relationData, that.relationData) &&
+            Objects.equals(this.source, that.source) &&
+            Objects.equals(this.target, that.target);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.relationData, 
+            this.source, 
+            this.target
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandableb48Ed1{" +
+            "relationData=" + relationData + ", " + 
+            "source=" + source + ", " + 
+            "target=" + target +
+            "}";
     }
 }

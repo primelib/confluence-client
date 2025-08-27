@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * Look and feel selection
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LookAndFeelSelection")
 @JsonPropertyOrder({
     "spaceKey",
@@ -57,6 +45,13 @@ set.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LookAndFeelSelection() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LookAndFeelSelection}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LookAndFeelSelection(Consumer)} instead.
@@ -68,5 +63,121 @@ set.
     public LookAndFeelSelection(String spaceKey, String lookAndFeelType) {
         this.spaceKey = spaceKey;
         this.lookAndFeelType = lookAndFeelType;
+    }
+
+
+    /**
+     * Fluent getter for spaceKey.
+     * <p>
+     * The key of the space for which the look and feel settings will be
+     * set.
+     *
+     * @return spaceKey
+     */
+    public String spaceKey() {
+        return this.spaceKey;
+    }
+
+    /**
+     * Fluent setter for spaceKey.
+     * <p>
+     * The key of the space for which the look and feel settings will be
+     * set.
+     *
+     * @param spaceKey spaceKey
+     * @return this
+     */
+    public LookAndFeelSelection spaceKey(String spaceKey) {
+        this.spaceKey = spaceKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceKey.
+     * <p>
+     * The key of the space for which the look and feel settings will be
+     * set.
+     *
+     * @return spaceKey
+     */
+    @JsonProperty("spaceKey")
+    public String getSpaceKey() {
+        return this.spaceKey;
+    }
+
+    /**
+     * Sets the value of spaceKey.
+     * <p>
+     * The key of the space for which the look and feel settings will be
+     * set.
+     *
+     * @param spaceKey spaceKey
+     */
+    public void setSpaceKey(String spaceKey) {
+        this.spaceKey = spaceKey;
+    }
+    /**
+     * Fluent getter for lookAndFeelType.
+     *
+     * @return lookAndFeelType
+     */
+    public String lookAndFeelType() {
+        return this.lookAndFeelType;
+    }
+
+    /**
+     * Fluent setter for lookAndFeelType.
+     *
+     * @param lookAndFeelType lookAndFeelType
+     * @return this
+     */
+    public LookAndFeelSelection lookAndFeelType(String lookAndFeelType) {
+        this.lookAndFeelType = lookAndFeelType;
+        return this;
+    }
+
+    /**
+     * Gets the value of lookAndFeelType.
+     *
+     * @return lookAndFeelType
+     */
+    @JsonProperty("lookAndFeelType")
+    public String getLookAndFeelType() {
+        return this.lookAndFeelType;
+    }
+
+    /**
+     * Sets the value of lookAndFeelType.
+     *
+     * @param lookAndFeelType lookAndFeelType
+     */
+    public void setLookAndFeelType(String lookAndFeelType) {
+        this.lookAndFeelType = lookAndFeelType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LookAndFeelSelection that = (LookAndFeelSelection) o;
+        return
+            Objects.equals(this.spaceKey, that.spaceKey) &&
+            Objects.equals(this.lookAndFeelType, that.lookAndFeelType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.spaceKey, 
+            this.lookAndFeelType
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LookAndFeelSelection{" +
+            "spaceKey=" + spaceKey + ", " + 
+            "lookAndFeelType=" + lookAndFeelType +
+            "}";
     }
 }

@@ -6,31 +6,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Attachment
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Attachment")
 @JsonPropertyOrder({
     "value",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Attachment {
@@ -39,7 +27,7 @@ public class Attachment {
     protected Boolean value;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link Attachment}.
@@ -52,15 +40,126 @@ public class Attachment {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Attachment() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Attachment}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Attachment(Consumer)} instead.
      * @param value value
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public Attachment(Boolean value, Map<String, Object> Links) {
+    public Attachment(Boolean value, Map<String, Object> additionalLinks) {
         this.value = value;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     *
+     * @return value
+     */
+    public Boolean value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     *
+     * @param value value
+     * @return this
+     */
+    public Attachment value(Boolean value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Boolean getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     *
+     * @param value value
+     */
+    public void setValue(Boolean value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Attachment additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Attachment that = (Attachment) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Attachment{" +
+            "value=" + value + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LabelDetails
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LabelDetails")
 @JsonPropertyOrder({
     "label",
@@ -51,6 +39,13 @@ public class LabelDetails {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LabelDetails() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LabelDetails}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LabelDetails(Consumer)} instead.
@@ -61,5 +56,109 @@ public class LabelDetails {
     public LabelDetails(Label label, LabeledContentPageResponse associatedContents) {
         this.label = label;
         this.associatedContents = associatedContents;
+    }
+
+
+    /**
+     * Fluent getter for label.
+     *
+     * @return label
+     */
+    public Label label() {
+        return this.label;
+    }
+
+    /**
+     * Fluent setter for label.
+     *
+     * @param label label
+     * @return this
+     */
+    public LabelDetails label(Label label) {
+        this.label = label;
+        return this;
+    }
+
+    /**
+     * Gets the value of label.
+     *
+     * @return label
+     */
+    @JsonProperty("label")
+    public Label getLabel() {
+        return this.label;
+    }
+
+    /**
+     * Sets the value of label.
+     *
+     * @param label label
+     */
+    public void setLabel(Label label) {
+        this.label = label;
+    }
+    /**
+     * Fluent getter for associatedContents.
+     *
+     * @return associatedContents
+     */
+    public LabeledContentPageResponse associatedContents() {
+        return this.associatedContents;
+    }
+
+    /**
+     * Fluent setter for associatedContents.
+     *
+     * @param associatedContents associatedContents
+     * @return this
+     */
+    public LabelDetails associatedContents(LabeledContentPageResponse associatedContents) {
+        this.associatedContents = associatedContents;
+        return this;
+    }
+
+    /**
+     * Gets the value of associatedContents.
+     *
+     * @return associatedContents
+     */
+    @JsonProperty("associatedContents")
+    public LabeledContentPageResponse getAssociatedContents() {
+        return this.associatedContents;
+    }
+
+    /**
+     * Sets the value of associatedContents.
+     *
+     * @param associatedContents associatedContents
+     */
+    public void setAssociatedContents(LabeledContentPageResponse associatedContents) {
+        this.associatedContents = associatedContents;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LabelDetails that = (LabelDetails) o;
+        return
+            Objects.equals(this.label, that.label) &&
+            Objects.equals(this.associatedContents, that.associatedContents);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.label, 
+            this.associatedContents
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LabelDetails{" +
+            "label=" + label + ", " + 
+            "associatedContents=" + associatedContents +
+            "}";
     }
 }

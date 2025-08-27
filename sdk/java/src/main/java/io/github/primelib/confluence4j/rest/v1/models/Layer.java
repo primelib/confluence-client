@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Layer
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Layer")
 @JsonPropertyOrder({
     "width",
@@ -51,6 +39,13 @@ public class Layer {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Layer() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Layer}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Layer(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Layer {
     public Layer(String width, String height) {
         this.width = width;
         this.height = height;
+    }
+
+
+    /**
+     * Fluent getter for width.
+     *
+     * @return width
+     */
+    public String width() {
+        return this.width;
+    }
+
+    /**
+     * Fluent setter for width.
+     *
+     * @param width width
+     * @return this
+     */
+    public Layer width(String width) {
+        this.width = width;
+        return this;
+    }
+
+    /**
+     * Gets the value of width.
+     *
+     * @return width
+     */
+    @JsonProperty("width")
+    public String getWidth() {
+        return this.width;
+    }
+
+    /**
+     * Sets the value of width.
+     *
+     * @param width width
+     */
+    public void setWidth(String width) {
+        this.width = width;
+    }
+    /**
+     * Fluent getter for height.
+     *
+     * @return height
+     */
+    public String height() {
+        return this.height;
+    }
+
+    /**
+     * Fluent setter for height.
+     *
+     * @param height height
+     * @return this
+     */
+    public Layer height(String height) {
+        this.height = height;
+        return this;
+    }
+
+    /**
+     * Gets the value of height.
+     *
+     * @return height
+     */
+    @JsonProperty("height")
+    public String getHeight() {
+        return this.height;
+    }
+
+    /**
+     * Sets the value of height.
+     *
+     * @param height height
+     */
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Layer that = (Layer) o;
+        return
+            Objects.equals(this.width, that.width) &&
+            Objects.equals(this.height, that.height);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.width, 
+            this.height
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Layer{" +
+            "width=" + width + ", " + 
+            "height=" + height +
+            "}";
     }
 }

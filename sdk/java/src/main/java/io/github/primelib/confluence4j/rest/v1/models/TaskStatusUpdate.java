@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * TaskStatusUpdate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("TaskStatusUpdate")
 @JsonPropertyOrder({
     "status"
@@ -47,6 +35,13 @@ public class TaskStatusUpdate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected TaskStatusUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link TaskStatusUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TaskStatusUpdate(Consumer)} instead.
@@ -55,5 +50,68 @@ public class TaskStatusUpdate {
     @ApiStatus.Internal
     public TaskStatusUpdate(String status) {
         this.status = status;
+    }
+
+
+    /**
+     * Fluent getter for status.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     *
+     * @param status status
+     * @return this
+     */
+    public TaskStatusUpdate status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskStatusUpdate that = (TaskStatusUpdate) o;
+        return
+            Objects.equals(this.status, that.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.status
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "TaskStatusUpdate{" +
+            "status=" + status +
+            "}";
     }
 }

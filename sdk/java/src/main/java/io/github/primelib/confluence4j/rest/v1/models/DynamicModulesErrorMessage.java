@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * DynamicModulesErrorMessage
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("DynamicModulesErrorMessage")
 @JsonPropertyOrder({
     "message"
@@ -50,6 +38,13 @@ public class DynamicModulesErrorMessage {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected DynamicModulesErrorMessage() {
+    }
+
+    /**
      * Constructs a validated instance of {@link DynamicModulesErrorMessage}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DynamicModulesErrorMessage(Consumer)} instead.
@@ -58,5 +53,76 @@ public class DynamicModulesErrorMessage {
     @ApiStatus.Internal
     public DynamicModulesErrorMessage(String message) {
         this.message = message;
+    }
+
+
+    /**
+     * Fluent getter for message.
+     * <p>
+     * The error message.
+     *
+     * @return message
+     */
+    public String message() {
+        return this.message;
+    }
+
+    /**
+     * Fluent setter for message.
+     * <p>
+     * The error message.
+     *
+     * @param message message
+     * @return this
+     */
+    public DynamicModulesErrorMessage message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Gets the value of message.
+     * <p>
+     * The error message.
+     *
+     * @return message
+     */
+    @JsonProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    /**
+     * Sets the value of message.
+     * <p>
+     * The error message.
+     *
+     * @param message message
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DynamicModulesErrorMessage that = (DynamicModulesErrorMessage) o;
+        return
+            Objects.equals(this.message, that.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.message
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "DynamicModulesErrorMessage{" +
+            "message=" + message +
+            "}";
     }
 }

@@ -7,32 +7,20 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * UsersUserKeys
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UsersUserKeys")
 @JsonPropertyOrder({
     "users",
     "userKeys",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class UsersUserKeys {
@@ -44,7 +32,7 @@ public class UsersUserKeys {
     protected List<String> userKeys;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link UsersUserKeys}.
@@ -57,17 +45,169 @@ public class UsersUserKeys {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UsersUserKeys() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UsersUserKeys}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UsersUserKeys(Consumer)} instead.
      * @param users users
      * @param userKeys userKeys
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public UsersUserKeys(List<Map<String, Object>> users, List<String> userKeys, Map<String, Object> Links) {
+    public UsersUserKeys(List<Map<String, Object>> users, List<String> userKeys, Map<String, Object> additionalLinks) {
         this.users = users;
         this.userKeys = userKeys;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for users.
+     *
+     * @return users
+     */
+    public List<Map<String, Object>> users() {
+        return this.users;
+    }
+
+    /**
+     * Fluent setter for users.
+     *
+     * @param users users
+     * @return this
+     */
+    public UsersUserKeys users(List<Map<String, Object>> users) {
+        this.users = users;
+        return this;
+    }
+
+    /**
+     * Gets the value of users.
+     *
+     * @return users
+     */
+    @JsonProperty("users")
+    public List<Map<String, Object>> getUsers() {
+        return this.users;
+    }
+
+    /**
+     * Sets the value of users.
+     *
+     * @param users users
+     */
+    public void setUsers(List<Map<String, Object>> users) {
+        this.users = users;
+    }
+    /**
+     * Fluent getter for userKeys.
+     *
+     * @return userKeys
+     */
+    public List<String> userKeys() {
+        return this.userKeys;
+    }
+
+    /**
+     * Fluent setter for userKeys.
+     *
+     * @param userKeys userKeys
+     * @return this
+     */
+    public UsersUserKeys userKeys(List<String> userKeys) {
+        this.userKeys = userKeys;
+        return this;
+    }
+
+    /**
+     * Gets the value of userKeys.
+     *
+     * @return userKeys
+     */
+    @JsonProperty("userKeys")
+    public List<String> getUserKeys() {
+        return this.userKeys;
+    }
+
+    /**
+     * Sets the value of userKeys.
+     *
+     * @param userKeys userKeys
+     */
+    public void setUserKeys(List<String> userKeys) {
+        this.userKeys = userKeys;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public UsersUserKeys additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UsersUserKeys that = (UsersUserKeys) o;
+        return
+            Objects.equals(this.users, that.users) &&
+            Objects.equals(this.userKeys, that.userKeys) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.users, 
+            this.userKeys, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UsersUserKeys{" +
+            "users=" + users + ", " + 
+            "userKeys=" + userKeys + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

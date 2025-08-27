@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * UserProperty
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UserProperty")
 @JsonPropertyOrder({
     "key",
@@ -35,7 +23,7 @@ import org.jetbrains.annotations.ApiStatus;
     "id",
     "lastModifiedDate",
     "createdDate",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class UserProperty {
@@ -68,7 +56,7 @@ public class UserProperty {
     protected Instant createdDate;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link UserProperty}.
@@ -81,6 +69,13 @@ public class UserProperty {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UserProperty() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UserProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UserProperty(Consumer)} instead.
@@ -89,15 +84,315 @@ public class UserProperty {
      * @param id a unique identifier for the user property
      * @param lastModifiedDate datetime when the property was last modified such as `2022-02-01T12:00:00.111Z`
      * @param createdDate datetime when the property was created such as `2022-01-01T12:00:00.111Z`
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public UserProperty(String key, Map<String, Object> value, String id, Instant lastModifiedDate, Instant createdDate, Map<String, Object> Links) {
+    public UserProperty(String key, Map<String, Object> value, String id, Instant lastModifiedDate, Instant createdDate, Map<String, Object> additionalLinks) {
         this.key = key;
         this.value = value;
         this.id = id;
         this.lastModifiedDate = lastModifiedDate;
         this.createdDate = createdDate;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public UserProperty key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The value of the content property.
+     *
+     * @return value
+     */
+    public Map<String, Object> value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The value of the content property.
+     *
+     * @param value value
+     * @return this
+     */
+    public UserProperty value(Map<String, Object> value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The value of the content property.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Map<String, Object> getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The value of the content property.
+     *
+     * @param value value
+     */
+    public void setValue(Map<String, Object> value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for id.
+     * <p>
+     * a unique identifier for the user property
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * a unique identifier for the user property
+     *
+     * @param id id
+     * @return this
+     */
+    public UserProperty id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * a unique identifier for the user property
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * a unique identifier for the user property
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for lastModifiedDate.
+     * <p>
+     * datetime when the property was last modified such as `2022-02-01T12:00:00.111Z`
+     *
+     * @return lastModifiedDate
+     */
+    public Instant lastModifiedDate() {
+        return this.lastModifiedDate;
+    }
+
+    /**
+     * Fluent setter for lastModifiedDate.
+     * <p>
+     * datetime when the property was last modified such as `2022-02-01T12:00:00.111Z`
+     *
+     * @param lastModifiedDate lastModifiedDate
+     * @return this
+     */
+    public UserProperty lastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of lastModifiedDate.
+     * <p>
+     * datetime when the property was last modified such as `2022-02-01T12:00:00.111Z`
+     *
+     * @return lastModifiedDate
+     */
+    @JsonProperty("lastModifiedDate")
+    public Instant getLastModifiedDate() {
+        return this.lastModifiedDate;
+    }
+
+    /**
+     * Sets the value of lastModifiedDate.
+     * <p>
+     * datetime when the property was last modified such as `2022-02-01T12:00:00.111Z`
+     *
+     * @param lastModifiedDate lastModifiedDate
+     */
+    public void setLastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+    /**
+     * Fluent getter for createdDate.
+     * <p>
+     * datetime when the property was created such as `2022-01-01T12:00:00.111Z`
+     *
+     * @return createdDate
+     */
+    public Instant createdDate() {
+        return this.createdDate;
+    }
+
+    /**
+     * Fluent setter for createdDate.
+     * <p>
+     * datetime when the property was created such as `2022-01-01T12:00:00.111Z`
+     *
+     * @param createdDate createdDate
+     * @return this
+     */
+    public UserProperty createdDate(Instant createdDate) {
+        this.createdDate = createdDate;
+        return this;
+    }
+
+    /**
+     * Gets the value of createdDate.
+     * <p>
+     * datetime when the property was created such as `2022-01-01T12:00:00.111Z`
+     *
+     * @return createdDate
+     */
+    @JsonProperty("createdDate")
+    public Instant getCreatedDate() {
+        return this.createdDate;
+    }
+
+    /**
+     * Sets the value of createdDate.
+     * <p>
+     * datetime when the property was created such as `2022-01-01T12:00:00.111Z`
+     *
+     * @param createdDate createdDate
+     */
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public UserProperty additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserProperty that = (UserProperty) o;
+        return
+            Objects.equals(this.key, that.key) &&
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.lastModifiedDate, that.lastModifiedDate) &&
+            Objects.equals(this.createdDate, that.createdDate) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key, 
+            this.value, 
+            this.id, 
+            this.lastModifiedDate, 
+            this.createdDate, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UserProperty{" +
+            "key=" + key + ", " + 
+            "value=" + value + ", " + 
+            "id=" + id + ", " + 
+            "lastModifiedDate=" + lastModifiedDate + ", " + 
+            "createdDate=" + createdDate + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

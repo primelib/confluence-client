@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable")
 @JsonPropertyOrder({
     "body"
@@ -47,6 +35,13 @@ public class Expandable {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable(Consumer)} instead.
@@ -55,5 +50,68 @@ public class Expandable {
     @ApiStatus.Internal
     public Expandable(String body) {
         this.body = body;
+    }
+
+
+    /**
+     * Fluent getter for body.
+     *
+     * @return body
+     */
+    public String body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     *
+     * @param body body
+     * @return this
+     */
+    public Expandable body(String body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     *
+     * @param body body
+     */
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable that = (Expandable) o;
+        return
+            Objects.equals(this.body, that.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.body
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable{" +
+            "body=" + body +
+            "}";
     }
 }

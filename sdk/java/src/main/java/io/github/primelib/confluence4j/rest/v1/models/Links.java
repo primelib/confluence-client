@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Links
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Links")
 @JsonPropertyOrder({
     "status"
@@ -50,6 +38,13 @@ public class Links {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Links() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Links}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Links(Consumer)} instead.
@@ -58,5 +53,76 @@ public class Links {
     @ApiStatus.Internal
     public Links(String status) {
         this.status = status;
+    }
+
+
+    /**
+     * Fluent getter for status.
+     * <p>
+     * The URL to retrive status of long task.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     * <p>
+     * The URL to retrive status of long task.
+     *
+     * @param status status
+     * @return this
+     */
+    public Links status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     * <p>
+     * The URL to retrive status of long task.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     * <p>
+     * The URL to retrive status of long task.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Links that = (Links) o;
+        return
+            Objects.equals(this.status, that.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.status
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Links{" +
+            "status=" + status +
+            "}";
     }
 }

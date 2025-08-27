@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * a subjects object and a list with at least one operation object.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePermissionCustomContent")
 @JsonPropertyOrder({
     "subject",
@@ -58,6 +46,13 @@ public class SpacePermissionCustomContent {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePermissionCustomContent() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePermissionCustomContent}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePermissionCustomContent(Consumer)} instead.
@@ -68,5 +63,117 @@ public class SpacePermissionCustomContent {
     public SpacePermissionCustomContent(PermissionSubject subject, List<OperationsItem> operations) {
         this.subject = subject;
         this.operations = operations;
+    }
+
+
+    /**
+     * Fluent getter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    public PermissionSubject subject() {
+        return this.subject;
+    }
+
+    /**
+     * Fluent setter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     * @return this
+     */
+    public SpacePermissionCustomContent subject(PermissionSubject subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * Gets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    @JsonProperty("subject")
+    public PermissionSubject getSubject() {
+        return this.subject;
+    }
+
+    /**
+     * Sets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     */
+    public void setSubject(PermissionSubject subject) {
+        this.subject = subject;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public List<OperationsItem> operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public SpacePermissionCustomContent operations(List<OperationsItem> operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public List<OperationsItem> getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(List<OperationsItem> operations) {
+        this.operations = operations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePermissionCustomContent that = (SpacePermissionCustomContent) o;
+        return
+            Objects.equals(this.subject, that.subject) &&
+            Objects.equals(this.operations, that.operations);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.subject, 
+            this.operations
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePermissionCustomContent{" +
+            "subject=" + subject + ", " + 
+            "operations=" + operations +
+            "}";
     }
 }

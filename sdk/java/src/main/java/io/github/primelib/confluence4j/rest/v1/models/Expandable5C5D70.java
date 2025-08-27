@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable5C5D70
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable5C5D70")
 @JsonPropertyOrder({
     "operations",
@@ -55,6 +43,13 @@ public class Expandable5C5D70 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable5C5D70() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable5C5D70}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable5C5D70(Consumer)} instead.
@@ -67,5 +62,150 @@ public class Expandable5C5D70 {
         this.operations = operations;
         this.details = details;
         this.personalSpace = personalSpace;
+    }
+
+
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public String operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public Expandable5C5D70 operations(String operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public String getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(String operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for details.
+     *
+     * @return details
+     */
+    public String details() {
+        return this.details;
+    }
+
+    /**
+     * Fluent setter for details.
+     *
+     * @param details details
+     * @return this
+     */
+    public Expandable5C5D70 details(String details) {
+        this.details = details;
+        return this;
+    }
+
+    /**
+     * Gets the value of details.
+     *
+     * @return details
+     */
+    @JsonProperty("details")
+    public String getDetails() {
+        return this.details;
+    }
+
+    /**
+     * Sets the value of details.
+     *
+     * @param details details
+     */
+    public void setDetails(String details) {
+        this.details = details;
+    }
+    /**
+     * Fluent getter for personalSpace.
+     *
+     * @return personalSpace
+     */
+    public String personalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Fluent setter for personalSpace.
+     *
+     * @param personalSpace personalSpace
+     * @return this
+     */
+    public Expandable5C5D70 personalSpace(String personalSpace) {
+        this.personalSpace = personalSpace;
+        return this;
+    }
+
+    /**
+     * Gets the value of personalSpace.
+     *
+     * @return personalSpace
+     */
+    @JsonProperty("personalSpace")
+    public String getPersonalSpace() {
+        return this.personalSpace;
+    }
+
+    /**
+     * Sets the value of personalSpace.
+     *
+     * @param personalSpace personalSpace
+     */
+    public void setPersonalSpace(String personalSpace) {
+        this.personalSpace = personalSpace;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable5C5D70 that = (Expandable5C5D70) o;
+        return
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.details, that.details) &&
+            Objects.equals(this.personalSpace, that.personalSpace);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operations, 
+            this.details, 
+            this.personalSpace
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable5C5D70{" +
+            "operations=" + operations + ", " + 
+            "details=" + details + ", " + 
+            "personalSpace=" + personalSpace +
+            "}";
     }
 }

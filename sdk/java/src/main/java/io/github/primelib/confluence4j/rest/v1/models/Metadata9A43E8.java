@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Metadata9A43E8
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Metadata9A43E8")
 @JsonPropertyOrder({
     "mediaType"
@@ -47,6 +35,13 @@ public class Metadata9A43E8 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Metadata9A43E8() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Metadata9A43E8}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Metadata9A43E8(Consumer)} instead.
@@ -55,5 +50,68 @@ public class Metadata9A43E8 {
     @ApiStatus.Internal
     public Metadata9A43E8(String mediaType) {
         this.mediaType = mediaType;
+    }
+
+
+    /**
+     * Fluent getter for mediaType.
+     *
+     * @return mediaType
+     */
+    public String mediaType() {
+        return this.mediaType;
+    }
+
+    /**
+     * Fluent setter for mediaType.
+     *
+     * @param mediaType mediaType
+     * @return this
+     */
+    public Metadata9A43E8 mediaType(String mediaType) {
+        this.mediaType = mediaType;
+        return this;
+    }
+
+    /**
+     * Gets the value of mediaType.
+     *
+     * @return mediaType
+     */
+    @JsonProperty("mediaType")
+    public String getMediaType() {
+        return this.mediaType;
+    }
+
+    /**
+     * Sets the value of mediaType.
+     *
+     * @param mediaType mediaType
+     */
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Metadata9A43E8 that = (Metadata9A43E8) o;
+        return
+            Objects.equals(this.mediaType, that.mediaType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.mediaType
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Metadata9A43E8{" +
+            "mediaType=" + mediaType +
+            "}";
     }
 }

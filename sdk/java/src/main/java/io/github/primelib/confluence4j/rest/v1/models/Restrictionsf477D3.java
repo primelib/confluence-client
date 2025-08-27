@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * `user` or `group` must be specified for this object.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Restrictionsf477D3")
 @JsonPropertyOrder({
     "group",
@@ -59,6 +47,13 @@ have at least one item, otherwise it should be omitted.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Restrictionsf477D3() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Restrictionsf477D3}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Restrictionsf477D3(Consumer)} instead.
@@ -70,5 +65,121 @@ have at least one item, otherwise it should be omitted.
     public Restrictionsf477D3(List<GroupItem> group, Object user) {
         this.group = group;
         this.user = user;
+    }
+
+
+    /**
+     * Fluent getter for group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return group
+     */
+    public List<GroupItem> group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param group group
+     * @return this
+     */
+    public Restrictionsf477D3 group(List<GroupItem> group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public List<GroupItem> getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     * <p>
+     * The groups that the restrictions will be applied to. This array must
+     * have at least one item, otherwise it should be omitted.
+     *
+     * @param group group
+     */
+    public void setGroup(List<GroupItem> group) {
+        this.group = group;
+    }
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public Object user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public Restrictionsf477D3 user(Object user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public Object getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(Object user) {
+        this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restrictionsf477D3 that = (Restrictionsf477D3) o;
+        return
+            Objects.equals(this.group, that.group) &&
+            Objects.equals(this.user, that.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.group, 
+            this.user
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Restrictionsf477D3{" +
+            "group=" + group + ", " + 
+            "user=" + user +
+            "}";
     }
 }

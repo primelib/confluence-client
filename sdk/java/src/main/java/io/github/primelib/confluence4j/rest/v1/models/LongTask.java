@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * LongTask
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("LongTask")
 @JsonPropertyOrder({
     "ari",
@@ -62,6 +50,13 @@ public class LongTask {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected LongTask() {
+    }
+
+    /**
      * Constructs a validated instance of {@link LongTask}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LongTask(Consumer)} instead.
@@ -74,5 +69,166 @@ public class LongTask {
         this.ari = ari;
         this.id = id;
         this.links = links;
+    }
+
+
+    /**
+     * Fluent getter for ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @return ari
+     */
+    public String ari() {
+        return this.ari;
+    }
+
+    /**
+     * Fluent setter for ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @param ari ari
+     * @return this
+     */
+    public LongTask ari(String ari) {
+        this.ari = ari;
+        return this;
+    }
+
+    /**
+     * Gets the value of ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @return ari
+     */
+    @JsonProperty("ari")
+    public String getAri() {
+        return this.ari;
+    }
+
+    /**
+     * Sets the value of ari.
+     * <p>
+     * the ARI for the long task, based on its ID
+     *
+     * @param ari ari
+     */
+    public void setAri(String ari) {
+        this.ari = ari;
+    }
+    /**
+     * Fluent getter for id.
+     * <p>
+     * a unique identifier for the long task
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * a unique identifier for the long task
+     *
+     * @param id id
+     * @return this
+     */
+    public LongTask id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * a unique identifier for the long task
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * a unique identifier for the long task
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for links.
+     *
+     * @return links
+     */
+    public Map<String, Object> links() {
+        return this.links;
+    }
+
+    /**
+     * Fluent setter for links.
+     *
+     * @param links links
+     * @return this
+     */
+    public LongTask links(Map<String, Object> links) {
+        this.links = links;
+        return this;
+    }
+
+    /**
+     * Gets the value of links.
+     *
+     * @return links
+     */
+    @JsonProperty("links")
+    public Map<String, Object> getLinks() {
+        return this.links;
+    }
+
+    /**
+     * Sets the value of links.
+     *
+     * @param links links
+     */
+    public void setLinks(Map<String, Object> links) {
+        this.links = links;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LongTask that = (LongTask) o;
+        return
+            Objects.equals(this.ari, that.ari) &&
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.links, that.links);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.ari, 
+            this.id, 
+            this.links
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "LongTask{" +
+            "ari=" + ari + ", " + 
+            "id=" + id + ", " + 
+            "links=" + links +
+            "}";
     }
 }

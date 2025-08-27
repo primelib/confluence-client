@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -29,12 +23,6 @@ import org.jetbrains.annotations.ApiStatus;
  * user is included.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentTemplateBodyCreate")
 @JsonPropertyOrder({
     "view",
@@ -115,6 +103,13 @@ public class ContentTemplateBodyCreate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentTemplateBodyCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentTemplateBodyCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentTemplateBodyCreate(Consumer)} instead.
@@ -139,5 +134,468 @@ public class ContentTemplateBodyCreate {
         this.wiki = wiki;
         this.atlasDocFormat = atlasDocFormat;
         this.anonymousExportView = anonymousExportView;
+    }
+
+
+    /**
+     * Fluent getter for view.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return view
+     */
+    public Map<String, Object> view() {
+        return this.view;
+    }
+
+    /**
+     * Fluent setter for view.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param view view
+     * @return this
+     */
+    public ContentTemplateBodyCreate view(Map<String, Object> view) {
+        this.view = view;
+        return this;
+    }
+
+    /**
+     * Gets the value of view.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return view
+     */
+    @JsonProperty("view")
+    public Map<String, Object> getView() {
+        return this.view;
+    }
+
+    /**
+     * Sets the value of view.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param view view
+     */
+    public void setView(Map<String, Object> view) {
+        this.view = view;
+    }
+    /**
+     * Fluent getter for exportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return exportView
+     */
+    public Map<String, Object> exportView() {
+        return this.exportView;
+    }
+
+    /**
+     * Fluent setter for exportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param exportView exportView
+     * @return this
+     */
+    public ContentTemplateBodyCreate exportView(Map<String, Object> exportView) {
+        this.exportView = exportView;
+        return this;
+    }
+
+    /**
+     * Gets the value of exportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return exportView
+     */
+    @JsonProperty("export_view")
+    public Map<String, Object> getExportView() {
+        return this.exportView;
+    }
+
+    /**
+     * Sets the value of exportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param exportView exportView
+     */
+    public void setExportView(Map<String, Object> exportView) {
+        this.exportView = exportView;
+    }
+    /**
+     * Fluent getter for styledView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return styledView
+     */
+    public Map<String, Object> styledView() {
+        return this.styledView;
+    }
+
+    /**
+     * Fluent setter for styledView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param styledView styledView
+     * @return this
+     */
+    public ContentTemplateBodyCreate styledView(Map<String, Object> styledView) {
+        this.styledView = styledView;
+        return this;
+    }
+
+    /**
+     * Gets the value of styledView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return styledView
+     */
+    @JsonProperty("styled_view")
+    public Map<String, Object> getStyledView() {
+        return this.styledView;
+    }
+
+    /**
+     * Sets the value of styledView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param styledView styledView
+     */
+    public void setStyledView(Map<String, Object> styledView) {
+        this.styledView = styledView;
+    }
+    /**
+     * Fluent getter for storage.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return storage
+     */
+    public Map<String, Object> storage() {
+        return this.storage;
+    }
+
+    /**
+     * Fluent setter for storage.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param storage storage
+     * @return this
+     */
+    public ContentTemplateBodyCreate storage(Map<String, Object> storage) {
+        this.storage = storage;
+        return this;
+    }
+
+    /**
+     * Gets the value of storage.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return storage
+     */
+    @JsonProperty("storage")
+    public Map<String, Object> getStorage() {
+        return this.storage;
+    }
+
+    /**
+     * Sets the value of storage.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param storage storage
+     */
+    public void setStorage(Map<String, Object> storage) {
+        this.storage = storage;
+    }
+    /**
+     * Fluent getter for editor.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return editor
+     */
+    public Map<String, Object> editor() {
+        return this.editor;
+    }
+
+    /**
+     * Fluent setter for editor.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param editor editor
+     * @return this
+     */
+    public ContentTemplateBodyCreate editor(Map<String, Object> editor) {
+        this.editor = editor;
+        return this;
+    }
+
+    /**
+     * Gets the value of editor.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return editor
+     */
+    @JsonProperty("editor")
+    public Map<String, Object> getEditor() {
+        return this.editor;
+    }
+
+    /**
+     * Sets the value of editor.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param editor editor
+     */
+    public void setEditor(Map<String, Object> editor) {
+        this.editor = editor;
+    }
+    /**
+     * Fluent getter for editor2.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return editor2
+     */
+    public Map<String, Object> editor2() {
+        return this.editor2;
+    }
+
+    /**
+     * Fluent setter for editor2.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param editor2 editor2
+     * @return this
+     */
+    public ContentTemplateBodyCreate editor2(Map<String, Object> editor2) {
+        this.editor2 = editor2;
+        return this;
+    }
+
+    /**
+     * Gets the value of editor2.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return editor2
+     */
+    @JsonProperty("editor2")
+    public Map<String, Object> getEditor2() {
+        return this.editor2;
+    }
+
+    /**
+     * Sets the value of editor2.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param editor2 editor2
+     */
+    public void setEditor2(Map<String, Object> editor2) {
+        this.editor2 = editor2;
+    }
+    /**
+     * Fluent getter for wiki.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return wiki
+     */
+    public Map<String, Object> wiki() {
+        return this.wiki;
+    }
+
+    /**
+     * Fluent setter for wiki.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param wiki wiki
+     * @return this
+     */
+    public ContentTemplateBodyCreate wiki(Map<String, Object> wiki) {
+        this.wiki = wiki;
+        return this;
+    }
+
+    /**
+     * Gets the value of wiki.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return wiki
+     */
+    @JsonProperty("wiki")
+    public Map<String, Object> getWiki() {
+        return this.wiki;
+    }
+
+    /**
+     * Sets the value of wiki.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param wiki wiki
+     */
+    public void setWiki(Map<String, Object> wiki) {
+        this.wiki = wiki;
+    }
+    /**
+     * Fluent getter for atlasDocFormat.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return atlasDocFormat
+     */
+    public Map<String, Object> atlasDocFormat() {
+        return this.atlasDocFormat;
+    }
+
+    /**
+     * Fluent setter for atlasDocFormat.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param atlasDocFormat atlasDocFormat
+     * @return this
+     */
+    public ContentTemplateBodyCreate atlasDocFormat(Map<String, Object> atlasDocFormat) {
+        this.atlasDocFormat = atlasDocFormat;
+        return this;
+    }
+
+    /**
+     * Gets the value of atlasDocFormat.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return atlasDocFormat
+     */
+    @JsonProperty("atlas_doc_format")
+    public Map<String, Object> getAtlasDocFormat() {
+        return this.atlasDocFormat;
+    }
+
+    /**
+     * Sets the value of atlasDocFormat.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param atlasDocFormat atlasDocFormat
+     */
+    public void setAtlasDocFormat(Map<String, Object> atlasDocFormat) {
+        this.atlasDocFormat = atlasDocFormat;
+    }
+    /**
+     * Fluent getter for anonymousExportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return anonymousExportView
+     */
+    public Map<String, Object> anonymousExportView() {
+        return this.anonymousExportView;
+    }
+
+    /**
+     * Fluent setter for anonymousExportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param anonymousExportView anonymousExportView
+     * @return this
+     */
+    public ContentTemplateBodyCreate anonymousExportView(Map<String, Object> anonymousExportView) {
+        this.anonymousExportView = anonymousExportView;
+        return this;
+    }
+
+    /**
+     * Gets the value of anonymousExportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @return anonymousExportView
+     */
+    @JsonProperty("anonymous_export_view")
+    public Map<String, Object> getAnonymousExportView() {
+        return this.anonymousExportView;
+    }
+
+    /**
+     * Sets the value of anonymousExportView.
+     * <p>
+     * This object is used when creating or updating content.
+     *
+     * @param anonymousExportView anonymousExportView
+     */
+    public void setAnonymousExportView(Map<String, Object> anonymousExportView) {
+        this.anonymousExportView = anonymousExportView;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentTemplateBodyCreate that = (ContentTemplateBodyCreate) o;
+        return
+            Objects.equals(this.view, that.view) &&
+            Objects.equals(this.exportView, that.exportView) &&
+            Objects.equals(this.styledView, that.styledView) &&
+            Objects.equals(this.storage, that.storage) &&
+            Objects.equals(this.editor, that.editor) &&
+            Objects.equals(this.editor2, that.editor2) &&
+            Objects.equals(this.wiki, that.wiki) &&
+            Objects.equals(this.atlasDocFormat, that.atlasDocFormat) &&
+            Objects.equals(this.anonymousExportView, that.anonymousExportView);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.view, 
+            this.exportView, 
+            this.styledView, 
+            this.storage, 
+            this.editor, 
+            this.editor2, 
+            this.wiki, 
+            this.atlasDocFormat, 
+            this.anonymousExportView
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentTemplateBodyCreate{" +
+            "view=" + view + ", " + 
+            "exportView=" + exportView + ", " + 
+            "styledView=" + styledView + ", " + 
+            "storage=" + storage + ", " + 
+            "editor=" + editor + ", " + 
+            "editor2=" + editor2 + ", " + 
+            "wiki=" + wiki + ", " + 
+            "atlasDocFormat=" + atlasDocFormat + ", " + 
+            "anonymousExportView=" + anonymousExportView +
+            "}";
     }
 }

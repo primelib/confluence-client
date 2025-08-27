@@ -5,31 +5,19 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Metadata5Bfc61
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Metadata5Bfc61")
 @JsonPropertyOrder({
     "labels",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Metadata5Bfc61 {
@@ -38,7 +26,7 @@ public class Metadata5Bfc61 {
     protected LabelArray labels;
 
     @JsonProperty("_expandable")
-    protected Object Expandable;
+    protected Object additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link Metadata5Bfc61}.
@@ -51,15 +39,126 @@ public class Metadata5Bfc61 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Metadata5Bfc61() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Metadata5Bfc61}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Metadata5Bfc61(Consumer)} instead.
      * @param labels labels
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public Metadata5Bfc61(LabelArray labels, Object Expandable) {
+    public Metadata5Bfc61(LabelArray labels, Object additionalExpandable) {
         this.labels = labels;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for labels.
+     *
+     * @return labels
+     */
+    public LabelArray labels() {
+        return this.labels;
+    }
+
+    /**
+     * Fluent setter for labels.
+     *
+     * @param labels labels
+     * @return this
+     */
+    public Metadata5Bfc61 labels(LabelArray labels) {
+        this.labels = labels;
+        return this;
+    }
+
+    /**
+     * Gets the value of labels.
+     *
+     * @return labels
+     */
+    @JsonProperty("labels")
+    public LabelArray getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets the value of labels.
+     *
+     * @param labels labels
+     */
+    public void setLabels(LabelArray labels) {
+        this.labels = labels;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Object additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Metadata5Bfc61 additionalExpandable(Object additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Object getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Object additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Metadata5Bfc61 that = (Metadata5Bfc61) o;
+        return
+            Objects.equals(this.labels, that.labels) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.labels, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Metadata5Bfc61{" +
+            "labels=" + labels + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

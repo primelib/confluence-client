@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentCreate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentCreate")
 @JsonPropertyOrder({
     "id",
@@ -109,6 +97,13 @@ user is included.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentCreate(Consumer)} instead.
@@ -142,5 +137,455 @@ user is included.
         this.container = container;
         this.ancestors = ancestors;
         this.body = body;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The ID of the draft content. Required when publishing a draft.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The ID of the draft content. Required when publishing a draft.
+     *
+     * @param id id
+     * @return this
+     */
+    public ContentCreate id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The ID of the draft content. Required when publishing a draft.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The ID of the draft content. Required when publishing a draft.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for title.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     *
+     * @param title title
+     * @return this
+     */
+    public ContentCreate title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * The type of the new content. Custom content types defined by apps are also supported. eg. 'page', 'blogpost', 'comment' etc.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * The type of the new content. Custom content types defined by apps are also supported. eg. 'page', 'blogpost', 'comment' etc.
+     *
+     * @param type type
+     * @return this
+     */
+    public ContentCreate type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * The type of the new content. Custom content types defined by apps are also supported. eg. 'page', 'blogpost', 'comment' etc.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * The type of the new content. Custom content types defined by apps are also supported. eg. 'page', 'blogpost', 'comment' etc.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for space.
+     * <p>
+     * The space that the content is being created in.
+     *
+     * @return space
+     */
+    public Spacecc1E40 space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     * <p>
+     * The space that the content is being created in.
+     *
+     * @param space space
+     * @return this
+     */
+    public ContentCreate space(Spacecc1E40 space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     * <p>
+     * The space that the content is being created in.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Spacecc1E40 getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     * <p>
+     * The space that the content is being created in.
+     *
+     * @param space space
+     */
+    public void setSpace(Spacecc1E40 space) {
+        this.space = space;
+    }
+    /**
+     * Fluent getter for status.
+     * <p>
+     * The status of the new content.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     * <p>
+     * The status of the new content.
+     *
+     * @param status status
+     * @return this
+     */
+    public ContentCreate status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     * <p>
+     * The status of the new content.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     * <p>
+     * The status of the new content.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for container.
+     * <p>
+     * The container of the content. Required if type is `comment` or certain types of
+     * custom content. If you are trying to create a comment that is a child of another comment,
+     * specify the parent comment in the ancestors field, not in this field.
+     *
+     * @return container
+     */
+    public Map<String, Object> container() {
+        return this.container;
+    }
+
+    /**
+     * Fluent setter for container.
+     * <p>
+     * The container of the content. Required if type is `comment` or certain types of
+     * custom content. If you are trying to create a comment that is a child of another comment,
+     * specify the parent comment in the ancestors field, not in this field.
+     *
+     * @param container container
+     * @return this
+     */
+    public ContentCreate container(Map<String, Object> container) {
+        this.container = container;
+        return this;
+    }
+
+    /**
+     * Gets the value of container.
+     * <p>
+     * The container of the content. Required if type is `comment` or certain types of
+     * custom content. If you are trying to create a comment that is a child of another comment,
+     * specify the parent comment in the ancestors field, not in this field.
+     *
+     * @return container
+     */
+    @JsonProperty("container")
+    public Map<String, Object> getContainer() {
+        return this.container;
+    }
+
+    /**
+     * Sets the value of container.
+     * <p>
+     * The container of the content. Required if type is `comment` or certain types of
+     * custom content. If you are trying to create a comment that is a child of another comment,
+     * specify the parent comment in the ancestors field, not in this field.
+     *
+     * @param container container
+     */
+    public void setContainer(Map<String, Object> container) {
+        this.container = container;
+    }
+    /**
+     * Fluent getter for ancestors.
+     * <p>
+     * The parent content of the new content.  If you are creating a top-level `page` or `comment`,
+     * this can be left blank. If you are creating a child page, this is where the parent page id goes.
+     * If you are creating a child comment, this is where the parent comment id goes. Only one parent
+     * content id can be specified.
+     *
+     * @return ancestors
+     */
+    public List<Map<String, Object>> ancestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Fluent setter for ancestors.
+     * <p>
+     * The parent content of the new content.  If you are creating a top-level `page` or `comment`,
+     * this can be left blank. If you are creating a child page, this is where the parent page id goes.
+     * If you are creating a child comment, this is where the parent comment id goes. Only one parent
+     * content id can be specified.
+     *
+     * @param ancestors ancestors
+     * @return this
+     */
+    public ContentCreate ancestors(List<Map<String, Object>> ancestors) {
+        this.ancestors = ancestors;
+        return this;
+    }
+
+    /**
+     * Gets the value of ancestors.
+     * <p>
+     * The parent content of the new content.  If you are creating a top-level `page` or `comment`,
+     * this can be left blank. If you are creating a child page, this is where the parent page id goes.
+     * If you are creating a child comment, this is where the parent comment id goes. Only one parent
+     * content id can be specified.
+     *
+     * @return ancestors
+     */
+    @JsonProperty("ancestors")
+    public List<Map<String, Object>> getAncestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Sets the value of ancestors.
+     * <p>
+     * The parent content of the new content.  If you are creating a top-level `page` or `comment`,
+     * this can be left blank. If you are creating a child page, this is where the parent page id goes.
+     * If you are creating a child comment, this is where the parent comment id goes. Only one parent
+     * content id can be specified.
+     *
+     * @param ancestors ancestors
+     */
+    public void setAncestors(List<Map<String, Object>> ancestors) {
+        this.ancestors = ancestors;
+    }
+    /**
+     * Fluent getter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    public Body5304Ad body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     * @return this
+     */
+    public ContentCreate body(Body5304Ad body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public Body5304Ad getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     */
+    public void setBody(Body5304Ad body) {
+        this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentCreate that = (ContentCreate) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.title, that.title) &&
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.space, that.space) &&
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.container, that.container) &&
+            Objects.equals(this.ancestors, that.ancestors) &&
+            Objects.equals(this.body, that.body);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.title, 
+            this.type, 
+            this.space, 
+            this.status, 
+            this.container, 
+            this.ancestors, 
+            this.body
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentCreate{" +
+            "id=" + id + ", " + 
+            "title=" + title + ", " + 
+            "type=" + type + ", " + 
+            "space=" + space + ", " + 
+            "status=" + status + ", " + 
+            "container=" + container + ", " + 
+            "ancestors=" + ancestors + ", " + 
+            "body=" + body +
+            "}";
     }
 }

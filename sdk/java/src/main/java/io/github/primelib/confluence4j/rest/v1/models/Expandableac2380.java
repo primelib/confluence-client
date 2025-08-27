@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandableac2380
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandableac2380")
 @JsonPropertyOrder({
     "user",
@@ -51,6 +39,13 @@ public class Expandableac2380 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandableac2380() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandableac2380}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandableac2380(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Expandableac2380 {
     public Expandableac2380(String user, String group) {
         this.user = user;
         this.group = group;
+    }
+
+
+    /**
+     * Fluent getter for user.
+     *
+     * @return user
+     */
+    public String user() {
+        return this.user;
+    }
+
+    /**
+     * Fluent setter for user.
+     *
+     * @param user user
+     * @return this
+     */
+    public Expandableac2380 user(String user) {
+        this.user = user;
+        return this;
+    }
+
+    /**
+     * Gets the value of user.
+     *
+     * @return user
+     */
+    @JsonProperty("user")
+    public String getUser() {
+        return this.user;
+    }
+
+    /**
+     * Sets the value of user.
+     *
+     * @param user user
+     */
+    public void setUser(String user) {
+        this.user = user;
+    }
+    /**
+     * Fluent getter for group.
+     *
+     * @return group
+     */
+    public String group() {
+        return this.group;
+    }
+
+    /**
+     * Fluent setter for group.
+     *
+     * @param group group
+     * @return this
+     */
+    public Expandableac2380 group(String group) {
+        this.group = group;
+        return this;
+    }
+
+    /**
+     * Gets the value of group.
+     *
+     * @return group
+     */
+    @JsonProperty("group")
+    public String getGroup() {
+        return this.group;
+    }
+
+    /**
+     * Sets the value of group.
+     *
+     * @param group group
+     */
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandableac2380 that = (Expandableac2380) o;
+        return
+            Objects.equals(this.user, that.user) &&
+            Objects.equals(this.group, that.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.user, 
+            this.group
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandableac2380{" +
+            "user=" + user + ", " + 
+            "group=" + group +
+            "}";
     }
 }

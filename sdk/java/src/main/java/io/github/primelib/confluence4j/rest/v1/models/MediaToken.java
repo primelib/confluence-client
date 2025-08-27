@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * MediaToken
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("MediaToken")
 @JsonPropertyOrder({
     "collectionIds",
@@ -64,6 +52,13 @@ public class MediaToken {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected MediaToken() {
+    }
+
+    /**
      * Constructs a validated instance of {@link MediaToken}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MediaToken(Consumer)} instead.
@@ -80,5 +75,232 @@ public class MediaToken {
         this.expiryDateTime = expiryDateTime;
         this.fileIds = fileIds;
         this.token = token;
+    }
+
+
+    /**
+     * Fluent getter for collectionIds.
+     *
+     * @return collectionIds
+     */
+    public List<String> collectionIds() {
+        return this.collectionIds;
+    }
+
+    /**
+     * Fluent setter for collectionIds.
+     *
+     * @param collectionIds collectionIds
+     * @return this
+     */
+    public MediaToken collectionIds(List<String> collectionIds) {
+        this.collectionIds = collectionIds;
+        return this;
+    }
+
+    /**
+     * Gets the value of collectionIds.
+     *
+     * @return collectionIds
+     */
+    @JsonProperty("collectionIds")
+    public List<String> getCollectionIds() {
+        return this.collectionIds;
+    }
+
+    /**
+     * Sets the value of collectionIds.
+     *
+     * @param collectionIds collectionIds
+     */
+    public void setCollectionIds(List<String> collectionIds) {
+        this.collectionIds = collectionIds;
+    }
+    /**
+     * Fluent getter for contentId.
+     *
+     * @return contentId
+     */
+    public String contentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Fluent setter for contentId.
+     *
+     * @param contentId contentId
+     * @return this
+     */
+    public MediaToken contentId(String contentId) {
+        this.contentId = contentId;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentId.
+     *
+     * @return contentId
+     */
+    @JsonProperty("contentId")
+    public String getContentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Sets the value of contentId.
+     *
+     * @param contentId contentId
+     */
+    public void setContentId(String contentId) {
+        this.contentId = contentId;
+    }
+    /**
+     * Fluent getter for expiryDateTime.
+     *
+     * @return expiryDateTime
+     */
+    public String expiryDateTime() {
+        return this.expiryDateTime;
+    }
+
+    /**
+     * Fluent setter for expiryDateTime.
+     *
+     * @param expiryDateTime expiryDateTime
+     * @return this
+     */
+    public MediaToken expiryDateTime(String expiryDateTime) {
+        this.expiryDateTime = expiryDateTime;
+        return this;
+    }
+
+    /**
+     * Gets the value of expiryDateTime.
+     *
+     * @return expiryDateTime
+     */
+    @JsonProperty("expiryDateTime")
+    public String getExpiryDateTime() {
+        return this.expiryDateTime;
+    }
+
+    /**
+     * Sets the value of expiryDateTime.
+     *
+     * @param expiryDateTime expiryDateTime
+     */
+    public void setExpiryDateTime(String expiryDateTime) {
+        this.expiryDateTime = expiryDateTime;
+    }
+    /**
+     * Fluent getter for fileIds.
+     *
+     * @return fileIds
+     */
+    public List<String> fileIds() {
+        return this.fileIds;
+    }
+
+    /**
+     * Fluent setter for fileIds.
+     *
+     * @param fileIds fileIds
+     * @return this
+     */
+    public MediaToken fileIds(List<String> fileIds) {
+        this.fileIds = fileIds;
+        return this;
+    }
+
+    /**
+     * Gets the value of fileIds.
+     *
+     * @return fileIds
+     */
+    @JsonProperty("fileIds")
+    public List<String> getFileIds() {
+        return this.fileIds;
+    }
+
+    /**
+     * Sets the value of fileIds.
+     *
+     * @param fileIds fileIds
+     */
+    public void setFileIds(List<String> fileIds) {
+        this.fileIds = fileIds;
+    }
+    /**
+     * Fluent getter for token.
+     *
+     * @return token
+     */
+    public String token() {
+        return this.token;
+    }
+
+    /**
+     * Fluent setter for token.
+     *
+     * @param token token
+     * @return this
+     */
+    public MediaToken token(String token) {
+        this.token = token;
+        return this;
+    }
+
+    /**
+     * Gets the value of token.
+     *
+     * @return token
+     */
+    @JsonProperty("token")
+    public String getToken() {
+        return this.token;
+    }
+
+    /**
+     * Sets the value of token.
+     *
+     * @param token token
+     */
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MediaToken that = (MediaToken) o;
+        return
+            Objects.equals(this.collectionIds, that.collectionIds) &&
+            Objects.equals(this.contentId, that.contentId) &&
+            Objects.equals(this.expiryDateTime, that.expiryDateTime) &&
+            Objects.equals(this.fileIds, that.fileIds) &&
+            Objects.equals(this.token, that.token);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.collectionIds, 
+            this.contentId, 
+            this.expiryDateTime, 
+            this.fileIds, 
+            this.token
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "MediaToken{" +
+            "collectionIds=" + collectionIds + ", " + 
+            "contentId=" + contentId + ", " + 
+            "expiryDateTime=" + expiryDateTime + ", " + 
+            "fileIds=" + fileIds + ", " + 
+            "token=" + token +
+            "}";
     }
 }

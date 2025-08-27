@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -51,18 +45,12 @@ import org.jetbrains.annotations.ApiStatus;
  * ```
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpacePermissionV2")
 @JsonPropertyOrder({
     "id",
     "subject",
     "operation",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class SpacePermissionV2 {
@@ -80,7 +68,7 @@ public class SpacePermissionV2 {
     protected Operation operation;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link SpacePermissionV2}.
@@ -93,19 +81,220 @@ public class SpacePermissionV2 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpacePermissionV2() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpacePermissionV2}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpacePermissionV2(Consumer)} instead.
      * @param id id
      * @param subject The user or group that the permission applies to.
      * @param operation operation
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public SpacePermissionV2(Long id, PermissionSubject subject, Operation operation, Map<String, Object> Links) {
+    public SpacePermissionV2(Long id, PermissionSubject subject, Operation operation, Map<String, Object> additionalLinks) {
         this.id = id;
         this.subject = subject;
         this.operation = operation;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public SpacePermissionV2 id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    public PermissionSubject subject() {
+        return this.subject;
+    }
+
+    /**
+     * Fluent setter for subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     * @return this
+     */
+    public SpacePermissionV2 subject(PermissionSubject subject) {
+        this.subject = subject;
+        return this;
+    }
+
+    /**
+     * Gets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @return subject
+     */
+    @JsonProperty("subject")
+    public PermissionSubject getSubject() {
+        return this.subject;
+    }
+
+    /**
+     * Sets the value of subject.
+     * <p>
+     * The user or group that the permission applies to.
+     *
+     * @param subject subject
+     */
+    public void setSubject(PermissionSubject subject) {
+        this.subject = subject;
+    }
+    /**
+     * Fluent getter for operation.
+     *
+     * @return operation
+     */
+    public Operation operation() {
+        return this.operation;
+    }
+
+    /**
+     * Fluent setter for operation.
+     *
+     * @param operation operation
+     * @return this
+     */
+    public SpacePermissionV2 operation(Operation operation) {
+        this.operation = operation;
+        return this;
+    }
+
+    /**
+     * Gets the value of operation.
+     *
+     * @return operation
+     */
+    @JsonProperty("operation")
+    public Operation getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Sets the value of operation.
+     *
+     * @param operation operation
+     */
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public SpacePermissionV2 additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpacePermissionV2 that = (SpacePermissionV2) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.subject, that.subject) &&
+            Objects.equals(this.operation, that.operation) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.subject, 
+            this.operation, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpacePermissionV2{" +
+            "id=" + id + ", " + 
+            "subject=" + subject + ", " + 
+            "operation=" + operation + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

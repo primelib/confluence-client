@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Lastmodified
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Lastmodified")
 @JsonPropertyOrder({
     "version",
@@ -51,6 +39,13 @@ public class Lastmodified {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Lastmodified() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Lastmodified}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Lastmodified(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Lastmodified {
     public Lastmodified(Version version, String friendlyLastModified) {
         this.version = version;
         this.friendlyLastModified = friendlyLastModified;
+    }
+
+
+    /**
+     * Fluent getter for version.
+     *
+     * @return version
+     */
+    public Version version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     *
+     * @param version version
+     * @return this
+     */
+    public Lastmodified version(Version version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Version getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     *
+     * @param version version
+     */
+    public void setVersion(Version version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for friendlyLastModified.
+     *
+     * @return friendlyLastModified
+     */
+    public String friendlyLastModified() {
+        return this.friendlyLastModified;
+    }
+
+    /**
+     * Fluent setter for friendlyLastModified.
+     *
+     * @param friendlyLastModified friendlyLastModified
+     * @return this
+     */
+    public Lastmodified friendlyLastModified(String friendlyLastModified) {
+        this.friendlyLastModified = friendlyLastModified;
+        return this;
+    }
+
+    /**
+     * Gets the value of friendlyLastModified.
+     *
+     * @return friendlyLastModified
+     */
+    @JsonProperty("friendlyLastModified")
+    public String getFriendlyLastModified() {
+        return this.friendlyLastModified;
+    }
+
+    /**
+     * Sets the value of friendlyLastModified.
+     *
+     * @param friendlyLastModified friendlyLastModified
+     */
+    public void setFriendlyLastModified(String friendlyLastModified) {
+        this.friendlyLastModified = friendlyLastModified;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lastmodified that = (Lastmodified) o;
+        return
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.friendlyLastModified, that.friendlyLastModified);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.version, 
+            this.friendlyLastModified
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Lastmodified{" +
+            "version=" + version + ", " + 
+            "friendlyLastModified=" + friendlyLastModified +
+            "}";
     }
 }

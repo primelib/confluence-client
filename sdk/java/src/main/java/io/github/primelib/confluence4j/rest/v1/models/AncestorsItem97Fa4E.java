@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * AncestorsItem97Fa4E
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("AncestorsItem97Fa4E")
 @JsonPropertyOrder({
     "id"
@@ -50,6 +38,13 @@ public class AncestorsItem97Fa4E {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected AncestorsItem97Fa4E() {
+    }
+
+    /**
      * Constructs a validated instance of {@link AncestorsItem97Fa4E}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AncestorsItem97Fa4E(Consumer)} instead.
@@ -58,5 +53,76 @@ public class AncestorsItem97Fa4E {
     @ApiStatus.Internal
     public AncestorsItem97Fa4E(Object id) {
         this.id = id;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @return id
+     */
+    public Object id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @param id id
+     * @return this
+     */
+    public AncestorsItem97Fa4E id(Object id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Object getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The `id` of the parent content.
+     *
+     * @param id id
+     */
+    public void setId(Object id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AncestorsItem97Fa4E that = (AncestorsItem97Fa4E) o;
+        return
+            Objects.equals(this.id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "AncestorsItem97Fa4E{" +
+            "id=" + id +
+            "}";
     }
 }

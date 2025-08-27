@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * GetViewsR200
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("GetViewsR200")
 @JsonPropertyOrder({
     "id",
@@ -57,6 +45,13 @@ public class GetViewsR200 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected GetViewsR200() {
+    }
+
+    /**
      * Constructs a validated instance of {@link GetViewsR200}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GetViewsR200(Consumer)} instead.
@@ -67,5 +62,125 @@ public class GetViewsR200 {
     public GetViewsR200(Long id, Long count) {
         this.id = id;
         this.count = count;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The content ID.
+     *
+     * @return id
+     */
+    public Long id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The content ID.
+     *
+     * @param id id
+     * @return this
+     */
+    public GetViewsR200 id(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The content ID.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The content ID.
+     *
+     * @param id id
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for count.
+     * <p>
+     * The total number of views for the content.
+     *
+     * @return count
+     */
+    public Long count() {
+        return this.count;
+    }
+
+    /**
+     * Fluent setter for count.
+     * <p>
+     * The total number of views for the content.
+     *
+     * @param count count
+     * @return this
+     */
+    public GetViewsR200 count(Long count) {
+        this.count = count;
+        return this;
+    }
+
+    /**
+     * Gets the value of count.
+     * <p>
+     * The total number of views for the content.
+     *
+     * @return count
+     */
+    @JsonProperty("count")
+    public Long getCount() {
+        return this.count;
+    }
+
+    /**
+     * Sets the value of count.
+     * <p>
+     * The total number of views for the content.
+     *
+     * @param count count
+     */
+    public void setCount(Long count) {
+        this.count = count;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GetViewsR200 that = (GetViewsR200) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.count, that.count);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.count
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "GetViewsR200{" +
+            "id=" + id + ", " + 
+            "count=" + count +
+            "}";
     }
 }

@@ -6,35 +6,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Relation
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Relation")
 @JsonPropertyOrder({
     "name",
     "relationData",
     "source",
     "target",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Relation {
@@ -60,10 +48,10 @@ Representation of a blogpost (content)
     protected Object target;
 
     @JsonProperty("_expandable")
-    protected Expandableb48Ed1 Expandable;
+    protected Expandableb48Ed1 additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link Relation}.
@@ -76,6 +64,13 @@ Representation of a blogpost (content)
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Relation() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Relation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Relation(Consumer)} instead.
@@ -85,16 +80,308 @@ Representation of a blogpost (content)
 Representation of a blogpost (content)
      * @param target Base object for all content types.
 Representation of a blogpost (content)
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public Relation(String name, RelationData relationData, Object source, Object target, Expandableb48Ed1 Expandable, Map<String, Object> Links) {
+    public Relation(String name, RelationData relationData, Object source, Object target, Expandableb48Ed1 additionalExpandable, Map<String, Object> additionalLinks) {
         this.name = name;
         this.relationData = relationData;
         this.source = source;
         this.target = target;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public Relation name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for relationData.
+     *
+     * @return relationData
+     */
+    public RelationData relationData() {
+        return this.relationData;
+    }
+
+    /**
+     * Fluent setter for relationData.
+     *
+     * @param relationData relationData
+     * @return this
+     */
+    public Relation relationData(RelationData relationData) {
+        this.relationData = relationData;
+        return this;
+    }
+
+    /**
+     * Gets the value of relationData.
+     *
+     * @return relationData
+     */
+    @JsonProperty("relationData")
+    public RelationData getRelationData() {
+        return this.relationData;
+    }
+
+    /**
+     * Sets the value of relationData.
+     *
+     * @param relationData relationData
+     */
+    public void setRelationData(RelationData relationData) {
+        this.relationData = relationData;
+    }
+    /**
+     * Fluent getter for source.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return source
+     */
+    public Object source() {
+        return this.source;
+    }
+
+    /**
+     * Fluent setter for source.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param source source
+     * @return this
+     */
+    public Relation source(Object source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Gets the value of source.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return source
+     */
+    @JsonProperty("source")
+    public Object getSource() {
+        return this.source;
+    }
+
+    /**
+     * Sets the value of source.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param source source
+     */
+    public void setSource(Object source) {
+        this.source = source;
+    }
+    /**
+     * Fluent getter for target.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return target
+     */
+    public Object target() {
+        return this.target;
+    }
+
+    /**
+     * Fluent setter for target.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param target target
+     * @return this
+     */
+    public Relation target(Object target) {
+        this.target = target;
+        return this;
+    }
+
+    /**
+     * Gets the value of target.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @return target
+     */
+    @JsonProperty("target")
+    public Object getTarget() {
+        return this.target;
+    }
+
+    /**
+     * Sets the value of target.
+     * <p>
+     * Base object for all content types.
+     * Representation of a blogpost (content)
+     *
+     * @param target target
+     */
+    public void setTarget(Object target) {
+        this.target = target;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandableb48Ed1 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Relation additionalExpandable(Expandableb48Ed1 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandableb48Ed1 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandableb48Ed1 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Relation additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Relation that = (Relation) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.relationData, that.relationData) &&
+            Objects.equals(this.source, that.source) &&
+            Objects.equals(this.target, that.target) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.relationData, 
+            this.source, 
+            this.target, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Relation{" +
+            "name=" + name + ", " + 
+            "relationData=" + relationData + ", " + 
+            "source=" + source + ", " + 
+            "target=" + target + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

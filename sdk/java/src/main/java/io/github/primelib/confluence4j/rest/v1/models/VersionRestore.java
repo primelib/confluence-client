@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * VersionRestore
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("VersionRestore")
 @JsonPropertyOrder({
     "operationKey",
@@ -54,6 +42,13 @@ public class VersionRestore {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected VersionRestore() {
+    }
+
+    /**
      * Constructs a validated instance of {@link VersionRestore}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #VersionRestore(Consumer)} instead.
@@ -64,5 +59,117 @@ public class VersionRestore {
     public VersionRestore(String operationKey, Params params) {
         this.operationKey = operationKey;
         this.params = params;
+    }
+
+
+    /**
+     * Fluent getter for operationKey.
+     * <p>
+     * Set to 'restore'.
+     *
+     * @return operationKey
+     */
+    public String operationKey() {
+        return this.operationKey;
+    }
+
+    /**
+     * Fluent setter for operationKey.
+     * <p>
+     * Set to 'restore'.
+     *
+     * @param operationKey operationKey
+     * @return this
+     */
+    public VersionRestore operationKey(String operationKey) {
+        this.operationKey = operationKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of operationKey.
+     * <p>
+     * Set to 'restore'.
+     *
+     * @return operationKey
+     */
+    @JsonProperty("operationKey")
+    public String getOperationKey() {
+        return this.operationKey;
+    }
+
+    /**
+     * Sets the value of operationKey.
+     * <p>
+     * Set to 'restore'.
+     *
+     * @param operationKey operationKey
+     */
+    public void setOperationKey(String operationKey) {
+        this.operationKey = operationKey;
+    }
+    /**
+     * Fluent getter for params.
+     *
+     * @return params
+     */
+    public Params params() {
+        return this.params;
+    }
+
+    /**
+     * Fluent setter for params.
+     *
+     * @param params params
+     * @return this
+     */
+    public VersionRestore params(Params params) {
+        this.params = params;
+        return this;
+    }
+
+    /**
+     * Gets the value of params.
+     *
+     * @return params
+     */
+    @JsonProperty("params")
+    public Params getParams() {
+        return this.params;
+    }
+
+    /**
+     * Sets the value of params.
+     *
+     * @param params params
+     */
+    public void setParams(Params params) {
+        this.params = params;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VersionRestore that = (VersionRestore) o;
+        return
+            Objects.equals(this.operationKey, that.operationKey) &&
+            Objects.equals(this.params, that.params);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.operationKey, 
+            this.params
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "VersionRestore{" +
+            "operationKey=" + operationKey + ", " + 
+            "params=" + params +
+            "}";
     }
 }

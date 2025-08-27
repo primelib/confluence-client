@@ -2,8 +2,7 @@
 
 package io.github.primelib.confluence4j.rest.v1.operations;
 
-import io.github.primelib.confluence4j.rest.v1.models.ContentBodyConversionInput;
-import java.util.List;
+import io.github.primelib.confluence4j.rest.v1.models.BulkContentBodyConversionInput;
 import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
@@ -52,7 +51,7 @@ public class PostContentbodyConvertAsyncBulkTasksV1OperationSpec {
      *
      */
     @NonNull
-    private List<ContentBodyConversionInput> payload;
+    private BulkContentBodyConversionInput payload;
 
     /**
      * Constructs a validated instance of {@link PostContentbodyConvertAsyncBulkTasksV1OperationSpec}.

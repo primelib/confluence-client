@@ -7,15 +7,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -25,12 +19,6 @@ import org.jetbrains.annotations.ApiStatus;
  * Representation of a blogpost (content)
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Content")
 @JsonPropertyOrder({
     "id",
@@ -51,8 +39,8 @@ import org.jetbrains.annotations.ApiStatus;
     "metadata",
     "macroRenderedOutput",
     "extensions",
-    "Expandable",
-    "Links",
+    "additionalExpandable",
+    "additionalLinks",
     "ari",
     "base64EncodedAri"
 })
@@ -128,10 +116,10 @@ or a page/blog post (containing an attachment or comment)
     protected Object extensions;
 
     @JsonProperty("_expandable")
-    protected Expandable07C2Ed Expandable;
+    protected Expandable07C2Ed additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     @JsonProperty("ari")
     protected String ari;
@@ -147,6 +135,13 @@ or a page/blog post (containing an attachment or comment)
     public Content(Consumer<Content> spec) {
         super();
         spec.accept(this);
+    }
+
+    /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Content() {
     }
 
     /**
@@ -173,13 +168,13 @@ or a page/blog post (containing an attachment or comment)
      * @param metadata Metadata object for page, blogpost, comment content
      * @param macroRenderedOutput macroRenderedOutput
      * @param extensions extensions
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      * @param ari ari
      * @param base64EncodedAri base64EncodedAri
      */
     @ApiStatus.Internal
-    public Content(String id, String type, String status, String title, Space space, ContentHistory history, Version version, List<Content> ancestors, List<OperationCheckResult> operations, Map<String, Object> children, Map<String, Object> childTypes, Map<String, Object> descendants, Map<String, Object> container, Body body, Restrictions restrictions, ContentMetadata metadata, Map<String, Object> macroRenderedOutput, Object extensions, Expandable07C2Ed Expandable, Map<String, Object> Links, String ari, String base64EncodedAri) {
+    public Content(String id, String type, String status, String title, Space space, ContentHistory history, Version version, List<Content> ancestors, List<OperationCheckResult> operations, Map<String, Object> children, Map<String, Object> childTypes, Map<String, Object> descendants, Map<String, Object> container, Body body, Restrictions restrictions, ContentMetadata metadata, Map<String, Object> macroRenderedOutput, Object extensions, Expandable07C2Ed additionalExpandable, Map<String, Object> additionalLinks, String ari, String base64EncodedAri) {
         this.id = id;
         this.type = type;
         this.status = status;
@@ -198,9 +193,973 @@ or a page/blog post (containing an attachment or comment)
         this.metadata = metadata;
         this.macroRenderedOutput = macroRenderedOutput;
         this.extensions = extensions;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
         this.ari = ari;
         this.base64EncodedAri = base64EncodedAri;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     *
+     * @return id
+     */
+    public String id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     *
+     * @param id id
+     * @return this
+     */
+    public Content id(String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     *
+     * @param id id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * Can be "page", "blogpost", "attachment" or "content"
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * Can be "page", "blogpost", "attachment" or "content"
+     *
+     * @param type type
+     * @return this
+     */
+    public Content type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * Can be "page", "blogpost", "attachment" or "content"
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * Can be "page", "blogpost", "attachment" or "content"
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for status.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     *
+     * @param status status
+     * @return this
+     */
+    public Content status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for title.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     *
+     * @param title title
+     * @return this
+     */
+    public Content title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /**
+     * Fluent getter for space.
+     *
+     * @return space
+     */
+    public Space space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     *
+     * @param space space
+     * @return this
+     */
+    public Content space(Space space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Space getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     *
+     * @param space space
+     */
+    public void setSpace(Space space) {
+        this.space = space;
+    }
+    /**
+     * Fluent getter for history.
+     *
+     * @return history
+     */
+    public ContentHistory history() {
+        return this.history;
+    }
+
+    /**
+     * Fluent setter for history.
+     *
+     * @param history history
+     * @return this
+     */
+    public Content history(ContentHistory history) {
+        this.history = history;
+        return this;
+    }
+
+    /**
+     * Gets the value of history.
+     *
+     * @return history
+     */
+    @JsonProperty("history")
+    public ContentHistory getHistory() {
+        return this.history;
+    }
+
+    /**
+     * Sets the value of history.
+     *
+     * @param history history
+     */
+    public void setHistory(ContentHistory history) {
+        this.history = history;
+    }
+    /**
+     * Fluent getter for version.
+     *
+     * @return version
+     */
+    public Version version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     *
+     * @param version version
+     * @return this
+     */
+    public Content version(Version version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Version getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     *
+     * @param version version
+     */
+    public void setVersion(Version version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for ancestors.
+     *
+     * @return ancestors
+     */
+    public List<Content> ancestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Fluent setter for ancestors.
+     *
+     * @param ancestors ancestors
+     * @return this
+     */
+    public Content ancestors(List<Content> ancestors) {
+        this.ancestors = ancestors;
+        return this;
+    }
+
+    /**
+     * Gets the value of ancestors.
+     *
+     * @return ancestors
+     */
+    @JsonProperty("ancestors")
+    public List<Content> getAncestors() {
+        return this.ancestors;
+    }
+
+    /**
+     * Sets the value of ancestors.
+     *
+     * @param ancestors ancestors
+     */
+    public void setAncestors(List<Content> ancestors) {
+        this.ancestors = ancestors;
+    }
+    /**
+     * Fluent getter for operations.
+     *
+     * @return operations
+     */
+    public List<OperationCheckResult> operations() {
+        return this.operations;
+    }
+
+    /**
+     * Fluent setter for operations.
+     *
+     * @param operations operations
+     * @return this
+     */
+    public Content operations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+        return this;
+    }
+
+    /**
+     * Gets the value of operations.
+     *
+     * @return operations
+     */
+    @JsonProperty("operations")
+    public List<OperationCheckResult> getOperations() {
+        return this.operations;
+    }
+
+    /**
+     * Sets the value of operations.
+     *
+     * @param operations operations
+     */
+    public void setOperations(List<OperationCheckResult> operations) {
+        this.operations = operations;
+    }
+    /**
+     * Fluent getter for children.
+     *
+     * @return children
+     */
+    public Map<String, Object> children() {
+        return this.children;
+    }
+
+    /**
+     * Fluent setter for children.
+     *
+     * @param children children
+     * @return this
+     */
+    public Content children(Map<String, Object> children) {
+        this.children = children;
+        return this;
+    }
+
+    /**
+     * Gets the value of children.
+     *
+     * @return children
+     */
+    @JsonProperty("children")
+    public Map<String, Object> getChildren() {
+        return this.children;
+    }
+
+    /**
+     * Sets the value of children.
+     *
+     * @param children children
+     */
+    public void setChildren(Map<String, Object> children) {
+        this.children = children;
+    }
+    /**
+     * Fluent getter for childTypes.
+     * <p>
+     * Shows whether a piece of content has attachments, comments, or child pages/whiteboards.
+     * Note, this doesn't actually contain the child objects.
+     *
+     * @return childTypes
+     */
+    public Map<String, Object> childTypes() {
+        return this.childTypes;
+    }
+
+    /**
+     * Fluent setter for childTypes.
+     * <p>
+     * Shows whether a piece of content has attachments, comments, or child pages/whiteboards.
+     * Note, this doesn't actually contain the child objects.
+     *
+     * @param childTypes childTypes
+     * @return this
+     */
+    public Content childTypes(Map<String, Object> childTypes) {
+        this.childTypes = childTypes;
+        return this;
+    }
+
+    /**
+     * Gets the value of childTypes.
+     * <p>
+     * Shows whether a piece of content has attachments, comments, or child pages/whiteboards.
+     * Note, this doesn't actually contain the child objects.
+     *
+     * @return childTypes
+     */
+    @JsonProperty("childTypes")
+    public Map<String, Object> getChildTypes() {
+        return this.childTypes;
+    }
+
+    /**
+     * Sets the value of childTypes.
+     * <p>
+     * Shows whether a piece of content has attachments, comments, or child pages/whiteboards.
+     * Note, this doesn't actually contain the child objects.
+     *
+     * @param childTypes childTypes
+     */
+    public void setChildTypes(Map<String, Object> childTypes) {
+        this.childTypes = childTypes;
+    }
+    /**
+     * Fluent getter for descendants.
+     *
+     * @return descendants
+     */
+    public Map<String, Object> descendants() {
+        return this.descendants;
+    }
+
+    /**
+     * Fluent setter for descendants.
+     *
+     * @param descendants descendants
+     * @return this
+     */
+    public Content descendants(Map<String, Object> descendants) {
+        this.descendants = descendants;
+        return this;
+    }
+
+    /**
+     * Gets the value of descendants.
+     *
+     * @return descendants
+     */
+    @JsonProperty("descendants")
+    public Map<String, Object> getDescendants() {
+        return this.descendants;
+    }
+
+    /**
+     * Sets the value of descendants.
+     *
+     * @param descendants descendants
+     */
+    public void setDescendants(Map<String, Object> descendants) {
+        this.descendants = descendants;
+    }
+    /**
+     * Fluent getter for container.
+     * <p>
+     * Container for content. This can be either a space (containing a page or blogpost)
+     * or a page/blog post (containing an attachment or comment)
+     *
+     * @return container
+     */
+    public Map<String, Object> container() {
+        return this.container;
+    }
+
+    /**
+     * Fluent setter for container.
+     * <p>
+     * Container for content. This can be either a space (containing a page or blogpost)
+     * or a page/blog post (containing an attachment or comment)
+     *
+     * @param container container
+     * @return this
+     */
+    public Content container(Map<String, Object> container) {
+        this.container = container;
+        return this;
+    }
+
+    /**
+     * Gets the value of container.
+     * <p>
+     * Container for content. This can be either a space (containing a page or blogpost)
+     * or a page/blog post (containing an attachment or comment)
+     *
+     * @return container
+     */
+    @JsonProperty("container")
+    public Map<String, Object> getContainer() {
+        return this.container;
+    }
+
+    /**
+     * Sets the value of container.
+     * <p>
+     * Container for content. This can be either a space (containing a page or blogpost)
+     * or a page/blog post (containing an attachment or comment)
+     *
+     * @param container container
+     */
+    public void setContainer(Map<String, Object> container) {
+        this.container = container;
+    }
+    /**
+     * Fluent getter for body.
+     *
+     * @return body
+     */
+    public Body body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     *
+     * @param body body
+     * @return this
+     */
+    public Content body(Body body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public Body getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     *
+     * @param body body
+     */
+    public void setBody(Body body) {
+        this.body = body;
+    }
+    /**
+     * Fluent getter for restrictions.
+     *
+     * @return restrictions
+     */
+    public Restrictions restrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Fluent setter for restrictions.
+     *
+     * @param restrictions restrictions
+     * @return this
+     */
+    public Content restrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
+        return this;
+    }
+
+    /**
+     * Gets the value of restrictions.
+     *
+     * @return restrictions
+     */
+    @JsonProperty("restrictions")
+    public Restrictions getRestrictions() {
+        return this.restrictions;
+    }
+
+    /**
+     * Sets the value of restrictions.
+     *
+     * @param restrictions restrictions
+     */
+    public void setRestrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
+    }
+    /**
+     * Fluent getter for metadata.
+     * <p>
+     * Metadata object for page, blogpost, comment content
+     *
+     * @return metadata
+     */
+    public ContentMetadata metadata() {
+        return this.metadata;
+    }
+
+    /**
+     * Fluent setter for metadata.
+     * <p>
+     * Metadata object for page, blogpost, comment content
+     *
+     * @param metadata metadata
+     * @return this
+     */
+    public Content metadata(ContentMetadata metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * Gets the value of metadata.
+     * <p>
+     * Metadata object for page, blogpost, comment content
+     *
+     * @return metadata
+     */
+    @JsonProperty("metadata")
+    public ContentMetadata getMetadata() {
+        return this.metadata;
+    }
+
+    /**
+     * Sets the value of metadata.
+     * <p>
+     * Metadata object for page, blogpost, comment content
+     *
+     * @param metadata metadata
+     */
+    public void setMetadata(ContentMetadata metadata) {
+        this.metadata = metadata;
+    }
+    /**
+     * Fluent getter for macroRenderedOutput.
+     *
+     * @return macroRenderedOutput
+     */
+    public Map<String, Object> macroRenderedOutput() {
+        return this.macroRenderedOutput;
+    }
+
+    /**
+     * Fluent setter for macroRenderedOutput.
+     *
+     * @param macroRenderedOutput macroRenderedOutput
+     * @return this
+     */
+    public Content macroRenderedOutput(Map<String, Object> macroRenderedOutput) {
+        this.macroRenderedOutput = macroRenderedOutput;
+        return this;
+    }
+
+    /**
+     * Gets the value of macroRenderedOutput.
+     *
+     * @return macroRenderedOutput
+     */
+    @JsonProperty("macroRenderedOutput")
+    public Map<String, Object> getMacroRenderedOutput() {
+        return this.macroRenderedOutput;
+    }
+
+    /**
+     * Sets the value of macroRenderedOutput.
+     *
+     * @param macroRenderedOutput macroRenderedOutput
+     */
+    public void setMacroRenderedOutput(Map<String, Object> macroRenderedOutput) {
+        this.macroRenderedOutput = macroRenderedOutput;
+    }
+    /**
+     * Fluent getter for extensions.
+     *
+     * @return extensions
+     */
+    public Object extensions() {
+        return this.extensions;
+    }
+
+    /**
+     * Fluent setter for extensions.
+     *
+     * @param extensions extensions
+     * @return this
+     */
+    public Content extensions(Object extensions) {
+        this.extensions = extensions;
+        return this;
+    }
+
+    /**
+     * Gets the value of extensions.
+     *
+     * @return extensions
+     */
+    @JsonProperty("extensions")
+    public Object getExtensions() {
+        return this.extensions;
+    }
+
+    /**
+     * Sets the value of extensions.
+     *
+     * @param extensions extensions
+     */
+    public void setExtensions(Object extensions) {
+        this.extensions = extensions;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable07C2Ed additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Content additionalExpandable(Expandable07C2Ed additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable07C2Ed getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable07C2Ed additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Content additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+    /**
+     * Fluent getter for ari.
+     *
+     * @return ari
+     */
+    public String ari() {
+        return this.ari;
+    }
+
+    /**
+     * Fluent setter for ari.
+     *
+     * @param ari ari
+     * @return this
+     */
+    public Content ari(String ari) {
+        this.ari = ari;
+        return this;
+    }
+
+    /**
+     * Gets the value of ari.
+     *
+     * @return ari
+     */
+    @JsonProperty("ari")
+    public String getAri() {
+        return this.ari;
+    }
+
+    /**
+     * Sets the value of ari.
+     *
+     * @param ari ari
+     */
+    public void setAri(String ari) {
+        this.ari = ari;
+    }
+    /**
+     * Fluent getter for base64EncodedAri.
+     *
+     * @return base64EncodedAri
+     */
+    public String base64EncodedAri() {
+        return this.base64EncodedAri;
+    }
+
+    /**
+     * Fluent setter for base64EncodedAri.
+     *
+     * @param base64EncodedAri base64EncodedAri
+     * @return this
+     */
+    public Content base64EncodedAri(String base64EncodedAri) {
+        this.base64EncodedAri = base64EncodedAri;
+        return this;
+    }
+
+    /**
+     * Gets the value of base64EncodedAri.
+     *
+     * @return base64EncodedAri
+     */
+    @JsonProperty("base64EncodedAri")
+    public String getBase64EncodedAri() {
+        return this.base64EncodedAri;
+    }
+
+    /**
+     * Sets the value of base64EncodedAri.
+     *
+     * @param base64EncodedAri base64EncodedAri
+     */
+    public void setBase64EncodedAri(String base64EncodedAri) {
+        this.base64EncodedAri = base64EncodedAri;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Content that = (Content) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.title, that.title) &&
+            Objects.equals(this.space, that.space) &&
+            Objects.equals(this.history, that.history) &&
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.ancestors, that.ancestors) &&
+            Objects.equals(this.operations, that.operations) &&
+            Objects.equals(this.children, that.children) &&
+            Objects.equals(this.childTypes, that.childTypes) &&
+            Objects.equals(this.descendants, that.descendants) &&
+            Objects.equals(this.container, that.container) &&
+            Objects.equals(this.body, that.body) &&
+            Objects.equals(this.restrictions, that.restrictions) &&
+            Objects.equals(this.metadata, that.metadata) &&
+            Objects.equals(this.macroRenderedOutput, that.macroRenderedOutput) &&
+            Objects.equals(this.extensions, that.extensions) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks) &&
+            Objects.equals(this.ari, that.ari) &&
+            Objects.equals(this.base64EncodedAri, that.base64EncodedAri);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.type, 
+            this.status, 
+            this.title, 
+            this.space, 
+            this.history, 
+            this.version, 
+            this.ancestors, 
+            this.operations, 
+            this.children, 
+            this.childTypes, 
+            this.descendants, 
+            this.container, 
+            this.body, 
+            this.restrictions, 
+            this.metadata, 
+            this.macroRenderedOutput, 
+            this.extensions, 
+            this.additionalExpandable, 
+            this.additionalLinks, 
+            this.ari, 
+            this.base64EncodedAri
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Content{" +
+            "id=" + id + ", " + 
+            "type=" + type + ", " + 
+            "status=" + status + ", " + 
+            "title=" + title + ", " + 
+            "space=" + space + ", " + 
+            "history=" + history + ", " + 
+            "version=" + version + ", " + 
+            "ancestors=" + ancestors + ", " + 
+            "operations=" + operations + ", " + 
+            "children=" + children + ", " + 
+            "childTypes=" + childTypes + ", " + 
+            "descendants=" + descendants + ", " + 
+            "container=" + container + ", " + 
+            "body=" + body + ", " + 
+            "restrictions=" + restrictions + ", " + 
+            "metadata=" + metadata + ", " + 
+            "macroRenderedOutput=" + macroRenderedOutput + ", " + 
+            "extensions=" + extensions + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks + ", " + 
+            "ari=" + ari + ", " + 
+            "base64EncodedAri=" + base64EncodedAri +
+            "}";
     }
 }

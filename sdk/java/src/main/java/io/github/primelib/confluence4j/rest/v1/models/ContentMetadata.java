@@ -6,15 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,12 +17,6 @@ import org.jetbrains.annotations.ApiStatus;
  * Metadata object for page, blogpost, comment content
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentMetadata")
 @JsonPropertyOrder({
     "currentuser",
@@ -62,6 +50,13 @@ public class ContentMetadata {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentMetadata() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentMetadata}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentMetadata(Consumer)} instead.
@@ -76,5 +71,191 @@ public class ContentMetadata {
         this.properties = properties;
         this.frontend = frontend;
         this.labels = labels;
+    }
+
+
+    /**
+     * Fluent getter for currentuser.
+     *
+     * @return currentuser
+     */
+    public Currentuser currentuser() {
+        return this.currentuser;
+    }
+
+    /**
+     * Fluent setter for currentuser.
+     *
+     * @param currentuser currentuser
+     * @return this
+     */
+    public ContentMetadata currentuser(Currentuser currentuser) {
+        this.currentuser = currentuser;
+        return this;
+    }
+
+    /**
+     * Gets the value of currentuser.
+     *
+     * @return currentuser
+     */
+    @JsonProperty("currentuser")
+    public Currentuser getCurrentuser() {
+        return this.currentuser;
+    }
+
+    /**
+     * Sets the value of currentuser.
+     *
+     * @param currentuser currentuser
+     */
+    public void setCurrentuser(Currentuser currentuser) {
+        this.currentuser = currentuser;
+    }
+    /**
+     * Fluent getter for properties.
+     *
+     * @return properties
+     */
+    public Map<String, Object> properties() {
+        return this.properties;
+    }
+
+    /**
+     * Fluent setter for properties.
+     *
+     * @param properties properties
+     * @return this
+     */
+    public ContentMetadata properties(Map<String, Object> properties) {
+        this.properties = properties;
+        return this;
+    }
+
+    /**
+     * Gets the value of properties.
+     *
+     * @return properties
+     */
+    @JsonProperty("properties")
+    public Map<String, Object> getProperties() {
+        return this.properties;
+    }
+
+    /**
+     * Sets the value of properties.
+     *
+     * @param properties properties
+     */
+    public void setProperties(Map<String, Object> properties) {
+        this.properties = properties;
+    }
+    /**
+     * Fluent getter for frontend.
+     *
+     * @return frontend
+     */
+    public Map<String, Object> frontend() {
+        return this.frontend;
+    }
+
+    /**
+     * Fluent setter for frontend.
+     *
+     * @param frontend frontend
+     * @return this
+     */
+    public ContentMetadata frontend(Map<String, Object> frontend) {
+        this.frontend = frontend;
+        return this;
+    }
+
+    /**
+     * Gets the value of frontend.
+     *
+     * @return frontend
+     */
+    @JsonProperty("frontend")
+    public Map<String, Object> getFrontend() {
+        return this.frontend;
+    }
+
+    /**
+     * Sets the value of frontend.
+     *
+     * @param frontend frontend
+     */
+    public void setFrontend(Map<String, Object> frontend) {
+        this.frontend = frontend;
+    }
+    /**
+     * Fluent getter for labels.
+     *
+     * @return labels
+     */
+    public Labels labels() {
+        return this.labels;
+    }
+
+    /**
+     * Fluent setter for labels.
+     *
+     * @param labels labels
+     * @return this
+     */
+    public ContentMetadata labels(Labels labels) {
+        this.labels = labels;
+        return this;
+    }
+
+    /**
+     * Gets the value of labels.
+     *
+     * @return labels
+     */
+    @JsonProperty("labels")
+    public Labels getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets the value of labels.
+     *
+     * @param labels labels
+     */
+    public void setLabels(Labels labels) {
+        this.labels = labels;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentMetadata that = (ContentMetadata) o;
+        return
+            Objects.equals(this.currentuser, that.currentuser) &&
+            Objects.equals(this.properties, that.properties) &&
+            Objects.equals(this.frontend, that.frontend) &&
+            Objects.equals(this.labels, that.labels);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.currentuser, 
+            this.properties, 
+            this.frontend, 
+            this.labels
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentMetadata{" +
+            "currentuser=" + currentuser + ", " + 
+            "properties=" + properties + ", " + 
+            "frontend=" + frontend + ", " + 
+            "labels=" + labels +
+            "}";
     }
 }

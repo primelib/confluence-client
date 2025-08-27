@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentTemplate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentTemplate")
 @JsonPropertyOrder({
     "templateId",
@@ -40,8 +28,8 @@ import org.jetbrains.annotations.ApiStatus;
     "templateType",
     "editorVersion",
     "body",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class ContentTemplate {
@@ -86,10 +74,10 @@ user is included.
     protected ContentTemplateBody body;
 
     @JsonProperty("_expandable")
-    protected Expandable Expandable;
+    protected Expandable additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link ContentTemplate}.
@@ -99,6 +87,13 @@ user is included.
     public ContentTemplate(Consumer<ContentTemplate> spec) {
         super();
         spec.accept(this);
+    }
+
+    /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentTemplate() {
     }
 
     /**
@@ -121,11 +116,11 @@ this object, e.g. `storage`.
 Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
 the same as `export_view` format but only content viewable by an anonymous
 user is included.
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public ContentTemplate(String templateId, OriginalTemplate25A4F5 originalTemplate, String referencingBlueprint, String name, String description, Map<String, Object> space, List<Label> labels, String templateType, String editorVersion, ContentTemplateBody body, Expandable Expandable, Map<String, Object> Links) {
+    public ContentTemplate(String templateId, OriginalTemplate25A4F5 originalTemplate, String referencingBlueprint, String name, String description, Map<String, Object> space, List<Label> labels, String templateType, String editorVersion, ContentTemplateBody body, Expandable additionalExpandable, Map<String, Object> additionalLinks) {
         this.templateId = templateId;
         this.originalTemplate = originalTemplate;
         this.referencingBlueprint = referencingBlueprint;
@@ -136,7 +131,553 @@ user is included.
         this.templateType = templateType;
         this.editorVersion = editorVersion;
         this.body = body;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for templateId.
+     *
+     * @return templateId
+     */
+    public String templateId() {
+        return this.templateId;
+    }
+
+    /**
+     * Fluent setter for templateId.
+     *
+     * @param templateId templateId
+     * @return this
+     */
+    public ContentTemplate templateId(String templateId) {
+        this.templateId = templateId;
+        return this;
+    }
+
+    /**
+     * Gets the value of templateId.
+     *
+     * @return templateId
+     */
+    @JsonProperty("templateId")
+    public String getTemplateId() {
+        return this.templateId;
+    }
+
+    /**
+     * Sets the value of templateId.
+     *
+     * @param templateId templateId
+     */
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
+    }
+    /**
+     * Fluent getter for originalTemplate.
+     *
+     * @return originalTemplate
+     */
+    public OriginalTemplate25A4F5 originalTemplate() {
+        return this.originalTemplate;
+    }
+
+    /**
+     * Fluent setter for originalTemplate.
+     *
+     * @param originalTemplate originalTemplate
+     * @return this
+     */
+    public ContentTemplate originalTemplate(OriginalTemplate25A4F5 originalTemplate) {
+        this.originalTemplate = originalTemplate;
+        return this;
+    }
+
+    /**
+     * Gets the value of originalTemplate.
+     *
+     * @return originalTemplate
+     */
+    @JsonProperty("originalTemplate")
+    public OriginalTemplate25A4F5 getOriginalTemplate() {
+        return this.originalTemplate;
+    }
+
+    /**
+     * Sets the value of originalTemplate.
+     *
+     * @param originalTemplate originalTemplate
+     */
+    public void setOriginalTemplate(OriginalTemplate25A4F5 originalTemplate) {
+        this.originalTemplate = originalTemplate;
+    }
+    /**
+     * Fluent getter for referencingBlueprint.
+     *
+     * @return referencingBlueprint
+     */
+    public String referencingBlueprint() {
+        return this.referencingBlueprint;
+    }
+
+    /**
+     * Fluent setter for referencingBlueprint.
+     *
+     * @param referencingBlueprint referencingBlueprint
+     * @return this
+     */
+    public ContentTemplate referencingBlueprint(String referencingBlueprint) {
+        this.referencingBlueprint = referencingBlueprint;
+        return this;
+    }
+
+    /**
+     * Gets the value of referencingBlueprint.
+     *
+     * @return referencingBlueprint
+     */
+    @JsonProperty("referencingBlueprint")
+    public String getReferencingBlueprint() {
+        return this.referencingBlueprint;
+    }
+
+    /**
+     * Sets the value of referencingBlueprint.
+     *
+     * @param referencingBlueprint referencingBlueprint
+     */
+    public void setReferencingBlueprint(String referencingBlueprint) {
+        this.referencingBlueprint = referencingBlueprint;
+    }
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public ContentTemplate name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for description.
+     *
+     * @return description
+     */
+    public String description() {
+        return this.description;
+    }
+
+    /**
+     * Fluent setter for description.
+     *
+     * @param description description
+     * @return this
+     */
+    public ContentTemplate description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Gets the value of description.
+     *
+     * @return description
+     */
+    @JsonProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
+     * Sets the value of description.
+     *
+     * @param description description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    /**
+     * Fluent getter for space.
+     *
+     * @return space
+     */
+    public Map<String, Object> space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     *
+     * @param space space
+     * @return this
+     */
+    public ContentTemplate space(Map<String, Object> space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public Map<String, Object> getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     *
+     * @param space space
+     */
+    public void setSpace(Map<String, Object> space) {
+        this.space = space;
+    }
+    /**
+     * Fluent getter for labels.
+     *
+     * @return labels
+     */
+    public List<Label> labels() {
+        return this.labels;
+    }
+
+    /**
+     * Fluent setter for labels.
+     *
+     * @param labels labels
+     * @return this
+     */
+    public ContentTemplate labels(List<Label> labels) {
+        this.labels = labels;
+        return this;
+    }
+
+    /**
+     * Gets the value of labels.
+     *
+     * @return labels
+     */
+    @JsonProperty("labels")
+    public List<Label> getLabels() {
+        return this.labels;
+    }
+
+    /**
+     * Sets the value of labels.
+     *
+     * @param labels labels
+     */
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
+    }
+    /**
+     * Fluent getter for templateType.
+     *
+     * @return templateType
+     */
+    public String templateType() {
+        return this.templateType;
+    }
+
+    /**
+     * Fluent setter for templateType.
+     *
+     * @param templateType templateType
+     * @return this
+     */
+    public ContentTemplate templateType(String templateType) {
+        this.templateType = templateType;
+        return this;
+    }
+
+    /**
+     * Gets the value of templateType.
+     *
+     * @return templateType
+     */
+    @JsonProperty("templateType")
+    public String getTemplateType() {
+        return this.templateType;
+    }
+
+    /**
+     * Sets the value of templateType.
+     *
+     * @param templateType templateType
+     */
+    public void setTemplateType(String templateType) {
+        this.templateType = templateType;
+    }
+    /**
+     * Fluent getter for editorVersion.
+     *
+     * @return editorVersion
+     */
+    public String editorVersion() {
+        return this.editorVersion;
+    }
+
+    /**
+     * Fluent setter for editorVersion.
+     *
+     * @param editorVersion editorVersion
+     * @return this
+     */
+    public ContentTemplate editorVersion(String editorVersion) {
+        this.editorVersion = editorVersion;
+        return this;
+    }
+
+    /**
+     * Gets the value of editorVersion.
+     *
+     * @return editorVersion
+     */
+    @JsonProperty("editorVersion")
+    public String getEditorVersion() {
+        return this.editorVersion;
+    }
+
+    /**
+     * Sets the value of editorVersion.
+     *
+     * @param editorVersion editorVersion
+     */
+    public void setEditorVersion(String editorVersion) {
+        this.editorVersion = editorVersion;
+    }
+    /**
+     * Fluent getter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    public ContentTemplateBody body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     * @return this
+     */
+    public ContentTemplate body(ContentTemplateBody body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public ContentTemplateBody getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     * <p>
+     * The body of the new content. Does not apply to attachments.
+     * Only one body format should be specified as the property for
+     * this object, e.g. `storage`.
+     * 
+     * Note, `editor2` format is used by Atlassian only. `anonymous_export_view` is
+     * the same as `export_view` format but only content viewable by an anonymous
+     * user is included.
+     *
+     * @param body body
+     */
+    public void setBody(ContentTemplateBody body) {
+        this.body = body;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public ContentTemplate additionalExpandable(Expandable additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public ContentTemplate additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentTemplate that = (ContentTemplate) o;
+        return
+            Objects.equals(this.templateId, that.templateId) &&
+            Objects.equals(this.originalTemplate, that.originalTemplate) &&
+            Objects.equals(this.referencingBlueprint, that.referencingBlueprint) &&
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.description, that.description) &&
+            Objects.equals(this.space, that.space) &&
+            Objects.equals(this.labels, that.labels) &&
+            Objects.equals(this.templateType, that.templateType) &&
+            Objects.equals(this.editorVersion, that.editorVersion) &&
+            Objects.equals(this.body, that.body) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.templateId, 
+            this.originalTemplate, 
+            this.referencingBlueprint, 
+            this.name, 
+            this.description, 
+            this.space, 
+            this.labels, 
+            this.templateType, 
+            this.editorVersion, 
+            this.body, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentTemplate{" +
+            "templateId=" + templateId + ", " + 
+            "originalTemplate=" + originalTemplate + ", " + 
+            "referencingBlueprint=" + referencingBlueprint + ", " + 
+            "name=" + name + ", " + 
+            "description=" + description + ", " + 
+            "space=" + space + ", " + 
+            "labels=" + labels + ", " + 
+            "templateType=" + templateType + ", " + 
+            "editorVersion=" + editorVersion + ", " + 
+            "body=" + body + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

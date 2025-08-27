@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentPropertyUpdate
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentPropertyUpdate")
 @JsonPropertyOrder({
     "value",
@@ -58,6 +46,13 @@ public class ContentPropertyUpdate {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentPropertyUpdate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentPropertyUpdate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentPropertyUpdate(Consumer)} instead.
@@ -68,5 +63,125 @@ public class ContentPropertyUpdate {
     public ContentPropertyUpdate(Object value, Map<String, Object> version) {
         this.value = value;
         this.version = version;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    public Object value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     * @return this
+     */
+    public ContentPropertyUpdate value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The value of the content property. This can be empty or a complex object.
+     *
+     * @param value value
+     */
+    public void setValue(Object value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for version.
+     * <p>
+     * The version number of the property.
+     *
+     * @return version
+     */
+    public Map<String, Object> version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     * <p>
+     * The version number of the property.
+     *
+     * @param version version
+     * @return this
+     */
+    public ContentPropertyUpdate version(Map<String, Object> version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     * <p>
+     * The version number of the property.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public Map<String, Object> getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     * <p>
+     * The version number of the property.
+     *
+     * @param version version
+     */
+    public void setVersion(Map<String, Object> version) {
+        this.version = version;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentPropertyUpdate that = (ContentPropertyUpdate) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.version, that.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.version
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentPropertyUpdate{" +
+            "value=" + value + ", " + 
+            "version=" + version +
+            "}";
     }
 }

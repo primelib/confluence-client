@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * SpaceWatch
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("SpaceWatch")
 @JsonPropertyOrder({
     "type",
@@ -67,6 +55,13 @@ no `_expandable` property (therefore, different required fields).
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected SpaceWatch() {
+    }
+
+    /**
      * Constructs a validated instance of {@link SpaceWatch}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SpaceWatch(Consumer)} instead.
@@ -84,5 +79,244 @@ no `_expandable` property (therefore, different required fields).
         this.spaceKey = spaceKey;
         this.labelName = labelName;
         this.prefix = prefix;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public SpaceWatch type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @return watcher
+     */
+    public WatchUser watcher() {
+        return this.watcher;
+    }
+
+    /**
+     * Fluent setter for watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @param watcher watcher
+     * @return this
+     */
+    public SpaceWatch watcher(WatchUser watcher) {
+        this.watcher = watcher;
+        return this;
+    }
+
+    /**
+     * Gets the value of watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @return watcher
+     */
+    @JsonProperty("watcher")
+    public WatchUser getWatcher() {
+        return this.watcher;
+    }
+
+    /**
+     * Sets the value of watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @param watcher watcher
+     */
+    public void setWatcher(WatchUser watcher) {
+        this.watcher = watcher;
+    }
+    /**
+     * Fluent getter for spaceKey.
+     *
+     * @return spaceKey
+     */
+    public String spaceKey() {
+        return this.spaceKey;
+    }
+
+    /**
+     * Fluent setter for spaceKey.
+     *
+     * @param spaceKey spaceKey
+     * @return this
+     */
+    public SpaceWatch spaceKey(String spaceKey) {
+        this.spaceKey = spaceKey;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceKey.
+     *
+     * @return spaceKey
+     */
+    @JsonProperty("spaceKey")
+    public String getSpaceKey() {
+        return this.spaceKey;
+    }
+
+    /**
+     * Sets the value of spaceKey.
+     *
+     * @param spaceKey spaceKey
+     */
+    public void setSpaceKey(String spaceKey) {
+        this.spaceKey = spaceKey;
+    }
+    /**
+     * Fluent getter for labelName.
+     *
+     * @return labelName
+     */
+    public String labelName() {
+        return this.labelName;
+    }
+
+    /**
+     * Fluent setter for labelName.
+     *
+     * @param labelName labelName
+     * @return this
+     */
+    public SpaceWatch labelName(String labelName) {
+        this.labelName = labelName;
+        return this;
+    }
+
+    /**
+     * Gets the value of labelName.
+     *
+     * @return labelName
+     */
+    @JsonProperty("labelName")
+    public String getLabelName() {
+        return this.labelName;
+    }
+
+    /**
+     * Sets the value of labelName.
+     *
+     * @param labelName labelName
+     */
+    public void setLabelName(String labelName) {
+        this.labelName = labelName;
+    }
+    /**
+     * Fluent getter for prefix.
+     *
+     * @return prefix
+     */
+    public String prefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Fluent setter for prefix.
+     *
+     * @param prefix prefix
+     * @return this
+     */
+    public SpaceWatch prefix(String prefix) {
+        this.prefix = prefix;
+        return this;
+    }
+
+    /**
+     * Gets the value of prefix.
+     *
+     * @return prefix
+     */
+    @JsonProperty("prefix")
+    public String getPrefix() {
+        return this.prefix;
+    }
+
+    /**
+     * Sets the value of prefix.
+     *
+     * @param prefix prefix
+     */
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SpaceWatch that = (SpaceWatch) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.watcher, that.watcher) &&
+            Objects.equals(this.spaceKey, that.spaceKey) &&
+            Objects.equals(this.labelName, that.labelName) &&
+            Objects.equals(this.prefix, that.prefix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.watcher, 
+            this.spaceKey, 
+            this.labelName, 
+            this.prefix
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "SpaceWatch{" +
+            "type=" + type + ", " + 
+            "watcher=" + watcher + ", " + 
+            "spaceKey=" + spaceKey + ", " + 
+            "labelName=" + labelName + ", " + 
+            "prefix=" + prefix +
+            "}";
     }
 }

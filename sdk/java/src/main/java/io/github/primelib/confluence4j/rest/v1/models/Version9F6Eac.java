@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The version number of the property.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Version9F6Eac")
 @JsonPropertyOrder({
     "number",
@@ -63,6 +51,13 @@ stream will be generated for the change.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Version9F6Eac() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Version9F6Eac}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Version9F6Eac(Consumer)} instead.
@@ -77,5 +72,141 @@ stream will be generated for the change.
     public Version9F6Eac(Object number, Boolean minorEdit) {
         this.number = number;
         this.minorEdit = minorEdit;
+    }
+
+
+    /**
+     * Fluent getter for number.
+     * <p>
+     * The new version for the updated content property. Set this to the
+     * current version number incremented by one. To get the current
+     * version number, use 'Get content property' and retrieve
+     * `version.number`.
+     *
+     * @return number
+     */
+    public Object number() {
+        return this.number;
+    }
+
+    /**
+     * Fluent setter for number.
+     * <p>
+     * The new version for the updated content property. Set this to the
+     * current version number incremented by one. To get the current
+     * version number, use 'Get content property' and retrieve
+     * `version.number`.
+     *
+     * @param number number
+     * @return this
+     */
+    public Version9F6Eac number(Object number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * Gets the value of number.
+     * <p>
+     * The new version for the updated content property. Set this to the
+     * current version number incremented by one. To get the current
+     * version number, use 'Get content property' and retrieve
+     * `version.number`.
+     *
+     * @return number
+     */
+    @JsonProperty("number")
+    public Object getNumber() {
+        return this.number;
+    }
+
+    /**
+     * Sets the value of number.
+     * <p>
+     * The new version for the updated content property. Set this to the
+     * current version number incremented by one. To get the current
+     * version number, use 'Get content property' and retrieve
+     * `version.number`.
+     *
+     * @param number number
+     */
+    public void setNumber(Object number) {
+        this.number = number;
+    }
+    /**
+     * Fluent getter for minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @return minorEdit
+     */
+    public Boolean minorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Fluent setter for minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @param minorEdit minorEdit
+     * @return this
+     */
+    public Version9F6Eac minorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+        return this;
+    }
+
+    /**
+     * Gets the value of minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @return minorEdit
+     */
+    @JsonProperty("minorEdit")
+    public Boolean getMinorEdit() {
+        return this.minorEdit;
+    }
+
+    /**
+     * Sets the value of minorEdit.
+     * <p>
+     * If `minorEdit` is set to 'true', no notification email or activity
+     * stream will be generated for the change.
+     *
+     * @param minorEdit minorEdit
+     */
+    public void setMinorEdit(Boolean minorEdit) {
+        this.minorEdit = minorEdit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Version9F6Eac that = (Version9F6Eac) o;
+        return
+            Objects.equals(this.number, that.number) &&
+            Objects.equals(this.minorEdit, that.minorEdit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.number, 
+            this.minorEdit
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Version9F6Eac{" +
+            "number=" + number + ", " + 
+            "minorEdit=" + minorEdit +
+            "}";
     }
 }

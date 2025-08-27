@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * GlobalSpaceIDEntifier
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("GlobalSpaceIDEntifier")
 @JsonPropertyOrder({
     "spaceIdentifier"
@@ -47,6 +35,13 @@ public class GlobalSpaceIDEntifier {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected GlobalSpaceIDEntifier() {
+    }
+
+    /**
      * Constructs a validated instance of {@link GlobalSpaceIDEntifier}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GlobalSpaceIDEntifier(Consumer)} instead.
@@ -55,5 +50,68 @@ public class GlobalSpaceIDEntifier {
     @ApiStatus.Internal
     public GlobalSpaceIDEntifier(String spaceIdentifier) {
         this.spaceIdentifier = spaceIdentifier;
+    }
+
+
+    /**
+     * Fluent getter for spaceIdentifier.
+     *
+     * @return spaceIdentifier
+     */
+    public String spaceIdentifier() {
+        return this.spaceIdentifier;
+    }
+
+    /**
+     * Fluent setter for spaceIdentifier.
+     *
+     * @param spaceIdentifier spaceIdentifier
+     * @return this
+     */
+    public GlobalSpaceIDEntifier spaceIdentifier(String spaceIdentifier) {
+        this.spaceIdentifier = spaceIdentifier;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceIdentifier.
+     *
+     * @return spaceIdentifier
+     */
+    @JsonProperty("spaceIdentifier")
+    public String getSpaceIdentifier() {
+        return this.spaceIdentifier;
+    }
+
+    /**
+     * Sets the value of spaceIdentifier.
+     *
+     * @param spaceIdentifier spaceIdentifier
+     */
+    public void setSpaceIdentifier(String spaceIdentifier) {
+        this.spaceIdentifier = spaceIdentifier;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GlobalSpaceIDEntifier that = (GlobalSpaceIDEntifier) o;
+        return
+            Objects.equals(this.spaceIdentifier, that.spaceIdentifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.spaceIdentifier
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "GlobalSpaceIDEntifier{" +
+            "spaceIdentifier=" + spaceIdentifier +
+            "}";
     }
 }

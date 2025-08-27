@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * NavigationLookAndFeel
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("NavigationLookAndFeel")
 @JsonPropertyOrder({
     "color",
@@ -55,6 +43,13 @@ public class NavigationLookAndFeel {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected NavigationLookAndFeel() {
+    }
+
+    /**
      * Constructs a validated instance of {@link NavigationLookAndFeel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #NavigationLookAndFeel(Consumer)} instead.
@@ -67,5 +62,150 @@ public class NavigationLookAndFeel {
         this.color = color;
         this.highlightColor = highlightColor;
         this.hoverOrFocus = hoverOrFocus;
+    }
+
+
+    /**
+     * Fluent getter for color.
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     *
+     * @param color color
+     * @return this
+     */
+    public NavigationLookAndFeel color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+    /**
+     * Fluent getter for highlightColor.
+     *
+     * @return highlightColor
+     */
+    public String highlightColor() {
+        return this.highlightColor;
+    }
+
+    /**
+     * Fluent setter for highlightColor.
+     *
+     * @param highlightColor highlightColor
+     * @return this
+     */
+    public NavigationLookAndFeel highlightColor(String highlightColor) {
+        this.highlightColor = highlightColor;
+        return this;
+    }
+
+    /**
+     * Gets the value of highlightColor.
+     *
+     * @return highlightColor
+     */
+    @JsonProperty("highlightColor")
+    public String getHighlightColor() {
+        return this.highlightColor;
+    }
+
+    /**
+     * Sets the value of highlightColor.
+     *
+     * @param highlightColor highlightColor
+     */
+    public void setHighlightColor(String highlightColor) {
+        this.highlightColor = highlightColor;
+    }
+    /**
+     * Fluent getter for hoverOrFocus.
+     *
+     * @return hoverOrFocus
+     */
+    public HoverOrFocus53690D hoverOrFocus() {
+        return this.hoverOrFocus;
+    }
+
+    /**
+     * Fluent setter for hoverOrFocus.
+     *
+     * @param hoverOrFocus hoverOrFocus
+     * @return this
+     */
+    public NavigationLookAndFeel hoverOrFocus(HoverOrFocus53690D hoverOrFocus) {
+        this.hoverOrFocus = hoverOrFocus;
+        return this;
+    }
+
+    /**
+     * Gets the value of hoverOrFocus.
+     *
+     * @return hoverOrFocus
+     */
+    @JsonProperty("hoverOrFocus")
+    public HoverOrFocus53690D getHoverOrFocus() {
+        return this.hoverOrFocus;
+    }
+
+    /**
+     * Sets the value of hoverOrFocus.
+     *
+     * @param hoverOrFocus hoverOrFocus
+     */
+    public void setHoverOrFocus(HoverOrFocus53690D hoverOrFocus) {
+        this.hoverOrFocus = hoverOrFocus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NavigationLookAndFeel that = (NavigationLookAndFeel) o;
+        return
+            Objects.equals(this.color, that.color) &&
+            Objects.equals(this.highlightColor, that.highlightColor) &&
+            Objects.equals(this.hoverOrFocus, that.hoverOrFocus);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.color, 
+            this.highlightColor, 
+            this.hoverOrFocus
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "NavigationLookAndFeel{" +
+            "color=" + color + ", " + 
+            "highlightColor=" + highlightColor + ", " + 
+            "hoverOrFocus=" + hoverOrFocus +
+            "}";
     }
 }

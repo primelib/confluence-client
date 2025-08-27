@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * UserWatch
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UserWatch")
 @JsonPropertyOrder({
     "watching"
@@ -47,6 +35,13 @@ public class UserWatch {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UserWatch() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UserWatch}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UserWatch(Consumer)} instead.
@@ -55,5 +50,68 @@ public class UserWatch {
     @ApiStatus.Internal
     public UserWatch(Boolean watching) {
         this.watching = watching;
+    }
+
+
+    /**
+     * Fluent getter for watching.
+     *
+     * @return watching
+     */
+    public Boolean watching() {
+        return this.watching;
+    }
+
+    /**
+     * Fluent setter for watching.
+     *
+     * @param watching watching
+     * @return this
+     */
+    public UserWatch watching(Boolean watching) {
+        this.watching = watching;
+        return this;
+    }
+
+    /**
+     * Gets the value of watching.
+     *
+     * @return watching
+     */
+    @JsonProperty("watching")
+    public Boolean getWatching() {
+        return this.watching;
+    }
+
+    /**
+     * Sets the value of watching.
+     *
+     * @param watching watching
+     */
+    public void setWatching(Boolean watching) {
+        this.watching = watching;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserWatch that = (UserWatch) o;
+        return
+            Objects.equals(this.watching, that.watching);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.watching
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UserWatch{" +
+            "watching=" + watching +
+            "}";
     }
 }

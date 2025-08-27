@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -27,12 +21,6 @@ import org.jetbrains.annotations.ApiStatus;
  *   - `existing_page`: page will be copied and replace the specified page
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("CopyPageRequestDestination")
 @JsonPropertyOrder({
     "type",
@@ -61,6 +49,13 @@ public class CopyPageRequestDestination {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected CopyPageRequestDestination() {
+    }
+
+    /**
      * Constructs a validated instance of {@link CopyPageRequestDestination}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CopyPageRequestDestination(Consumer)} instead.
@@ -71,5 +66,117 @@ public class CopyPageRequestDestination {
     public CopyPageRequestDestination(String type, String value) {
         this.type = type;
         this.value = value;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public CopyPageRequestDestination type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The space key for `space` type, and content id for `parent_page`, `parent_content`, and `existing_page`
+     *
+     * @return value
+     */
+    public String value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The space key for `space` type, and content id for `parent_page`, `parent_content`, and `existing_page`
+     *
+     * @param value value
+     * @return this
+     */
+    public CopyPageRequestDestination value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The space key for `space` type, and content id for `parent_page`, `parent_content`, and `existing_page`
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The space key for `space` type, and content id for `parent_page`, `parent_content`, and `existing_page`
+     *
+     * @param value value
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CopyPageRequestDestination that = (CopyPageRequestDestination) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.value, that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.value
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "CopyPageRequestDestination{" +
+            "type=" + type + ", " + 
+            "value=" + value +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * BordersAndDivIDErs
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("BordersAndDivIDErs")
 @JsonPropertyOrder({
     "color"
@@ -47,6 +35,13 @@ public class BordersAndDivIDErs {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected BordersAndDivIDErs() {
+    }
+
+    /**
      * Constructs a validated instance of {@link BordersAndDivIDErs}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BordersAndDivIDErs(Consumer)} instead.
@@ -55,5 +50,68 @@ public class BordersAndDivIDErs {
     @ApiStatus.Internal
     public BordersAndDivIDErs(String color) {
         this.color = color;
+    }
+
+
+    /**
+     * Fluent getter for color.
+     *
+     * @return color
+     */
+    public String color() {
+        return this.color;
+    }
+
+    /**
+     * Fluent setter for color.
+     *
+     * @param color color
+     * @return this
+     */
+    public BordersAndDivIDErs color(String color) {
+        this.color = color;
+        return this;
+    }
+
+    /**
+     * Gets the value of color.
+     *
+     * @return color
+     */
+    @JsonProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    /**
+     * Sets the value of color.
+     *
+     * @param color color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BordersAndDivIDErs that = (BordersAndDivIDErs) o;
+        return
+            Objects.equals(this.color, that.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.color
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "BordersAndDivIDErs{" +
+            "color=" + color +
+            "}";
     }
 }

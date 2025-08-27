@@ -6,32 +6,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Description98B3C6
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Description98B3C6")
 @JsonPropertyOrder({
     "plain",
     "view",
-    "Expandable"
+    "additionalExpandable"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Description98B3C6 {
@@ -43,7 +31,7 @@ public class Description98B3C6 {
     protected Map<String, Object> view;
 
     @JsonProperty("_expandable")
-    protected Expandable5Ee9Fc Expandable;
+    protected Expandable5Ee9Fc additionalExpandable;
 
     /**
      * Constructs a validated instance of {@link Description98B3C6}.
@@ -56,17 +44,169 @@ public class Description98B3C6 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Description98B3C6() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Description98B3C6}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Description98B3C6(Consumer)} instead.
      * @param plain plain
      * @param view view
-     * @param Expandable Expandable
+     * @param additionalExpandable additionalExpandable
      */
     @ApiStatus.Internal
-    public Description98B3C6(Map<String, Object> plain, Map<String, Object> view, Expandable5Ee9Fc Expandable) {
+    public Description98B3C6(Map<String, Object> plain, Map<String, Object> view, Expandable5Ee9Fc additionalExpandable) {
         this.plain = plain;
         this.view = view;
-        this.Expandable = Expandable;
+        this.additionalExpandable = additionalExpandable;
+    }
+
+
+    /**
+     * Fluent getter for plain.
+     *
+     * @return plain
+     */
+    public Map<String, Object> plain() {
+        return this.plain;
+    }
+
+    /**
+     * Fluent setter for plain.
+     *
+     * @param plain plain
+     * @return this
+     */
+    public Description98B3C6 plain(Map<String, Object> plain) {
+        this.plain = plain;
+        return this;
+    }
+
+    /**
+     * Gets the value of plain.
+     *
+     * @return plain
+     */
+    @JsonProperty("plain")
+    public Map<String, Object> getPlain() {
+        return this.plain;
+    }
+
+    /**
+     * Sets the value of plain.
+     *
+     * @param plain plain
+     */
+    public void setPlain(Map<String, Object> plain) {
+        this.plain = plain;
+    }
+    /**
+     * Fluent getter for view.
+     *
+     * @return view
+     */
+    public Map<String, Object> view() {
+        return this.view;
+    }
+
+    /**
+     * Fluent setter for view.
+     *
+     * @param view view
+     * @return this
+     */
+    public Description98B3C6 view(Map<String, Object> view) {
+        this.view = view;
+        return this;
+    }
+
+    /**
+     * Gets the value of view.
+     *
+     * @return view
+     */
+    @JsonProperty("view")
+    public Map<String, Object> getView() {
+        return this.view;
+    }
+
+    /**
+     * Sets the value of view.
+     *
+     * @param view view
+     */
+    public void setView(Map<String, Object> view) {
+        this.view = view;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable5Ee9Fc additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Description98B3C6 additionalExpandable(Expandable5Ee9Fc additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable5Ee9Fc getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable5Ee9Fc additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Description98B3C6 that = (Description98B3C6) o;
+        return
+            Objects.equals(this.plain, that.plain) &&
+            Objects.equals(this.view, that.view) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.plain, 
+            this.view, 
+            this.additionalExpandable
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Description98B3C6{" +
+            "plain=" + plain + ", " + 
+            "view=" + view + ", " + 
+            "additionalExpandable=" + additionalExpandable +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ChangedValue
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ChangedValue")
 @JsonPropertyOrder({
     "name",
@@ -63,6 +51,13 @@ public class ChangedValue {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ChangedValue() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ChangedValue}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ChangedValue(Consumer)} instead.
@@ -79,5 +74,232 @@ public class ChangedValue {
         this.hiddenOldValue = hiddenOldValue;
         this.newValue = newValue;
         this.hiddenNewValue = hiddenNewValue;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public ChangedValue name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for oldValue.
+     *
+     * @return oldValue
+     */
+    public String oldValue() {
+        return this.oldValue;
+    }
+
+    /**
+     * Fluent setter for oldValue.
+     *
+     * @param oldValue oldValue
+     * @return this
+     */
+    public ChangedValue oldValue(String oldValue) {
+        this.oldValue = oldValue;
+        return this;
+    }
+
+    /**
+     * Gets the value of oldValue.
+     *
+     * @return oldValue
+     */
+    @JsonProperty("oldValue")
+    public String getOldValue() {
+        return this.oldValue;
+    }
+
+    /**
+     * Sets the value of oldValue.
+     *
+     * @param oldValue oldValue
+     */
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
+    }
+    /**
+     * Fluent getter for hiddenOldValue.
+     *
+     * @return hiddenOldValue
+     */
+    public String hiddenOldValue() {
+        return this.hiddenOldValue;
+    }
+
+    /**
+     * Fluent setter for hiddenOldValue.
+     *
+     * @param hiddenOldValue hiddenOldValue
+     * @return this
+     */
+    public ChangedValue hiddenOldValue(String hiddenOldValue) {
+        this.hiddenOldValue = hiddenOldValue;
+        return this;
+    }
+
+    /**
+     * Gets the value of hiddenOldValue.
+     *
+     * @return hiddenOldValue
+     */
+    @JsonProperty("hiddenOldValue")
+    public String getHiddenOldValue() {
+        return this.hiddenOldValue;
+    }
+
+    /**
+     * Sets the value of hiddenOldValue.
+     *
+     * @param hiddenOldValue hiddenOldValue
+     */
+    public void setHiddenOldValue(String hiddenOldValue) {
+        this.hiddenOldValue = hiddenOldValue;
+    }
+    /**
+     * Fluent getter for newValue.
+     *
+     * @return newValue
+     */
+    public String newValue() {
+        return this.newValue;
+    }
+
+    /**
+     * Fluent setter for newValue.
+     *
+     * @param newValue newValue
+     * @return this
+     */
+    public ChangedValue newValue(String newValue) {
+        this.newValue = newValue;
+        return this;
+    }
+
+    /**
+     * Gets the value of newValue.
+     *
+     * @return newValue
+     */
+    @JsonProperty("newValue")
+    public String getNewValue() {
+        return this.newValue;
+    }
+
+    /**
+     * Sets the value of newValue.
+     *
+     * @param newValue newValue
+     */
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
+    }
+    /**
+     * Fluent getter for hiddenNewValue.
+     *
+     * @return hiddenNewValue
+     */
+    public String hiddenNewValue() {
+        return this.hiddenNewValue;
+    }
+
+    /**
+     * Fluent setter for hiddenNewValue.
+     *
+     * @param hiddenNewValue hiddenNewValue
+     * @return this
+     */
+    public ChangedValue hiddenNewValue(String hiddenNewValue) {
+        this.hiddenNewValue = hiddenNewValue;
+        return this;
+    }
+
+    /**
+     * Gets the value of hiddenNewValue.
+     *
+     * @return hiddenNewValue
+     */
+    @JsonProperty("hiddenNewValue")
+    public String getHiddenNewValue() {
+        return this.hiddenNewValue;
+    }
+
+    /**
+     * Sets the value of hiddenNewValue.
+     *
+     * @param hiddenNewValue hiddenNewValue
+     */
+    public void setHiddenNewValue(String hiddenNewValue) {
+        this.hiddenNewValue = hiddenNewValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChangedValue that = (ChangedValue) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.oldValue, that.oldValue) &&
+            Objects.equals(this.hiddenOldValue, that.hiddenOldValue) &&
+            Objects.equals(this.newValue, that.newValue) &&
+            Objects.equals(this.hiddenNewValue, that.hiddenNewValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.oldValue, 
+            this.hiddenOldValue, 
+            this.newValue, 
+            this.hiddenNewValue
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ChangedValue{" +
+            "name=" + name + ", " + 
+            "oldValue=" + oldValue + ", " + 
+            "hiddenOldValue=" + hiddenOldValue + ", " + 
+            "newValue=" + newValue + ", " + 
+            "hiddenNewValue=" + hiddenNewValue +
+            "}";
     }
 }

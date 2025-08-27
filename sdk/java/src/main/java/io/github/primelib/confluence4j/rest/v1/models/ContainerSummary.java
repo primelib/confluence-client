@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContainerSummary
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContainerSummary")
 @JsonPropertyOrder({
     "title",
@@ -51,6 +39,13 @@ public class ContainerSummary {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContainerSummary() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContainerSummary}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContainerSummary(Consumer)} instead.
@@ -61,5 +56,109 @@ public class ContainerSummary {
     public ContainerSummary(String title, String displayUrl) {
         this.title = title;
         this.displayUrl = displayUrl;
+    }
+
+
+    /**
+     * Fluent getter for title.
+     *
+     * @return title
+     */
+    public String title() {
+        return this.title;
+    }
+
+    /**
+     * Fluent setter for title.
+     *
+     * @param title title
+     * @return this
+     */
+    public ContainerSummary title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Gets the value of title.
+     *
+     * @return title
+     */
+    @JsonProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * Sets the value of title.
+     *
+     * @param title title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /**
+     * Fluent getter for displayUrl.
+     *
+     * @return displayUrl
+     */
+    public String displayUrl() {
+        return this.displayUrl;
+    }
+
+    /**
+     * Fluent setter for displayUrl.
+     *
+     * @param displayUrl displayUrl
+     * @return this
+     */
+    public ContainerSummary displayUrl(String displayUrl) {
+        this.displayUrl = displayUrl;
+        return this;
+    }
+
+    /**
+     * Gets the value of displayUrl.
+     *
+     * @return displayUrl
+     */
+    @JsonProperty("displayUrl")
+    public String getDisplayUrl() {
+        return this.displayUrl;
+    }
+
+    /**
+     * Sets the value of displayUrl.
+     *
+     * @param displayUrl displayUrl
+     */
+    public void setDisplayUrl(String displayUrl) {
+        this.displayUrl = displayUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContainerSummary that = (ContainerSummary) o;
+        return
+            Objects.equals(this.title, that.title) &&
+            Objects.equals(this.displayUrl, that.displayUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.title, 
+            this.displayUrl
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContainerSummary{" +
+            "title=" + title + ", " + 
+            "displayUrl=" + displayUrl +
+            "}";
     }
 }

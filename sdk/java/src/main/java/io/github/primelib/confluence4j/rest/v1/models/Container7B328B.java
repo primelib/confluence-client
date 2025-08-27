@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -24,12 +18,6 @@ import org.jetbrains.annotations.ApiStatus;
  * specify the parent comment in the ancestors field, not in this field.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Container7B328B")
 @JsonPropertyOrder({
     "id",
@@ -61,6 +49,13 @@ public class Container7B328B {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Container7B328B() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Container7B328B}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Container7B328B(Consumer)} instead.
@@ -71,5 +66,125 @@ public class Container7B328B {
     public Container7B328B(Object id, String type) {
         this.id = id;
         this.type = type;
+    }
+
+
+    /**
+     * Fluent getter for id.
+     * <p>
+     * The `id` of the container.
+     *
+     * @return id
+     */
+    public Object id() {
+        return this.id;
+    }
+
+    /**
+     * Fluent setter for id.
+     * <p>
+     * The `id` of the container.
+     *
+     * @param id id
+     * @return this
+     */
+    public Container7B328B id(Object id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Gets the value of id.
+     * <p>
+     * The `id` of the container.
+     *
+     * @return id
+     */
+    @JsonProperty("id")
+    public Object getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the value of id.
+     * <p>
+     * The `id` of the container.
+     *
+     * @param id id
+     */
+    public void setId(Object id) {
+        this.id = id;
+    }
+    /**
+     * Fluent getter for type.
+     * <p>
+     * The `type` of the container.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     * <p>
+     * The `type` of the container.
+     *
+     * @param type type
+     * @return this
+     */
+    public Container7B328B type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     * <p>
+     * The `type` of the container.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     * <p>
+     * The `type` of the container.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Container7B328B that = (Container7B328B) o;
+        return
+            Objects.equals(this.id, that.id) &&
+            Objects.equals(this.type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.id, 
+            this.type
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Container7B328B{" +
+            "id=" + id + ", " + 
+            "type=" + type +
+            "}";
     }
 }

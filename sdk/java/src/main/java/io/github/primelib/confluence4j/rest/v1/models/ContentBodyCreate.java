@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * This object is used when creating or updating content.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentBodyCreate")
 @JsonPropertyOrder({
     "value",
@@ -60,6 +48,13 @@ the name of the format being used, e.g. 'storage'.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentBodyCreate() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentBodyCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentBodyCreate(Consumer)} instead.
@@ -71,5 +66,129 @@ the name of the format being used, e.g. 'storage'.
     public ContentBodyCreate(String value, String representation) {
         this.value = value;
         this.representation = representation;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     * <p>
+     * The body of the content in the relevant format.
+     *
+     * @return value
+     */
+    public String value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     * <p>
+     * The body of the content in the relevant format.
+     *
+     * @param value value
+     * @return this
+     */
+    public ContentBodyCreate value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     * <p>
+     * The body of the content in the relevant format.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     * <p>
+     * The body of the content in the relevant format.
+     *
+     * @param value value
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for representation.
+     * <p>
+     * The content format type. Set the value of this property to
+     * the name of the format being used, e.g. 'storage'.
+     *
+     * @return representation
+     */
+    public String representation() {
+        return this.representation;
+    }
+
+    /**
+     * Fluent setter for representation.
+     * <p>
+     * The content format type. Set the value of this property to
+     * the name of the format being used, e.g. 'storage'.
+     *
+     * @param representation representation
+     * @return this
+     */
+    public ContentBodyCreate representation(String representation) {
+        this.representation = representation;
+        return this;
+    }
+
+    /**
+     * Gets the value of representation.
+     * <p>
+     * The content format type. Set the value of this property to
+     * the name of the format being used, e.g. 'storage'.
+     *
+     * @return representation
+     */
+    @JsonProperty("representation")
+    public String getRepresentation() {
+        return this.representation;
+    }
+
+    /**
+     * Sets the value of representation.
+     * <p>
+     * The content format type. Set the value of this property to
+     * the name of the format being used, e.g. 'storage'.
+     *
+     * @param representation representation
+     */
+    public void setRepresentation(String representation) {
+        this.representation = representation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentBodyCreate that = (ContentBodyCreate) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.representation, that.representation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.representation
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentBodyCreate{" +
+            "value=" + value + ", " + 
+            "representation=" + representation +
+            "}";
     }
 }

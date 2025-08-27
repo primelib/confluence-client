@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentBody
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentBody")
 @JsonPropertyOrder({
     "value",
@@ -35,8 +23,8 @@ import org.jetbrains.annotations.ApiStatus;
     "embeddedContent",
     "webresource",
     "mediaToken",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class ContentBody {
@@ -57,10 +45,10 @@ public class ContentBody {
     protected MediaToken mediaToken;
 
     @JsonProperty("_expandable")
-    protected Expandable9Bc16D Expandable;
+    protected Expandable9Bc16D additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link ContentBody}.
@@ -73,6 +61,13 @@ public class ContentBody {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentBody() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentBody}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentBody(Consumer)} instead.
@@ -81,17 +76,326 @@ public class ContentBody {
      * @param embeddedContent embeddedContent
      * @param webresource webresource
      * @param mediaToken mediaToken
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public ContentBody(String value, String representation, List<Map<String, Object>> embeddedContent, WebResourceDependencies webresource, MediaToken mediaToken, Expandable9Bc16D Expandable, Map<String, Object> Links) {
+    public ContentBody(String value, String representation, List<Map<String, Object>> embeddedContent, WebResourceDependencies webresource, MediaToken mediaToken, Expandable9Bc16D additionalExpandable, Map<String, Object> additionalLinks) {
         this.value = value;
         this.representation = representation;
         this.embeddedContent = embeddedContent;
         this.webresource = webresource;
         this.mediaToken = mediaToken;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for value.
+     *
+     * @return value
+     */
+    public String value() {
+        return this.value;
+    }
+
+    /**
+     * Fluent setter for value.
+     *
+     * @param value value
+     * @return this
+     */
+    public ContentBody value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * Gets the value of value.
+     *
+     * @return value
+     */
+    @JsonProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    /**
+     * Sets the value of value.
+     *
+     * @param value value
+     */
+    public void setValue(String value) {
+        this.value = value;
+    }
+    /**
+     * Fluent getter for representation.
+     *
+     * @return representation
+     */
+    public String representation() {
+        return this.representation;
+    }
+
+    /**
+     * Fluent setter for representation.
+     *
+     * @param representation representation
+     * @return this
+     */
+    public ContentBody representation(String representation) {
+        this.representation = representation;
+        return this;
+    }
+
+    /**
+     * Gets the value of representation.
+     *
+     * @return representation
+     */
+    @JsonProperty("representation")
+    public String getRepresentation() {
+        return this.representation;
+    }
+
+    /**
+     * Sets the value of representation.
+     *
+     * @param representation representation
+     */
+    public void setRepresentation(String representation) {
+        this.representation = representation;
+    }
+    /**
+     * Fluent getter for embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    public List<Map<String, Object>> embeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Fluent setter for embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     * @return this
+     */
+    public ContentBody embeddedContent(List<Map<String, Object>> embeddedContent) {
+        this.embeddedContent = embeddedContent;
+        return this;
+    }
+
+    /**
+     * Gets the value of embeddedContent.
+     *
+     * @return embeddedContent
+     */
+    @JsonProperty("embeddedContent")
+    public List<Map<String, Object>> getEmbeddedContent() {
+        return this.embeddedContent;
+    }
+
+    /**
+     * Sets the value of embeddedContent.
+     *
+     * @param embeddedContent embeddedContent
+     */
+    public void setEmbeddedContent(List<Map<String, Object>> embeddedContent) {
+        this.embeddedContent = embeddedContent;
+    }
+    /**
+     * Fluent getter for webresource.
+     *
+     * @return webresource
+     */
+    public WebResourceDependencies webresource() {
+        return this.webresource;
+    }
+
+    /**
+     * Fluent setter for webresource.
+     *
+     * @param webresource webresource
+     * @return this
+     */
+    public ContentBody webresource(WebResourceDependencies webresource) {
+        this.webresource = webresource;
+        return this;
+    }
+
+    /**
+     * Gets the value of webresource.
+     *
+     * @return webresource
+     */
+    @JsonProperty("webresource")
+    public WebResourceDependencies getWebresource() {
+        return this.webresource;
+    }
+
+    /**
+     * Sets the value of webresource.
+     *
+     * @param webresource webresource
+     */
+    public void setWebresource(WebResourceDependencies webresource) {
+        this.webresource = webresource;
+    }
+    /**
+     * Fluent getter for mediaToken.
+     *
+     * @return mediaToken
+     */
+    public MediaToken mediaToken() {
+        return this.mediaToken;
+    }
+
+    /**
+     * Fluent setter for mediaToken.
+     *
+     * @param mediaToken mediaToken
+     * @return this
+     */
+    public ContentBody mediaToken(MediaToken mediaToken) {
+        this.mediaToken = mediaToken;
+        return this;
+    }
+
+    /**
+     * Gets the value of mediaToken.
+     *
+     * @return mediaToken
+     */
+    @JsonProperty("mediaToken")
+    public MediaToken getMediaToken() {
+        return this.mediaToken;
+    }
+
+    /**
+     * Sets the value of mediaToken.
+     *
+     * @param mediaToken mediaToken
+     */
+    public void setMediaToken(MediaToken mediaToken) {
+        this.mediaToken = mediaToken;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable9Bc16D additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public ContentBody additionalExpandable(Expandable9Bc16D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable9Bc16D getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable9Bc16D additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public ContentBody additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentBody that = (ContentBody) o;
+        return
+            Objects.equals(this.value, that.value) &&
+            Objects.equals(this.representation, that.representation) &&
+            Objects.equals(this.embeddedContent, that.embeddedContent) &&
+            Objects.equals(this.webresource, that.webresource) &&
+            Objects.equals(this.mediaToken, that.mediaToken) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.value, 
+            this.representation, 
+            this.embeddedContent, 
+            this.webresource, 
+            this.mediaToken, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentBody{" +
+            "value=" + value + ", " + 
+            "representation=" + representation + ", " + 
+            "embeddedContent=" + embeddedContent + ", " + 
+            "webresource=" + webresource + ", " + 
+            "mediaToken=" + mediaToken + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

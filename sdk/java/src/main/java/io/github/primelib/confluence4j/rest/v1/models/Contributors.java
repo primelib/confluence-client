@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Contributors
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Contributors")
 @JsonPropertyOrder({
     "publishers"
@@ -48,6 +36,13 @@ public class Contributors {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Contributors() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Contributors}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Contributors(Consumer)} instead.
@@ -56,5 +51,68 @@ public class Contributors {
     @ApiStatus.Internal
     public Contributors(Map<String, Object> publishers) {
         this.publishers = publishers;
+    }
+
+
+    /**
+     * Fluent getter for publishers.
+     *
+     * @return publishers
+     */
+    public Map<String, Object> publishers() {
+        return this.publishers;
+    }
+
+    /**
+     * Fluent setter for publishers.
+     *
+     * @param publishers publishers
+     * @return this
+     */
+    public Contributors publishers(Map<String, Object> publishers) {
+        this.publishers = publishers;
+        return this;
+    }
+
+    /**
+     * Gets the value of publishers.
+     *
+     * @return publishers
+     */
+    @JsonProperty("publishers")
+    public Map<String, Object> getPublishers() {
+        return this.publishers;
+    }
+
+    /**
+     * Sets the value of publishers.
+     *
+     * @param publishers publishers
+     */
+    public void setPublishers(Map<String, Object> publishers) {
+        this.publishers = publishers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contributors that = (Contributors) o;
+        return
+            Objects.equals(this.publishers, that.publishers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.publishers
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Contributors{" +
+            "publishers=" + publishers +
+            "}";
     }
 }

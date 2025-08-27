@@ -6,33 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * MacroInstance
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("MacroInstance")
 @JsonPropertyOrder({
     "name",
     "body",
     "parameters",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class MacroInstance {
@@ -47,7 +35,7 @@ public class MacroInstance {
     protected Object parameters;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link MacroInstance}.
@@ -60,19 +48,212 @@ public class MacroInstance {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected MacroInstance() {
+    }
+
+    /**
      * Constructs a validated instance of {@link MacroInstance}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MacroInstance(Consumer)} instead.
      * @param name name
      * @param body body
      * @param parameters parameters
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public MacroInstance(String name, String body, Object parameters, Map<String, Object> Links) {
+    public MacroInstance(String name, String body, Object parameters, Map<String, Object> additionalLinks) {
         this.name = name;
         this.body = body;
         this.parameters = parameters;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for name.
+     *
+     * @return name
+     */
+    public String name() {
+        return this.name;
+    }
+
+    /**
+     * Fluent setter for name.
+     *
+     * @param name name
+     * @return this
+     */
+    public MacroInstance name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Gets the value of name.
+     *
+     * @return name
+     */
+    @JsonProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * Sets the value of name.
+     *
+     * @param name name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+    /**
+     * Fluent getter for body.
+     *
+     * @return body
+     */
+    public String body() {
+        return this.body;
+    }
+
+    /**
+     * Fluent setter for body.
+     *
+     * @param body body
+     * @return this
+     */
+    public MacroInstance body(String body) {
+        this.body = body;
+        return this;
+    }
+
+    /**
+     * Gets the value of body.
+     *
+     * @return body
+     */
+    @JsonProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    /**
+     * Sets the value of body.
+     *
+     * @param body body
+     */
+    public void setBody(String body) {
+        this.body = body;
+    }
+    /**
+     * Fluent getter for parameters.
+     *
+     * @return parameters
+     */
+    public Object parameters() {
+        return this.parameters;
+    }
+
+    /**
+     * Fluent setter for parameters.
+     *
+     * @param parameters parameters
+     * @return this
+     */
+    public MacroInstance parameters(Object parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    /**
+     * Gets the value of parameters.
+     *
+     * @return parameters
+     */
+    @JsonProperty("parameters")
+    public Object getParameters() {
+        return this.parameters;
+    }
+
+    /**
+     * Sets the value of parameters.
+     *
+     * @param parameters parameters
+     */
+    public void setParameters(Object parameters) {
+        this.parameters = parameters;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public MacroInstance additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MacroInstance that = (MacroInstance) o;
+        return
+            Objects.equals(this.name, that.name) &&
+            Objects.equals(this.body, that.body) &&
+            Objects.equals(this.parameters, that.parameters) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.name, 
+            this.body, 
+            this.parameters, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "MacroInstance{" +
+            "name=" + name + ", " + 
+            "body=" + body + ", " + 
+            "parameters=" + parameters + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

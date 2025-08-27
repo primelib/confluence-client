@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * ContentStateSettings
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("ContentStateSettings")
 @JsonPropertyOrder({
     "contentStatesAllowed",
@@ -72,6 +60,13 @@ public class ContentStateSettings {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected ContentStateSettings() {
+    }
+
+    /**
      * Constructs a validated instance of {@link ContentStateSettings}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ContentStateSettings(Consumer)} instead.
@@ -86,5 +81,223 @@ public class ContentStateSettings {
         this.customContentStatesAllowed = customContentStatesAllowed;
         this.spaceContentStatesAllowed = spaceContentStatesAllowed;
         this.spaceContentStates = spaceContentStates;
+    }
+
+
+    /**
+     * Fluent getter for contentStatesAllowed.
+     * <p>
+     * Whether users can place any content states on content
+     *
+     * @return contentStatesAllowed
+     */
+    public Boolean contentStatesAllowed() {
+        return this.contentStatesAllowed;
+    }
+
+    /**
+     * Fluent setter for contentStatesAllowed.
+     * <p>
+     * Whether users can place any content states on content
+     *
+     * @param contentStatesAllowed contentStatesAllowed
+     * @return this
+     */
+    public ContentStateSettings contentStatesAllowed(Boolean contentStatesAllowed) {
+        this.contentStatesAllowed = contentStatesAllowed;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentStatesAllowed.
+     * <p>
+     * Whether users can place any content states on content
+     *
+     * @return contentStatesAllowed
+     */
+    @JsonProperty("contentStatesAllowed")
+    public Boolean getContentStatesAllowed() {
+        return this.contentStatesAllowed;
+    }
+
+    /**
+     * Sets the value of contentStatesAllowed.
+     * <p>
+     * Whether users can place any content states on content
+     *
+     * @param contentStatesAllowed contentStatesAllowed
+     */
+    public void setContentStatesAllowed(Boolean contentStatesAllowed) {
+        this.contentStatesAllowed = contentStatesAllowed;
+    }
+    /**
+     * Fluent getter for customContentStatesAllowed.
+     * <p>
+     * Whether users can place their custom states on content
+     *
+     * @return customContentStatesAllowed
+     */
+    public Boolean customContentStatesAllowed() {
+        return this.customContentStatesAllowed;
+    }
+
+    /**
+     * Fluent setter for customContentStatesAllowed.
+     * <p>
+     * Whether users can place their custom states on content
+     *
+     * @param customContentStatesAllowed customContentStatesAllowed
+     * @return this
+     */
+    public ContentStateSettings customContentStatesAllowed(Boolean customContentStatesAllowed) {
+        this.customContentStatesAllowed = customContentStatesAllowed;
+        return this;
+    }
+
+    /**
+     * Gets the value of customContentStatesAllowed.
+     * <p>
+     * Whether users can place their custom states on content
+     *
+     * @return customContentStatesAllowed
+     */
+    @JsonProperty("customContentStatesAllowed")
+    public Boolean getCustomContentStatesAllowed() {
+        return this.customContentStatesAllowed;
+    }
+
+    /**
+     * Sets the value of customContentStatesAllowed.
+     * <p>
+     * Whether users can place their custom states on content
+     *
+     * @param customContentStatesAllowed customContentStatesAllowed
+     */
+    public void setCustomContentStatesAllowed(Boolean customContentStatesAllowed) {
+        this.customContentStatesAllowed = customContentStatesAllowed;
+    }
+    /**
+     * Fluent getter for spaceContentStatesAllowed.
+     * <p>
+     * Whether users can place space suggested states on content
+     *
+     * @return spaceContentStatesAllowed
+     */
+    public Boolean spaceContentStatesAllowed() {
+        return this.spaceContentStatesAllowed;
+    }
+
+    /**
+     * Fluent setter for spaceContentStatesAllowed.
+     * <p>
+     * Whether users can place space suggested states on content
+     *
+     * @param spaceContentStatesAllowed spaceContentStatesAllowed
+     * @return this
+     */
+    public ContentStateSettings spaceContentStatesAllowed(Boolean spaceContentStatesAllowed) {
+        this.spaceContentStatesAllowed = spaceContentStatesAllowed;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceContentStatesAllowed.
+     * <p>
+     * Whether users can place space suggested states on content
+     *
+     * @return spaceContentStatesAllowed
+     */
+    @JsonProperty("spaceContentStatesAllowed")
+    public Boolean getSpaceContentStatesAllowed() {
+        return this.spaceContentStatesAllowed;
+    }
+
+    /**
+     * Sets the value of spaceContentStatesAllowed.
+     * <p>
+     * Whether users can place space suggested states on content
+     *
+     * @param spaceContentStatesAllowed spaceContentStatesAllowed
+     */
+    public void setSpaceContentStatesAllowed(Boolean spaceContentStatesAllowed) {
+        this.spaceContentStatesAllowed = spaceContentStatesAllowed;
+    }
+    /**
+     * Fluent getter for spaceContentStates.
+     * <p>
+     * space suggested content states that users can choose from
+     *
+     * @return spaceContentStates
+     */
+    public List<ContentState> spaceContentStates() {
+        return this.spaceContentStates;
+    }
+
+    /**
+     * Fluent setter for spaceContentStates.
+     * <p>
+     * space suggested content states that users can choose from
+     *
+     * @param spaceContentStates spaceContentStates
+     * @return this
+     */
+    public ContentStateSettings spaceContentStates(List<ContentState> spaceContentStates) {
+        this.spaceContentStates = spaceContentStates;
+        return this;
+    }
+
+    /**
+     * Gets the value of spaceContentStates.
+     * <p>
+     * space suggested content states that users can choose from
+     *
+     * @return spaceContentStates
+     */
+    @JsonProperty("spaceContentStates")
+    public List<ContentState> getSpaceContentStates() {
+        return this.spaceContentStates;
+    }
+
+    /**
+     * Sets the value of spaceContentStates.
+     * <p>
+     * space suggested content states that users can choose from
+     *
+     * @param spaceContentStates spaceContentStates
+     */
+    public void setSpaceContentStates(List<ContentState> spaceContentStates) {
+        this.spaceContentStates = spaceContentStates;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContentStateSettings that = (ContentStateSettings) o;
+        return
+            Objects.equals(this.contentStatesAllowed, that.contentStatesAllowed) &&
+            Objects.equals(this.customContentStatesAllowed, that.customContentStatesAllowed) &&
+            Objects.equals(this.spaceContentStatesAllowed, that.spaceContentStatesAllowed) &&
+            Objects.equals(this.spaceContentStates, that.spaceContentStates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.contentStatesAllowed, 
+            this.customContentStatesAllowed, 
+            this.spaceContentStatesAllowed, 
+            this.spaceContentStates
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "ContentStateSettings{" +
+            "contentStatesAllowed=" + contentStatesAllowed + ", " + 
+            "customContentStatesAllowed=" + customContentStatesAllowed + ", " + 
+            "spaceContentStatesAllowed=" + spaceContentStatesAllowed + ", " + 
+            "spaceContentStates=" + spaceContentStates +
+            "}";
     }
 }

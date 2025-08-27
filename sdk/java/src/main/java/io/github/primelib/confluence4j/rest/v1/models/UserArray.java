@@ -7,27 +7,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * UserArray
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("UserArray")
 @JsonPropertyOrder({
     "results",
@@ -35,7 +23,7 @@ import org.jetbrains.annotations.ApiStatus;
     "limit",
     "size",
     "totalSize",
-    "Links"
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class UserArray {
@@ -60,7 +48,7 @@ This value is returned if `shouldReturnTotalSize` is set to `true`.
     protected Long totalSize;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link UserArray}.
@@ -73,6 +61,13 @@ This value is returned if `shouldReturnTotalSize` is set to `true`.
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected UserArray() {
+    }
+
+    /**
      * Constructs a validated instance of {@link UserArray}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UserArray(Consumer)} instead.
@@ -82,15 +77,295 @@ This value is returned if `shouldReturnTotalSize` is set to `true`.
      * @param size size
      * @param totalSize This property will return total count of the objects before pagination is applied.
 This value is returned if `shouldReturnTotalSize` is set to `true`.
-     * @param Links Links
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public UserArray(List<Map<String, Object>> results, Integer start, Integer limit, Integer size, Long totalSize, Map<String, Object> Links) {
+    public UserArray(List<Map<String, Object>> results, Integer start, Integer limit, Integer size, Long totalSize, Map<String, Object> additionalLinks) {
         this.results = results;
         this.start = start;
         this.limit = limit;
         this.size = size;
         this.totalSize = totalSize;
-        this.Links = Links;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for results.
+     *
+     * @return results
+     */
+    public List<Map<String, Object>> results() {
+        return this.results;
+    }
+
+    /**
+     * Fluent setter for results.
+     *
+     * @param results results
+     * @return this
+     */
+    public UserArray results(List<Map<String, Object>> results) {
+        this.results = results;
+        return this;
+    }
+
+    /**
+     * Gets the value of results.
+     *
+     * @return results
+     */
+    @JsonProperty("results")
+    public List<Map<String, Object>> getResults() {
+        return this.results;
+    }
+
+    /**
+     * Sets the value of results.
+     *
+     * @param results results
+     */
+    public void setResults(List<Map<String, Object>> results) {
+        this.results = results;
+    }
+    /**
+     * Fluent getter for start.
+     *
+     * @return start
+     */
+    public Integer start() {
+        return this.start;
+    }
+
+    /**
+     * Fluent setter for start.
+     *
+     * @param start start
+     * @return this
+     */
+    public UserArray start(Integer start) {
+        this.start = start;
+        return this;
+    }
+
+    /**
+     * Gets the value of start.
+     *
+     * @return start
+     */
+    @JsonProperty("start")
+    public Integer getStart() {
+        return this.start;
+    }
+
+    /**
+     * Sets the value of start.
+     *
+     * @param start start
+     */
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+    /**
+     * Fluent getter for limit.
+     *
+     * @return limit
+     */
+    public Integer limit() {
+        return this.limit;
+    }
+
+    /**
+     * Fluent setter for limit.
+     *
+     * @param limit limit
+     * @return this
+     */
+    public UserArray limit(Integer limit) {
+        this.limit = limit;
+        return this;
+    }
+
+    /**
+     * Gets the value of limit.
+     *
+     * @return limit
+     */
+    @JsonProperty("limit")
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    /**
+     * Sets the value of limit.
+     *
+     * @param limit limit
+     */
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+    /**
+     * Fluent getter for size.
+     *
+     * @return size
+     */
+    public Integer size() {
+        return this.size;
+    }
+
+    /**
+     * Fluent setter for size.
+     *
+     * @param size size
+     * @return this
+     */
+    public UserArray size(Integer size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Gets the value of size.
+     *
+     * @return size
+     */
+    @JsonProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    /**
+     * Sets the value of size.
+     *
+     * @param size size
+     */
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+    /**
+     * Fluent getter for totalSize.
+     * <p>
+     * This property will return total count of the objects before pagination is applied.
+     * This value is returned if `shouldReturnTotalSize` is set to `true`.
+     *
+     * @return totalSize
+     */
+    public Long totalSize() {
+        return this.totalSize;
+    }
+
+    /**
+     * Fluent setter for totalSize.
+     * <p>
+     * This property will return total count of the objects before pagination is applied.
+     * This value is returned if `shouldReturnTotalSize` is set to `true`.
+     *
+     * @param totalSize totalSize
+     * @return this
+     */
+    public UserArray totalSize(Long totalSize) {
+        this.totalSize = totalSize;
+        return this;
+    }
+
+    /**
+     * Gets the value of totalSize.
+     * <p>
+     * This property will return total count of the objects before pagination is applied.
+     * This value is returned if `shouldReturnTotalSize` is set to `true`.
+     *
+     * @return totalSize
+     */
+    @JsonProperty("totalSize")
+    public Long getTotalSize() {
+        return this.totalSize;
+    }
+
+    /**
+     * Sets the value of totalSize.
+     * <p>
+     * This property will return total count of the objects before pagination is applied.
+     * This value is returned if `shouldReturnTotalSize` is set to `true`.
+     *
+     * @param totalSize totalSize
+     */
+    public void setTotalSize(Long totalSize) {
+        this.totalSize = totalSize;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public UserArray additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserArray that = (UserArray) o;
+        return
+            Objects.equals(this.results, that.results) &&
+            Objects.equals(this.start, that.start) &&
+            Objects.equals(this.limit, that.limit) &&
+            Objects.equals(this.size, that.size) &&
+            Objects.equals(this.totalSize, that.totalSize) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.results, 
+            this.start, 
+            this.limit, 
+            this.size, 
+            this.totalSize, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "UserArray{" +
+            "results=" + results + ", " + 
+            "start=" + start + ", " + 
+            "limit=" + limit + ", " + 
+            "size=" + size + ", " + 
+            "totalSize=" + totalSize + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

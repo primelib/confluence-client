@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -22,12 +16,6 @@ import org.jetbrains.annotations.ApiStatus;
  * The space for the content.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Space33569E")
 @JsonPropertyOrder({
     "key"
@@ -52,6 +40,13 @@ public class Space33569E {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Space33569E() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Space33569E}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Space33569E(Consumer)} instead.
@@ -60,5 +55,76 @@ public class Space33569E {
     @ApiStatus.Internal
     public Space33569E(String key) {
         this.key = key;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     * <p>
+     * The key of the space
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     * <p>
+     * The key of the space
+     *
+     * @param key key
+     * @return this
+     */
+    public Space33569E key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     * <p>
+     * The key of the space
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     * <p>
+     * The key of the space
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Space33569E that = (Space33569E) o;
+        return
+            Objects.equals(this.key, that.key);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Space33569E{" +
+            "key=" + key +
+            "}";
     }
 }

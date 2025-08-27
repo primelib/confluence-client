@@ -6,27 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.time.Instant;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Lastcontributed
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Lastcontributed")
 @JsonPropertyOrder({
     "status",
@@ -52,6 +40,13 @@ public class Lastcontributed {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Lastcontributed() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Lastcontributed}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Lastcontributed(Consumer)} instead.
@@ -62,5 +57,109 @@ public class Lastcontributed {
     public Lastcontributed(String status, Instant when) {
         this.status = status;
         this.when = when;
+    }
+
+
+    /**
+     * Fluent getter for status.
+     *
+     * @return status
+     */
+    public String status() {
+        return this.status;
+    }
+
+    /**
+     * Fluent setter for status.
+     *
+     * @param status status
+     * @return this
+     */
+    public Lastcontributed status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Gets the value of status.
+     *
+     * @return status
+     */
+    @JsonProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Sets the value of status.
+     *
+     * @param status status
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    /**
+     * Fluent getter for when.
+     *
+     * @return when
+     */
+    public Instant when() {
+        return this.when;
+    }
+
+    /**
+     * Fluent setter for when.
+     *
+     * @param when when
+     * @return this
+     */
+    public Lastcontributed when(Instant when) {
+        this.when = when;
+        return this;
+    }
+
+    /**
+     * Gets the value of when.
+     *
+     * @return when
+     */
+    @JsonProperty("when")
+    public Instant getWhen() {
+        return this.when;
+    }
+
+    /**
+     * Sets the value of when.
+     *
+     * @param when when
+     */
+    public void setWhen(Instant when) {
+        this.when = when;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lastcontributed that = (Lastcontributed) o;
+        return
+            Objects.equals(this.status, that.status) &&
+            Objects.equals(this.when, that.when);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.status, 
+            this.when
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Lastcontributed{" +
+            "status=" + status + ", " + 
+            "when=" + when +
+            "}";
     }
 }

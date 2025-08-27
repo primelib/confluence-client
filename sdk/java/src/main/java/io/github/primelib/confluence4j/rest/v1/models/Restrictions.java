@@ -6,33 +6,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Restrictions
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Restrictions")
 @JsonPropertyOrder({
     "read",
     "update",
-    "Expandable",
-    "Links"
+    "additionalExpandable",
+    "additionalLinks"
 })
 @Generated(value = "io.github.primelib.primecodegen")
 public class Restrictions {
@@ -44,10 +32,10 @@ public class Restrictions {
     protected ContentRestriction update;
 
     @JsonProperty("_expandable")
-    protected Expandable25A645 Expandable;
+    protected Expandable25A645 additionalExpandable;
 
     @JsonProperty("_links")
-    protected Map<String, Object> Links;
+    protected Map<String, Object> additionalLinks;
 
     /**
      * Constructs a validated instance of {@link Restrictions}.
@@ -60,19 +48,212 @@ public class Restrictions {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Restrictions() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Restrictions}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Restrictions(Consumer)} instead.
      * @param read read
      * @param update update
-     * @param Expandable Expandable
-     * @param Links Links
+     * @param additionalExpandable additionalExpandable
+     * @param additionalLinks additionalLinks
      */
     @ApiStatus.Internal
-    public Restrictions(ContentRestriction read, ContentRestriction update, Expandable25A645 Expandable, Map<String, Object> Links) {
+    public Restrictions(ContentRestriction read, ContentRestriction update, Expandable25A645 additionalExpandable, Map<String, Object> additionalLinks) {
         this.read = read;
         this.update = update;
-        this.Expandable = Expandable;
-        this.Links = Links;
+        this.additionalExpandable = additionalExpandable;
+        this.additionalLinks = additionalLinks;
+    }
+
+
+    /**
+     * Fluent getter for read.
+     *
+     * @return read
+     */
+    public ContentRestriction read() {
+        return this.read;
+    }
+
+    /**
+     * Fluent setter for read.
+     *
+     * @param read read
+     * @return this
+     */
+    public Restrictions read(ContentRestriction read) {
+        this.read = read;
+        return this;
+    }
+
+    /**
+     * Gets the value of read.
+     *
+     * @return read
+     */
+    @JsonProperty("read")
+    public ContentRestriction getRead() {
+        return this.read;
+    }
+
+    /**
+     * Sets the value of read.
+     *
+     * @param read read
+     */
+    public void setRead(ContentRestriction read) {
+        this.read = read;
+    }
+    /**
+     * Fluent getter for update.
+     *
+     * @return update
+     */
+    public ContentRestriction update() {
+        return this.update;
+    }
+
+    /**
+     * Fluent setter for update.
+     *
+     * @param update update
+     * @return this
+     */
+    public Restrictions update(ContentRestriction update) {
+        this.update = update;
+        return this;
+    }
+
+    /**
+     * Gets the value of update.
+     *
+     * @return update
+     */
+    @JsonProperty("update")
+    public ContentRestriction getUpdate() {
+        return this.update;
+    }
+
+    /**
+     * Sets the value of update.
+     *
+     * @param update update
+     */
+    public void setUpdate(ContentRestriction update) {
+        this.update = update;
+    }
+    /**
+     * Fluent getter for additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    public Expandable25A645 additionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Fluent setter for additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     * @return this
+     */
+    public Restrictions additionalExpandable(Expandable25A645 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalExpandable.
+     *
+     * @return additionalExpandable
+     */
+    @JsonProperty("_expandable")
+    public Expandable25A645 getAdditionalExpandable() {
+        return this.additionalExpandable;
+    }
+
+    /**
+     * Sets the value of additionalExpandable.
+     *
+     * @param additionalExpandable additionalExpandable
+     */
+    public void setAdditionalExpandable(Expandable25A645 additionalExpandable) {
+        this.additionalExpandable = additionalExpandable;
+    }
+    /**
+     * Fluent getter for additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    public Map<String, Object> additionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Fluent setter for additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     * @return this
+     */
+    public Restrictions additionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+        return this;
+    }
+
+    /**
+     * Gets the value of additionalLinks.
+     *
+     * @return additionalLinks
+     */
+    @JsonProperty("_links")
+    public Map<String, Object> getAdditionalLinks() {
+        return this.additionalLinks;
+    }
+
+    /**
+     * Sets the value of additionalLinks.
+     *
+     * @param additionalLinks additionalLinks
+     */
+    public void setAdditionalLinks(Map<String, Object> additionalLinks) {
+        this.additionalLinks = additionalLinks;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restrictions that = (Restrictions) o;
+        return
+            Objects.equals(this.read, that.read) &&
+            Objects.equals(this.update, that.update) &&
+            Objects.equals(this.additionalExpandable, that.additionalExpandable) &&
+            Objects.equals(this.additionalLinks, that.additionalLinks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.read, 
+            this.update, 
+            this.additionalExpandable, 
+            this.additionalLinks
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Restrictions{" +
+            "read=" + read + ", " + 
+            "update=" + update + ", " + 
+            "additionalExpandable=" + additionalExpandable + ", " + 
+            "additionalLinks=" + additionalLinks +
+            "}";
     }
 }

@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable3Adce7
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable3Adce7")
 @JsonPropertyOrder({
     "version",
@@ -51,6 +39,13 @@ public class Expandable3Adce7 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable3Adce7() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable3Adce7}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable3Adce7(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Expandable3Adce7 {
     public Expandable3Adce7(String version, String space) {
         this.version = version;
         this.space = space;
+    }
+
+
+    /**
+     * Fluent getter for version.
+     *
+     * @return version
+     */
+    public String version() {
+        return this.version;
+    }
+
+    /**
+     * Fluent setter for version.
+     *
+     * @param version version
+     * @return this
+     */
+    public Expandable3Adce7 version(String version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Gets the value of version.
+     *
+     * @return version
+     */
+    @JsonProperty("version")
+    public String getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Sets the value of version.
+     *
+     * @param version version
+     */
+    public void setVersion(String version) {
+        this.version = version;
+    }
+    /**
+     * Fluent getter for space.
+     *
+     * @return space
+     */
+    public String space() {
+        return this.space;
+    }
+
+    /**
+     * Fluent setter for space.
+     *
+     * @param space space
+     * @return this
+     */
+    public Expandable3Adce7 space(String space) {
+        this.space = space;
+        return this;
+    }
+
+    /**
+     * Gets the value of space.
+     *
+     * @return space
+     */
+    @JsonProperty("space")
+    public String getSpace() {
+        return this.space;
+    }
+
+    /**
+     * Sets the value of space.
+     *
+     * @param space space
+     */
+    public void setSpace(String space) {
+        this.space = space;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable3Adce7 that = (Expandable3Adce7) o;
+        return
+            Objects.equals(this.version, that.version) &&
+            Objects.equals(this.space, that.space);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.version, 
+            this.space
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable3Adce7{" +
+            "version=" + version + ", " + 
+            "space=" + space +
+            "}";
     }
 }

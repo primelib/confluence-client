@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Expandable590Db0
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Expandable590Db0")
 @JsonPropertyOrder({
     "css",
@@ -51,6 +39,13 @@ public class Expandable590Db0 {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Expandable590Db0() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Expandable590Db0}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Expandable590Db0(Consumer)} instead.
@@ -61,5 +56,109 @@ public class Expandable590Db0 {
     public Expandable590Db0(Object css, Object js) {
         this.css = css;
         this.js = js;
+    }
+
+
+    /**
+     * Fluent getter for css.
+     *
+     * @return css
+     */
+    public Object css() {
+        return this.css;
+    }
+
+    /**
+     * Fluent setter for css.
+     *
+     * @param css css
+     * @return this
+     */
+    public Expandable590Db0 css(Object css) {
+        this.css = css;
+        return this;
+    }
+
+    /**
+     * Gets the value of css.
+     *
+     * @return css
+     */
+    @JsonProperty("css")
+    public Object getCss() {
+        return this.css;
+    }
+
+    /**
+     * Sets the value of css.
+     *
+     * @param css css
+     */
+    public void setCss(Object css) {
+        this.css = css;
+    }
+    /**
+     * Fluent getter for js.
+     *
+     * @return js
+     */
+    public Object js() {
+        return this.js;
+    }
+
+    /**
+     * Fluent setter for js.
+     *
+     * @param js js
+     * @return this
+     */
+    public Expandable590Db0 js(Object js) {
+        this.js = js;
+        return this;
+    }
+
+    /**
+     * Gets the value of js.
+     *
+     * @return js
+     */
+    @JsonProperty("js")
+    public Object getJs() {
+        return this.js;
+    }
+
+    /**
+     * Sets the value of js.
+     *
+     * @param js js
+     */
+    public void setJs(Object js) {
+        this.js = js;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Expandable590Db0 that = (Expandable590Db0) o;
+        return
+            Objects.equals(this.css, that.css) &&
+            Objects.equals(this.js, that.js);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.css, 
+            this.js
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Expandable590Db0{" +
+            "css=" + css + ", " + 
+            "js=" + js +
+            "}";
     }
 }

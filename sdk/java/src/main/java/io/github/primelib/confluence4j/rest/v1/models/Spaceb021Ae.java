@@ -5,15 +5,9 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
@@ -23,12 +17,6 @@ import org.jetbrains.annotations.ApiStatus;
  * space template. Set this to the current `space.key`.
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Spaceb021Ae")
 @JsonPropertyOrder({
     "key"
@@ -50,6 +38,13 @@ public class Spaceb021Ae {
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Spaceb021Ae() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Spaceb021Ae}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Spaceb021Ae(Consumer)} instead.
@@ -58,5 +53,68 @@ public class Spaceb021Ae {
     @ApiStatus.Internal
     public Spaceb021Ae(String key) {
         this.key = key;
+    }
+
+
+    /**
+     * Fluent getter for key.
+     *
+     * @return key
+     */
+    public String key() {
+        return this.key;
+    }
+
+    /**
+     * Fluent setter for key.
+     *
+     * @param key key
+     * @return this
+     */
+    public Spaceb021Ae key(String key) {
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Gets the value of key.
+     *
+     * @return key
+     */
+    @JsonProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    /**
+     * Sets the value of key.
+     *
+     * @param key key
+     */
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Spaceb021Ae that = (Spaceb021Ae) o;
+        return
+            Objects.equals(this.key, that.key);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.key
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Spaceb021Ae{" +
+            "key=" + key +
+            "}";
     }
 }

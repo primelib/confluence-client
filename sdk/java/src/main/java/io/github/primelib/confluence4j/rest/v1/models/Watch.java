@@ -5,27 +5,15 @@ package io.github.primelib.confluence4j.rest.v1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.experimental.Accessors;
 import org.jetbrains.annotations.ApiStatus;
 
 /**
  * Watch
  *
  */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@Accessors(fluent = true, chain = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonTypeName("Watch")
 @JsonPropertyOrder({
     "type",
@@ -59,6 +47,13 @@ no `_expandable` property (therefore, different required fields).
     }
 
     /**
+     * Protected no-args constructor for use by serialization frameworks.
+     */
+    @ApiStatus.Internal
+    protected Watch() {
+    }
+
+    /**
      * Constructs a validated instance of {@link Watch}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Watch(Consumer)} instead.
@@ -72,5 +67,162 @@ no `_expandable` property (therefore, different required fields).
         this.type = type;
         this.watcher = watcher;
         this.contentId = contentId;
+    }
+
+
+    /**
+     * Fluent getter for type.
+     *
+     * @return type
+     */
+    public String type() {
+        return this.type;
+    }
+
+    /**
+     * Fluent setter for type.
+     *
+     * @param type type
+     * @return this
+     */
+    public Watch type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Gets the value of type.
+     *
+     * @return type
+     */
+    @JsonProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    /**
+     * Sets the value of type.
+     *
+     * @param type type
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+    /**
+     * Fluent getter for watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @return watcher
+     */
+    public WatchUser watcher() {
+        return this.watcher;
+    }
+
+    /**
+     * Fluent setter for watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @param watcher watcher
+     * @return this
+     */
+    public Watch watcher(WatchUser watcher) {
+        this.watcher = watcher;
+        return this;
+    }
+
+    /**
+     * Gets the value of watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @return watcher
+     */
+    @JsonProperty("watcher")
+    public WatchUser getWatcher() {
+        return this.watcher;
+    }
+
+    /**
+     * Sets the value of watcher.
+     * <p>
+     * This essentially the same as the `User` object, but no `_links` property and
+     * no `_expandable` property (therefore, different required fields).
+     *
+     * @param watcher watcher
+     */
+    public void setWatcher(WatchUser watcher) {
+        this.watcher = watcher;
+    }
+    /**
+     * Fluent getter for contentId.
+     *
+     * @return contentId
+     */
+    public Long contentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Fluent setter for contentId.
+     *
+     * @param contentId contentId
+     * @return this
+     */
+    public Watch contentId(Long contentId) {
+        this.contentId = contentId;
+        return this;
+    }
+
+    /**
+     * Gets the value of contentId.
+     *
+     * @return contentId
+     */
+    @JsonProperty("contentId")
+    public Long getContentId() {
+        return this.contentId;
+    }
+
+    /**
+     * Sets the value of contentId.
+     *
+     * @param contentId contentId
+     */
+    public void setContentId(Long contentId) {
+        this.contentId = contentId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Watch that = (Watch) o;
+        return
+            Objects.equals(this.type, that.type) &&
+            Objects.equals(this.watcher, that.watcher) &&
+            Objects.equals(this.contentId, that.contentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            this.type, 
+            this.watcher, 
+            this.contentId
+        );
+    }
+
+    @Override
+    public String toString() {
+        return "Watch{" +
+            "type=" + type + ", " + 
+            "watcher=" + watcher + ", " + 
+            "contentId=" + contentId +
+            "}";
     }
 }
