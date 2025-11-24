@@ -3,7 +3,7 @@ output: sdk
 outputSubDir: true
 
 repository:
-  name: Confluence REST Client
+  name: Confluence Client
   description: Unofficial API client generated from the Confluence OpenAPI specification.
   url: https://github.com/primelib/confluence-client
   licenseName: MIT
@@ -14,33 +14,36 @@ maintainers:
     name: Philipp Heuer
     email: git@philippheuer.de
 
+provider:
+  productDescription: |-
+    Confluence is a web-based corporate wiki developed by Australian software company Atlassian.
+  organizations: ["Atlassian"]
+  documentation:
+    - name: Confluence API Documentation
+      url: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
+
 spec:
   file: openapi.yaml
   type: openapi3
   sources:
-    # source: https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about
     - url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
       type: openapi3
       patches:
         - type: openapi-overlay
           file: spec_patches/overlay.yaml
+  patchSets:
+    - code-generation
   patches:
     - id: prune-path-prefix
       config:
         prefix: "/wiki"
-    - id: simplify-polymorphic-schemas
-    - id: flatten-components
-    - id: fix-missing-schema-title
     - id: generate-operation-id
       config:
         trim-prefix: "/rest/api"
-    - id: fix-common
-
-# v2 is still lacking major features.
-# source: https://developer.atlassian.com/cloud/confluence/rest/v2/intro/#about
-#- url: https://dac-static.atlassian.com/cloud/confluence/openapi-v2.v3.json
 
 presets:
+  scaffolding:
+    enabled: true
   java:
     enabled: true
     groupId: io.github.primelib
