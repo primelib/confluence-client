@@ -1,12 +1,12 @@
 openapi: 3.0.1
 info:
-  title: "Confluence REST Client"
+  title: "Confluence Client"
   description: "Unofficial API client generated from the Confluence OpenAPI specification."
   termsOfService: "https://atlassian.com/terms/"
   version: "1.0.0"
   license:
-    name: MIT
-    url: https://github.com/primelib/confluence-client/blob/main/LICENSE
+    name: MIT License
+    url: https://raw.githubusercontent.com/primelib/confluence-client/main/LICENSE
 servers:
   - url: "https://{your-domain}/wiki/api/v2"
 paths:
@@ -31,7 +31,7 @@ paths:
             "message":
               example: "The request is not from a Connect app."
               schema:
-                $ref: '#/components/schemas/GetModulesR401'
+                $ref: '#/components/schemas/GetAtlassianConnect1AppModuleDynamicV1R401'
       x-experimental: true
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
@@ -49,6 +49,7 @@ paths:
       responses:
         "200":
           description: "Returned if the request is successful."
+          content: {}
         "400":
           description: "Returned if:\n* any of the provided modules is invalid. For example, required properties are missing.\n* any of the modules conflict with registered dynamic modules or modules defined in the app descriptor. For example, there are duplicate keys.\n\nDetails of the issues encountered are included in the error message."
           content:
@@ -57,7 +58,7 @@ paths:
             "message":
               example: "Installation failed. The app com.example.app.key has duplicate module keys: [module-key]. Please contact the app vendor."
               schema:
-                $ref: '#/components/schemas/RegisterModulesR400'
+                $ref: '#/components/schemas/PostAtlassianConnect1AppModuleDynamicV1R400'
         "401":
           description: "Returned if the call is not from a Connect app."
           content:
@@ -66,7 +67,7 @@ paths:
             "message":
               example: "The request is not from a Connect app."
               schema:
-                $ref: '#/components/schemas/RegisterModulesR401'
+                $ref: '#/components/schemas/PostAtlassianConnect1AppModuleDynamicV1R401'
       x-experimental: true
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
@@ -91,6 +92,7 @@ paths:
       responses:
         "204":
           description: "Returned if the request is successful."
+          content: {}
         "401":
           description: "Returned if the call is not from a Connect app."
           content:
@@ -99,7 +101,7 @@ paths:
             "message":
               example: "The request is not from a Connect app."
               schema:
-                $ref: '#/components/schemas/RemoveModulesR401'
+                $ref: '#/components/schemas/DeleteAtlassianConnect1AppModuleDynamicV1R401'
       x-experimental: true
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "INACCESSIBLE"
@@ -150,8 +152,10 @@ paths:
               schema: {"$ref": "#/components/schemas/AuditRecordArray"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -179,8 +183,10 @@ paths:
               schema: {"$ref": "#/components/schemas/AuditRecord"}
         "400":
           description: "Returned if the `remoteAddress` property is not specified."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -228,12 +234,13 @@ paths:
           content:
             "application/zip":
               schema:
-                $ref: '#/components/schemas/ExportAuditRecordsR200'
+                $ref: '#/components/schemas/GetWikiRestauditExportV1R200'
             "text/csv":
               schema:
-                $ref: '#/components/schemas/ExportAuditRecordsR200'
+                $ref: '#/components/schemas/GetWikiRestauditExportV1R200'
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -256,6 +263,7 @@ paths:
               schema: {"$ref": "#/components/schemas/RetentionPeriod"}
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -283,6 +291,7 @@ paths:
               schema: {"$ref": "#/components/schemas/RetentionPeriod"}
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -355,6 +364,7 @@ paths:
               schema: {"$ref": "#/components/schemas/AuditRecordArray"}
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -374,7 +384,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/ArchivePagesB'
+              $ref: '#/components/schemas/PostWikiRestcontentArchiveV1B'
       responses:
         "202":
           description: "Returned if the archive request has been submitted."
@@ -383,8 +393,10 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTask"}
         "400":
           description: "Returned if:\n- there is an archival job already running for the tenant.\n- the number of pages to archive is larger than the limit of 300.\n- any of the content IDs specified in the array do not resolve to pages.\n- any of the specified pages are already archived.\n- the request is coming from a free edition tenant.\n- the request is coming from a non premium edition tenant with more than 1 page ID\n  in the archive request."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -427,8 +439,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Content"}
         "400":
           description: "Returned if a title is not specified or a page with the\ntitle already exists."
+          content: {}
         "409":
           description: "Returned if the version is not set to 1."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -470,8 +484,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Content"}
         "400":
           description: "Returned if a title is not specified or a page with the\ntitle already exists."
+          content: {}
         "409":
           description: "Returned if the version is not set to 1."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -521,8 +537,10 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentArray"}
         "400":
           description: "Returned if the CQL is invalid or missing."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -552,12 +570,16 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTask"}
         "400":
           description: "Returned if the content id is invalid or id does not represents a 'CURRENT' page."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the calling user can not delete the content with specified id."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The requesting user does not have permission to trash the content or any of it's descendant pages."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -601,13 +623,16 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/MovePageR200'
+                $ref: '#/components/schemas/PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200'
         "400":
           description: "Returned if;\n\n- A page already exists in the target space with the same name.\n  User is advised to rename page before moving.\n- The move would create a parent-child loop (page becomes a descendant and ancestor of itself)\n- The page has permission restrictions that the user does not have permission to create in the target space.\n  User is advised to remove restrictions before moving."
+          content: {}
         "403":
           description: "Returned if;\n\n- User does not have permission to remove page from current space\n- User does not have permission to create a page in target space"
+          content: {}
         "404":
           description: "Returned if;\n\n- The id or targetId refer to non-existent pages"
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -650,12 +675,16 @@ paths:
               schema: {"$ref": "#/components/schemas/Content"}
         "400":
           description: "Returned if;\n\n- The attachment id is invalid.\n- The attachment version number is invalid."
+          content: {}
         "403":
           description: "Returned if;\n\n- The calling user is not permitted to update or move the attachment.\n- The attachment is being moved to an invalid content type."
+          content: {}
         "404":
           description: "Returned if no attachment is found for the attachment ID."
+          content: {}
         "409":
           description: "Returned if the version of the supplied attachment does not match\nthe version of the attachment stored in the database."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -749,6 +778,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentChildren"}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       deprecated: true
       security:
         - basicAuth: []
@@ -816,8 +846,10 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentArray"}
         "400":
           description: "Returned if;\n\n- Any of the required request params are missing.\n- The request is invalid such as negative start param, a format besides int32 for limit etc."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       deprecated: true
       security:
         - basicAuth: []
@@ -861,8 +893,10 @@ paths:
               schema: {"$ref": "#/components/schemas/MacroInstance"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- The macro does not exist in the specified version.\n- There is no macro matching the given macro ID or hash."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -928,8 +962,10 @@ paths:
           description: "Returned if invalid content representation is requested, or context is missing."
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- The macro does not exist in the specified version.\n- There is no macro matching the given macro ID or hash."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1003,8 +1039,10 @@ paths:
               schema: {"$ref": "#/components/schemas/AsyncId"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- The macro does not exist in the specified version.\n- There is no macro matching the given macro ID or hash."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1031,7 +1069,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/AddLabelsToContentB'
+              $ref: '#/components/schemas/PostWikiRestcontentByIDLabelV1B'
         required: true
       responses:
         "200":
@@ -1041,10 +1079,13 @@ paths:
               schema: {"$ref": "#/components/schemas/LabelArray"}
         "400":
           description: "Returned if;\n\n- The body contains labels with invalid characters or too many characters.\n- The body contains too many labels.\n- The target content would contain too many labels after the operation.\n- The calling user does not have permission to edit labels."
+          content: {}
         "403":
           description: "Returned if the calling user can view but not edit the content."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1075,10 +1116,13 @@ paths:
       responses:
         "204":
           description: "Returned if the label is removed. The response body will be empty."
+          content: {}
         "403":
           description: "Returned if the calling user can view but not edit the content."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1109,12 +1153,16 @@ paths:
       responses:
         "204":
           description: "Returned if the label is removed. The response body will be empty."
+          content: {}
         "400":
           description: "Returned if the label name has a \"/\" character."
+          content: {}
         "403":
           description: "Returned if the calling user can view but not edit the content."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1160,6 +1208,7 @@ paths:
               schema: {"$ref": "#/components/schemas/WatchArray"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1205,6 +1254,7 @@ paths:
               schema: {"$ref": "#/components/schemas/SpaceWatchArray"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1239,10 +1289,13 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTask"}
         "400":
           description: "Returned if the title prefix is invalid (e.g. is empty, creates a conflict)"
+          content: {}
         "403":
           description: "Returned if the user does not have permission to create content at source and destination"
+          content: {}
         "404":
           description: "Returned if original page or destination page does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1279,12 +1332,16 @@ paths:
               schema: {"$ref": "#/components/schemas/Content"}
         "400":
           description: "Returned if;\n\n- destination or any of its fields are not specified.\n- destination.type is invalid.\n- sub-expansions limit exceeds."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to create content at destination."
+          content: {}
         "404":
           description: "Returned if;\n\n- the original page doesn't exist.\n- the destination page doesn’t exist.\n- the destination space doesn’t exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1321,12 +1378,16 @@ paths:
               schema: {"$ref": "#/components/schemas/PermissionCheckResponse"}
         "400":
           description: "Returned if;\n\n- If any of the required fields are missing.\n- If specified `subject` or `operation` is invalid."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission perform the check."
+          content: {}
         "404":
           description: "Returned if there is no content with the given ID."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1390,6 +1451,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentRestrictionArray"}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1441,6 +1503,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentRestrictionArray"}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to update restrictions\nfor the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1493,6 +1556,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentRestrictionArray"}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to add restrictions to\nthe content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1539,10 +1603,13 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentRestrictionArray"}
         "400":
           description: "Returned if any of the above validation rules are violated"
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to alter the\nrestrictions on the content."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1583,7 +1650,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetRestrictionsByOperation'
+                $ref: '#/components/schemas/GetWikiRestcontentByIDRestrictionByOperationV1'
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1688,10 +1755,13 @@ paths:
       responses:
         "200":
           description: "Returns true if the content restriction applies to the group. The response\nwill not return a response body."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view the\ncontent."
+          content: {}
         "404":
           description: "Returned if\n- There is no content with the given ID.\n- An invalid operation or group is specified.\n- Given groupId is blank or has invalid characters"
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1730,12 +1800,16 @@ paths:
       responses:
         "200":
           description: "Returned if the group is added to the content restriction by Group Id. The response\nbody will be empty."
+          content: {}
         "400":
           description: "Returned if;\n- Group Id is not valid"
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to update the\ncontent."
+          content: {}
         "404":
           description: "Returned if;\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- An invalid operation or group id is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1774,12 +1848,16 @@ paths:
       responses:
         "200":
           description: "Returned if the group is removed from the content restriction. The response\nbody will be empty."
+          content: {}
         "400":
           description: "Returned if given group id is blank"
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view the content."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- The restriction to be deleted does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1813,8 +1891,10 @@ paths:
       responses:
         "200":
           description: "Return true if the content restriction applies to the user. The response\nbody will be empty."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- An invalid operation or user is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1847,10 +1927,13 @@ paths:
       responses:
         "200":
           description: "Returned if the user is added to the content restriction. The response\nbody will be empty."
+          content: {}
         "400":
           description: "Returned if;\n\n- Provided restrictions are invalid"
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- An invalid operation or group is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -1886,8 +1969,10 @@ paths:
       responses:
         "200":
           description: "Returned if the user is removed from the content restriction. The response\nbody will be empty."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no content with the given ID.\n- The calling user does not have permission to view the content.\n- An invalid operation or group is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2026,7 +2111,7 @@ paths:
             - write:confluence-content
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:confluence-content"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["write:content:confluence", "read:content-details:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
-      x-atlassian-connect-scope: "WRITE"
+      x-atlassian-connect-scope: "DELETE"
   /rest/api/content/{id}/state/available:
     get:
       tags:
@@ -2099,8 +2184,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Version"}
         "400":
           description: "Returned if;\n\n- There is no content with the given ID.\n- There is no version with the given version number.\n- The version number is the current version."
+          content: {}
         "403":
           description: "Returned if the calling user doesn't have permission to edit the\ncontent."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2133,10 +2220,13 @@ paths:
       responses:
         "204":
           description: "Returned if the version is deleted."
+          content: {}
         "400":
           description: "Returned if;\n\n- The content or version cannot be found.\n- The current version is specified."
+          content: {}
         "403":
           description: "Returned if the calling user doesn't have permission to edit the\ncontent."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2157,7 +2247,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetCustomContentStatesR200'
+                $ref: '#/components/schemas/GetWikiRestcontentStatesV1R200'
         "401":
           description: "Returned if user is not authenticated."
       security:
@@ -2166,7 +2256,7 @@ paths:
             - read:user.property:confluence
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:user.property:confluence"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:user.property:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": false}]
-      x-atlassian-connect-scope: "READ"
+      x-atlassian-connect-scope: "INACCESSIBLE"
   /rest/api/contentbody/convert/async/{to}:
     post:
       tags:
@@ -2223,8 +2313,10 @@ paths:
               schema: {"$ref": "#/components/schemas/AsyncId"}
         "400":
           description: "Returned\n- if the content body or conversion context is invalid or null\n- if the value is improperly formed\n- any conversion type other than export_view"
+          content: {}
         "404":
           description: "Returned if content cannot be found with the provided context."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2255,12 +2347,16 @@ paths:
               schema: {"$ref": "#/components/schemas/AsyncContentBody"}
         "400":
           description: "Returned if the async id is invalid."
+          content: {}
         "401":
           description: "Returned if the request was not made by an anonymous user and user is not authenticated."
+          content: {}
         "403":
           description: "Returned if the requesting user is not the user who made the conversion request."
+          content: {}
         "404":
           description: "Returned if async macro conversion task cannot be found with the provided id."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2268,7 +2364,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
-      x-atlassian-connect-scope: "READ"
+      x-atlassian-connect-scope: "INACCESSIBLE"
   /rest/api/contentbody/convert/async/bulk/tasks:
     get:
       tags:
@@ -2293,6 +2389,7 @@ paths:
               schema: {"$ref": "#/components/schemas/AsyncContentBodyArray"}
         "400":
           description: "Returned if there are more than 50 results requested."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2300,7 +2397,7 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["read:confluence-content.all"]}, {"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:content.metadata:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-codegen-request-body-name: "body"
-      x-atlassian-connect-scope: "READ"
+      x-atlassian-connect-scope: "INACCESSIBLE"
     post:
       tags:
         - "Content body"
@@ -2321,6 +2418,7 @@ paths:
               schema: {"$ref": "#/components/schemas/AsyncIdArray"}
         "400":
           description: "Returned if there are more than 10 conversions requested."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2377,10 +2475,13 @@ paths:
               schema: {"$ref": "#/components/schemas/LabelDetails"}
         "400":
           description: "Returned if no label name is provide or\nif content type provided in the query is invalid."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view\nany content including label info."
+          content: {}
         "404":
           description: "Returned if the lable name is invalid or if no label is found for a given label."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2431,6 +2532,7 @@ paths:
               schema: {"$ref": "#/components/schemas/GroupArrayWithLinks"}
         "403":
           description: "Returned if the calling user does not have permission to view\ngroups."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2458,10 +2560,13 @@ paths:
               schema: {"$ref": "#/components/schemas/Group"}
         "400":
           description: "Returned if the name is missing or invalid."
+          content: {}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
         "403":
           description: "Returned if the user is not a site admin."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2492,8 +2597,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Group"}
         "403":
           description: "Returned if the calling user does not have permission to view\ngroups."
+          content: {}
         "404":
           description: "Returned if the group does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2517,14 +2624,19 @@ paths:
       responses:
         "204":
           description: "Returned if the group was removed successfully."
+          content: {}
         "400":
           description: "Returned if the id is missing or invalid."
+          content: {}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
         "403":
           description: "Returned if the user is not a site admin."
+          content: {}
         "404":
           description: "If no user group by the given id exists."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2576,6 +2688,7 @@ paths:
               schema: {"$ref": "#/components/schemas/GroupArrayWithLinks"}
         "403":
           description: "Returned if the calling user does not have permission to view\ngroups."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2640,8 +2753,10 @@ paths:
               schema: {"$ref": "#/components/schemas/UserArray"}
         "400":
           description: "Returned if given limit is greater than 200"
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view users."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2672,14 +2787,19 @@ paths:
       responses:
         "201":
           description: "Returned if the group was created successfully."
+          content: {}
         "400":
           description: "Returned if the groupId or accountId are missing or invalid."
+          content: {}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
         "403":
           description: "Returned if the user is not a site admin."
+          content: {}
         "404":
           description: "If no user group by the give name exists."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2712,14 +2832,19 @@ paths:
       responses:
         "204":
           description: "Returned if the group was removed successfully."
+          content: {}
         "400":
           description: "Returned if the name is missing or invalid."
+          content: {}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
         "403":
           description: "Returned if the user is not a site admin.\nNote: A 204 is returned if the user is not part of the\ngroup."
+          content: {}
         "404":
           description: "If no user group by the give name exists or if no user exists\nfor the given accountId."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2765,6 +2890,7 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTaskStatusArray"}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2794,8 +2920,10 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTaskStatusWithLinks"}
         "401":
           description: "Returned if the calling user is not logged in to Confluence."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no task with the given ID.\n- The calling user does not have permission to view the task."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2902,10 +3030,13 @@ paths:
               schema: {"$ref": "#/components/schemas/RelationArray"}
         "400":
           description: "Returned if the request is invalid."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to view the\nrelationships."
+          content: {}
         "404":
           description: "Returned if the target entity does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3002,12 +3133,16 @@ paths:
               schema: {"$ref": "#/components/schemas/Relation"}
         "400":
           description: "Returned if the request is invalid."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to view the\nrelationship."
+          content: {}
         "404":
           description: "Returned if the relationship does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3090,12 +3225,16 @@ paths:
               schema: {"$ref": "#/components/schemas/Relation"}
         "400":
           description: "Returned if the request is invalid."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to use Confluence."
+          content: {}
         "404":
           description: "Returned if the user, space or content could not be found."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3173,14 +3312,19 @@ paths:
       responses:
         "204":
           description: "Returned if the relationship is deleted or the relationship didn't\nexist."
+          content: {}
         "400":
           description: "Returned if the request is invalid."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to delete the\nrelationship."
+          content: {}
         "404":
           description: "Returned if the user, space or content could not be found."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3287,10 +3431,13 @@ paths:
               schema: {"$ref": "#/components/schemas/RelationArray"}
         "400":
           description: "Returned if the request is invalid."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to view the\nrelationship"
+          content: {}
         "404":
           description: "Returned if the target entity does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3398,8 +3545,10 @@ paths:
               schema: {"$ref": "#/components/schemas/SearchPageResponseSearchResult"}
         "400":
           description: "Returned if the CQL query cannot be parsed."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to access\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3464,8 +3613,10 @@ paths:
               schema: {"$ref": "#/components/schemas/SearchPageResponseSearchResult"}
         "400":
           description: "Returned if the CQL query cannot be parsed."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to access\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3494,8 +3645,10 @@ paths:
               schema: {"$ref": "#/components/schemas/LookAndFeelSettings"}
         "400":
           description: "Returned if `spaceKey` is invalid."
+          content: {}
         "404":
           description: "Returned if there is no space with the given `spaceKey`."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3523,12 +3676,16 @@ paths:
               schema: {"$ref": "#/components/schemas/LookAndFeelSelection"}
         "400":
           description: "Returned if;\n\n- `spaceKey` is invalid.\n- `lookAndFeelType` is invalid."
+          content: {}
         "403":
           description: "Returned if the calling user doesn't have permission to edit the\nlook and feel settings."
+          content: {}
         "404":
           description: "Returned if there is no space with the given `spaceKey`."
+          content: {}
         "409":
           description: "Returned if `lookAndFeelType` is set to 'custom' or 'theme',\nand a theme is not currently set for the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3564,10 +3721,13 @@ paths:
               schema: {"$ref": "#/components/schemas/LookAndFeelWithLinks"}
         "400":
           description: "Returned if;\n\n- The `spaceKey` is invalid\n- The request body contains invalid data."
+          content: {}
         "403":
           description: "Returned if the calling user doesn't have permission to edit the\nlook and feel settings."
+          content: {}
         "404":
           description: "Returned if there is no space with the given `spaceKey`."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3591,12 +3751,16 @@ paths:
       responses:
         "204":
           description: "Returned if the look and feel settings have been reset."
+          content: {}
         "400":
           description: "Returned if `spaceKey` is invalid."
+          content: {}
         "403":
           description: "Returned if the calling user doesn't have permission to reset the\nlook and feel."
+          content: {}
         "404":
           description: "Returned if there is no space with the given `spaceKey`."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3619,6 +3783,7 @@ paths:
               schema: {"$ref": "#/components/schemas/SystemInfoEntity"}
         "403":
           description: "Returned when the user does not have permission to view the system\ninformation."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3678,6 +3843,7 @@ paths:
               schema: {"$ref": "#/components/schemas/Theme"}
         "404":
           description: "Returned if Confluence does not have a global theme assigned, i.e.\nthe default theme is used."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3707,6 +3873,7 @@ paths:
               schema: {"$ref": "#/components/schemas/Theme"}
         "404":
           description: "Returned if there is no theme with the given key."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3735,10 +3902,13 @@ paths:
               schema: {"$ref": "#/components/schemas/Space"}
         "400":
           description: "Returned if any of the following is true:\n\n- The request is invalid.\n- The space already exists."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the callig user does not have permission to create a space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3768,10 +3938,13 @@ paths:
               schema: {"$ref": "#/components/schemas/Space"}
         "400":
           description: "Returned if any of the following is true:\n\n- The request is invalid.\n- The space already exists."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user does not have permission to create a space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3808,8 +3981,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Space"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if any of the following is true:\n\n- There is no space with the given key\n- The calling user does not have permission to update the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3839,8 +4014,10 @@ paths:
               schema: {"$ref": "#/components/schemas/LongTask"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if any of the following is true:\n\n- There is no space with the given key.\n- The calling user does not have permission to delete the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3876,12 +4053,16 @@ paths:
               schema: {"$ref": "#/components/schemas/SpacePermissionV2"}
         "400":
           description: "Used for various errors. Such as:\n- Permission already exists for the given user or group.\n- 'read space' permission doesn't exist for the given user or group.\n- No group found with the given groupName or groupId"
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user isn't authorized."
+          content: {}
         "404":
           description: "Returned if any of the following is true:\n- There is no space with the given key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3914,14 +4095,19 @@ paths:
       responses:
         "200":
           description: "Returned if the requested content is returned."
+          content: {}
         "400":
           description: "Used for various errors. Such as:\n- Permission already exists for the given user or group.\n- 'read space' permission doesn't exist for the given user or group.\n- No group found with the given groupName or groupId"
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user isn't authorized."
+          content: {}
         "404":
           description: "Returned if any of the following is true:\n- There is no space with the given key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3954,14 +4140,19 @@ paths:
       responses:
         "204":
           description: "Permission successfully removed."
+          content: {}
         "400":
           description: "Used for various errors. Such as:\n- All of the admin permissions cannot be removed from a space."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the user isn't authorized."
+          content: {}
         "404":
           description: "Returned if any of the following is true:\n- There is no permission with the given id.\n- There is no space with the given key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -3991,8 +4182,10 @@ paths:
               schema: {"$ref": "#/components/schemas/SpaceSettings"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no space with the given key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4027,8 +4220,10 @@ paths:
               schema: {"$ref": "#/components/schemas/SpaceSettings"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no space with the given key.\n- The calling user does not have permission to update the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4057,7 +4252,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetSpaceContentStatesR200'
+                $ref: '#/components/schemas/GetWikiRestspaceBySpaceKeyStateV1R200'
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
         "403":
@@ -4194,6 +4389,7 @@ paths:
               schema: {"$ref": "#/components/schemas/Theme"}
         "404":
           description: "Returned if any of the following is true:\n\n- There is no space with the given key.\n- The space does not have a theme assigned to it."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4227,8 +4423,10 @@ paths:
               schema: {"$ref": "#/components/schemas/Theme"}
         "403":
           description: "Returned if the theme key is invalid."
+          content: {}
         "404":
           description: "Returned if there is no space with the given key."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4253,8 +4451,10 @@ paths:
       responses:
         "204":
           description: "Returned if the theme was reset for the space."
+          content: {}
         "404":
           description: "Returned if there is no space with the given key."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4294,6 +4494,7 @@ paths:
               schema: {"$ref": "#/components/schemas/SpaceWatchArray"}
         "404":
           description: "Returned if there is no space with the given key"
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4349,6 +4550,7 @@ paths:
               schema: {"$ref": "#/components/schemas/LabelArray"}
         "404":
           description: "Returned if;\n- There is no space with the given space key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4375,7 +4577,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/AddLabelsToSpaceB'
+              $ref: '#/components/schemas/PostWikiRestspaceBySpaceKeyLabelV1B'
         required: true
       responses:
         "200":
@@ -4385,10 +4587,13 @@ paths:
               schema: {"$ref": "#/components/schemas/LabelArray"}
         "400":
           description: "Returned if;\n\n- The body contains labels with invalid characters or too many characters.\n- The body contains too many labels.\n- The target content would contain too many labels after the operation.\n- The calling user does not have permission to edit labels."
+          content: {}
         "403":
           description: "Returned if the calling user can view but not edit the content."
+          content: {}
         "404":
           description: "Returned if;\n- There is no space with the given space key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4401,6 +4606,7 @@ paths:
       tags:
         - "Experimental"
       summary: "Remove label from a space"
+      description: ""
       operationId: "deleteSpaceBySpaceKeyLabelV1"
       parameters:
         - name: "spaceKey"
@@ -4424,10 +4630,13 @@ paths:
       responses:
         "204":
           description: "Returned if the label was successfully deleted."
+          content: {}
         "400":
           description: "Returned if;\n- The user does not provide a label name"
+          content: {}
         "404":
           description: "Returned if;\n- There is no space with the given space key.\n- The calling user does not have permission to view the space."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4457,10 +4666,13 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentTemplate"}
         "400":
           description: "Returned if template name is null or an empty string."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission."
+          content: {}
         "404":
           description: "Returned if the calling user does not have permission to update the\ntemplate or if the template doesn't exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4489,8 +4701,10 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentTemplate"}
         "400":
           description: "Returned if template name is null or an empty string."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to create the\ntemplate."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4537,6 +4751,7 @@ paths:
               schema: {"$ref": "#/components/schemas/BlueprintTemplateArray"}
         "403":
           description: "Returned if the calling user does not have permission to view\nblueprint templates."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4582,6 +4797,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentTemplateArray"}
         "403":
           description: "Returned if the calling user does not have permission to view the\ncontent templates."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4612,6 +4828,7 @@ paths:
               schema: {"$ref": "#/components/schemas/ContentTemplate"}
         "403":
           description: "Returned if;\n\n- There is no template with the given ID.\n- The calling user does not have permission to view the template."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4635,6 +4852,7 @@ paths:
       responses:
         "204":
           description: "Returned if the template has been successfully been deleted."
+          content: {}
         "403":
           description: "Returned if;\n\n- There is no template with the given ID.\n- The calling user does not have permission to delete the template."
       security:
@@ -4679,10 +4897,13 @@ paths:
               schema: {"$ref": "#/components/schemas/User"}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "403":
           description: "Returned if the calling user does not have permission to view users."
+          content: {}
         "404":
           description: "Returned if a user with the given accountId does not exist."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4717,6 +4938,7 @@ paths:
               schema: {"$ref": "#/components/schemas/UserAnonymous"}
         "403":
           description: "Returned if the calling user does not have permission to use\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4753,6 +4975,7 @@ paths:
               schema: {"$ref": "#/components/schemas/User"}
         "403":
           description: "Returned if the calling user does not have permission to use\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4798,6 +5021,7 @@ paths:
               schema: {"$ref": "#/components/schemas/GroupArrayWithLinks"}
         "403":
           description: "Returned if the calling user does not have permission to use\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4840,6 +5064,7 @@ paths:
               schema: {"$ref": "#/components/schemas/BulkUserLookupArray"}
         "403":
           description: "Returned if the calling user does not have permission to use\nConfluence."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4872,8 +5097,10 @@ paths:
               schema: {"$ref": "#/components/schemas/UserWatch"}
         "403":
           description: "Returned if;\n\n- The calling user does not have permission to view the\ncontent.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No content exists for the specified `contentId`."
+          content: {}
         "404":
           description: "Returned if no `contentId` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4900,10 +5127,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully created. No response body is\nreturned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- The calling user does not have permission to view the\ncontent.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No content exists for the specified `contentId`."
+          content: {}
         "404":
           description: "Returned if no `contentId` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4937,10 +5167,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully deleted. No response body is\nreturned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- The calling user does not have permission to view the\ncontent.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No content exists for the specified `contentId`."
+          content: {}
         "404":
           description: "Returned if no `contentId` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -4973,8 +5206,10 @@ paths:
               schema: {"$ref": "#/components/schemas/UserWatch"}
         "403":
           description: "Returned if;\n\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No label exists for the specified `labelName`."
+          content: {}
         "404":
           description: "Returned if no `labelName` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5008,10 +5243,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully created. No response body is\nreturned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No label exists for the specified `labelName`."
+          content: {}
         "404":
           description: "Returned if no `labelName` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5038,10 +5276,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully deleted. No response body is\nreturned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No label exists for the specified `labelName`."
+          content: {}
         "404":
           description: "Returned if no `labelName` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5074,8 +5315,10 @@ paths:
               schema: {"$ref": "#/components/schemas/UserWatch"}
         "403":
           description: "Returned if;\n\n- The calling user does not have permission to view the\nspace.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No space exists for the specified `spaceKey`."
+          content: {}
         "404":
           description: "Returned if no `spaceKey` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5109,10 +5352,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully created. No response body is\nreturned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- The calling user does not have permission to view the\nspace.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No space exists for the specified `spaceKey`."
+          content: {}
         "404":
           description: "Returned if no `spaceKey` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5139,10 +5385,13 @@ paths:
       responses:
         "204":
           description: "Returned if the watcher was successfully deleted. No response body is returned."
+          content: {}
         "403":
           description: "Returned if;\n\n- The `X-Atlassian-Token: no-check` header is not specified.\n- The calling user does not have permission to view the space.\n- A user is specified via a query parameter and the calling user is\nnot a Confluence administrator.\n- No space exists for the specified `spaceKey`."
+          content: {}
         "404":
           description: "Returned if no `spaceKey` is specified."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5172,12 +5421,16 @@ paths:
               schema: {"$ref": "#/components/schemas/AccountIdEmailRecord"}
         "400":
           description: "Returned if the calling app is not approved to use this API."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if a user with the given accountId does not exist."
+          content: {}
         "501":
           description: "Indicates that the API is not currently enabled."
+          content: {}
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:email-address:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "ACCESS_EMAIL_ADDRESSES"
@@ -5207,10 +5460,13 @@ paths:
               schema: {"$ref": "#/components/schemas/AccountIdEmailRecordArray"}
         "400":
           description: "Returned if the calling app is not approved to use this API."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
         "501":
           description: "Indicates that the API is not currently enabled."
+          content: {}
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Beta", "scopes": ["read:email-address:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "ACCESS_EMAIL_ADDRESSES"
@@ -5240,13 +5496,15 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetViewsR200'
+                $ref: '#/components/schemas/GetWikiRestanalyticsContentByContentIDViewsV1R200'
         "400":
           description: "Returned if client input is invalid."
         "401":
           description: "Returned if the authentication credentials are incorrect."
+          content: {}
         "403":
           description: "Returned if the authentication credentials are missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n- There is no content with the given ID."
       security:
@@ -5282,13 +5540,15 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetViewersR200'
+                $ref: '#/components/schemas/GetWikiRestanalyticsContentByContentIDViewersV1R200'
         "400":
           description: "Returned if client input is invalid."
         "401":
           description: "Returned if the authentication credentials are incorrect."
+          content: {}
         "403":
           description: "Returned if the authentication credentials are missing\nfrom the request."
+          content: {}
         "404":
           description: "Returned if;\n- There is no content with the given ID."
       security:
@@ -5337,12 +5597,16 @@ paths:
               schema: {"$ref": "#/components/schemas/UserPropertyKeyArray"}
         "400":
           description: "Returned if request has malformed syntax or userId is not a valid user id."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
+          content: {}
         "403":
           description: "Returned if the user does not have the correct permissions."
+          content: {}
         "404":
           description: "Returned if there is no user with the given user ID."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5379,12 +5643,16 @@ paths:
               schema: {"$ref": "#/components/schemas/UserProperty"}
         "400":
           description: "Returned if;\n\n- The key is too long.\n- Request has malformed syntax or userId is not a valid user id."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
+          content: {}
         "403":
           description: "Returned if the user does not have the correct permissions."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no user with the given user ID\n- There is no user property with the given key"
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5423,12 +5691,16 @@ paths:
           description: "Returned if the user property is updated."
         "400":
           description: "Returned if;\n\n- The key is too long.\n- The value is empty.\n- The value is too long.\n- Request has malformed syntax or userId is not a valid user id."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
+          content: {}
         "403":
           description: "Returned if the user does not have the correct permissions."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no user property with the given key.\n- There is no user with the given user id."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5468,14 +5740,19 @@ paths:
           description: "Returned if the user property is created."
         "400":
           description: "Returned if;\n\n- The key is too long.\n- The value is empty.\n- The value is too long.\n- Request has malformed syntax or userId is not a valid user id."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
+          content: {}
         "403":
           description: "Returned if the user does not have the correct permissions."
+          content: {}
         "404":
           description: "Returned if there is no user with the given user id."
+          content: {}
         "409":
           description: "Returned if the key already exists for the user."
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5509,12 +5786,16 @@ paths:
           description: "Returned if the user property is deleted."
         "400":
           description: "Returned if;\n\n- The key is too long.\n- Request has malformed syntax or userId is not a valid user id."
+          content: {}
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
+          content: {}
         "403":
           description: "Returned if the user does not have the correct permissions."
+          content: {}
         "404":
           description: "Returned if;\n\n- There is no user property with the given key\n- There is no user with the given user id"
+          content: {}
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -5574,7 +5855,7 @@ components:
       type: "object"
       properties:
         "version":
-          $ref: '#/components/schemas/Version83f448'
+          $ref: '#/components/schemas/AttachmentUpdateVersion'
         "id":
           type: "string"
           description: "The ID of the attachment to be updated."
@@ -5585,9 +5866,9 @@ components:
           maxLength: 255
           description: "The updated name of the attachment."
         "metadata":
-          $ref: '#/components/schemas/Metadata'
+          $ref: '#/components/schemas/AttachmentUpdateMetadata'
         "container":
-          $ref: '#/components/schemas/Containerb524b8'
+          $ref: '#/components/schemas/AttachmentUpdateContainer'
       required:
         - "id"
         - "type"
@@ -5597,7 +5878,7 @@ components:
       type: "object"
       properties:
         "author":
-          $ref: '#/components/schemas/Author'
+          $ref: '#/components/schemas/AuditRecordAuthor'
         "remoteAddress":
           type: "string"
         "creationDate":
@@ -5660,7 +5941,7 @@ components:
       type: "object"
       properties:
         "author":
-          $ref: '#/components/schemas/Author0d1a37'
+          $ref: '#/components/schemas/AuditRecordCreateAuthor'
         "remoteAddress":
           type: "string"
           description: "The IP address of the computer where the event was initiated from."
@@ -5714,7 +5995,7 @@ components:
         "templateId":
           type: "string"
         "originalTemplate":
-          $ref: '#/components/schemas/OriginalTemplate'
+          $ref: '#/components/schemas/BlueprintTemplateOriginalTemplate'
         "referencingBlueprint":
           type: "string"
         "name":
@@ -5722,7 +6003,7 @@ components:
         "description":
           type: "string"
         "space":
-          $ref: '#/components/schemas/Space82ef96'
+          $ref: '#/components/schemas/BlueprintTemplateSpace'
         "labels":
           type: "array"
           items: {"$ref": "#/components/schemas/Label"}
@@ -5732,7 +6013,7 @@ components:
           type: "string"
         "body": {"$ref": "#/components/schemas/ContentTemplateBody"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable'
+          $ref: '#/components/schemas/BlueprintTemplateExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_links"
@@ -5903,9 +6184,9 @@ components:
           type: "string"
         "container": {"$ref": "#/components/schemas/Container"}
         "metadata":
-          $ref: '#/components/schemas/Metadata9a43e8'
+          $ref: '#/components/schemas/AttachmentPropertiesUpdateBodyMetadata'
         "extensions":
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/AttachmentPropertiesUpdateBodyExtensions'
         "version": {"$ref": "#/components/schemas/Version"}
       required:
         - "id"
@@ -5940,16 +6221,16 @@ components:
         "descendants": {"$ref": "#/components/schemas/ContentChildren"}
         "container": {"$ref": "#/components/schemas/Container"}
         "body":
-          $ref: '#/components/schemas/Body'
+          $ref: '#/components/schemas/ContentBodye84b79'
         "restrictions":
-          $ref: '#/components/schemas/Restrictions'
+          $ref: '#/components/schemas/ContentRestrictions'
         "metadata": {"$ref": "#/components/schemas/ContentMetadata"}
         "macroRenderedOutput":
-          $ref: '#/components/schemas/MacroRenderedOutput'
+          $ref: '#/components/schemas/ContentMacroRenderedOutput'
         "extensions":
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/ContentExtensions'
         "_expandable":
-          $ref: '#/components/schemas/Expandable07c2ed'
+          $ref: '#/components/schemas/ContentExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
         ari:
           type: string
@@ -5989,7 +6270,7 @@ components:
       type: "object"
       properties:
         "version":
-          $ref: '#/components/schemas/Versiona9ec0e'
+          $ref: '#/components/schemas/ContentBlueprintDraftVersion'
         "title":
           type: "string"
           maxLength: 255
@@ -5999,7 +6280,7 @@ components:
         "status":
           $ref: '#/components/schemas/StatusEnum'
         "space":
-          $ref: '#/components/schemas/Space33569e'
+          $ref: '#/components/schemas/ContentBlueprintDraftSpace'
         "ancestors":
           type: "array"
           items:
@@ -6030,9 +6311,9 @@ components:
           items: {"$ref": "#/components/schemas/EmbeddedContent"}
         "webresource": {"$ref": "#/components/schemas/WebResourceDependencies"}
         "mediaToken":
-          $ref: '#/components/schemas/MediaToken'
+          $ref: '#/components/schemas/AsyncContentBodyMediaToken'
         "_expandable":
-          $ref: '#/components/schemas/Expandable9bc16d'
+          $ref: '#/components/schemas/AsyncContentBodyExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       title: AsyncContentBody
     "AsyncContentBodyArray":
@@ -6051,9 +6332,9 @@ components:
           items: {"$ref": "#/components/schemas/EmbeddedContent"}
         "webresource": {"$ref": "#/components/schemas/WebResourceDependencies"}
         "mediaToken":
-          $ref: '#/components/schemas/MediaToken'
+          $ref: '#/components/schemas/ContentBodyMediaToken'
         "_expandable":
-          $ref: '#/components/schemas/Expandable9bc16d'
+          $ref: '#/components/schemas/ContentBodyExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "representation"
@@ -6084,7 +6365,7 @@ components:
         "embed": {"$ref": "#/components/schemas/ContentArray"}
         "folder": {"$ref": "#/components/schemas/ContentArray"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable3263e2'
+          $ref: '#/components/schemas/ContentChildrenExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       additionalProperties: true
       title: ContentChildren
@@ -6106,13 +6387,13 @@ components:
       type: "object"
       properties:
         "attachment":
-          $ref: '#/components/schemas/Attachment'
+          $ref: '#/components/schemas/ContentChildTypeAttachment'
         "comment":
-          $ref: '#/components/schemas/Comment'
+          $ref: '#/components/schemas/ContentChildTypeComment'
         "page":
-          $ref: '#/components/schemas/Page'
+          $ref: '#/components/schemas/ContentChildTypePage'
         "_expandable":
-          $ref: '#/components/schemas/Expandable890c87'
+          $ref: '#/components/schemas/ContentChildTypeExpandable'
       additionalProperties: true
       description: "Shows whether a piece of content has attachments, comments, or child pages/whiteboards.\nNote, this doesn't actually contain the child objects."
       title: ContentChildType
@@ -6131,11 +6412,11 @@ components:
           type: "string"
           description: "The type of the new content. Custom content types defined by apps are also supported. eg. 'page', 'blogpost', 'comment' etc."
         "space":
-          $ref: '#/components/schemas/Spacecc1e40'
+          $ref: '#/components/schemas/ContentCreateSpace'
         "status":
           $ref: '#/components/schemas/StatusEnume76e6a'
         "container":
-          $ref: '#/components/schemas/Container7b328b'
+          $ref: '#/components/schemas/ContentCreateContainer'
         "ancestors":
           type: "array"
           items:
@@ -6143,7 +6424,7 @@ components:
           description: "The parent content of the new content.  If you are creating a top-level `page` or `comment`,\nthis can be left blank. If you are creating a child page, this is where the parent page id goes.\nIf you are creating a child comment, this is where the parent comment id goes. Only one parent\ncontent id can be specified."
           nullable: true
         "body":
-          $ref: '#/components/schemas/Body5304ad'
+          $ref: '#/components/schemas/ContentCreateBody'
       required:
         - "type"
       additionalProperties: true
@@ -6163,10 +6444,10 @@ components:
         "lastUpdated": {"$ref": "#/components/schemas/Version"}
         "previousVersion": {"$ref": "#/components/schemas/Version"}
         "contributors":
-          $ref: '#/components/schemas/Contributors'
+          $ref: '#/components/schemas/ContentHistoryContributors'
         "nextVersion": {"$ref": "#/components/schemas/Version"}
         "_expandable":
-          $ref: '#/components/schemas/Expandabled312ab'
+          $ref: '#/components/schemas/ContentHistoryExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "latest"
@@ -6187,12 +6468,12 @@ components:
       type: "object"
       properties:
         "currentuser":
-          $ref: '#/components/schemas/Currentuser'
+          $ref: '#/components/schemas/ContentMetadataCurrentuser'
         "properties": {"$ref": "#/components/schemas/GenericLinks"}
         "frontend":
-          $ref: '#/components/schemas/Frontend'
+          $ref: '#/components/schemas/ContentMetadataFrontend'
         "labels":
-          $ref: '#/components/schemas/Labels'
+          $ref: '#/components/schemas/ContentMetadataLabels'
       description: "Metadata object for page, blogpost, comment content"
       title: ContentMetadata
     "ContentProperty":
@@ -6205,10 +6486,10 @@ components:
         "value":
           description: "The value of the content property. This can be empty or a complex object."
         "version":
-          $ref: '#/components/schemas/Version13bb46'
+          $ref: '#/components/schemas/ContentPropertyVersion'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
         "_expandable":
-          $ref: '#/components/schemas/Expandableabce4d'
+          $ref: '#/components/schemas/ContentPropertyExpandable'
       required:
         - "_links"
         - "id"
@@ -6267,7 +6548,7 @@ components:
         "value":
           description: "The value of the content property. This can be empty or a complex object."
         "version":
-          $ref: '#/components/schemas/Version9f6eac'
+          $ref: '#/components/schemas/ContentPropertyUpdateVersion'
       required:
         - "value"
         - "version"
@@ -6279,10 +6560,10 @@ components:
         "operation":
           $ref: '#/components/schemas/OperationEnum'
         "restrictions":
-          $ref: '#/components/schemas/Restrictions88a50a'
+          $ref: '#/components/schemas/ContentRestrictionRestrictions'
         "content": {"$ref": "#/components/schemas/Content"}
         "_expandable":
-          $ref: '#/components/schemas/Expandablea42744'
+          $ref: '#/components/schemas/ContentRestrictionExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_expandable"
@@ -6322,7 +6603,7 @@ components:
         "operation":
           $ref: '#/components/schemas/OperationEnum5bd999'
         "restrictions":
-          $ref: '#/components/schemas/Restrictionsf477d3'
+          $ref: '#/components/schemas/ContentRestrictionUpdateRestrictions'
         "content": {"$ref": "#/components/schemas/Content"}
       required:
         - "operation"
@@ -6336,7 +6617,7 @@ components:
         "operation":
           $ref: '#/components/schemas/OperationEnum3ac951'
         "restrictions":
-          $ref: '#/components/schemas/Restrictionsa50726'
+          $ref: '#/components/schemas/AddContentRestrictionRestrictions'
       required:
         - "operation"
         - "restrictions"
@@ -6433,7 +6714,7 @@ components:
         "templateId":
           type: "string"
         "originalTemplate":
-          $ref: '#/components/schemas/OriginalTemplate25a4f5'
+          $ref: '#/components/schemas/ContentTemplateOriginalTemplate'
         "referencingBlueprint":
           type: "string"
         "name":
@@ -6441,7 +6722,7 @@ components:
         "description":
           type: "string"
         "space":
-          $ref: '#/components/schemas/Space82ef96'
+          $ref: '#/components/schemas/ContentTemplateSpace'
         "labels":
           type: "array"
           items: {"$ref": "#/components/schemas/Label"}
@@ -6451,7 +6732,7 @@ components:
           type: "string"
         "body": {"$ref": "#/components/schemas/ContentTemplateBody"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable'
+          $ref: '#/components/schemas/ContentTemplateExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_links"
@@ -6503,7 +6784,7 @@ components:
           items: {"$ref": "#/components/schemas/Label"}
           description: "Labels for the new template."
         "space":
-          $ref: '#/components/schemas/Space3ea116'
+          $ref: '#/components/schemas/ContentTemplateCreateSpace'
       required:
         - "body"
         - "name"
@@ -6560,7 +6841,7 @@ components:
           items: {"$ref": "#/components/schemas/Label"}
           description: "Labels for the template."
         "space":
-          $ref: '#/components/schemas/Spaceb021ae'
+          $ref: '#/components/schemas/ContentTemplateUpdateSpace'
       required:
         - "body"
         - "name"
@@ -6573,7 +6854,7 @@ components:
       type: "object"
       properties:
         "version":
-          $ref: '#/components/schemas/Version5f500d'
+          $ref: '#/components/schemas/ContentUpdateVersion'
         "title":
           type: "string"
           maxLength: 255
@@ -6592,7 +6873,7 @@ components:
           description: "The new parent for the content. Only one parent content 'id' can be specified."
           nullable: true
         "body":
-          $ref: '#/components/schemas/Body632549'
+          $ref: '#/components/schemas/ContentUpdateBody'
       required:
         - "type"
         - "version"
@@ -6704,7 +6985,7 @@ components:
           type: "string"
           description: "If defined, this will replace the title of the destination page."
         "body":
-          $ref: '#/components/schemas/Bodyded886'
+          $ref: '#/components/schemas/CopyPageRequestBody'
       required:
         - "destination"
       title: CopyPageRequest
@@ -7052,7 +7333,7 @@ components:
           type: "string"
           description: "a unique identifier for the long task"
         "links":
-          $ref: '#/components/schemas/Links'
+          $ref: '#/components/schemas/LongTaskLinks'
       required:
         - "id"
         - "links"
@@ -7061,17 +7342,17 @@ components:
       type: "object"
       properties:
         "headings":
-          $ref: '#/components/schemas/Headings'
+          $ref: '#/components/schemas/LookAndFeelHeadings'
         "links":
-          $ref: '#/components/schemas/Links9496b4'
+          $ref: '#/components/schemas/LookAndFeelLinks'
         "menus": {"$ref": "#/components/schemas/MenusLookAndFeel"}
         "header": {"$ref": "#/components/schemas/HeaderLookAndFeel"}
         "horizontalHeader": {"$ref": "#/components/schemas/HorizontalHeaderLookAndFeel"}
         "content": {"$ref": "#/components/schemas/ContentLookAndFeel"}
         "bordersAndDividers":
-          $ref: '#/components/schemas/BordersAndDivIDErs'
+          $ref: '#/components/schemas/LookAndFeelBordersAndDivIDErs'
         "spaceReference":
-          $ref: '#/components/schemas/SpaceReference'
+          $ref: '#/components/schemas/LookAndFeelSpaceReference'
         _links: {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "bordersAndDividers"
@@ -7120,7 +7401,7 @@ components:
         "id":
           type: "string"
         "name":
-          $ref: '#/components/schemas/Name'
+          $ref: '#/components/schemas/LongTaskStatusName'
         "elapsedTime":
           type: "integer"
           format: "int64"
@@ -7140,7 +7421,7 @@ components:
           type: "array"
           items: {"$ref": "#/components/schemas/Message"}
         "additionalDetails":
-          $ref: '#/components/schemas/AdditionalDetails'
+          $ref: '#/components/schemas/LongTaskStatusAdditionalDetails'
       required:
         - "elapsedTime"
         - "finished"
@@ -7183,7 +7464,7 @@ components:
         "id":
           type: "string"
         "name":
-          $ref: '#/components/schemas/Name'
+          $ref: '#/components/schemas/LongTaskStatusWithLinksName'
         "elapsedTime":
           type: "integer"
           format: "int64"
@@ -7204,7 +7485,7 @@ components:
           type: "array"
           items: {"$ref": "#/components/schemas/Message"}
         "additionalDetails":
-          $ref: '#/components/schemas/AdditionalDetails7a6f26'
+          $ref: '#/components/schemas/LongTaskStatusWithLinksAdditionalDetails'
       required:
         - "_links"
         - "elapsedTime"
@@ -7224,14 +7505,14 @@ components:
         "body":
           type: "string"
         "parameters":
-          $ref: '#/components/schemas/Parameters'
+          $ref: '#/components/schemas/MacroInstanceParameters'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       title: MacroInstance
     "MenusLookAndFeel":
       type: "object"
       properties:
         "hoverOrFocus":
-          $ref: '#/components/schemas/HoverOrFocus'
+          $ref: '#/components/schemas/MenusLookAndFeelHoverOrFocus'
         "color":
           type: "string"
       required:
@@ -7291,7 +7572,7 @@ components:
         "details": {"$ref": "#/components/schemas/UserDetails"}
         "personalSpace": {"$ref": "#/components/schemas/Space"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable5c5d70'
+          $ref: '#/components/schemas/BulkUserLookupExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_expandable"
@@ -7336,7 +7617,7 @@ components:
           type: "string"
           nullable: true
         "hoverOrFocus":
-          $ref: '#/components/schemas/HoverOrFocus53690d'
+          $ref: '#/components/schemas/NavigationLookAndFeelHoverOrFocus'
       required:
         - "color"
         - "hoverOrFocus"
@@ -7351,7 +7632,7 @@ components:
         "highlightColor":
           type: "string"
         "hoverOrFocus":
-          $ref: '#/components/schemas/HoverOrFocusf1c7a6'
+          $ref: '#/components/schemas/TopNavigationLookAndFeelHoverOrFocus'
       required:
         - "highlightColor"
       title: TopNavigationLookAndFeel
@@ -7378,11 +7659,11 @@ components:
           type: "string"
         "relationData": {"$ref": "#/components/schemas/RelationData"}
         "source":
-          $ref: '#/components/schemas/Source'
+          $ref: '#/components/schemas/RelationSource'
         "target":
-          $ref: '#/components/schemas/Target'
+          $ref: '#/components/schemas/RelationTarget'
         "_expandable":
-          $ref: '#/components/schemas/Expandableb48ed1'
+          $ref: '#/components/schemas/RelationExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_links"
@@ -7467,7 +7748,7 @@ components:
           type: "string"
           nullable: true
         "layer":
-          $ref: '#/components/schemas/Layer'
+          $ref: '#/components/schemas/ScreenLookAndFeelLayer'
         "gutterTop":
           type: "string"
           nullable: true
@@ -7583,12 +7864,12 @@ components:
           type: "string"
         "icon": {"$ref": "#/components/schemas/Icon"}
         "description":
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/SpaceDescription5c128f'
         "homepage": {"$ref": "#/components/schemas/Content"}
         "type":
           type: "string"
         "metadata":
-          $ref: '#/components/schemas/Metadata5bfc61'
+          $ref: '#/components/schemas/SpaceMetadata'
         "operations":
           type: "array"
           items: {"$ref": "#/components/schemas/OperationCheckResult"}
@@ -7601,9 +7882,9 @@ components:
         "theme": {"$ref": "#/components/schemas/Theme"}
         "lookAndFeel": {"$ref": "#/components/schemas/LookAndFeel"}
         "history":
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/SpaceHistory'
         "_expandable":
-          $ref: '#/components/schemas/Expandable52d461'
+          $ref: '#/components/schemas/SpaceExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_expandable"
@@ -7671,7 +7952,7 @@ components:
           nullable: true
         "description": {"$ref": "#/components/schemas/SpaceDescriptionCreate"}
         "homepage":
-          $ref: '#/components/schemas/Homepage'
+          $ref: '#/components/schemas/SpaceUpdateHomepage'
         "type":
           type: "string"
           description: "The updated type for this space."
@@ -7703,7 +7984,7 @@ components:
       type: "object"
       properties:
         "plain":
-          $ref: '#/components/schemas/Plain'
+          $ref: '#/components/schemas/SpaceDescriptionCreatePlain'
       required:
         - "plain"
       description: "The description of the new/updated space. Note, only the 'plain' representation\ncan be used for the description when creating or updating a space."
@@ -7716,7 +7997,7 @@ components:
           type: "integer"
           format: "int64"
         "subjects":
-          $ref: '#/components/schemas/Subjects'
+          $ref: '#/components/schemas/SpacePermissionSubjects'
         "operation": {"$ref": "#/components/schemas/OperationCheckResult"}
         "anonymousAccess":
           type: "boolean"
@@ -7736,7 +8017,7 @@ components:
       type: "object"
       properties:
         "subjects":
-          $ref: '#/components/schemas/Subjects96eb79'
+          $ref: '#/components/schemas/SpacePermissionCreateSubjects'
         "operation": {"$ref": "#/components/schemas/OperationCheckResult"}
         "anonymousAccess":
           type: "boolean"
@@ -7765,7 +8046,7 @@ components:
         "space": {"$ref": "#/components/schemas/Space"}
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable3adce7'
+          $ref: '#/components/schemas/SpacePropertyExpandable'
       required:
         - "_expandable"
         - "id"
@@ -7803,7 +8084,7 @@ components:
           description: "The key of the new property."
         "value": {"$ref": "#/components/schemas/PropertyValue"}
         "space":
-          $ref: '#/components/schemas/Space505a67'
+          $ref: '#/components/schemas/SpacePropertyCreateSpace'
       required:
         - "key"
         - "value"
@@ -7823,7 +8104,7 @@ components:
         "value": {}
         "version": {"$ref": "#/components/schemas/Version"}
         "space":
-          $ref: '#/components/schemas/Space505a67'
+          $ref: '#/components/schemas/SpacePropertyUpdateSpace'
       required:
         - "value"
         - "version"
@@ -7835,7 +8116,7 @@ components:
           type: "boolean"
           description: "Defines whether an override for the space home should be used. This is\nused in conjunction with a space theme provided by an app. For\nexample, if this property is set to true, a theme can display a page\nother than the space homepage when users visit the root URL for a\nspace. This property allows apps to provide content-only theming\nwithout overriding the space home."
         "editor":
-          $ref: '#/components/schemas/Editor'
+          $ref: '#/components/schemas/SpaceSettingsEditor'
         "spaceKey":
           type: "string"
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
@@ -7893,13 +8174,13 @@ components:
       type: "object"
       properties:
         "uris":
-          $ref: '#/components/schemas/Uris'
+          $ref: '#/components/schemas/SuperBatchWebResourcesUris'
         "tags":
-          $ref: '#/components/schemas/Tags'
+          $ref: '#/components/schemas/SuperBatchWebResourcesTags'
         "metatags":
           type: "string"
         "_expandable":
-          $ref: '#/components/schemas/Expandable82ef96'
+          $ref: '#/components/schemas/SuperBatchWebResourcesExpandable'
       title: SuperBatchWebResources
     "SystemInfoEntity":
       type: "object"
@@ -8105,7 +8386,7 @@ components:
         "details": {"$ref": "#/components/schemas/UserDetails"}
         "personalSpace": {"$ref": "#/components/schemas/Space"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable5c5d70'
+          $ref: '#/components/schemas/UserExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "type"
@@ -8124,7 +8405,7 @@ components:
           type: "array"
           items: {"$ref": "#/components/schemas/OperationCheckResult"}
         "_expandable":
-          $ref: '#/components/schemas/Expandabled0ed16'
+          $ref: '#/components/schemas/UserAnonymousExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "_links"
@@ -8160,9 +8441,9 @@ components:
       type: "object"
       properties:
         "business":
-          $ref: '#/components/schemas/Business'
+          $ref: '#/components/schemas/UserDetailsBusiness'
         "personal":
-          $ref: '#/components/schemas/Personal'
+          $ref: '#/components/schemas/UserDetailsPersonal'
       title: UserDetails
     "UserProperty":
       type: "object"
@@ -8170,7 +8451,7 @@ components:
         "key":
           type: "string"
         "value":
-          $ref: '#/components/schemas/Value'
+          $ref: '#/components/schemas/UserPropertyValue'
         "id":
           type: "string"
           description: "a unique identifier for the user property"
@@ -8214,7 +8495,7 @@ components:
       type: "object"
       properties:
         "value":
-          $ref: '#/components/schemas/Value96656d'
+          $ref: '#/components/schemas/UserPropertyCreateValue'
       required:
         - "value"
       additionalProperties: false
@@ -8223,7 +8504,7 @@ components:
       type: "object"
       properties:
         "value":
-          $ref: '#/components/schemas/Value96656d'
+          $ref: '#/components/schemas/UserPropertyUpdateValue'
       required:
         - "value"
       additionalProperties: false
@@ -8276,7 +8557,7 @@ components:
         "content": {"$ref": "#/components/schemas/Content"}
         "collaborators": {"$ref": "#/components/schemas/UsersUserKeys"}
         "_expandable":
-          $ref: '#/components/schemas/Expandablefdb576'
+          $ref: '#/components/schemas/VersionExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
         "contentTypeModified":
           type: "boolean"
@@ -8328,7 +8609,7 @@ components:
         "operationKey":
           $ref: '#/components/schemas/OperationKeyEnum'
         "params":
-          $ref: '#/components/schemas/Params'
+          $ref: '#/components/schemas/VersionRestoreParams'
       required:
         - "operationKey"
         - "params"
@@ -8403,7 +8684,7 @@ components:
         "publicName":
           type: "string"
         "personalSpace":
-          $ref: '#/components/schemas/PersonalSpace'
+          $ref: '#/components/schemas/WatchUserPersonalSpace'
       required:
         - "type"
         - "accountId"
@@ -8423,7 +8704,7 @@ components:
       type: "object"
       properties:
         "_expandable":
-          $ref: '#/components/schemas/Expandablef62071'
+          $ref: '#/components/schemas/WebResourceDependenciesExpandable'
         "keys":
           type: "array"
           items:
@@ -8433,9 +8714,9 @@ components:
           items:
             type: "string"
         "uris":
-          $ref: '#/components/schemas/Uris867f9b'
+          $ref: '#/components/schemas/WebResourceDependenciesUris'
         "tags":
-          $ref: '#/components/schemas/Tags5c2963'
+          $ref: '#/components/schemas/WebResourceDependenciesTags'
         "superbatch": {"$ref": "#/components/schemas/SuperBatchWebResources"}
       title: WebResourceDependencies
     "PermissionSubject":
@@ -8472,7 +8753,7 @@ components:
           format: "int64"
         "subject": {"$ref": "#/components/schemas/PermissionSubject"}
         "operation":
-          $ref: '#/components/schemas/Operation'
+          $ref: '#/components/schemas/SpacePermissionV2Operation'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "id"
@@ -8485,7 +8766,7 @@ components:
       properties:
         "subject": {"$ref": "#/components/schemas/PermissionSubject"}
         "operation":
-          $ref: '#/components/schemas/Operation'
+          $ref: '#/components/schemas/SpacePermissionRequestOperation'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
       required:
         - "subject"
@@ -8567,7 +8848,7 @@ components:
           type: "string"
         space: {"$ref": "#/components/schemas/Space"}
         history:
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/sourceHistory'
         version: {"$ref": "#/components/schemas/Version"}
         ancestors:
           type: "array"
@@ -8581,17 +8862,17 @@ components:
         descendants: {"$ref": "#/components/schemas/ContentChildren"}
         container: {"$ref": "#/components/schemas/Container"}
         body:
-          $ref: '#/components/schemas/Body'
+          $ref: '#/components/schemas/sourceBody'
         restrictions:
-          $ref: '#/components/schemas/Restrictions'
+          $ref: '#/components/schemas/sourceRestrictions'
         metadata:
-          $ref: '#/components/schemas/Metadata5bfc61'
+          $ref: '#/components/schemas/sourceMetadata'
         macroRenderedOutput:
-          $ref: '#/components/schemas/MacroRenderedOutput'
+          $ref: '#/components/schemas/sourceMacroRenderedOutput'
         extensions:
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/sourceExtensions'
         _expandable:
-          $ref: '#/components/schemas/Expandable52d461'
+          $ref: '#/components/schemas/sourceExpandable'
         _links: {"$ref": "#/components/schemas/GenericLinks"}
         ari:
           type: string
@@ -8637,7 +8918,7 @@ components:
           type: "string"
         icon: {"$ref": "#/components/schemas/Icon"}
         description:
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/sourceDescription'
         homepage: {"$ref": "#/components/schemas/Content"}
         permissions:
           type: "array"
@@ -8678,7 +8959,7 @@ components:
           type: "string"
         space: {"$ref": "#/components/schemas/Space"}
         history:
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/targetHistory'
         version: {"$ref": "#/components/schemas/Version"}
         ancestors:
           type: "array"
@@ -8692,17 +8973,17 @@ components:
         descendants: {"$ref": "#/components/schemas/ContentChildren"}
         container: {"$ref": "#/components/schemas/Container"}
         body:
-          $ref: '#/components/schemas/Body'
+          $ref: '#/components/schemas/targetBody'
         restrictions:
-          $ref: '#/components/schemas/Restrictions'
+          $ref: '#/components/schemas/targetRestrictions'
         metadata:
-          $ref: '#/components/schemas/Metadata5bfc61'
+          $ref: '#/components/schemas/targetMetadata'
         macroRenderedOutput:
-          $ref: '#/components/schemas/MacroRenderedOutput'
+          $ref: '#/components/schemas/targetMacroRenderedOutput'
         extensions:
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/targetExtensions'
         _expandable:
-          $ref: '#/components/schemas/Expandable52d461'
+          $ref: '#/components/schemas/targetExpandable'
         _links: {"$ref": "#/components/schemas/GenericLinks"}
         ari:
           type: string
@@ -8748,7 +9029,7 @@ components:
           type: "string"
         icon: {"$ref": "#/components/schemas/Icon"}
         description:
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/targetDescription'
         homepage: {"$ref": "#/components/schemas/Content"}
         permissions:
           type: "array"
@@ -8772,64 +9053,64 @@ components:
         Representation of a blogpost (content)
       nullable: true
       title: target
-    ArchivePagesB:
+    PostWikiRestcontentArchiveV1B:
       type: "object"
       properties:
         "pages":
           type: "array"
           items:
             $ref: '#/components/schemas/PagesItem'
-      title: ArchivePagesB
-    AddLabelsToContentB:
+      title: PostWikiRestcontentArchiveV1B
+    PostWikiRestcontentByIDLabelV1B:
       oneOf:
         - {"$ref": "#/components/schemas/LabelCreateArray"}
         - {"$ref": "#/components/schemas/LabelCreate"}
-      title: AddLabelsToContentB
-    AddLabelsToSpaceB:
+      title: PostWikiRestcontentByIDLabelV1B
+    PostWikiRestspaceBySpaceKeyLabelV1B:
       type: "array"
       items: {"$ref": "#/components/schemas/LabelCreate"}
-      title: AddLabelsToSpaceB
-    GetModulesR401:
-      type: string
-      description: Shemaless response
-      title: GetModulesR401
-    RegisterModulesR400:
-      type: string
-      description: Shemaless response
-      title: RegisterModulesR400
-    RegisterModulesR401:
-      type: string
-      description: Shemaless response
-      title: RegisterModulesR401
-    RemoveModulesR401:
-      type: string
-      description: Shemaless response
-      title: RemoveModulesR401
-    ExportAuditRecordsR200:
+      title: PostWikiRestspaceBySpaceKeyLabelV1B
+    GetWikiRestauditExportV1R200:
       type: "string"
       format: "binary"
-      title: ExportAuditRecordsR200
-    MovePageR200:
+      title: GetWikiRestauditExportV1R200
+    PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200:
       type: "object"
       properties:
         "pageId": {"$ref": "#/components/schemas/ContentId"}
-      title: MovePageR200
-    GetRestrictionsByOperation:
+      title: PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200
+    GetWikiRestcontentByIDRestrictionByOperationV1:
       type: "object"
-      title: GetRestrictionsByOperation
+      title: GetWikiRestcontentByIDRestrictionByOperationV1
       properties:
         operationType: {"$ref": "#/components/schemas/ContentRestriction"}
         _links: {"$ref": "#/components/schemas/GenericLinks"}
-    GetCustomContentStatesR200:
+    GetWikiRestcontentStatesV1R200:
       type: "array"
       items: {"$ref": "#/components/schemas/ContentState"}
-      title: GetCustomContentStatesR200
-    GetSpaceContentStatesR200:
+      title: GetWikiRestcontentStatesV1R200
+    GetWikiRestspaceBySpaceKeyStateV1R200:
       type: "array"
       items: {"$ref": "#/components/schemas/ContentState"}
       description: "Space suggested content states that users can choose from"
-      title: GetSpaceContentStatesR200
-    GetViewsR200:
+      title: GetWikiRestspaceBySpaceKeyStateV1R200
+    GetAtlassianConnect1AppModuleDynamicV1R401:
+      type: string
+      description: Shemaless response
+      title: GetAtlassianConnect1AppModuleDynamicV1R401
+    PostAtlassianConnect1AppModuleDynamicV1R400:
+      type: string
+      description: Shemaless response
+      title: PostAtlassianConnect1AppModuleDynamicV1R400
+    PostAtlassianConnect1AppModuleDynamicV1R401:
+      type: string
+      description: Shemaless response
+      title: PostAtlassianConnect1AppModuleDynamicV1R401
+    DeleteAtlassianConnect1AppModuleDynamicV1R401:
+      type: string
+      description: Shemaless response
+      title: DeleteAtlassianConnect1AppModuleDynamicV1R401
+    GetWikiRestanalyticsContentByContentIDViewsV1R200:
       type: "object"
       properties:
         "id":
@@ -8838,8 +9119,8 @@ components:
         "count":
           type: "integer"
           description: "The total number of views for the content."
-      title: GetViewsR200
-    GetViewersR200:
+      title: GetWikiRestanalyticsContentByContentIDViewsV1R200
+    GetWikiRestanalyticsContentByContentIDViewersV1R200:
       type: "object"
       properties:
         "id":
@@ -8848,7 +9129,7 @@ components:
         "count":
           type: "integer"
           description: "The total number of distinct viewers for the content."
-      title: GetViewersR200
+      title: GetWikiRestanalyticsContentByContentIDViewersV1R200
     TypeEnum:
       type: "string"
       enum:
@@ -9106,7 +9387,7 @@ components:
         - "delete"
       description: "The content permission operation to check."
       title: OperationEnum04b7f7
-    Version83f448:
+    AttachmentUpdateVersion:
       type: "object"
       properties:
         "number":
@@ -9116,8 +9397,8 @@ components:
       required:
         - "number"
       description: "The attachment version. Set this to the current version number of the\nattachment. Note, the version number only needs to be incremented when\nupdating the actual attachment, not its properties."
-      title: Version83f448
-    Metadata:
+      title: AttachmentUpdateVersion
+    AttachmentUpdateMetadata:
       type: "object"
       properties:
         "mediaType":
@@ -9126,8 +9407,8 @@ components:
         "comment":
           type: "string"
           description: "The comment for this update."
-      title: Metadata
-    Containerb524b8:
+      title: AttachmentUpdateMetadata
+    AttachmentUpdateContainer:
       type: "object"
       properties:
         "id":
@@ -9140,8 +9421,8 @@ components:
         - "id"
         - "type"
       description: "The new content to attach the attachment to."
-      title: Containerb524b8
-    Author:
+      title: AttachmentUpdateContainer
+    AuditRecordAuthor:
       type: "object"
       properties:
         "type":
@@ -9152,7 +9433,9 @@ components:
         "displayName":
           type: "string"
         "operations":
-          $ref: '#/components/schemas/Operations'
+          type: "array"
+          items: {"$ref": "#/components/schemas/OperationCheckResult"}
+          nullable: true
         "username": {"$ref": "#/components/schemas/GenericUserName"}
         "userKey": {"$ref": "#/components/schemas/GenericUserKey"}
         "accountId": {"$ref": "#/components/schemas/GenericAccountId"}
@@ -9172,10 +9455,9 @@ components:
           description: "The public name or nickname of the user. Will always contain a value."
       required:
         - "displayName"
-        - "operations"
         - "type"
-      title: Author
-    Author0d1a37:
+      title: AuditRecordAuthor
+    AuditRecordCreateAuthor:
       type: "object"
       properties:
         "type":
@@ -9188,14 +9470,16 @@ components:
           type: "string"
           description: "The name that is displayed on the audit log in the Confluence UI."
         "operations":
-          $ref: '#/components/schemas/Operationsd3ea1b'
+          type: "array"
+          items: {"$ref": "#/components/schemas/OperationCheckResult"}
+          description: "Always defaults to null."
         "username": {"$ref": "#/components/schemas/GenericUserName"}
         "userKey": {"$ref": "#/components/schemas/GenericUserKey"}
       required:
         - "type"
       description: "The user that actioned the event. If `author` is not specified, then all\n`author` properties will be set to null/empty, except for `type` which\nwill be set to 'user'."
-      title: Author0d1a37
-    OriginalTemplate:
+      title: AuditRecordCreateAuthor
+    BlueprintTemplateOriginalTemplate:
       type: "object"
       properties:
         "pluginKey":
@@ -9205,27 +9489,27 @@ components:
       required:
         - "moduleKey"
         - "pluginKey"
-      title: OriginalTemplate
-    Space82ef96:
+      title: BlueprintTemplateOriginalTemplate
+    BlueprintTemplateSpace:
       type: "object"
       additionalProperties: true
-      title: Space82ef96
-    Expandable:
+      title: BlueprintTemplateSpace
+    BlueprintTemplateExpandable:
       type: "object"
       properties:
         "body":
           type: "string"
-      title: Expandable
-    Metadata9a43e8:
+      title: BlueprintTemplateExpandable
+    AttachmentPropertiesUpdateBodyMetadata:
       type: "object"
       properties:
         "mediaType":
           type: "string"
-      title: Metadata9a43e8
-    Extensions:
+      title: AttachmentPropertiesUpdateBodyMetadata
+    AttachmentPropertiesUpdateBodyExtensions:
       type: "object"
-      title: Extensions
-    Body:
+      title: AttachmentPropertiesUpdateBodyExtensions
+    ContentBodye84b79:
       type: "object"
       properties:
         "view": {"$ref": "#/components/schemas/ContentBody"}
@@ -9240,23 +9524,26 @@ components:
         "dynamic": {"$ref": "#/components/schemas/ContentBody"}
         "raw": {"$ref": "#/components/schemas/ContentBody"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable7de7ff'
-      title: Body
-    Restrictions:
+          $ref: '#/components/schemas/ContentBodye84b79Expandable'
+      title: ContentBodye84b79
+    ContentRestrictions:
       type: "object"
       properties:
         "read": {"$ref": "#/components/schemas/ContentRestriction"}
         "update": {"$ref": "#/components/schemas/ContentRestriction"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable25a645'
+          $ref: '#/components/schemas/ContentRestrictionsExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
-      title: Restrictions
-    MacroRenderedOutput:
+      title: ContentRestrictions
+    ContentMacroRenderedOutput:
       type: "object"
       additionalProperties:
         type: "object"
-      title: MacroRenderedOutput
-    Expandable07c2ed:
+      title: ContentMacroRenderedOutput
+    ContentExtensions:
+      type: "object"
+      title: ContentExtensions
+    ContentExpandable:
       type: "object"
       properties:
         "childTypes":
@@ -9291,8 +9578,8 @@ components:
           type: "string"
         "macroRenderedOutput":
           type: "string"
-      title: Expandable07c2ed
-    Versiona9ec0e:
+      title: ContentExpandable
+    ContentBlueprintDraftVersion:
       type: "object"
       properties:
         "number":
@@ -9303,8 +9590,8 @@ components:
         - "number"
       additionalProperties: true
       description: "The version for the new content."
-      title: Versiona9ec0e
-    Space33569e:
+      title: ContentBlueprintDraftVersion
+    ContentBlueprintDraftSpace:
       type: "object"
       properties:
         "key":
@@ -9315,7 +9602,7 @@ components:
         - "key"
       additionalProperties: true
       description: "The space for the content."
-      title: Space33569e
+      title: ContentBlueprintDraftSpace
     AncestorsItem:
       type: "object"
       properties:
@@ -9325,7 +9612,7 @@ components:
       required:
         - "id"
       title: AncestorsItem
-    MediaToken:
+    AsyncContentBodyMediaToken:
       type: "object"
       properties:
         "collectionIds":
@@ -9342,8 +9629,8 @@ components:
             type: "string"
         "token":
           type: "string"
-      title: MediaToken
-    Expandable9bc16d:
+      title: AsyncContentBodyMediaToken
+    AsyncContentBodyExpandable:
       type: "object"
       properties:
         "content":
@@ -9354,8 +9641,38 @@ components:
           type: "string"
         "mediaToken":
           type: "string"
-      title: Expandable9bc16d
-    Expandable3263e2:
+      title: AsyncContentBodyExpandable
+    ContentBodyMediaToken:
+      type: "object"
+      properties:
+        "collectionIds":
+          type: "array"
+          items:
+            type: "string"
+        "contentId":
+          type: "string"
+        "expiryDateTime":
+          type: "string"
+        "fileIds":
+          type: "array"
+          items:
+            type: "string"
+        "token":
+          type: "string"
+      title: ContentBodyMediaToken
+    ContentBodyExpandable:
+      type: "object"
+      properties:
+        "content":
+          type: "string"
+        "embeddedContent":
+          type: "string"
+        "webresource":
+          type: "string"
+        "mediaToken":
+          type: "string"
+      title: ContentBodyExpandable
+    ContentChildrenExpandable:
       type: "object"
       properties:
         "attachment":
@@ -9373,8 +9690,8 @@ components:
         "folder":
           type: "string"
       additionalProperties: true
-      title: Expandable3263e2
-    Attachment:
+      title: ContentChildrenExpandable
+    ContentChildTypeAttachment:
       type: "object"
       properties:
         "value":
@@ -9383,8 +9700,8 @@ components:
       required:
         - "_links"
         - "value"
-      title: Attachment
-    Comment:
+      title: ContentChildTypeAttachment
+    ContentChildTypeComment:
       type: "object"
       properties:
         "value":
@@ -9393,8 +9710,8 @@ components:
       required:
         - "_links"
         - "value"
-      title: Comment
-    Page:
+      title: ContentChildTypeComment
+    ContentChildTypePage:
       type: "object"
       properties:
         "value":
@@ -9403,8 +9720,8 @@ components:
       required:
         - "_links"
         - "value"
-      title: Page
-    Expandable890c87:
+      title: ContentChildTypePage
+    ContentChildTypeExpandable:
       type: "object"
       properties:
         "all":
@@ -9423,8 +9740,8 @@ components:
           type: "string"
         "folder":
           type: "string"
-      title: Expandable890c87
-    Spacecc1e40:
+      title: ContentChildTypeExpandable
+    ContentCreateSpace:
       type: "object"
       properties:
         "id":
@@ -9437,13 +9754,13 @@ components:
         "icon": {"$ref": "#/components/schemas/Icon"}
         "identifiers": {"$ref": "#/components/schemas/GlobalSpaceIdentifier"}
         "description":
-          $ref: '#/components/schemas/Description98b3c6'
+          $ref: '#/components/schemas/ContentCreateSpaceDescription'
         "homepage": {"$ref": "#/components/schemas/Content"}
         "type":
           type: "string"
           nullable: true
         "metadata":
-          $ref: '#/components/schemas/Metadataea133f'
+          $ref: '#/components/schemas/ContentCreateSpaceMetadata'
         "operations":
           type: "array"
           items: {"$ref": "#/components/schemas/OperationCheckResult"}
@@ -9459,18 +9776,18 @@ components:
         "theme": {"$ref": "#/components/schemas/Theme"}
         "lookAndFeel": {"$ref": "#/components/schemas/LookAndFeel"}
         "history":
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/ContentCreateSpaceHistory'
         "key":
           type: "string"
           description: "The key of the space."
         "links":
-          $ref: '#/components/schemas/Linksde82bc'
+          $ref: '#/components/schemas/ContentCreateSpaceLinks'
       required:
         - "key"
       description: "The space that the content is being created in."
       nullable: true
-      title: Spacecc1e40
-    Container7b328b:
+      title: ContentCreateSpace
+    ContentCreateContainer:
       type: "object"
       properties:
         "id":
@@ -9487,7 +9804,7 @@ components:
       additionalProperties: true
       description: "The container of the content. Required if type is `comment` or certain types of\ncustom content. If you are trying to create a comment that is a child of another comment,\nspecify the parent comment in the ancestors field, not in this field."
       nullable: true
-      title: Container7b328b
+      title: ContentCreateContainer
     AncestorsItemee9937:
       type: "object"
       properties:
@@ -9498,7 +9815,7 @@ components:
         - "id"
       additionalProperties: true
       title: AncestorsItemee9937
-    Body5304ad:
+    ContentCreateBody:
       type: "object"
       properties:
         "view": {"$ref": "#/components/schemas/ContentBodyCreate"}
@@ -9513,13 +9830,13 @@ components:
         "atlas_doc_format": {"$ref": "#/components/schemas/ContentBodyCreate"}
         "raw": {"$ref": "#/components/schemas/ContentBodyCreate"}
       description: "The body of the new content. Does not apply to attachments.\nOnly one body format should be specified as the property for\nthis object, e.g. `storage`.\n\nNote, `editor2` format is used by Atlassian only. `anonymous_export_view` is\nthe same as `export_view` format but only content viewable by an anonymous\nuser is included."
-      title: Body5304ad
-    Contributors:
+      title: ContentCreateBody
+    ContentHistoryContributors:
       type: "object"
       properties:
         "publishers": {"$ref": "#/components/schemas/UsersUserKeys"}
-      title: Contributors
-    Expandabled312ab:
+      title: ContentHistoryContributors
+    ContentHistoryExpandable:
       type: "object"
       properties:
         "lastUpdated":
@@ -9534,28 +9851,28 @@ components:
           type: "string"
         "lastOwnedBy":
           type: "string"
-      title: Expandabled312ab
-    Currentuser:
+      title: ContentHistoryExpandable
+    ContentMetadataCurrentuser:
       type: "object"
       properties:
         "favourited":
-          $ref: '#/components/schemas/Favourited'
+          $ref: '#/components/schemas/ContentMetadataCurrentuserFavourited'
         "lastmodified":
-          $ref: '#/components/schemas/Lastmodified'
+          $ref: '#/components/schemas/ContentMetadataCurrentuserLastmodified'
         "lastcontributed":
-          $ref: '#/components/schemas/Lastcontributed'
+          $ref: '#/components/schemas/ContentMetadataCurrentuserLastcontributed'
         "viewed":
-          $ref: '#/components/schemas/Viewed'
+          $ref: '#/components/schemas/ContentMetadataCurrentuserViewed'
         "scheduled":
-          $ref: '#/components/schemas/Scheduled'
+          $ref: '#/components/schemas/ContentMetadataCurrentuserScheduled'
         "_expandable":
-          $ref: '#/components/schemas/Expandable6a8e6d'
-      title: Currentuser
-    Frontend:
+          $ref: '#/components/schemas/ContentMetadataCurrentuserExpandable'
+      title: ContentMetadataCurrentuser
+    ContentMetadataFrontend:
       type: "object"
       additionalProperties: true
-      title: Frontend
-    Labels:
+      title: ContentMetadataFrontend
+    ContentMetadataLabels:
       type: object
       properties:
         results:
@@ -9574,8 +9891,8 @@ components:
       required:
         - results
         - size
-      title: Labels
-    Version13bb46:
+      title: ContentMetadataLabels
+    ContentPropertyVersion:
       type: "object"
       properties:
         "when":
@@ -9597,16 +9914,16 @@ components:
         - "number"
         - "when"
       additionalProperties: true
-      title: Version13bb46
-    Expandableabce4d:
+      title: ContentPropertyVersion
+    ContentPropertyExpandable:
       type: "object"
       properties:
         "content":
           type: "string"
         "additionalProperties":
           type: "string"
-      title: Expandableabce4d
-    Version9f6eac:
+      title: ContentPropertyExpandable
+    ContentPropertyUpdateVersion:
       type: "object"
       properties:
         "number":
@@ -9624,24 +9941,24 @@ components:
       additionalProperties: true
       description: "The version number of the property."
       nullable: true
-      title: Version9f6eac
-    Restrictions88a50a:
+      title: ContentPropertyUpdateVersion
+    ContentRestrictionRestrictions:
       type: "object"
       properties:
         "user": {"$ref": "#/components/schemas/UserArray"}
         "group": {"$ref": "#/components/schemas/GroupArray"}
         "_expandable":
-          $ref: '#/components/schemas/Expandableac2380'
-      title: Restrictions88a50a
-    Expandablea42744:
+          $ref: '#/components/schemas/ContentRestrictionRestrictionsExpandable'
+      title: ContentRestrictionRestrictions
+    ContentRestrictionExpandable:
       type: "object"
       properties:
         "restrictions":
           type: "string"
         "content":
           type: "string"
-      title: Expandablea42744
-    Restrictionsf477d3:
+      title: ContentRestrictionExpandable
+    ContentRestrictionUpdateRestrictions:
       type: "object"
       properties:
         "group":
@@ -9655,8 +9972,8 @@ components:
               items: {"$ref": "#/components/schemas/User"}
             - {"$ref": "#/components/schemas/UserArray"}
       description: "The users/groups that the restrictions will be applied to. At least one of\n`user` or `group` must be specified for this object."
-      title: Restrictionsf477d3
-    Restrictionsa50726:
+      title: ContentRestrictionUpdateRestrictions
+    AddContentRestrictionRestrictions:
       type: "object"
       properties:
         "user":
@@ -9670,16 +9987,26 @@ components:
             $ref: '#/components/schemas/GroupIteme9d8fc'
           description: "The groups that the restrictions will be applied to. This array must\nhave at least one item, otherwise it should be omitted."
       description: "The users/groups that the restrictions will be applied to. At least one of\n`user` or `group` must be specified for this object."
-      title: Restrictionsa50726
-    OriginalTemplate25a4f5:
+      title: AddContentRestrictionRestrictions
+    ContentTemplateOriginalTemplate:
       type: "object"
       properties:
         "pluginKey":
           type: "string"
         "moduleKey":
           type: "string"
-      title: OriginalTemplate25a4f5
-    Space3ea116:
+      title: ContentTemplateOriginalTemplate
+    ContentTemplateSpace:
+      type: "object"
+      additionalProperties: true
+      title: ContentTemplateSpace
+    ContentTemplateExpandable:
+      type: "object"
+      properties:
+        "body":
+          type: "string"
+      title: ContentTemplateExpandable
+    ContentTemplateCreateSpace:
       type: "object"
       properties:
         "key":
@@ -9689,8 +10016,8 @@ components:
       additionalProperties: true
       description: "The key for the space of the new template. Only applies to space templates.\nIf the spaceKey is not specified, the template will be created as a global\ntemplate."
       nullable: true
-      title: Space3ea116
-    Spaceb021ae:
+      title: ContentTemplateCreateSpace
+    ContentTemplateUpdateSpace:
       type: "object"
       properties:
         "key":
@@ -9700,8 +10027,8 @@ components:
       additionalProperties: true
       description: "The key for the space of the template. Required if the template is a\nspace template. Set this to the current `space.key`."
       nullable: true
-      title: Spaceb021ae
-    Version5f500d:
+      title: ContentTemplateUpdateSpace
+    ContentUpdateVersion:
       type: "object"
       properties:
         "number":
@@ -9717,7 +10044,7 @@ components:
       additionalProperties: true
       description: "The new version for the updated content. Set this to the current version number incremented by one, unless you are changing the status to 'draft' which must have a version number of 1.\n\nTo get the current version number, use [Get content by ID](#api-content-id-get) and retrieve `version.number`."
       nullable: true
-      title: Version5f500d
+      title: ContentUpdateVersion
     AncestorsItem97fa4e:
       type: "object"
       properties:
@@ -9730,7 +10057,7 @@ components:
         - "id"
       additionalProperties: true
       title: AncestorsItem97fa4e
-    Body632549:
+    ContentUpdateBody:
       type: "object"
       properties:
         "view": {"$ref": "#/components/schemas/ContentBodyCreate"}
@@ -9743,51 +10070,51 @@ components:
         "atlas_doc_format": {"$ref": "#/components/schemas/ContentBodyCreate"}
         "anonymous_export_view": {"$ref": "#/components/schemas/ContentBodyCreate"}
       description: "The updated body of the content. Does not apply to attachments.\nIf you are not sure how to generate these formats, you can create a page in the\nConfluence application, retrieve the content using [Get content](#api-content-get),\nand expand the desired content format, e.g. `expand=body.storage`."
-      title: Body632549
-    Bodyded886:
+      title: ContentUpdateBody
+    CopyPageRequestBody:
       type: "object"
       properties:
         "storage": {"$ref": "#/components/schemas/ContentBodyCreate"}
         "editor2": {"$ref": "#/components/schemas/ContentBodyCreate"}
       description: "If defined, this will replace the body of the destination page."
-      title: Bodyded886
-    Links:
+      title: CopyPageRequestBody
+    LongTaskLinks:
       type: "object"
       properties:
         "status":
           type: "string"
           description: "The URL to retrive status of long task."
       additionalProperties: true
-      title: Links
-    Headings:
+      title: LongTaskLinks
+    LookAndFeelHeadings:
       type: "object"
       properties:
         "color":
           type: "string"
       required:
         - "color"
-      title: Headings
-    Links9496b4:
+      title: LookAndFeelHeadings
+    LookAndFeelLinks:
       type: "object"
       properties:
         "color":
           type: "string"
       required:
         - "color"
-      title: Links9496b4
-    BordersAndDivIDErs:
+      title: LookAndFeelLinks
+    LookAndFeelBordersAndDivIDErs:
       type: "object"
       properties:
         "color":
           type: "string"
       required:
         - "color"
-      title: BordersAndDivIDErs
-    SpaceReference:
+      title: LookAndFeelBordersAndDivIDErs
+    LookAndFeelSpaceReference:
       type: "object"
       nullable: true
-      title: SpaceReference
-    Name:
+      title: LookAndFeelSpaceReference
+    LongTaskStatusName:
       type: "object"
       properties:
         "key":
@@ -9799,8 +10126,8 @@ components:
       required:
         - "args"
         - "key"
-      title: Name
-    AdditionalDetails:
+      title: LongTaskStatusName
+    LongTaskStatusAdditionalDetails:
       type: "object"
       properties:
         "destinationId":
@@ -9811,8 +10138,21 @@ components:
           type: "integer"
         "additionalProperties":
           type: "string"
-      title: AdditionalDetails
-    AdditionalDetails7a6f26:
+      title: LongTaskStatusAdditionalDetails
+    LongTaskStatusWithLinksName:
+      type: "object"
+      properties:
+        "key":
+          type: "string"
+        "args":
+          type: "array"
+          items:
+            $ref: '#/components/schemas/ArgsItem'
+      required:
+        - "args"
+        - "key"
+      title: LongTaskStatusWithLinksName
+    LongTaskStatusWithLinksAdditionalDetails:
       type: "object"
       properties:
         "destinationId":
@@ -9824,19 +10164,19 @@ components:
           type: "integer"
         "additionalProperties":
           type: "string"
-      title: AdditionalDetails7a6f26
-    Parameters:
+      title: LongTaskStatusWithLinksAdditionalDetails
+    MacroInstanceParameters:
       type: "object"
-      title: Parameters
-    HoverOrFocus:
+      title: MacroInstanceParameters
+    MenusLookAndFeelHoverOrFocus:
       type: "object"
       properties:
         "backgroundColor":
           type: "string"
       required:
         - "backgroundColor"
-      title: HoverOrFocus
-    Expandable5c5d70:
+      title: MenusLookAndFeelHoverOrFocus
+    BulkUserLookupExpandable:
       type: "object"
       properties:
         "operations":
@@ -9845,8 +10185,8 @@ components:
           type: "string"
         "personalSpace":
           type: "string"
-      title: Expandable5c5d70
-    HoverOrFocus53690d:
+      title: BulkUserLookupExpandable
+    NavigationLookAndFeelHoverOrFocus:
       type: "object"
       properties:
         "backgroundColor":
@@ -9856,16 +10196,16 @@ components:
       required:
         - "backgroundColor"
         - "color"
-      title: HoverOrFocus53690d
-    HoverOrFocusf1c7a6:
+      title: NavigationLookAndFeelHoverOrFocus
+    TopNavigationLookAndFeelHoverOrFocus:
       type: "object"
       properties:
         "backgroundColor":
           type: "string"
         "color":
           type: "string"
-      title: HoverOrFocusf1c7a6
-    Source:
+      title: TopNavigationLookAndFeelHoverOrFocus
+    RelationSource:
       type:
         - object
         - object
@@ -9882,7 +10222,7 @@ components:
           type: "string"
         space: {"$ref": "#/components/schemas/Space"}
         history:
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/RelationSourceHistory'
         version: {"$ref": "#/components/schemas/Version"}
         ancestors:
           type: "array"
@@ -9896,17 +10236,17 @@ components:
         descendants: {"$ref": "#/components/schemas/ContentChildren"}
         container: {"$ref": "#/components/schemas/Container"}
         body:
-          $ref: '#/components/schemas/Bodye84b79'
+          $ref: '#/components/schemas/RelationSourceBody'
         restrictions:
-          $ref: '#/components/schemas/Restrictionsbc3afc'
+          $ref: '#/components/schemas/RelationSourceRestrictions'
         metadata:
-          $ref: '#/components/schemas/Metadata5bfc61'
+          $ref: '#/components/schemas/RelationSourceMetadata'
         macroRenderedOutput:
-          $ref: '#/components/schemas/MacroRenderedOutput'
+          $ref: '#/components/schemas/RelationSourceMacroRenderedOutput'
         extensions:
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/RelationSourceExtensions'
         _expandable:
-          $ref: '#/components/schemas/Expandable52d461'
+          $ref: '#/components/schemas/RelationSourceExpandable'
         _links: {"$ref": "#/components/schemas/GenericLinks"}
         ari:
           type: string
@@ -9957,7 +10297,7 @@ components:
           type: "string"
         icon: {"$ref": "#/components/schemas/Icon"}
         description:
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/RelationSourceDescription'
         homepage: {"$ref": "#/components/schemas/Content"}
         permissions:
           type: "array"
@@ -9965,6 +10305,7 @@ components:
         settings: {"$ref": "#/components/schemas/SpaceSettings"}
         theme: {"$ref": "#/components/schemas/Theme"}
         lookAndFeel: {"$ref": "#/components/schemas/LookAndFeel"}
+      title: RelationSource
       required:
         - status
         - type
@@ -9980,8 +10321,8 @@ components:
         Base object for all content types.
         Representation of a blogpost (content)
       nullable: true
-      title: Source
-    Target:
+    RelationTarget:
+      title: RelationTarget
       type:
         - object
         - object
@@ -9998,7 +10339,7 @@ components:
           type: "string"
         space: {"$ref": "#/components/schemas/Space"}
         history:
-          $ref: '#/components/schemas/History'
+          $ref: '#/components/schemas/RelationTargetHistory'
         version: {"$ref": "#/components/schemas/Version"}
         ancestors:
           type: "array"
@@ -10012,17 +10353,17 @@ components:
         descendants: {"$ref": "#/components/schemas/ContentChildren"}
         container: {"$ref": "#/components/schemas/Container"}
         body:
-          $ref: '#/components/schemas/Bodye84b79'
+          $ref: '#/components/schemas/RelationTargetBody'
         restrictions:
-          $ref: '#/components/schemas/Restrictionsbc3afc'
+          $ref: '#/components/schemas/RelationTargetRestrictions'
         metadata:
-          $ref: '#/components/schemas/Metadata5bfc61'
+          $ref: '#/components/schemas/RelationTargetMetadata'
         macroRenderedOutput:
-          $ref: '#/components/schemas/MacroRenderedOutput'
+          $ref: '#/components/schemas/RelationTargetMacroRenderedOutput'
         extensions:
-          $ref: '#/components/schemas/Extensions'
+          $ref: '#/components/schemas/RelationTargetExtensions'
         _expandable:
-          $ref: '#/components/schemas/Expandable52d461'
+          $ref: '#/components/schemas/RelationTargetExpandable'
         _links: {"$ref": "#/components/schemas/GenericLinks"}
         ari:
           type: string
@@ -10073,7 +10414,7 @@ components:
           type: "string"
         icon: {"$ref": "#/components/schemas/Icon"}
         description:
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/RelationTargetDescription'
         homepage: {"$ref": "#/components/schemas/Content"}
         permissions:
           type: "array"
@@ -10096,8 +10437,8 @@ components:
         Base object for all content types.
         Representation of a blogpost (content)
       nullable: true
-      title: Target
-    Expandableb48ed1:
+    RelationExpandable:
+      title: RelationExpandable
       type: "object"
       properties:
         "relationData":
@@ -10106,8 +10447,8 @@ components:
           type: "string"
         "target":
           type: "string"
-      title: Expandableb48ed1
-    Layer:
+    ScreenLookAndFeelLayer:
+      title: ScreenLookAndFeelLayer
       type: "object"
       properties:
         "width":
@@ -10115,23 +10456,23 @@ components:
         "height":
           type: "string"
       nullable: true
-      title: Layer
-    Description:
+    SpaceDescription5c128f:
+      title: SpaceDescription5c128f
       type: "object"
       properties:
         "plain": {"$ref": "#/components/schemas/SpaceDescription"}
         "view": {"$ref": "#/components/schemas/SpaceDescription"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable5ee9fc'
-      title: Description
-    Metadata5bfc61:
+          $ref: '#/components/schemas/SpaceDescription5c128fExpandable'
+    SpaceMetadata:
+      title: SpaceMetadata
       type: "object"
       properties:
         "labels": {"$ref": "#/components/schemas/LabelArray"}
         "_expandable":
-          $ref: '#/components/schemas/Expandablea2c799'
-      title: Metadata5bfc61
-    History:
+          $ref: '#/components/schemas/SpaceMetadataExpandable'
+    SpaceHistory:
+      title: SpaceHistory
       type: "object"
       properties:
         "createdDate":
@@ -10140,8 +10481,8 @@ components:
         "createdBy": {"$ref": "#/components/schemas/User"}
       required:
         - "createdDate"
-      title: History
-    Expandable52d461:
+    SpaceExpandable:
+      title: SpaceExpandable
       type: "object"
       properties:
         "settings":
@@ -10166,16 +10507,16 @@ components:
           type: "string"
         "identifiers":
           type: "string"
-      title: Expandable52d461
-    Homepage:
+    SpaceUpdateHomepage:
+      title: SpaceUpdateHomepage
       type: "object"
       description: "The updated homepage for this space"
       nullable: true
-      title: Homepage
     EmbeddedContentItem:
-      type: "object"
       title: EmbeddedContentItem
-    Plain:
+      type: "object"
+    SpaceDescriptionCreatePlain:
+      title: SpaceDescriptionCreatePlain
       type: "object"
       properties:
         "value":
@@ -10185,44 +10526,52 @@ components:
           type: "string"
           description: "Set to 'plain'."
       additionalProperties: true
-      title: Plain
-    Subjects:
+    SpacePermissionSubjects:
+      title: SpacePermissionSubjects
       type: "object"
       properties:
         "user":
-          $ref: '#/components/schemas/Userb34fc6'
+          $ref: '#/components/schemas/SpacePermissionSubjectsUser'
         "group":
-          $ref: '#/components/schemas/Group3997ca'
+          $ref: '#/components/schemas/SpacePermissionSubjectsGroup'
         "_expandable":
-          $ref: '#/components/schemas/Expandableac2380'
+          $ref: '#/components/schemas/SpacePermissionSubjectsExpandable'
       description: "The users and/or groups that the permission applies to."
-      title: Subjects
-    Subjects96eb79:
+    SpacePermissionCreateSubjects:
+      title: SpacePermissionCreateSubjects
       type: "object"
       properties:
         "user":
-          $ref: '#/components/schemas/User19953c'
+          $ref: '#/components/schemas/SpacePermissionCreateSubjectsUser'
         "group":
-          $ref: '#/components/schemas/Groupcf0e10'
+          $ref: '#/components/schemas/SpacePermissionCreateSubjectsGroup'
       description: "The users and/or groups that the permission applies to."
-      title: Subjects96eb79
-    Expandable3adce7:
+    SpacePropertyExpandable:
+      title: SpacePropertyExpandable
       type: "object"
       properties:
         "version":
           type: "string"
         "space":
           type: "string"
-      title: Expandable3adce7
-    Space505a67:
+    SpacePropertyCreateSpace:
+      title: SpacePropertyCreateSpace
       type: "object"
       properties:
         "key":
           type: "string"
           description: "The key of the space"
       additionalProperties: true
-      title: Space505a67
-    Editor:
+    SpacePropertyUpdateSpace:
+      title: SpacePropertyUpdateSpace
+      type: "object"
+      properties:
+        "key":
+          type: "string"
+          description: "The key of the space"
+      additionalProperties: true
+    SpaceSettingsEditor:
+      title: SpaceSettingsEditor
       type: "object"
       properties:
         "page":
@@ -10235,8 +10584,8 @@ components:
         - "page"
         - "blogpost"
         - "default"
-      title: Editor
-    Uris:
+    SuperBatchWebResourcesUris:
+      title: SuperBatchWebResourcesUris
       type: "object"
       properties:
         "all":
@@ -10257,8 +10606,8 @@ components:
               items:
                 type: "string"
             - type: "string"
-      title: Uris
-    Tags:
+    SuperBatchWebResourcesTags:
+      title: SuperBatchWebResourcesTags
       type: "object"
       properties:
         "all":
@@ -10269,18 +10618,28 @@ components:
           type: "string"
         "js":
           type: "string"
-      title: Tags
-    Expandable82ef96:
+    SuperBatchWebResourcesExpandable:
+      title: SuperBatchWebResourcesExpandable
       type: "object"
       additionalProperties: true
-      title: Expandable82ef96
-    Expandabled0ed16:
+    UserExpandable:
+      title: UserExpandable
       type: "object"
       properties:
         "operations":
           type: "string"
-      title: Expandabled0ed16
-    Business:
+        "details":
+          type: "string"
+        "personalSpace":
+          type: "string"
+    UserAnonymousExpandable:
+      title: UserAnonymousExpandable
+      type: "object"
+      properties:
+        "operations":
+          type: "string"
+    UserDetailsBusiness:
+      title: UserDetailsBusiness
       type: "object"
       properties:
         "position":
@@ -10292,8 +10651,8 @@ components:
         "location":
           type: "string"
           description: "This property has been deprecated due to privacy changes. There is no replacement. See the\n[migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)\nfor details."
-      title: Business
-    Personal:
+    UserDetailsPersonal:
+      title: UserDetailsPersonal
       type: "object"
       properties:
         "phone":
@@ -10308,33 +10667,37 @@ components:
         "email":
           type: "string"
           description: "This property has been deprecated due to privacy changes. Use the `User.email` property instead. See the\n[migration guide](https://developer.atlassian.com/cloud/confluence/deprecation-notice-user-privacy-api-migration-guide/)\nfor details."
-      title: Personal
-    Value:
+    UserPropertyValue:
+      title: UserPropertyValue
       type: "object"
       additionalProperties: true
       description: "The value of the content property."
-      title: Value
     ResultsItem:
-      type: "object"
       title: ResultsItem
+      type: "object"
       properties:
         "key":
           type: "string"
-    Value96656d:
-      title: Value96656d
+    UserPropertyCreateValue:
+      title: UserPropertyCreateValue
       type: "object"
       additionalProperties: true
       description: "The value of the user property."
-    Expandablefdb576:
-      title: Expandablefdb576
+    UserPropertyUpdateValue:
+      title: UserPropertyUpdateValue
+      type: "object"
+      additionalProperties: true
+      description: "The value of the user property."
+    VersionExpandable:
+      title: VersionExpandable
       type: "object"
       properties:
         "content":
           type: "string"
         "collaborators":
           type: "string"
-    Params:
-      title: Params
+    VersionRestoreParams:
+      title: VersionRestoreParams
       type: "object"
       properties:
         "versionNumber":
@@ -10351,12 +10714,12 @@ components:
       required:
         - "message"
         - "versionNumber"
-    PersonalSpace:
-      title: PersonalSpace
+    WatchUserPersonalSpace:
+      title: WatchUserPersonalSpace
       type: "object"
       nullable: true
-    Expandablef62071:
-      title: Expandablef62071
+    WebResourceDependenciesExpandable:
+      title: WebResourceDependenciesExpandable
       type: "object"
       properties:
         "uris":
@@ -10365,8 +10728,8 @@ components:
             - type: "object"
               additionalProperties: true
       additionalProperties: true
-    Uris867f9b:
-      title: Uris867f9b
+    WebResourceDependenciesUris:
+      title: WebResourceDependenciesUris
       type: "object"
       properties:
         "all":
@@ -10388,9 +10751,9 @@ components:
                 type: "string"
             - type: "string"
         "_expandable":
-          $ref: '#/components/schemas/Expandable590db0'
-    Tags5c2963:
-      title: Tags5c2963
+          $ref: '#/components/schemas/WebResourceDependenciesUrisExpandable'
+    WebResourceDependenciesTags:
+      title: WebResourceDependenciesTags
       type: "object"
       properties:
         "all":
@@ -10402,9 +10765,42 @@ components:
         "js":
           type: "string"
         "_expandable":
-          $ref: '#/components/schemas/Expandable82ef96'
-    Operation:
-      title: Operation
+          $ref: '#/components/schemas/WebResourceDependenciesTagsExpandable'
+    SpacePermissionV2Operation:
+      title: SpacePermissionV2Operation
+      type: "object"
+      properties:
+        "key":
+          type: "string"
+          enum:
+            - "administer"
+            - "archive"
+            - "copy"
+            - "create"
+            - "delete"
+            - "export"
+            - "move"
+            - "purge"
+            - "purge_version"
+            - "read"
+            - "restore"
+            - "restrict_content"
+            - "update"
+            - "use"
+        "target":
+          type: "string"
+          enum:
+            - "page"
+            - "blogpost"
+            - "comment"
+            - "attachment"
+            - "space"
+          description: "The space or content type that the operation applies to."
+      required:
+        - "key"
+        - "target"
+    SpacePermissionRequestOperation:
+      title: SpacePermissionRequestOperation
       type: "object"
       properties:
         "key":
@@ -10457,6 +10853,176 @@ components:
         - "access"
         - "key"
         - "target"
+    sourceHistory:
+      title: sourceHistory
+      type: "object"
+      properties:
+        "createdDate":
+          type: "string"
+          format: "date-time"
+        "createdBy": {"$ref": "#/components/schemas/User"}
+      required:
+        - "createdDate"
+    sourceBody:
+      title: sourceBody
+      type: "object"
+      properties:
+        "view": {"$ref": "#/components/schemas/ContentBody"}
+        "export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "styled_view": {"$ref": "#/components/schemas/ContentBody"}
+        "storage": {"$ref": "#/components/schemas/ContentBody"}
+        "wiki": {"$ref": "#/components/schemas/ContentBody"}
+        "editor": {"$ref": "#/components/schemas/ContentBody"}
+        "editor2": {"$ref": "#/components/schemas/ContentBody"}
+        "anonymous_export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "atlas_doc_format": {"$ref": "#/components/schemas/ContentBody"}
+        "dynamic": {"$ref": "#/components/schemas/ContentBody"}
+        "raw": {"$ref": "#/components/schemas/ContentBody"}
+        "_expandable":
+          $ref: '#/components/schemas/sourceBodyExpandable'
+    sourceRestrictions:
+      title: sourceRestrictions
+      type: "object"
+      properties:
+        "read": {"$ref": "#/components/schemas/ContentRestriction"}
+        "update": {"$ref": "#/components/schemas/ContentRestriction"}
+        "_expandable":
+          $ref: '#/components/schemas/sourceRestrictionsExpandable'
+        "_links": {"$ref": "#/components/schemas/GenericLinks"}
+    sourceMetadata:
+      title: sourceMetadata
+      type: "object"
+      properties:
+        "labels": {"$ref": "#/components/schemas/LabelArray"}
+        "_expandable":
+          $ref: '#/components/schemas/sourceMetadataExpandable'
+    sourceMacroRenderedOutput:
+      title: sourceMacroRenderedOutput
+      type: "object"
+      additionalProperties:
+        type: "object"
+    sourceExtensions:
+      title: sourceExtensions
+      type: "object"
+    sourceExpandable:
+      title: sourceExpandable
+      type: "object"
+      properties:
+        "settings":
+          type: "string"
+        "metadata":
+          type: "string"
+        "operations":
+          type: "string"
+        "lookAndFeel":
+          type: "string"
+        "permissions":
+          type: "string"
+        "icon":
+          type: "string"
+        "description":
+          type: "string"
+        "theme":
+          type: "string"
+        "history":
+          type: "string"
+        "homepage":
+          type: "string"
+        "identifiers":
+          type: "string"
+    sourceDescription:
+      title: sourceDescription
+      type: "object"
+      properties:
+        "plain": {"$ref": "#/components/schemas/SpaceDescription"}
+        "view": {"$ref": "#/components/schemas/SpaceDescription"}
+        "_expandable":
+          $ref: '#/components/schemas/sourceDescriptionExpandable'
+    targetHistory:
+      title: targetHistory
+      type: "object"
+      properties:
+        "createdDate":
+          type: "string"
+          format: "date-time"
+        "createdBy": {"$ref": "#/components/schemas/User"}
+      required:
+        - "createdDate"
+    targetBody:
+      title: targetBody
+      type: "object"
+      properties:
+        "view": {"$ref": "#/components/schemas/ContentBody"}
+        "export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "styled_view": {"$ref": "#/components/schemas/ContentBody"}
+        "storage": {"$ref": "#/components/schemas/ContentBody"}
+        "wiki": {"$ref": "#/components/schemas/ContentBody"}
+        "editor": {"$ref": "#/components/schemas/ContentBody"}
+        "editor2": {"$ref": "#/components/schemas/ContentBody"}
+        "anonymous_export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "atlas_doc_format": {"$ref": "#/components/schemas/ContentBody"}
+        "dynamic": {"$ref": "#/components/schemas/ContentBody"}
+        "raw": {"$ref": "#/components/schemas/ContentBody"}
+        "_expandable":
+          $ref: '#/components/schemas/targetBodyExpandable'
+    targetRestrictions:
+      title: targetRestrictions
+      type: "object"
+      properties:
+        "read": {"$ref": "#/components/schemas/ContentRestriction"}
+        "update": {"$ref": "#/components/schemas/ContentRestriction"}
+        "_expandable":
+          $ref: '#/components/schemas/targetRestrictionsExpandable'
+        "_links": {"$ref": "#/components/schemas/GenericLinks"}
+    targetMetadata:
+      title: targetMetadata
+      type: "object"
+      properties:
+        "labels": {"$ref": "#/components/schemas/LabelArray"}
+        "_expandable":
+          $ref: '#/components/schemas/targetMetadataExpandable'
+    targetMacroRenderedOutput:
+      title: targetMacroRenderedOutput
+      type: "object"
+      additionalProperties:
+        type: "object"
+    targetExtensions:
+      title: targetExtensions
+      type: "object"
+    targetExpandable:
+      title: targetExpandable
+      type: "object"
+      properties:
+        "settings":
+          type: "string"
+        "metadata":
+          type: "string"
+        "operations":
+          type: "string"
+        "lookAndFeel":
+          type: "string"
+        "permissions":
+          type: "string"
+        "icon":
+          type: "string"
+        "description":
+          type: "string"
+        "theme":
+          type: "string"
+        "history":
+          type: "string"
+        "homepage":
+          type: "string"
+        "identifiers":
+          type: "string"
+    targetDescription:
+      title: targetDescription
+      type: "object"
+      properties:
+        "plain": {"$ref": "#/components/schemas/SpaceDescription"}
+        "view": {"$ref": "#/components/schemas/SpaceDescription"}
+        "_expandable":
+          $ref: '#/components/schemas/targetDescriptionExpandable'
     PagesItem:
       title: PagesItem
       type: "object"
@@ -10467,16 +11033,8 @@ components:
           description: "The `id` of the page to be archived."
       required:
         - "id"
-    Operations:
-      title: Operations
-      type: "object"
-      nullable: true
-    Operationsd3ea1b:
-      title: Operationsd3ea1b
-      type: "object"
-      description: "Always defaults to null."
-    Expandable7de7ff:
-      title: Expandable7de7ff
+    ContentBodye84b79Expandable:
+      title: ContentBodye84b79Expandable
       type: "object"
       properties:
         "editor":
@@ -10501,38 +11059,48 @@ components:
           type: "string"
         "raw":
           type: "string"
-    Expandable25a645:
-      title: Expandable25a645
+    ContentRestrictionsExpandable:
+      title: ContentRestrictionsExpandable
       type: "object"
       properties:
         "read":
           type: "string"
         "update":
           type: "string"
-    Description98b3c6:
-      title: Description98b3c6
+    ContentCreateSpaceDescription:
+      title: ContentCreateSpaceDescription
       type: "object"
       properties:
         "plain": {"$ref": "#/components/schemas/SpaceDescription"}
         "view": {"$ref": "#/components/schemas/SpaceDescription"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable5ee9fc'
+          $ref: '#/components/schemas/ContentCreateSpaceDescriptionExpandable'
       nullable: true
-    Metadataea133f:
-      title: Metadataea133f
+    ContentCreateSpaceMetadata:
+      title: ContentCreateSpaceMetadata
       type: "object"
       properties:
         "labels": {"$ref": "#/components/schemas/LabelArray"}
         "_expandable":
-          $ref: '#/components/schemas/Expandablea2c799'
+          $ref: '#/components/schemas/ContentCreateSpaceMetadataExpandable'
       nullable: true
-    Linksde82bc:
-      title: Linksde82bc
+    ContentCreateSpaceHistory:
+      title: ContentCreateSpaceHistory
+      type: "object"
+      properties:
+        "createdDate":
+          type: "string"
+          format: "date-time"
+        "createdBy": {"$ref": "#/components/schemas/User"}
+      required:
+        - "createdDate"
+    ContentCreateSpaceLinks:
+      title: ContentCreateSpaceLinks
       type: "object"
       additionalProperties: true
       nullable: true
-    Favourited:
-      title: Favourited
+    ContentMetadataCurrentuserFavourited:
+      title: ContentMetadataCurrentuserFavourited
       type: "object"
       properties:
         "isFavourite":
@@ -10540,15 +11108,15 @@ components:
         "favouritedDate":
           type: "string"
           format: "date-time"
-    Lastmodified:
-      title: Lastmodified
+    ContentMetadataCurrentuserLastmodified:
+      title: ContentMetadataCurrentuserLastmodified
       type: "object"
       properties:
         "version": {"$ref": "#/components/schemas/Version"}
         "friendlyLastModified":
           type: "string"
-    Lastcontributed:
-      title: Lastcontributed
+    ContentMetadataCurrentuserLastcontributed:
+      title: ContentMetadataCurrentuserLastcontributed
       type: "object"
       properties:
         "status":
@@ -10556,8 +11124,8 @@ components:
         "when":
           type: "string"
           format: "date-time"
-    Viewed:
-      title: Viewed
+    ContentMetadataCurrentuserViewed:
+      title: ContentMetadataCurrentuserViewed
       type: "object"
       properties:
         "lastSeen":
@@ -10565,11 +11133,11 @@ components:
           format: "date-time"
         "friendlyLastSeen":
           type: "string"
-    Scheduled:
-      title: Scheduled
+    ContentMetadataCurrentuserScheduled:
+      title: ContentMetadataCurrentuserScheduled
       type: "object"
-    Expandable6a8e6d:
-      title: Expandable6a8e6d
+    ContentMetadataCurrentuserExpandable:
+      title: ContentMetadataCurrentuserExpandable
       type: "object"
       properties:
         "favourited":
@@ -10582,8 +11150,8 @@ components:
           type: "string"
         "scheduled":
           type: "string"
-    Expandableac2380:
-      title: Expandableac2380
+    ContentRestrictionRestrictionsExpandable:
+      title: ContentRestrictionRestrictionsExpandable
       type: "object"
       properties:
         "user":
@@ -10643,8 +11211,18 @@ components:
     ArgsItem:
       title: ArgsItem
       type: "object"
-    Bodye84b79:
-      title: Bodye84b79
+    RelationSourceHistory:
+      title: RelationSourceHistory
+      type: "object"
+      properties:
+        "createdDate":
+          type: "string"
+          format: "date-time"
+        "createdBy": {"$ref": "#/components/schemas/User"}
+      required:
+        - "createdDate"
+    RelationSourceBody:
+      title: RelationSourceBody
       type: "object"
       properties:
         "view": {"$ref": "#/components/schemas/ContentBody"}
@@ -10659,29 +11237,163 @@ components:
         "dynamic": {"$ref": "#/components/schemas/ContentBody"}
         "raw": {"$ref": "#/components/schemas/ContentBody"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable7de7ff'
-    Restrictionsbc3afc:
-      title: Restrictionsbc3afc
+          $ref: '#/components/schemas/RelationSourceBodyExpandable'
+    RelationSourceRestrictions:
+      title: RelationSourceRestrictions
       type: "object"
       properties:
         "read": {"$ref": "#/components/schemas/ContentRestriction"}
         "update": {"$ref": "#/components/schemas/ContentRestriction"}
         "_expandable":
-          $ref: '#/components/schemas/Expandable25a645'
+          $ref: '#/components/schemas/RelationSourceRestrictionsExpandable'
         "_links": {"$ref": "#/components/schemas/GenericLinks"}
-    Expandable5ee9fc:
-      title: Expandable5ee9fc
+    RelationSourceMetadata:
+      title: RelationSourceMetadata
+      type: "object"
+      properties:
+        "labels": {"$ref": "#/components/schemas/LabelArray"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationSourceMetadataExpandable'
+    RelationSourceMacroRenderedOutput:
+      title: RelationSourceMacroRenderedOutput
+      type: "object"
+      additionalProperties:
+        type: "object"
+    RelationSourceExtensions:
+      title: RelationSourceExtensions
+      type: "object"
+    RelationSourceExpandable:
+      title: RelationSourceExpandable
+      type: "object"
+      properties:
+        "settings":
+          type: "string"
+        "metadata":
+          type: "string"
+        "operations":
+          type: "string"
+        "lookAndFeel":
+          type: "string"
+        "permissions":
+          type: "string"
+        "icon":
+          type: "string"
+        "description":
+          type: "string"
+        "theme":
+          type: "string"
+        "history":
+          type: "string"
+        "homepage":
+          type: "string"
+        "identifiers":
+          type: "string"
+    RelationSourceDescription:
+      title: RelationSourceDescription
+      type: "object"
+      properties:
+        "plain": {"$ref": "#/components/schemas/SpaceDescription"}
+        "view": {"$ref": "#/components/schemas/SpaceDescription"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationSourceDescriptionExpandable'
+    RelationTargetHistory:
+      title: RelationTargetHistory
+      type: "object"
+      properties:
+        "createdDate":
+          type: "string"
+          format: "date-time"
+        "createdBy": {"$ref": "#/components/schemas/User"}
+      required:
+        - "createdDate"
+    RelationTargetBody:
+      title: RelationTargetBody
+      type: "object"
+      properties:
+        "view": {"$ref": "#/components/schemas/ContentBody"}
+        "export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "styled_view": {"$ref": "#/components/schemas/ContentBody"}
+        "storage": {"$ref": "#/components/schemas/ContentBody"}
+        "wiki": {"$ref": "#/components/schemas/ContentBody"}
+        "editor": {"$ref": "#/components/schemas/ContentBody"}
+        "editor2": {"$ref": "#/components/schemas/ContentBody"}
+        "anonymous_export_view": {"$ref": "#/components/schemas/ContentBody"}
+        "atlas_doc_format": {"$ref": "#/components/schemas/ContentBody"}
+        "dynamic": {"$ref": "#/components/schemas/ContentBody"}
+        "raw": {"$ref": "#/components/schemas/ContentBody"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationTargetBodyExpandable'
+    RelationTargetRestrictions:
+      title: RelationTargetRestrictions
+      type: "object"
+      properties:
+        "read": {"$ref": "#/components/schemas/ContentRestriction"}
+        "update": {"$ref": "#/components/schemas/ContentRestriction"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationTargetRestrictionsExpandable'
+        "_links": {"$ref": "#/components/schemas/GenericLinks"}
+    RelationTargetMetadata:
+      title: RelationTargetMetadata
+      type: "object"
+      properties:
+        "labels": {"$ref": "#/components/schemas/LabelArray"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationTargetMetadataExpandable'
+    RelationTargetMacroRenderedOutput:
+      title: RelationTargetMacroRenderedOutput
+      type: "object"
+      additionalProperties:
+        type: "object"
+    RelationTargetExtensions:
+      title: RelationTargetExtensions
+      type: "object"
+    RelationTargetExpandable:
+      title: RelationTargetExpandable
+      type: "object"
+      properties:
+        "settings":
+          type: "string"
+        "metadata":
+          type: "string"
+        "operations":
+          type: "string"
+        "lookAndFeel":
+          type: "string"
+        "permissions":
+          type: "string"
+        "icon":
+          type: "string"
+        "description":
+          type: "string"
+        "theme":
+          type: "string"
+        "history":
+          type: "string"
+        "homepage":
+          type: "string"
+        "identifiers":
+          type: "string"
+    RelationTargetDescription:
+      title: RelationTargetDescription
+      type: "object"
+      properties:
+        "plain": {"$ref": "#/components/schemas/SpaceDescription"}
+        "view": {"$ref": "#/components/schemas/SpaceDescription"}
+        "_expandable":
+          $ref: '#/components/schemas/RelationTargetDescriptionExpandable'
+    SpaceDescription5c128fExpandable:
+      title: SpaceDescription5c128fExpandable
       type: "object"
       properties:
         "view":
           type: "string"
         "plain":
           type: "string"
-    Expandablea2c799:
-      title: Expandablea2c799
+    SpaceMetadataExpandable:
+      title: SpaceMetadataExpandable
       type: "object"
-    Userb34fc6:
-      title: Userb34fc6
+    SpacePermissionSubjectsUser:
+      title: SpacePermissionSubjectsUser
       type: "object"
       properties:
         "results":
@@ -10699,8 +11411,8 @@ components:
       required:
         - "results"
         - "size"
-    Group3997ca:
-      title: Group3997ca
+    SpacePermissionSubjectsGroup:
+      title: SpacePermissionSubjectsGroup
       type: "object"
       properties:
         "results":
@@ -10718,8 +11430,16 @@ components:
       required:
         - "results"
         - "size"
-    User19953c:
-      title: User19953c
+    SpacePermissionSubjectsExpandable:
+      title: SpacePermissionSubjectsExpandable
+      type: "object"
+      properties:
+        "user":
+          type: "string"
+        "group":
+          type: "string"
+    SpacePermissionCreateSubjectsUser:
+      title: SpacePermissionCreateSubjectsUser
       type: "object"
       properties:
         "results":
@@ -10731,8 +11451,8 @@ components:
       required:
         - "results"
         - "size"
-    Groupcf0e10:
-      title: Groupcf0e10
+    SpacePermissionCreateSubjectsGroup:
+      title: SpacePermissionCreateSubjectsGroup
       type: "object"
       properties:
         "results":
@@ -10744,8 +11464,8 @@ components:
       required:
         - "results"
         - "size"
-    Expandable590db0:
-      title: Expandable590db0
+    WebResourceDependenciesUrisExpandable:
+      title: WebResourceDependenciesUrisExpandable
       type: "object"
       properties:
         "css":
@@ -10761,6 +11481,201 @@ components:
                 type: "string"
             - type: "string"
       additionalProperties: true
+    WebResourceDependenciesTagsExpandable:
+      title: WebResourceDependenciesTagsExpandable
+      type: "object"
+      additionalProperties: true
+    sourceBodyExpandable:
+      title: sourceBodyExpandable
+      type: "object"
+      properties:
+        "editor":
+          type: "string"
+        "view":
+          type: "string"
+        "export_view":
+          type: "string"
+        "styled_view":
+          type: "string"
+        "storage":
+          type: "string"
+        "editor2":
+          type: "string"
+        "anonymous_export_view":
+          type: "string"
+        "atlas_doc_format":
+          type: "string"
+        "wiki":
+          type: "string"
+        "dynamic":
+          type: "string"
+        "raw":
+          type: "string"
+    sourceRestrictionsExpandable:
+      title: sourceRestrictionsExpandable
+      type: "object"
+      properties:
+        "read":
+          type: "string"
+        "update":
+          type: "string"
+    sourceMetadataExpandable:
+      title: sourceMetadataExpandable
+      type: "object"
+    sourceDescriptionExpandable:
+      title: sourceDescriptionExpandable
+      type: "object"
+      properties:
+        "view":
+          type: "string"
+        "plain":
+          type: "string"
+    targetBodyExpandable:
+      title: targetBodyExpandable
+      type: "object"
+      properties:
+        "editor":
+          type: "string"
+        "view":
+          type: "string"
+        "export_view":
+          type: "string"
+        "styled_view":
+          type: "string"
+        "storage":
+          type: "string"
+        "editor2":
+          type: "string"
+        "anonymous_export_view":
+          type: "string"
+        "atlas_doc_format":
+          type: "string"
+        "wiki":
+          type: "string"
+        "dynamic":
+          type: "string"
+        "raw":
+          type: "string"
+    targetRestrictionsExpandable:
+      title: targetRestrictionsExpandable
+      type: "object"
+      properties:
+        "read":
+          type: "string"
+        "update":
+          type: "string"
+    targetMetadataExpandable:
+      title: targetMetadataExpandable
+      type: "object"
+    targetDescriptionExpandable:
+      title: targetDescriptionExpandable
+      type: "object"
+      properties:
+        "view":
+          type: "string"
+        "plain":
+          type: "string"
+    ContentCreateSpaceDescriptionExpandable:
+      title: ContentCreateSpaceDescriptionExpandable
+      type: "object"
+      properties:
+        "view":
+          type: "string"
+        "plain":
+          type: "string"
+    ContentCreateSpaceMetadataExpandable:
+      title: ContentCreateSpaceMetadataExpandable
+      type: "object"
+    RelationSourceBodyExpandable:
+      title: RelationSourceBodyExpandable
+      type: "object"
+      properties:
+        "editor":
+          type: "string"
+        "view":
+          type: "string"
+        "export_view":
+          type: "string"
+        "styled_view":
+          type: "string"
+        "storage":
+          type: "string"
+        "editor2":
+          type: "string"
+        "anonymous_export_view":
+          type: "string"
+        "atlas_doc_format":
+          type: "string"
+        "wiki":
+          type: "string"
+        "dynamic":
+          type: "string"
+        "raw":
+          type: "string"
+    RelationSourceRestrictionsExpandable:
+      title: RelationSourceRestrictionsExpandable
+      type: "object"
+      properties:
+        "read":
+          type: "string"
+        "update":
+          type: "string"
+    RelationSourceMetadataExpandable:
+      title: RelationSourceMetadataExpandable
+      type: "object"
+    RelationSourceDescriptionExpandable:
+      title: RelationSourceDescriptionExpandable
+      type: "object"
+      properties:
+        "view":
+          type: "string"
+        "plain":
+          type: "string"
+    RelationTargetBodyExpandable:
+      title: RelationTargetBodyExpandable
+      type: "object"
+      properties:
+        "editor":
+          type: "string"
+        "view":
+          type: "string"
+        "export_view":
+          type: "string"
+        "styled_view":
+          type: "string"
+        "storage":
+          type: "string"
+        "editor2":
+          type: "string"
+        "anonymous_export_view":
+          type: "string"
+        "atlas_doc_format":
+          type: "string"
+        "wiki":
+          type: "string"
+        "dynamic":
+          type: "string"
+        "raw":
+          type: "string"
+    RelationTargetRestrictionsExpandable:
+      title: RelationTargetRestrictionsExpandable
+      type: "object"
+      properties:
+        "read":
+          type: "string"
+        "update":
+          type: "string"
+    RelationTargetMetadataExpandable:
+      title: RelationTargetMetadataExpandable
+      type: "object"
+    RelationTargetDescriptionExpandable:
+      title: RelationTargetDescriptionExpandable
+      type: "object"
+      properties:
+        "view":
+          type: "string"
+        "plain":
+          type: "string"
   parameters:
     "contentExpand":
       name: "expand"
@@ -10940,39 +11855,69 @@ components:
             "read:email-address:confluence": "View email addresses of all users regardless of the user’s profile visibility settings."
 tags:
   - name: "Audit"
+    description: ""
   - name: "Analytics"
+    description: ""
   - name: "Content"
+    description: ""
   - name: "Content - attachments"
+    description: ""
   - name: "Content body"
+    description: ""
   - name: "Content - children and descendants"
+    description: ""
   - name: "Content - macro body"
+    description: ""
   - name: "Content comments"
+    description: ""
   - name: "Content labels"
+    description: ""
   - name: "Content permissions"
+    description: ""
   - name: "Content properties"
+    description: ""
   - name: "Content restrictions"
+    description: ""
   - name: "Content states"
+    description: ""
   - name: "Content versions"
+    description: ""
   - name: "Content watches"
+    description: ""
   - name: "Dynamic modules"
+    description: ""
   - name: "Experimental"
     description: "APIs in this section can change without any prior deprecation notice."
   - name: "Group"
     description: "**[WARNING](https://support.atlassian.com/user-management/docs/create-and-update-groups/) The standard Atlassian group names are default names only and can be edited or deleted.** For example, an admin or Atlassian support could delete the default group jira-software-users or rename it to jsw-users at any point."
   - name: "Inline tasks"
+    description: ""
   - name: "Label info"
+    description: ""
   - name: "Long-running task"
+    description: ""
   - name: "Relation"
+    description: ""
   - name: "Search"
+    description: ""
   - name: "Settings"
+    description: ""
   - name: "Space"
+    description: ""
   - name: "Space permissions"
+    description: ""
   - name: "Space properties"
+    description: ""
   - name: "Space settings"
+    description: ""
   - name: "Template"
+    description: ""
   - name: "Themes"
+    description: ""
   - name: "Users"
+    description: ""
   - name: "User properties"
+    description: ""
 externalDocs:
   description: "The online and complete version of the Confluence Cloud REST API docs."
   url: "https://developer.atlassian.com/cloud/confluence/rest/"
