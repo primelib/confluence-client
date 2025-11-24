@@ -1,27 +1,30 @@
-# *Confluence API Client*
+# *Confluence Client*
+
 
 Confluence is a web-based corporate wiki developed by Australian software company Atlassian.
 
-- [Confluence](https://www.atlassian.com/software/confluence)
+
+**Links**:
+- [Confluence API Documentation](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about)
+
 
 ## API Specification
 
 This repository includes API specifications from the following sources:
-
-- [Confluence REST API](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about)
+- [https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json](https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json)
 
 ## Libraries
-
 > **⚠️ Unofficial**
-> 
+>
 > This repository and the generated SDKs are unofficial and are not maintained, endorsed, or sponsored by Atlassian, or any other original API providers.
 > Use at your own risk. Consult the official API documentation and terms of service of each provider before integrating.
 
-- [Java](sdk/java/README.md)
+
+- [java](sdk/java/README.md)
 
 ## License
 
-### API Specifications License
+### API Specification License
 
 API specifications are included for development and code generation purposes only.
 
