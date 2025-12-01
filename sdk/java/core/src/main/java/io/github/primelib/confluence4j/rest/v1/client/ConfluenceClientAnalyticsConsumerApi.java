@@ -2,8 +2,8 @@
 
 package io.github.primelib.confluence4j.rest.v1.client;
 
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewersV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewsV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewersV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewsV1R200;
 import io.github.primelib.confluence4j.rest.v1.operations.GetAnalyticsContentByContentIDViewersV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.GetAnalyticsContentByContentIDViewsV1OperationSpec;
 import java.util.function.Consumer;
@@ -34,7 +34,7 @@ public class ConfluenceClientAnalyticsConsumerApi {
      *   <li>fromDate: The number of views for the content since the date.</li>
      * </ul>
      */
-    public GetWikiRestanalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(Consumer<GetAnalyticsContentByContentIDViewsV1OperationSpec> spec) {
+    public GetAnalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(Consumer<GetAnalyticsContentByContentIDViewsV1OperationSpec> spec) {
         GetAnalyticsContentByContentIDViewsV1OperationSpec r = new GetAnalyticsContentByContentIDViewsV1OperationSpec(spec);
         return api.getAnalyticsContentByContentIdviewsV1(r.contentId(), r.fromDate());
     }
@@ -52,7 +52,7 @@ public class ConfluenceClientAnalyticsConsumerApi {
      *   <li>fromDate: The number of views for the content since the date.</li>
      * </ul>
      */
-    public GetWikiRestanalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(Consumer<GetAnalyticsContentByContentIDViewersV1OperationSpec> spec) {
+    public GetAnalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(Consumer<GetAnalyticsContentByContentIDViewersV1OperationSpec> spec) {
         GetAnalyticsContentByContentIDViewersV1OperationSpec r = new GetAnalyticsContentByContentIDViewersV1OperationSpec(spec);
         return api.getAnalyticsContentByContentIdviewersV1(r.contentId(), r.fromDate());
     }

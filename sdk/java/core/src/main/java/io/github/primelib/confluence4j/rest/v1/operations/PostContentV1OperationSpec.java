@@ -2,7 +2,7 @@
 
 package io.github.primelib.confluence4j.rest.v1.operations;
 
-import io.github.primelib.confluence4j.rest.v1.models.PostContentArchiveV1B;
+import io.github.primelib.confluence4j.rest.v1.models.ContentCreate;
 import java.util.Objects;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
@@ -15,18 +15,9 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jspecify.annotations.NonNull;
 
 /**
- * PostContentArchiveV1
+ * PostContentV1
  * <p>
- * Archives a list of pages. The pages to be archived are specified as a list of content IDs.
- * This API accepts the archival request and returns a task ID.
- * The archival process happens asynchronously.
- * Use the /longtask/&lt;taskId&gt; REST API to get the copy task status.
- * 
- * Each content ID needs to resolve to page objects that are not already in an archived state.
- * The content IDs need not belong to the same space.
- * 
- * **[Permissions](https://confluence.atlassian.com/x/_AozKw) required**:
- * 'Archive' permission for each of the pages in the corresponding space it belongs to.
+ * Creates a new page
  *
  */
 @Getter
@@ -35,7 +26,7 @@ import org.jspecify.annotations.NonNull;
 @ToString
 @Accessors(fluent = true, chain = true)
 @Generated(value = "io.github.primelib.primecodegen")
-public class PostContentArchiveV1OperationSpec {
+public class PostContentV1OperationSpec {
     /**
      * allows to disable validation of the spec, use with care!
      */
@@ -43,19 +34,19 @@ public class PostContentArchiveV1OperationSpec {
     public static Boolean VALIDATION_ENABLED = true;
 
     /**
-     * The pages to be archived.
+     * The page.
      *
      */
     @NonNull
-    private PostContentArchiveV1B payload;
+    private ContentCreate payload;
 
     /**
-     * Constructs a validated instance of {@link PostContentArchiveV1OperationSpec}.
+     * Constructs a validated instance of {@link PostContentV1OperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
-    public PostContentArchiveV1OperationSpec(Consumer<PostContentArchiveV1OperationSpec> spec) {
+    public PostContentV1OperationSpec(Consumer<PostContentV1OperationSpec> spec) {
         spec.accept(this);
         if (VALIDATION_ENABLED)
             validate();

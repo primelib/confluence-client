@@ -20,6 +20,7 @@ import io.github.primelib.confluence4j.rest.v1.models.ConnectModules;
 import io.github.primelib.confluence4j.rest.v1.models.Content;
 import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
 import io.github.primelib.confluence4j.rest.v1.models.ContentBody;
+import io.github.primelib.confluence4j.rest.v1.models.ContentCreate;
 import io.github.primelib.confluence4j.rest.v1.models.ContentPermissionRequest;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestriction;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestrictionArray;
@@ -31,9 +32,9 @@ import io.github.primelib.confluence4j.rest.v1.models.ContentTemplate;
 import io.github.primelib.confluence4j.rest.v1.models.ContentTemplateArray;
 import io.github.primelib.confluence4j.rest.v1.models.CopyPageHierarchyRequest;
 import io.github.primelib.confluence4j.rest.v1.models.CopyPageRequest;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewersV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewsV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestcontentByIDRestrictionByOperationV1;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewersV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewsV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetContentByIDRestrictionByOperationV1;
 import io.github.primelib.confluence4j.rest.v1.models.Group;
 import io.github.primelib.confluence4j.rest.v1.models.GroupArrayWithLinks;
 import io.github.primelib.confluence4j.rest.v1.models.GroupName;
@@ -46,8 +47,8 @@ import io.github.primelib.confluence4j.rest.v1.models.LookAndFeelSelection;
 import io.github.primelib.confluence4j.rest.v1.models.LookAndFeelSettings;
 import io.github.primelib.confluence4j.rest.v1.models.MacroInstance;
 import io.github.primelib.confluence4j.rest.v1.models.PermissionCheckResponse;
-import io.github.primelib.confluence4j.rest.v1.models.PostWikiRestcontentArchiveV1B;
-import io.github.primelib.confluence4j.rest.v1.models.PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.PostContentArchiveV1B;
+import io.github.primelib.confluence4j.rest.v1.models.PutContentByPageIDMoveByPositionByTargetIDV1R200;
 import io.github.primelib.confluence4j.rest.v1.models.Relation;
 import io.github.primelib.confluence4j.rest.v1.models.RelationArray;
 import io.github.primelib.confluence4j.rest.v1.models.RetentionPeriod;
@@ -320,7 +321,7 @@ public interface ConfluenceClientApi {
         "Content-Type: application/json"
     })
     void postContentArchiveV1(
-            @NonNull PostWikiRestcontentArchiveV1B payload
+            @NonNull PostContentArchiveV1B payload
     );
 
     /**
@@ -696,7 +697,7 @@ public interface ConfluenceClientApi {
     @Headers({
         "Accept: application/json"
     })
-    PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(
+    PutContentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(
             @NonNull @Param("pageId") String pageId,
             @NonNull @Param("position") String position,
             @NonNull @Param("targetId") String targetId
@@ -1632,7 +1633,7 @@ public interface ConfluenceClientApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestcontentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(
+    GetContentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(
             @NonNull @Param("id") String id,
             @Nullable @Param("expand") List<String> expand
     );
@@ -4268,7 +4269,7 @@ public interface ConfluenceClientApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestanalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(
+    GetAnalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(
             @NonNull @Param("contentId") String contentId,
             @Nullable @Param("fromDate") String fromDate
     );
@@ -4287,7 +4288,7 @@ public interface ConfluenceClientApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestanalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(
+    GetAnalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(
             @NonNull @Param("contentId") String contentId,
             @Nullable @Param("fromDate") String fromDate
     );
@@ -4421,6 +4422,24 @@ public interface ConfluenceClientApi {
     void deleteUserByUserIdpropertyByKeyV1(
             @NonNull @Param("userId") String userId,
             @NonNull @Param("key") String key
+    );
+
+    /**
+     * PostContentV1
+     * Create a page
+     * Creates a new page
+     *
+     * API Method: POST /rest/api/content
+     *
+     * @param payload The page.
+     */
+    @RequestLine("POST /rest/api/content")
+    @Headers({
+        "Content-Type: application/json",
+        "Accept: application/json"
+    })
+    Content postContentV1(
+            @NonNull ContentCreate payload
     );
 
 }

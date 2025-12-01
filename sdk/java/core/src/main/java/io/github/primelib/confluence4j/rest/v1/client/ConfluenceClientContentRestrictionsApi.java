@@ -7,7 +7,7 @@ import feign.Param;
 import feign.RequestLine;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestriction;
 import io.github.primelib.confluence4j.rest.v1.models.ContentRestrictionArray;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestcontentByIDRestrictionByOperationV1;
+import io.github.primelib.confluence4j.rest.v1.models.GetContentByIDRestrictionByOperationV1;
 import java.util.List;
 import javax.annotation.processing.Generated;
 import org.jetbrains.annotations.NotNull;
@@ -182,7 +182,7 @@ public interface ConfluenceClientContentRestrictionsApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestcontentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(
+    GetContentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(
             @NotNull @Param("id") String id,
             @Nullable @Param("expand") List<String> expand
     );

@@ -220,9 +220,9 @@ core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/CqlpersonalDat
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/CqlpersonalDataMigrationRequest.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/DynamicModulesErrorMessage.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/EmbeddedContent.java
-core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetWikiRestanalyticsContentByContentIDViewersV1R200.java
-core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetWikiRestanalyticsContentByContentIDViewsV1R200.java
-core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetWikiRestcontentByIDRestrictionByOperationV1.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetAnalyticsContentByContentIDViewersV1R200.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetAnalyticsContentByContentIDViewsV1R200.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GetContentByIDRestrictionByOperationV1.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GlobalSpaceIDEntifier.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/Group.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/GroupArray.java
@@ -268,8 +268,8 @@ core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PagesItem.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PermissionCheckResponse.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PermissionSubject.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PermissionSubjectWithGroupId.java
-core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PostWikiRestcontentArchiveV1B.java
-core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PostContentArchiveV1B.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/PutContentByPageIDMoveByPositionByTargetIDV1R200.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/Relation.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/RelationArray.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/models/RelationData.java
@@ -498,6 +498,7 @@ core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostConten
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentByIDPermissionCheckV1OperationSpec.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentByIDRestrictionV1OperationSpec.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentByIDVersionV1OperationSpec.java
+core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentV1OperationSpec.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentbodyConvertAsyncBulkTasksV1OperationSpec.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostContentbodyConvertAsyncByToV1OperationSpec.java
 core/src/main/java/io/github/primelib/confluence4j/rest/v1/operations/PostGroupUserByGroupIDV1OperationSpec.java

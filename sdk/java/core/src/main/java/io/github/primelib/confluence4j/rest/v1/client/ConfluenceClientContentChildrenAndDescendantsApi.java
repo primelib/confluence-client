@@ -9,7 +9,7 @@ import io.github.primelib.confluence4j.rest.v1.models.Content;
 import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
 import io.github.primelib.confluence4j.rest.v1.models.CopyPageHierarchyRequest;
 import io.github.primelib.confluence4j.rest.v1.models.CopyPageRequest;
-import io.github.primelib.confluence4j.rest.v1.models.PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.PutContentByPageIDMoveByPositionByTargetIDV1R200;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.processing.Generated;
@@ -48,7 +48,7 @@ public interface ConfluenceClientContentChildrenAndDescendantsApi {
     @Headers({
         "Accept: application/json"
     })
-    PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(
+    PutContentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(
             @NotNull @Param("pageId") String pageId,
             @NotNull @Param("position") String position,
             @NotNull @Param("targetId") String targetId

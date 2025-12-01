@@ -5,8 +5,8 @@ info:
   termsOfService: "https://atlassian.com/terms/"
   version: "1.0.0"
   license:
-    name: MIT License
-    url: https://raw.githubusercontent.com/primelib/confluence-client/main/LICENSE
+    name: MIT
+    url: https://github.com/primelib/confluence-client/blob/main/LICENSE
 servers:
   - url: "https://{your-domain}/wiki/api/v2"
 paths:
@@ -234,10 +234,10 @@ paths:
           content:
             "application/zip":
               schema:
-                $ref: '#/components/schemas/GetWikiRestauditExportV1R200'
+                $ref: '#/components/schemas/GetAuditExportV1R200'
             "text/csv":
               schema:
-                $ref: '#/components/schemas/GetWikiRestauditExportV1R200'
+                $ref: '#/components/schemas/GetAuditExportV1R200'
         "403":
           description: "Returned if the calling user does not have permission to view the audit\nlog."
           content: {}
@@ -384,7 +384,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/PostWikiRestcontentArchiveV1B'
+              $ref: '#/components/schemas/PostContentArchiveV1B'
       responses:
         "202":
           description: "Returned if the archive request has been submitted."
@@ -623,7 +623,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200'
+                $ref: '#/components/schemas/PutContentByPageIDMoveByPositionByTargetIDV1R200'
         "400":
           description: "Returned if;\n\n- A page already exists in the target space with the same name.\n  User is advised to rename page before moving.\n- The move would create a parent-child loop (page becomes a descendant and ancestor of itself)\n- The page has permission restrictions that the user does not have permission to create in the target space.\n  User is advised to remove restrictions before moving."
           content: {}
@@ -1069,7 +1069,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/PostWikiRestcontentByIDLabelV1B'
+              $ref: '#/components/schemas/PostContentByIDLabelV1B'
         required: true
       responses:
         "200":
@@ -1650,7 +1650,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetWikiRestcontentByIDRestrictionByOperationV1'
+                $ref: '#/components/schemas/GetContentByIDRestrictionByOperationV1'
       security:
         - basicAuth: []
         - oAuthDefinitions:
@@ -2247,7 +2247,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetWikiRestcontentStatesV1R200'
+                $ref: '#/components/schemas/GetContentStatesV1R200'
         "401":
           description: "Returned if user is not authenticated."
       security:
@@ -4252,7 +4252,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetWikiRestspaceBySpaceKeyStateV1R200'
+                $ref: '#/components/schemas/GetSpaceBySpaceKeyStateV1R200'
         "401":
           description: "Returned if the authentication credentials are incorrect or missing from the request."
         "403":
@@ -4577,7 +4577,7 @@ paths:
         content:
           "application/json":
             schema:
-              $ref: '#/components/schemas/PostWikiRestspaceBySpaceKeyLabelV1B'
+              $ref: '#/components/schemas/PostSpaceBySpaceKeyLabelV1B'
         required: true
       responses:
         "200":
@@ -5496,7 +5496,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetWikiRestanalyticsContentByContentIDViewsV1R200'
+                $ref: '#/components/schemas/GetAnalyticsContentByContentIDViewsV1R200'
         "400":
           description: "Returned if client input is invalid."
         "401":
@@ -5540,7 +5540,7 @@ paths:
           content:
             "application/json":
               schema:
-                $ref: '#/components/schemas/GetWikiRestanalyticsContentByContentIDViewersV1R200'
+                $ref: '#/components/schemas/GetAnalyticsContentByContentIDViewersV1R200'
         "400":
           description: "Returned if client input is invalid."
         "401":
@@ -5803,6 +5803,31 @@ paths:
       x-atlassian-oauth2-scopes: [{"scheme": "oAuthDefinitions", "state": "Current", "scopes": ["write:user.property:confluence"]}]
       x-atlassian-data-security-policy: [{"app-access-rule-exempt": true}]
       x-atlassian-connect-scope: "WRITE"
+  /rest/api/content:
+    post:
+      tags:
+        - "Content"
+      summary: "Create a page"
+      description: "Creates a new page"
+      operationId: "postContentV1"
+      requestBody:
+        description: "The page."
+        content:
+          "application/json":
+            schema: {"$ref": "#/components/schemas/ContentCreate"}
+        required: true
+      responses:
+        "200":
+          description: "Returned if the record is created in the audit log."
+          content:
+            "application/json":
+              schema: {"$ref": "#/components/schemas/Content"}
+        "401":
+          description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+          content: {}
+      security:
+        - basicAuth: []
+        - oAuthDefinitions: []
 components:
   schemas:
     "AccountId":
@@ -6427,7 +6452,6 @@ components:
           $ref: '#/components/schemas/ContentCreateBody'
       required:
         - "type"
-      additionalProperties: true
       nullable: true
       title: ContentCreate
     "ContentHistory":
@@ -9053,47 +9077,23 @@ components:
         Representation of a blogpost (content)
       nullable: true
       title: target
-    PostWikiRestcontentArchiveV1B:
+    PostContentArchiveV1B:
       type: "object"
       properties:
         "pages":
           type: "array"
           items:
             $ref: '#/components/schemas/PagesItem'
-      title: PostWikiRestcontentArchiveV1B
-    PostWikiRestcontentByIDLabelV1B:
+      title: PostContentArchiveV1B
+    PostContentByIDLabelV1B:
       oneOf:
         - {"$ref": "#/components/schemas/LabelCreateArray"}
         - {"$ref": "#/components/schemas/LabelCreate"}
-      title: PostWikiRestcontentByIDLabelV1B
-    PostWikiRestspaceBySpaceKeyLabelV1B:
+      title: PostContentByIDLabelV1B
+    PostSpaceBySpaceKeyLabelV1B:
       type: "array"
       items: {"$ref": "#/components/schemas/LabelCreate"}
-      title: PostWikiRestspaceBySpaceKeyLabelV1B
-    GetWikiRestauditExportV1R200:
-      type: "string"
-      format: "binary"
-      title: GetWikiRestauditExportV1R200
-    PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200:
-      type: "object"
-      properties:
-        "pageId": {"$ref": "#/components/schemas/ContentId"}
-      title: PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200
-    GetWikiRestcontentByIDRestrictionByOperationV1:
-      type: "object"
-      title: GetWikiRestcontentByIDRestrictionByOperationV1
-      properties:
-        operationType: {"$ref": "#/components/schemas/ContentRestriction"}
-        _links: {"$ref": "#/components/schemas/GenericLinks"}
-    GetWikiRestcontentStatesV1R200:
-      type: "array"
-      items: {"$ref": "#/components/schemas/ContentState"}
-      title: GetWikiRestcontentStatesV1R200
-    GetWikiRestspaceBySpaceKeyStateV1R200:
-      type: "array"
-      items: {"$ref": "#/components/schemas/ContentState"}
-      description: "Space suggested content states that users can choose from"
-      title: GetWikiRestspaceBySpaceKeyStateV1R200
+      title: PostSpaceBySpaceKeyLabelV1B
     GetAtlassianConnect1AppModuleDynamicV1R401:
       type: string
       description: Shemaless response
@@ -9110,7 +9110,31 @@ components:
       type: string
       description: Shemaless response
       title: DeleteAtlassianConnect1AppModuleDynamicV1R401
-    GetWikiRestanalyticsContentByContentIDViewsV1R200:
+    GetAuditExportV1R200:
+      type: "string"
+      format: "binary"
+      title: GetAuditExportV1R200
+    PutContentByPageIDMoveByPositionByTargetIDV1R200:
+      type: "object"
+      properties:
+        "pageId": {"$ref": "#/components/schemas/ContentId"}
+      title: PutContentByPageIDMoveByPositionByTargetIDV1R200
+    GetContentByIDRestrictionByOperationV1:
+      type: "object"
+      title: GetContentByIDRestrictionByOperationV1
+      properties:
+        operationType: {"$ref": "#/components/schemas/ContentRestriction"}
+        _links: {"$ref": "#/components/schemas/GenericLinks"}
+    GetContentStatesV1R200:
+      type: "array"
+      items: {"$ref": "#/components/schemas/ContentState"}
+      title: GetContentStatesV1R200
+    GetSpaceBySpaceKeyStateV1R200:
+      type: "array"
+      items: {"$ref": "#/components/schemas/ContentState"}
+      description: "Space suggested content states that users can choose from"
+      title: GetSpaceBySpaceKeyStateV1R200
+    GetAnalyticsContentByContentIDViewsV1R200:
       type: "object"
       properties:
         "id":
@@ -9119,8 +9143,8 @@ components:
         "count":
           type: "integer"
           description: "The total number of views for the content."
-      title: GetWikiRestanalyticsContentByContentIDViewsV1R200
-    GetWikiRestanalyticsContentByContentIDViewersV1R200:
+      title: GetAnalyticsContentByContentIDViewsV1R200
+    GetAnalyticsContentByContentIDViewersV1R200:
       type: "object"
       properties:
         "id":
@@ -9129,7 +9153,7 @@ components:
         "count":
           type: "integer"
           description: "The total number of distinct viewers for the content."
-      title: GetWikiRestanalyticsContentByContentIDViewersV1R200
+      title: GetAnalyticsContentByContentIDViewersV1R200
     TypeEnum:
       type: "string"
       enum:

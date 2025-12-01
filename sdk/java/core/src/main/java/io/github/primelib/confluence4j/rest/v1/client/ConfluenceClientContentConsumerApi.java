@@ -7,6 +7,7 @@ import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
 import io.github.primelib.confluence4j.rest.v1.operations.GetContentSearchV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentArchiveV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentBlueprintInstanceByDraftIDV1OperationSpec;
+import io.github.primelib.confluence4j.rest.v1.operations.PostContentV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PutContentBlueprintInstanceByDraftIDV1OperationSpec;
 import java.util.function.Consumer;
 import javax.annotation.processing.Generated;
@@ -163,6 +164,23 @@ public class ConfluenceClientContentConsumerApi {
     public ContentArray getContentSearchV1(Consumer<GetContentSearchV1OperationSpec> spec) {
         GetContentSearchV1OperationSpec r = new GetContentSearchV1OperationSpec(spec);
         return api.getContentSearchV1(r.cql(), r.cqlcontext(), r.expand(), r.cursor(), r.limit());
+    }
+
+    /**
+     * PostContentV1
+     * Create a page
+     * Creates a new page
+     *
+     * API Method: POST /rest/api/content
+     *
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>payload: The page.</li>
+     * </ul>
+     */
+    public Content postContentV1(Consumer<PostContentV1OperationSpec> spec) {
+        PostContentV1OperationSpec r = new PostContentV1OperationSpec(spec);
+        return api.postContentV1(r.payload());
     }
 
 }

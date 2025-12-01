@@ -21,9 +21,9 @@ import io.github.primelib.confluence4j.rest.v1.models.ContentStateResponse;
 import io.github.primelib.confluence4j.rest.v1.models.ContentStateSettings;
 import io.github.primelib.confluence4j.rest.v1.models.ContentTemplate;
 import io.github.primelib.confluence4j.rest.v1.models.ContentTemplateArray;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewersV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewsV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestcontentByIDRestrictionByOperationV1;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewersV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewsV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetContentByIDRestrictionByOperationV1;
 import io.github.primelib.confluence4j.rest.v1.models.Group;
 import io.github.primelib.confluence4j.rest.v1.models.GroupArrayWithLinks;
 import io.github.primelib.confluence4j.rest.v1.models.LabelArray;
@@ -34,7 +34,7 @@ import io.github.primelib.confluence4j.rest.v1.models.LookAndFeelSelection;
 import io.github.primelib.confluence4j.rest.v1.models.LookAndFeelSettings;
 import io.github.primelib.confluence4j.rest.v1.models.MacroInstance;
 import io.github.primelib.confluence4j.rest.v1.models.PermissionCheckResponse;
-import io.github.primelib.confluence4j.rest.v1.models.PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.PutContentByPageIDMoveByPositionByTargetIDV1R200;
 import io.github.primelib.confluence4j.rest.v1.models.Relation;
 import io.github.primelib.confluence4j.rest.v1.models.RelationArray;
 import io.github.primelib.confluence4j.rest.v1.models.RetentionPeriod;
@@ -150,6 +150,7 @@ import io.github.primelib.confluence4j.rest.v1.operations.PostContentByIDPagehie
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentByIDPermissionCheckV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentByIDRestrictionV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentByIDVersionV1OperationSpec;
+import io.github.primelib.confluence4j.rest.v1.operations.PostContentV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentbodyConvertAsyncBulkTasksV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentbodyConvertAsyncByToV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostGroupUserByGroupIDV1OperationSpec;
@@ -589,7 +590,7 @@ public class ConfluenceClientConsumerApi {
      *   <li>targetId: The ID of the target page for this operation</li>
      * </ul>
     */
-    public PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(Consumer<PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec> spec) {
+    public PutContentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(Consumer<PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec> spec) {
         PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec r = new PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec(spec);
         return api.putContentByPageIdmoveByPositionByTargetIdv1(r.pageId(), r.position(), r.targetId());
     }
@@ -1230,7 +1231,7 @@ public class ConfluenceClientConsumerApi {
      *   <li>expand: A multi-value parameter indicating which properties of the content restrictions to expand.  - `restrictions.user` returns the piece of content that the restrictions are applied to. Expanded by default. - `restrictions.group` returns the piece of content that the restrictions are applied to. Expanded by default. - `content` returns the piece of content that the restrictions are applied to.</li>
      * </ul>
     */
-    public GetWikiRestcontentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(Consumer<GetContentByIDRestrictionByOperationV1OperationSpec> spec) {
+    public GetContentByIDRestrictionByOperationV1 getContentByIdrestrictionByOperationV1(Consumer<GetContentByIDRestrictionByOperationV1OperationSpec> spec) {
         GetContentByIDRestrictionByOperationV1OperationSpec r = new GetContentByIDRestrictionByOperationV1OperationSpec(spec);
         return api.getContentByIdrestrictionByOperationV1(r.id(), r.expand());
     }
@@ -3393,7 +3394,7 @@ public class ConfluenceClientConsumerApi {
      *   <li>fromDate: The number of views for the content since the date.</li>
      * </ul>
     */
-    public GetWikiRestanalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(Consumer<GetAnalyticsContentByContentIDViewsV1OperationSpec> spec) {
+    public GetAnalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(Consumer<GetAnalyticsContentByContentIDViewsV1OperationSpec> spec) {
         GetAnalyticsContentByContentIDViewsV1OperationSpec r = new GetAnalyticsContentByContentIDViewsV1OperationSpec(spec);
         return api.getAnalyticsContentByContentIdviewsV1(r.contentId(), r.fromDate());
     }
@@ -3411,7 +3412,7 @@ public class ConfluenceClientConsumerApi {
      *   <li>fromDate: The number of views for the content since the date.</li>
      * </ul>
     */
-    public GetWikiRestanalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(Consumer<GetAnalyticsContentByContentIDViewersV1OperationSpec> spec) {
+    public GetAnalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(Consumer<GetAnalyticsContentByContentIDViewersV1OperationSpec> spec) {
         GetAnalyticsContentByContentIDViewersV1OperationSpec r = new GetAnalyticsContentByContentIDViewersV1OperationSpec(spec);
         return api.getAnalyticsContentByContentIdviewersV1(r.contentId(), r.fromDate());
     }
@@ -3536,6 +3537,23 @@ public class ConfluenceClientConsumerApi {
     public void deleteUserByUserIdpropertyByKeyV1(Consumer<DeleteUserByUserIDPropertyByKeyV1OperationSpec> spec) {
         DeleteUserByUserIDPropertyByKeyV1OperationSpec r = new DeleteUserByUserIDPropertyByKeyV1OperationSpec(spec);
         api.deleteUserByUserIdpropertyByKeyV1(r.userId(), r.key());
+    }
+
+    /**
+     * PostContentV1
+     * Create a page
+     * Creates a new page
+     *
+     * API Method: POST /rest/api/content
+     *
+     * @param spec a consumer that creates the payload for this operation. Supports the following properties:
+     * <ul>
+     *   <li>payload: The page.</li>
+     * </ul>
+    */
+    public Content postContentV1(Consumer<PostContentV1OperationSpec> spec) {
+        PostContentV1OperationSpec r = new PostContentV1OperationSpec(spec);
+        return api.postContentV1(r.payload());
     }
 
 }

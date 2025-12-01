@@ -25,6 +25,7 @@ provider:
 spec:
   file: openapi.yaml
   type: openapi3
+  sourcesDir: spec_provider
   sources:
     - url: https://dac-static.atlassian.com/cloud/confluence/swagger.v3.json
       type: openapi3
@@ -32,14 +33,12 @@ spec:
         - type: openapi-overlay
           file: spec_patches/overlay.yaml
   patchSets:
-    - code-generation
-  patches:
-    - id: prune-path-prefix
+    - id: code-generation
       config:
-        prefix: "/wiki"
-    - id: generate-operation-id
-      config:
-        trim-prefix: "/rest/api"
+        prune-path-prefix:
+          prefix: "/wiki"
+        generate-operation-id:
+          trim-prefix: "/rest/api"
 
 presets:
   scaffolding:

@@ -5,8 +5,8 @@ package io.github.primelib.confluence4j.rest.v1.client;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewersV1R200;
-import io.github.primelib.confluence4j.rest.v1.models.GetWikiRestanalyticsContentByContentIDViewsV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewersV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.GetAnalyticsContentByContentIDViewsV1R200;
 import javax.annotation.processing.Generated;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -31,7 +31,7 @@ public interface ConfluenceClientAnalyticsApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestanalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(
+    GetAnalyticsContentByContentIDViewsV1R200 getAnalyticsContentByContentIdviewsV1(
             @NotNull @Param("contentId") String contentId,
             @Nullable @Param("fromDate") String fromDate
     );
@@ -50,7 +50,7 @@ public interface ConfluenceClientAnalyticsApi {
     @Headers({
         "Accept: application/json"
     })
-    GetWikiRestanalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(
+    GetAnalyticsContentByContentIDViewersV1R200 getAnalyticsContentByContentIdviewersV1(
             @NotNull @Param("contentId") String contentId,
             @Nullable @Param("fromDate") String fromDate
     );

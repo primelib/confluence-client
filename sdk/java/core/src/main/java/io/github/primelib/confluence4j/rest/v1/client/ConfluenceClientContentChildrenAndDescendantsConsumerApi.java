@@ -4,7 +4,7 @@ package io.github.primelib.confluence4j.rest.v1.client;
 
 import io.github.primelib.confluence4j.rest.v1.models.Content;
 import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
-import io.github.primelib.confluence4j.rest.v1.models.PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200;
+import io.github.primelib.confluence4j.rest.v1.models.PutContentByPageIDMoveByPositionByTargetIDV1R200;
 import io.github.primelib.confluence4j.rest.v1.operations.GetContentByIDDescendantByTypeV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.GetContentByIDDescendantV1OperationSpec;
 import io.github.primelib.confluence4j.rest.v1.operations.PostContentByIDCopyV1OperationSpec;
@@ -48,7 +48,7 @@ public class ConfluenceClientContentChildrenAndDescendantsConsumerApi {
      *   <li>targetId: The ID of the target page for this operation</li>
      * </ul>
      */
-    public PutWikiRestcontentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(Consumer<PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec> spec) {
+    public PutContentByPageIDMoveByPositionByTargetIDV1R200 putContentByPageIdmoveByPositionByTargetIdv1(Consumer<PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec> spec) {
         PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec r = new PutContentByPageIDMoveByPositionByTargetIDV1OperationSpec(spec);
         return api.putContentByPageIdmoveByPositionByTargetIdv1(r.pageId(), r.position(), r.targetId());
     }

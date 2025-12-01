@@ -28,6 +28,8 @@ actions:
     remove: true
   - target: $.components.schemas["Version"].additionalProperties
     remove: true
+  - target: $.components.schemas["ContentCreate"].additionalProperties
+    remove: true
   # content
   - target: $.components.schemas["Content"].properties
     update:
@@ -35,3 +37,31 @@ actions:
         type: string
       base64EncodedAri:
         type: string
+  # missing operations
+  - target: $.paths
+    update:
+      /wiki/rest/api/content:
+        post:
+          tags:
+            - "Content"
+          summary: "Create a page"
+          description: "Creates a new page"
+          operationId: "createPageV1"
+          requestBody:
+            description: "The page."
+            content:
+              "application/json":
+                schema: { "$ref": "#/components/schemas/ContentCreate" }
+            required: true
+          responses:
+            "200":
+              description: "Returned if the record is created in the audit log."
+              content:
+                "application/json":
+                  schema: { "$ref": "#/components/schemas/Content" }
+            "401":
+              description: "Returned if the authentication credentials are incorrect or missing\nfrom the request."
+              content: { }
+          security:
+            - basicAuth: [ ]
+            - oAuthDefinitions: [ ]

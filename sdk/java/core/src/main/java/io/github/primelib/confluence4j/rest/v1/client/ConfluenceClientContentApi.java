@@ -7,7 +7,8 @@ import feign.Param;
 import feign.RequestLine;
 import io.github.primelib.confluence4j.rest.v1.models.Content;
 import io.github.primelib.confluence4j.rest.v1.models.ContentArray;
-import io.github.primelib.confluence4j.rest.v1.models.PostWikiRestcontentArchiveV1B;
+import io.github.primelib.confluence4j.rest.v1.models.ContentCreate;
+import io.github.primelib.confluence4j.rest.v1.models.PostContentArchiveV1B;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.processing.Generated;
@@ -43,7 +44,7 @@ public interface ConfluenceClientContentApi {
         "Content-Type: application/json"
     })
     void postContentArchiveV1(
-            @NotNull PostWikiRestcontentArchiveV1B payload
+            @NotNull PostContentArchiveV1B payload
     );
 
     /**
@@ -356,6 +357,24 @@ public interface ConfluenceClientContentApi {
             @Nullable @Param("expand") List<String> expand,
             @Nullable @Param("cursor") String cursor,
             @Nullable @Param("limit") Integer limit
+    );
+
+    /**
+     * PostContentV1
+     * Create a page
+     * Creates a new page
+     *
+     * API Method: POST /rest/api/content
+     *
+     * @param payload The page.
+     */
+    @RequestLine("POST /rest/api/content")
+    @Headers({
+        "Content-Type: application/json",
+        "Accept: application/json"
+    })
+    Content postContentV1(
+            @NotNull ContentCreate payload
     );
 
 }
